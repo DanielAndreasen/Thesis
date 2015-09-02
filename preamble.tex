@@ -1,0 +1,123 @@
+\usepackage[utf8]{inputenc}        %så må vi bruge æøå
+\usepackage[danish,english]{babel} %dansk opsætning
+\renewcommand\danishhyphenmins{22} %fikser babel fejl
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,bm}    %god matematik
+\usepackage{graphicx}
+\usepackage[english]{varioref}     %smartere referencer med \vref
+\usepackage[separate-uncertainty = true]{siunitx}
+\usepackage[version=3]{mhchem}     %reaktionsskemaer
+\usepackage{wasysym}               %til bl.a. astronomiske symboler
+\usepackage[final]{microtype}
+\usepackage[hang,multiple]{footmisc}
+\let\newfloat\relax                % Memoir har allerede defineret denne men det gør float pakken også
+\usepackage{float}
+\usepackage{placeins}              % Bruges med \FloatBarrier
+\usepackage{xkvltxp}
+\usepackage[draft]{fixme}
+\usepackage[colorlinks, linkcolor=black]{hyperref}
+\usepackage{color}
+\usepackage{rotating}
+\usepackage{threeparttable}
+
+\usepackage{epigraph} %for quotes
+\epigraphfontsize{\small\itshape}
+%\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+
+
+
+%%%%%%%%%%% Litteraturlisten %%%%%%%%%%%%%%%
+\usepackage[sort,longnamesfirst]{natbib}
+\newcommand{\aj}{The Astronomical Journal}
+\newcommand{\apj}{The Astrophysical Journal}
+\newcommand{\actaa}{Acta Astronomica}
+\newcommand{\apjl}{The Astrophysical Journal}
+\newcommand{\mnras}{Monthly Notice of the Royal Astronomical Society}
+\newcommand{\aap}{Astronomy and Astrophysics}
+
+\usepackage{xcolor} % Required for specifying custom colors
+\usepackage{fix-cm} % Allows increasing the f
+
+\setlength{\oddsidemargin}{0mm} % Adjust margins to center the colored title
+%box
+\setlength{\evensidemargin}{0mm} % Margins on even pages - only necessary if
+%adding more content to this template
+
+\newcommand{\HRule}[1]{\hfill \rule{0.2\linewidth}{#1}} % Horizontal rule at
+%the bottom of the page, adjust width here
+
+\definecolor{grey}{rgb}{0.9,0.9,0.9} % Color of the box surrounding the title -
+%these values can be changed to give the box a different color   
+
+%%%%%%%%%%%%% Til forsiden %%%%%%%%%%%%%%%
+%\setlrmarginsandblock{*}{2.5cm}{1.75} % højre og venstre
+\setulmarginsandblock{3cm}{*}{2.2}    % top og bund
+
+
+%\setlrmarginsandblock{3cm}{*}{1.25}
+\checkandfixthelayout
+\usepackage{mathpazo}              % palatino + matematik
+\usepackage{soul}                  % lege lege
+\sodef\an{}{0.2em}{.9em plus.6em}{1em plus.1em minus.1em}
+\newcommand\stext[1]{\an{\scshape#1}}
+
+
+%%%%%%%%%%%%% newcommands %%%%%%%%%%%%%%%
+\newcommand{\cref}[1]{Chapter~\vref{#1}}
+\newcommand{\sref}[1]{Section~\vref{#1}}
+\renewcommand{\tref}[1]{\tablename~\vref{#1}}
+\renewcommand{\fref}[1]{\figurename~\vref{#1}}
+\newcommand{\aref}[1]{Appendix~\vref{#1}}
+\newcommand{\eref}[1]{Equation~\vref{#1}}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\bf}{\textbf}
+\newcommand{\nicebreak}{\newline\newline\noindent}
+
+%%%%%%%%%%%%%%%% Math %%%%%%%%%%%%%%%%%%%%
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\tm}[1]{\textnormal{#1}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+
+%%%%%%%%%%%%% Layout %%%%%%%%%%%%%%%%%%%%%
+%% Chapter style from ftp://ftp.dante.de/tex-archive/info/MemoirChapStyles/MemoirChapStyles.pdf
+\definecolor{nicered}{rgb}{.647,.129,.149}
+\makeatletter
+\newlength\dlf@normtxtw
+\setlength\dlf@normtxtw{\textwidth}
+\def\myhelvetfont{\def\sfdefault{mdput}}
+\newsavebox{\feline@chapter}
+\newcommand\feline@chapter@marker[1][4cm]{%
+\sbox\feline@chapter{%
+	\resizebox{!}{#1}{\fboxsep=1pt%
+	\colorbox{nicered}{\color{white}\bfseries\sffamily\thechapter}%
+}}%
+\rotatebox{90}{%
+	\resizebox{%
+		\heightof{\usebox{\feline@chapter}}+\depthof{\usebox{\feline@chapter}}}%
+	{!}{\scshape\so\@chapapp}}\quad%
+	\raisebox{\depthof{\usebox{\feline@chapter}}}{\usebox{\feline@chapter}}%
+}
+\newcommand\feline@chm[1][4cm]{%
+	\sbox\feline@chapter{\feline@chapter@marker[#1]}%
+	\makebox[0pt][l]{% aka \rlap
+	\makebox[1cm][r]{\usebox\feline@chapter}%
+}}
+\makechapterstyle{daleif1}{
+	\renewcommand\chapnamefont{\normalfont\Large\scshape\raggedleft\so}
+	\renewcommand\chaptitlefont{\normalfont\huge\bfseries\scshape\color{nicered}}
+	\renewcommand\chapternamenum{}
+	\renewcommand\printchaptername{}
+	\renewcommand\printchapternum{\null\hfill\feline@chm[2.5cm]\par}
+	\renewcommand\afterchapternum{\par\vskip\midchapskip}
+	\renewcommand\printchaptertitle[1]{\chaptitlefont\raggedleft ##1\par}
+}
+\makeatother
+\chapterstyle{daleif1}
+\setsecnumdepth{subsubsection}       %Giver nummerering ned til og med subsection
+\settocdepth{subsubsection}          %Giver nummerering ned til og med subsection i indholdsfortegnelsen
+
+
+
+\captionnamefont{\small\bfseries}
+\captiontitlefont{\small\itshape}
