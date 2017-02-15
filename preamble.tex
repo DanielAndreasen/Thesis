@@ -1,8 +1,8 @@
 \usepackage[utf8]{inputenc}        %så må vi bruge æøå
-\usepackage[danish,english]{babel} %dansk opsætning
-\renewcommand\danishhyphenmins{22} %fikser babel fejl
+\usepackage[english]{babel} %dansk opsætning
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,bm}    %god matematik
+\usepackage{mathtools}
 \usepackage{graphicx}
 \usepackage[english]{varioref}     %smartere referencer med \vref
 \usepackage[separate-uncertainty = true]{siunitx}
@@ -29,12 +29,20 @@
 
 %%%%%%%%%%% Litteraturlisten %%%%%%%%%%%%%%%
 \usepackage[sort,longnamesfirst]{natbib}
-\newcommand{\aj}{The Astronomical Journal}
-\newcommand{\apj}{The Astrophysical Journal}
-\newcommand{\actaa}{Acta Astronomica}
-\newcommand{\apjl}{The Astrophysical Journal}
-\newcommand{\mnras}{Monthly Notice of the Royal Astronomical Society}
-\newcommand{\aap}{Astronomy and Astrophysics}
+\def\aap{A\&A}
+\def\eprint{e-prints}
+\def\apj{ApJ}
+\def\apjs{ApJS}
+\def\apjl{ApJL}
+\def\mnras{MNRAS}
+\def\aj{AJ}
+\def\nat{Nature}
+\def\aaps{A\&A Supp.}
+\def\prd{Phys. Rev. D}
+\def\prl{Phys. Rev. Lett.}
+\def\araa{ARA\&A}
+\def\actaa{Acta Astronomica}
+
 
 \usepackage{xcolor} % Required for specifying custom colors
 \usepackage{fix-cm} % Allows increasing the f
@@ -48,7 +56,7 @@
 %the bottom of the page, adjust width here
 
 \definecolor{grey}{rgb}{0.9,0.9,0.9} % Color of the box surrounding the title -
-%these values can be changed to give the box a different color   
+%these values can be changed to give the box a different color
 
 %%%%%%%%%%%%% Til forsiden %%%%%%%%%%%%%%%
 %\setlrmarginsandblock{*}{2.5cm}{1.75} % højre og venstre
@@ -89,28 +97,28 @@
 \newsavebox{\feline@chapter}
 \newcommand\feline@chapter@marker[1][4cm]{%
 \sbox\feline@chapter{%
-	\resizebox{!}{#1}{\fboxsep=1pt%
-	\colorbox{nicered}{\color{white}\bfseries\sffamily\thechapter}%
+  \resizebox{!}{#1}{\fboxsep=1pt%
+  \colorbox{nicered}{\color{white}\bfseries\sffamily\thechapter}%
 }}%
 \rotatebox{90}{%
-	\resizebox{%
-		\heightof{\usebox{\feline@chapter}}+\depthof{\usebox{\feline@chapter}}}%
-	{!}{\scshape\so\@chapapp}}\quad%
-	\raisebox{\depthof{\usebox{\feline@chapter}}}{\usebox{\feline@chapter}}%
+  \resizebox{%
+    \heightof{\usebox{\feline@chapter}}+\depthof{\usebox{\feline@chapter}}}%
+  {!}{\scshape\so\@chapapp}}\quad%
+  \raisebox{\depthof{\usebox{\feline@chapter}}}{\usebox{\feline@chapter}}%
 }
 \newcommand\feline@chm[1][4cm]{%
-	\sbox\feline@chapter{\feline@chapter@marker[#1]}%
-	\makebox[0pt][l]{% aka \rlap
-	\makebox[1cm][r]{\usebox\feline@chapter}%
+  \sbox\feline@chapter{\feline@chapter@marker[#1]}%
+  \makebox[0pt][l]{% aka \rlap
+  \makebox[1cm][r]{\usebox\feline@chapter}%
 }}
 \makechapterstyle{daleif1}{
-	\renewcommand\chapnamefont{\normalfont\Large\scshape\raggedleft\so}
-	\renewcommand\chaptitlefont{\normalfont\huge\bfseries\scshape\color{nicered}}
-	\renewcommand\chapternamenum{}
-	\renewcommand\printchaptername{}
-	\renewcommand\printchapternum{\null\hfill\feline@chm[2.5cm]\par}
-	\renewcommand\afterchapternum{\par\vskip\midchapskip}
-	\renewcommand\printchaptertitle[1]{\chaptitlefont\raggedleft ##1\par}
+  \renewcommand\chapnamefont{\normalfont\Large\scshape\raggedleft\so}
+  \renewcommand\chaptitlefont{\normalfont\huge\bfseries\scshape\color{nicered}}
+  \renewcommand\chapternamenum{}
+  \renewcommand\printchaptername{}
+  \renewcommand\printchapternum{\null\hfill\feline@chm[2.5cm]\par}
+  \renewcommand\afterchapternum{\par\vskip\midchapskip}
+  \renewcommand\printchaptertitle[1]{\chaptitlefont\raggedleft ##1\par}
 }
 \makeatother
 \chapterstyle{daleif1}
