@@ -133,3 +133,12 @@
 
 \captionnamefont{\small\bfseries}
 \captiontitlefont{\small\itshape}
+
+
+
+%% A&A stuff
+\DeclareRobustCommand{\ion}[2]{\textup{#1\,\textsc{\lowercase{#2}}}}
+\newcommand*\element[1][]{%
+  \def\aa@element@tr{#1}%
+  \aa@element
+}
