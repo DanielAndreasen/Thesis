@@ -3,7 +3,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
-'''Curve of growth as function of vt'''
+'''Curve of growth as function of vt.
+The curves (cog_vt?.dat) are done manually by changing the vt in the solar
+atmosphere model, then formatting the output nicely.
+'''
 
 
 if __name__ == '__main__':
