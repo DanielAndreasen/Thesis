@@ -63,5 +63,5 @@ if __name__ == '__main__':
     plt.xticks([w0], [w0])
 
     plt.tight_layout()
-    # plt.savefig('ewGravity.pdf')
+    # plt.savefig('../ewGravity.pdf')
     plt.show()

@@ -38,5 +38,5 @@ if __name__ == '__main__':
     plt.ylabel(r'EW [m$\AA$]')
     plt.legend(loc='best', frameon=False)
 
-    # plt.savefig('ewTeff.pdf')
+    # plt.savefig('../ewTeff.pdf')
     plt.show()

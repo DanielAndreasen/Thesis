@@ -22,5 +22,5 @@ if __name__ == '__main__':
     plt.xlabel(r'log $gf$')
     plt.ylabel(r'$\log(EW/\lambda)$')
 
-    # plt.savefig('cog_vt.pdf')
+    # plt.savefig('../cog_vt.pdf')
     plt.show()

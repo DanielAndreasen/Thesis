@@ -40,5 +40,5 @@ if __name__ == '__main__':
     plt.ylabel('Flux')
     plt.tight_layout()
 
-    # plt.savefig('cog.pdf')
+    # plt.savefig('../cog.pdf')
     plt.show()

@@ -58,5 +58,5 @@ if __name__ == '__main__':
     plt.xlabel('Wavelength')
     plt.ylabel('Flux')
 
-    # plt.savefig('ewTheoretical.pdf')
+    # plt.savefig('../ewTheoretical.pdf')
     plt.show()
