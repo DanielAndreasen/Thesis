@@ -37,7 +37,10 @@ if __name__ == '__main__':
         plt.plot(synthetic[:, 0], synthetic[:, 1])
 
 
-    plt.subplot(224)  # Lower right: abundance vs. logg
+    ax = plt.subplot(224)  # Lower right: abundance vs. logg
+    ax.yaxis.tick_right()
+    ax.yaxis.set_label_position('right')
+
     abundance = [get_abundance(logg) for logg in loggs]
     p = np.polyfit(loggs, abundance, 1)
     f = np.poly1d(p)
@@ -45,7 +48,7 @@ if __name__ == '__main__':
     plt.plot(loggs, abundance, 'o')
     plt.text(2.2, 7.5, r'A=%.2f$\cdot \log g$' % p[0])
     plt.xlabel(r'$\log g$')
-    plt.ylabel('Abundance')
+    plt.ylabel('Abundance', rotation=270, va='bottom')
 
 
     ## Styling
@@ -63,5 +66,5 @@ if __name__ == '__main__':
     plt.xticks([w0], [w0])
 
     plt.tight_layout()
-    # plt.savefig('../ewGravity.pdf')
+    plt.savefig('../ewGravity.pdf')
     plt.show()
