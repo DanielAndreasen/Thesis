@@ -37,12 +37,12 @@ simple differential equations \citep[see e.g.][]{kippenhahn} presented below:
         \begin{align}
             \Aboxed{\pd{l}{m} = \epsilon - \epsilon_\nu + \epsilon_g,}
         \end{align}
-        where $\epsilon$ is the energy production in the center of the star,
+        where $\epsilon$ is the energy production in the centre of the star,
         $\epsilon_\nu$ is the energy lost by neutrinos which is always
         positive, $\epsilon_g$ is a source function of time-dependent terms,
         and $l$ is the luminosity at $m$. $\epsilon_g$ comes from the fact that
         non-stationary shells can change its internal energy, and thus exchange
-        mechanical energy with neighboring shells.
+        mechanical energy with neighbouring shells.
 
     \item \textbf{Equation of Energy Transport}
         \nicebreak
@@ -80,10 +80,62 @@ shorter than the long timescale found in chemical composition changes.
 \section{Stellar atmosphere}
 
 Much of this Section is inspired by \citet{Gray2006}. While all the figures here
-were made by the author of this thesis, many of them can be found in
+were made by the author of this thesis, most of them can be found in
 \citet{Gray2006} as well.
 
-Write here about the formation of spectral lines...
+% \\\\
+Stellar atmospheres are rather complicated. This is where the light produced in
+the interior of the stars are released. However, the atmosphere of a star is not
+transparent to all light, and some of the light is absorbed in the atmosphere
+and later emitted in a random direction. The different elements in the
+atmosphere is the reason for absorbing light at specific wavelength. The
+strength of the absorption depends on the physical conditions in the atmosphere,
+the effective temperature ($T_\mathrm{eff}$), the pressure/gravity ($\log g$),
+the overall metallicity ($[\ion{Fe}/\ion{H}]$), the specific abundance of a
+given element if different from the overall metallicity ($A$), and the atomic
+characteristics of the transition coursing the absorption line.
+
+It is important to know the fraction of atoms excited to the $n$th energy level,
+$N_n$. This fraction is proportional to the statistical weight $g_n$ and the
+Boltzmann factor and is described as:
+\begin{align}
+    \Aboxed{ \frac{N_n}{N} = \frac{g_n}{u(T)} 10^{-\theta\chi_n} \tag*{Boltzmann}}
+\end{align}
+This equation is also called the Boltzmann equation. Here $N$ is the total
+number of atoms per unit volume, $u(T)=\Sigma g_i e^{-\chi_i/kT}$ is the
+partition function, $k$ is Boltzmann's constant, $T$ is the temperature, and
+$\chi_n$ is the excitation potential for the lower energy level.
+
+While atoms can get excited following Boltzmann's equation above, they can also
+get ionised. The ionisation for a collision dominated gas (which is a good
+approximation for FGKM stars), the ratio of neutral atoms to single ionised
+atoms is described by the Saha equation:
+\begin{align}
+  \Aboxed{ \frac{N_1}{N_0}P_e = \frac{(2\pi m_e)^{3/2}(kT)^{5/2}}{h^3} \frac{2u_1(T)}{u_0(T)} e^{-I/kT}  \tag*{Saha} \label{eq:saha}}
+\end{align}
+here $m_e$ is the electron mass, $h$ is Planck's constant, and $I$ is the
+ionisation potential of the ion.
+
+The atomic lines are characterised by few quantum mechanical descriptors.
+\begin{itemize}
+  \item The wavelength describes between which energy levels there is a
+        transition, i.e. at which wavelength the light is absorbed.
+  \item The ionisation state, i.e. is it a atom element absorbing or a ionised
+        atom.
+  \item The excitation potential. This gives an idea how deep in the atmosphere
+        a line is formed. If $\chi$ is high, then higher temperatures (i.e.
+        higher random motion and more collisions between the atoms) is required
+        for forming the absorption line. These higher temperatures are found
+        deeper in the atmosphere.
+  \item The oscillator strength, $\log \mathit{gf}$, is related to the atomic
+        transition probability.
+  \item The damping coefficients, is a natural damping (also known as radiation
+        damping) caused by the uncertainty of lifetime in an energy level
+        according to Heisenberg's uncertainty principle. This is related to a
+        uncertainty in the energy level and thus a natural broadening is
+        introduced.
+\end{itemize}
+
 
 
 
@@ -98,7 +150,7 @@ $\xi_\mathrm{micro}$.
 \begin{figure}[htpb!]
     \centering
     \includegraphics[width=1.0\linewidth]{figures/ewTheoretical.pdf}
-    \caption{An absorption line centered at $\lambda_0$ normalized at the flux
+    \caption{An absorption line centred at $\lambda_0$ normalised at the flux
              level $F_c$. The area of the absorption line to the left is equal
              to the blue shaded area in the rectangle to the right with width
              EW.}
@@ -122,16 +174,17 @@ for the EW.
 
 As mentioned above the EW depends on the atmospheric parameters. The dependence
 on $T_\mathrm{eff}$ is the strongest dependence. At low $T_\mathrm{eff}$ neutral
-elements, say \ion{Fe}{I}, are the strongest lines as the number of ionized
-atoms are too small to contribute significantly to the EW. As $T_\mathrm{eff}$
-increases \ion{Fe}{I} is converted into ionized \ion{Fe}{II}. Slowly, as the
-number of \ion{Fe}{I} decreases so does the EW, and likewise as the number of
-\ion{Fe}{II} increases so does the EW. This goes on until second ionized atoms,
-\ion{Fe}{III}, are formed and the same situation arise again. This is
-illustrated in \fref{fig:ewTeff} where the EW of two iron lines, one neutral and
-one ionized, are plotted against $T_\mathrm{eff}$. These two lines have similar
-EW in the Sun: $\SI{46.2}{m}$\AA{} and $\SI{53.9}{m}$\AA{} for the \ion{Fe}{I}
-and \ion{Fe}{II} line respectively.
+elements, say \ion{Fe}{I}, are the strongest lines as the number of ionised
+atoms are too small to contribute significantly to the EW. This is the result
+the Saha equation. As $T_\mathrm{eff}$ increases \ion{Fe}{I} is converted into
+ionised \ion{Fe}{II}. Slowly, as the number of \ion{Fe}{I} decreases so does the
+EW, and likewise as the number of \ion{Fe}{II} increases so does the EW. This
+goes on until second ionised atoms, \ion{Fe}{III}, are formed and the same
+situation arise again. This is illustrated in \fref{fig:ewTeff} where the EW of
+two iron lines, one neutral and one ionised, are plotted against
+$T_\mathrm{eff}$. These two lines have similar EW in the Sun:
+$\SI{46.2}{m}$\AA{} and $\SI{53.9}{m}$\AA{} for the \ion{Fe}{I} and \ion{Fe}{II}
+line respectively.
 
 \begin{figure}[htpb!]
     \centering
@@ -159,7 +212,7 @@ listed some of the most common methods to measure $\log g$ from spectroscopy.
   \item Other strong lines: There exists other strong lines with
         pressure-broadened wings such as the \ion{Ca}{II} H and K lines. These
         are better for cooler stars than the hydrogen lines described above.
-  \item Weak lines: By comparing two stages of ionization for the same element
+  \item Weak lines: By comparing two stages of ionisation for the same element
         it is possible to obtain $\log g$ using weaker or modestly strong lines.
 \end{itemize}
 In this thesis weak lines are used to measure $\log g$. More specifically a
@@ -167,15 +220,25 @@ comparison between \ion{Fe}{I} and \ion{Fe}{II} lines are used. For FGK stars,
 as the atmosphere contracts (i.e. $\log g$ increases) the pressure likewise
 increases, which in turn means that both the gas pressure, $P_g$, and electron
 pressure, $P_e$, increases. Since hydrogen is the main electron contributor, but
-not fully ionized for these stars, the electron pressure is much smaller that
-the gas pressure. The gas pressure follow a simply emperical approximation with
+not fully ionised for these stars, the electron pressure is much smaller that
+the gas pressure. The gas pressure follow a simply empirical approximation with
 gravity:
 \begin{align}
   P_g \simeq \mathrm{constant}\, g^{2/3},
 \end{align}
 where $g$ is the gravity.
 
+NEED TO WRITE MORE HERE...
 
+In \fref{fig:ewGravity} is shown how the \ion{Fe}{II} line used previously
+change with $\log g$. The curve of growth is shown in the upper panel, while a
+synthetic spectrum for each $\log g$ is presented in the lower left panel. It is
+clear that the ionised line is sensitive to $\log g$ as shown in the lower right
+panel, where the correlation between the abundance and $\log g$ is 0.40. This is
+expected as can be seen in \citet[][Table 16.1]{Gray2006}. There is used
+$\delta\log A/\delta\log g$ as an indicator, and for neutral elements the
+correlation is much weaker. It is important to note that the correlation does
+change with $T_\mathrm{eff}$ and the element used.
 
 \begin{figure}[htpb!]
     \centering
@@ -201,10 +264,10 @@ However, the relationship is not strictly linear. For weak lines (GIVE RANGE) EW
 is approximately linear with the abundance, however it reach a plateau where the
 core of the line saturates. In this regime the EW only increases slowly, until
 the absorption "spills" into the wings and the increase is again linear.
-However, for these strong lines the shape is no longer Gaussian. The curve of
+However, for these strong lines the profile is no longer Gaussian. The curve of
 growth for the same \ion{Fe}{I} line used in \fref{fig:ewTeff} is shown in
 \fref{fig:cog}. Instead of EW it is common to use the reduced EW, $\log
-(EW/\lambda)$\footnote{The reduced EW is useful since it normalizes
+(EW/\lambda)$\footnote{The reduced EW is useful since it normalises
 Doppler-dependent phenomena, such as microturbulence and thermal broadening.},
 which we will use more later. Instead of the abundance of a line, the oscillator
 strength, $\log \mathit{gf}$, is used.
@@ -255,11 +318,11 @@ of the atom. Setting $\xi_\mathrm{micro}=\SI{0}{km/s}$, we end up with thermal
 broadening.
 
 
-\subsection{Stellar parameters for FGK stars}
+\section{Stellar parameters for FGK stars}
 
-\subsubsection{Line list and atomic data}
+\subsection{Line list and atomic data}
 
-\subsubsection{Measuring EW}
+\subsection{Measuring EW}
 \label{sec:measureEW}
 
-\subsubsection{Determining abundances with MOOG}
+\subsection{Determining abundances with MOOG}
