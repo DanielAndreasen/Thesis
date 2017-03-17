@@ -552,13 +552,24 @@ identical. If one or more of the parameters are fixed, the corresponding
 criterium is simply set to 0 and effectively ignored, thus not changing the
 parameter.
 
-
-
-
+For each iteration, the change to be applied for the atmospheric parameters are
+defined by adding the following:
+\begin{align}
+  T_\mathrm{eff}     &: \SI{2000}{K} \cdot a_\mathrm{EP}   \\
+  \xi_\mathrm{micro} &: \SI{1.5}{km/s} \cdot a_\mathrm{RW} \\
+  \log g             &: -\Delta\ion{Fe}
+\end{align}
+to each parameter. Note again that metallicity is simply changed to the the
+output metallicity of the previous iteration. These are emprirical relations.
+Note that by changing e.g. $T_\mathrm{eff}$ not only is $a_\mathrm{EP}$
+affected, but the other indicators as well. So there is a interdependency
+between the parameters, however this is ignored by FASMA as it is not a simple
+problem to solve. The stepping presented above is chosed to rapidly reach
+convergence, without causing problems for the interdependency.
 
 \begin{figure}[htpb!]
     \centering
     \includegraphics[width=1.0\linewidth]{figures/FASMA_minimization.pdf}
-    \caption{The minimization}
+    \caption{Overview of the minimization for FASMA.}
     \label{fig:minimization}
 \end{figure}
