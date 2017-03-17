@@ -99,7 +99,7 @@ It is important to know the fraction of atoms excited to the $n$th energy level,
 $N_n$. This fraction is proportional to the statistical weight $g_n$ and the
 Boltzmann factor and is described as:
 \begin{align}
-    \Aboxed{ \frac{N_n}{N} = \frac{g_n}{u(T)} 10^{-\theta\chi_n} \tag*{Boltzmann}}
+    \Aboxed{ \frac{N_n}{N} = \frac{g_n}{u(T)} 10^{-\theta\chi_n}} \tag*{Boltzmann}
 \end{align}
 This equation is also called the Boltzmann equation. Here $N$ is the total
 number of atoms per unit volume, $u(T)=\Sigma g_i e^{-\chi_i/kT}$ is the
@@ -111,7 +111,7 @@ get ionised. The ionisation for a collision dominated gas (which is a good
 approximation for FGKM stars), the ratio of neutral atoms to single ionised
 atoms is described by the Saha equation:
 \begin{align}
-  \Aboxed{ \frac{N_1}{N_0}P_e = \frac{(2\pi m_e)^{3/2}(kT)^{5/2}}{h^3} \frac{2u_1(T)}{u_0(T)} e^{-I/kT}  \tag*{Saha} \label{eq:saha}}
+  \Aboxed{ \frac{N_1}{N_0}P_e = \frac{(2\pi m_e)^{3/2}(kT)^{5/2}}{h^3} \frac{2u_1(T)}{u_0(T)} e^{-I/kT}} \tag*{Saha}
 \end{align}
 here $m_e$ is the electron mass, $h$ is Planck's constant, and $I$ is the
 ionisation potential of the neutral atom.
@@ -141,9 +141,58 @@ is often changed when absorption lines are matched with real observations of
 e.g. the Sun. This is a way of calibrating a line list and will be described in
 detail in \sref{sec:linelist}.
 
+It is important to mention that one of the main differences between absorption
+lines in optical and near-infrared is the excitation potential. The energy
+levels of an atom gets denser packed as the energy level increase. This means
+that the difference in energy levels gets smaller, or in other words it gets
+redder. Therefore, the NIR absorption lines are, in average, produced at higher
+excitation potentials, which means in the deeper layers of the atmosphere.
+
+
+\subsection{Atmosphere models}
+
+In order to derive abundances or calculate a synthetic spectrum, two main things
+are needed: 1) And atmosphere model, and 2) a radiative transfer code that
+solves the equations above. There are different atmosphere models available.
+Throughtout this thesis the ATLAS9 model atmosphere are used by
+\citet{Kurucz1993}. Other mentionable atmosphere models includes MARCS models
+\citep{Gustafson2008} and the PHOENIX models \citep{Husser2013}. An atmosphere
+model is a file with typically 72 layers. Each layer includes physical
+quantities such as temperature, gas and electron pressure, the optical depth,
+etc. The models can be calculated on the fly, but it os common practise to
+pre-calculate a grid of atmosphere models at certain $T_\mathrm{eff}$, $\log g$,
+and $[\ion{Fe}/\ion{H}]$. A specific atmosphere model is then obtained from this
+grid by interpolating from nearest neighbours. The interpolation code used
+througout this work includes the four nearest neighbours in the
+$T_\mathrm{eff}$-space, and the two nearest neighbours in both the $\log g$- and
+$[\ion{Fe}/\ion{H}]$-space, in total $4\times2\times2=16$ atmosphere models to
+generate a single interpolated atmosphere model.
+
+
+
+\subsection{Radiative transer code - MOOG}
+
+As mentioned above, a radiative transfer code is needed to solve the equations
+above. There are many different codes that does this. Here the MOOG code us used
+\citep{Sneden1973}. This code has different drivers, only some are used here.
+
+\begin{itemize}
+  \item Derive a theoretical equivalent width (see \sref{sec:EW} for details)
+        for a given star, i.e. atmosphere model with a given set of atmospheric
+        parameters.
+  \item Derive line abundance from a measured equivalent width for a given model
+        atmosphere.
+  \item Calculate a synthetic spectrum for a given model atmosphere and atomic
+        line list.
+  \item Calculate the curve-of-growth for an atomic line.
+\end{itemize}
+There exists other drivers as well, but these are the ones used here. Some only
+for visualizing the figures below.
+
 
 
 \subsection{The equivalent width}
+\label{sec:EW}
 
 Measuring the equivalent width (EW) of spectral lines are important for some
 analysis of stellar spectra. The EW is a measure of the strength of the line,
@@ -324,10 +373,192 @@ broadening.
 
 \section{Stellar parameters for FGK stars - the EW method}
 
+In this section, the process from a spectrum to atmospheric parameters will be
+explained in details. There are two classic methods, synthetic fitting and
+curve-of-growth analysis.
+
+The synthetic fitting method is in simple terms a comparison between the
+observed spectrum and a synthetic spectrum, which is either calculated on the
+fly like SME \citep{...}, or using a pre-calculated grid. By analysing the
+$\chi^2$ the synthetic spectrum that best match the observed spectrum can be
+found. This technique works for all ranges of spectral resolutions and can work
+for many rotational profiles as well \citep[][see e.g.]{Tsantaki2017}. However,
+this method is often time-consuming compared to the curve-of-growth analysis.
+
+
 \subsection{Line list and atomic data}
 \label{sec:linelist}
+
+As mentioned above, the atomic data of the absorption lines are required. These
+data can be found in a database such as \emph{The Vienna Atomic Line Data Base}
+(VALD) \citep{VALD1,VALD2}. For compiling a usable iron line list, all
+theoretical transitions in a given wavelength range are requested from VALD. In
+the near-infrared (NIR), YJHK bands, there are several thousands of theoretical
+transistions. The EWs are measured (see \sref{sec:measureEW}) for all these
+lines using a solar spectrum \citep[][is used here]{Hinkle1995}. Here there are
+four possible outcomes. 1) A line can not be measured and is thus discarded, 2)
+the EW of the line is weak (below 5 m\AA{}) to be reliable, 3) the EW of the
+line is too strong ( above 150 m\AA{}) and the line show non-linear behaviour in
+the curve-of-growth (see \fref{fig:cog}), or 4) the EW of the line is between
+the two limits and is then added to the final line list.
+
+After removing lines which EW is outside the range of EW mentioned above, it is
+good practise to have a visual inspection. Here one should look for severe line
+blending with other absorption lines which might prove problematic and
+unreliable measurements of the EW. If the reference spectrum used, here for the
+Sun, is not corrected for telluric lines, it is also a good idea to remove lines
+which exists amidst forest of telluric lines, as these absorption lines might
+fall on the telluric lines, if the star observed has a different radial velocity
+(RV).
+
+When blended lines and otherwise lines which shows strange features (can be in a
+forest of telluric lines), the last step is to calibrate the atomic data. As
+mentioned above, this is done by changing the $\log \mathit{gf}$ value for a
+given line, until it has the desired determined abundance. In this case, an iron
+line should have the abundance of 7.47 using the values from
+\citet{Gonzalez2000}, when using a solar atmosphere model. There is a simple
+anti-correlation between the determined abundance from the measured EW and the
+$\log \mathit{gf}$, so a simple bisector minization can be used to find the best
+$\log \mathit{gf}$. It is important to calibrate the $\log \mathit{gf}$ when
+changing the version of MOOG (or if other radiative transfer codes are used),
+the atmosphere model and version of those, and even the interpolation of the
+atmosphere models. These changes in $\log \mathit{gf}$ should be minor compared
+to the change from the VALD database and those we arrive at when calibrated for
+the Sun.
+
+
 
 \subsection{Measuring EW}
 \label{sec:measureEW}
 
-\subsection{Determining abundances with MOOG}
+There are two ways to measure the EW of an absorption line, manual or automatic.
+Both of these methods are used here. There are advantages and disadvanteges for
+both method. For the manuel, an advantage is that we can inspect the lines and
+try to measure lines in different ways (which is useful if it is blended).
+Disadvantages are that it is very time consuming, and it is prone to errors, as
+a measurement might change drastically by the eyes measuring it. Even for the
+same person, the measurement can change. By mentioning the advantages and
+disadvantages of the manual method, it should be clear that the advantages and
+disadvantages of the automatic method is the opposite of those. Especially the
+time to measure the lines is order of magnitudes faster, which is crucial when
+dealing with more than a handful of spectra.
+
+When a line is measurement by hand (manuel) it is done using the splot command
+in IRAF. Here the deblending mode is used whenever necessary. It is often
+necessary to fit one spectral lines with several Gaussians, as neighbouring
+lines might contaminate the line of interest slightly.
+
+When a line is measurement automatically it is done with ARES
+\citep{Sousa2007,Sousa2015a}. When using ARES it is important to use a correct
+value of the rejt parameter. This parameter is used for placing the continuum
+level, and is thus directly related to the final measurement EW. It is difficult
+to get this parameter right, however the newest version of ARES has the option
+to analyse a few absorption free regions and measure the S/N. The rejt is then
+calculated as:
+\begin{align*}
+  rejt = 1 - \frac{1}{S/N}.
+\end{align*}
+
+As all, or as many as possible, the lines in the line list have measured EWs,
+the next step in determining the atmospheric parameters is to determine the
+abundance for each line and imposing excitation and ionization balance.
+
+
+\subsection{Excitation and ionization balance}
+
+With the measured EWs for all the lines in the line list, we choose an
+atmosphere model to determine the abundances. If there is no prior knowledge of
+the star it is common simple choose a solar atmosphere model as a starting
+point. Next the correlation between the abundances and the reduced EWs, and the
+abundances and the excitation potential is calculated. If there is a correlation
+it means the atmosphere model used is wrong. Moreover, we also have to check if
+the mean abundance of \ion{Fe}{I} and \ion{Fe}{II} lines are equal, and last if
+mean abundance of the \ion{Fe}{I} lines is equal to the unput
+$[\ion{Fe}/\ion{H}]$ of the atmosphere model\footnote{We use \ion{Fe}{I} instead
+of \ion{Fe}{II} lines for this, since they are more numerous.}. If one of these
+four criteria does not pass, then the atmosphere model is wrong, and we have to
+search for a new one. A common way to do this, is by combining the indicators
+into a scalar value:
+\begin{align}
+  f(\{T_\mathrm{eff}, \log g, [Fe/H], \xi_\mathrm{micro}\}) &= \sqrt{a_\mathrm{EP}^2 + a_\mathrm{RW}^2 + \Delta\ion{Fe}{}^2},
+\end{align}
+where $a_\mathrm{EP}$ is the correlation between abundances and excitation
+potential, $a_\mathrm{RW}$ is the correlation between abundances and reduced EW,
+and $\Delta\ion{Fe}{}$ is the difference between the mean abundances of
+\ion{Fe}{I} and \ion{Fe}{II}. This scalar function can be minimized using
+standard minimization procedures as the simplex downhill among others. However,
+there is another approach that takes into the account the information stored in
+these indicators. For example, if $a_\mathrm{EP}$ is positive it means
+$T_\mathrm{eff}$ has to be increased by an amount correlated by the numerical
+value of $a_\mathrm{EP}$. In the same way, a non-zero $a_\mathrm{RW}$ means
+$\xi_\mathrm{micro}$ has to be changed, and $\Delta\ion{Fe}{}$ is an indicator
+for $\log g$. In the end it is a vector function being minimized which are more
+difficult, however we are not minimizing this using standard mathematical
+methods, but rather using the physical knowledge. This minimization is useless
+for anything else, but it is excellent for this.
+The vector function has the form:
+\begin{align}
+    f(\{T_\mathrm{eff}, \log g, [Fe/H], \xi_\mathrm{micro}\}) = \{a_\mathrm{EP}, a_\mathrm{RW}, \Delta\ion{Fe}, \ion{Fe}{I}\}.
+\end{align}
+
+In each iteration where convergence is not reached, the input metallicity is
+changed to that of the mean output metallicity using the \ion{Fe}{I} lines. The
+minimization is depicted in \fref{fig:minimization}. This minimization is
+written in the Python programming language and is also a wrapper around both
+ARES and MOOG. The entire package is called FASMA\footnote{Greek for spectrum}
+\citep{Andreasen2017a, Tsantaki2017}. FASMA is able to fix one or all of the
+four atmospheric parameters, and when it reach convergence it checks if there
+are any outliers in the abundances. These will be removed, either all at once,
+all iteratively, meaning that after removing the outliers the minimization is
+restarted at the previous best parameters, and this process is continued until
+there can be removed no other outliers, or last is removing one outlier
+iteratively. An optical line list like the ones by
+\citet{Sousa2008a,Tsantaki2013} have been tested thoroughly and it is safe to
+remove a larger amount of lines and still obtain reliable parameters. However,
+with a less tested line list, like the one by \citet{Andreasen2016} (and refined
+in \citet{Andreasen2017b}), one should remove outliers more carefully, and it is
+recommended that one outlier is removed iteratively.
+
+In \fref{fig:minimization} there is a flag with \emph{autofixvt}. This was an
+option introduced since we see that some spectra does not converge, however the
+usual way to proceed is to fix the $\xi_\mathrm{micro}$. This is done at the end
+of the minimization if the $\xi_\mathrm{micro}$ value is close to either
+$0\si{km/s}$ or $5\si{km/s}$ and $|a_\mathrm{RW}| > 0.050$. When fixing
+$\xi_\mathrm{micro}$ with FASMA, its value is changed in each iteration
+following a simple empirical relation:
+\begin{align}
+  vt = \begin{cases}
+    6.935 \cdot 10^{-4}\; T_\mathrm{teff} - 0.348 \log g - 1.437     & \text{For $\log g \ge 3.95$} \\
+    2.72 - 0.457 \log g + 0.072 \cdot [\ion{Fe}/\ion{H}]             & \text{For $\log g < 3.95$},
+\end{cases}
+\end{align}
+where the first case is from \citet{Tsantaki2013} and the latter case is from
+\citet{Adibekyan2015}.
+
+Last there is an option, \emph{refine}. This apply more strict criteria for the
+indicators to reach convergence, thus making the minimization less sensitive to
+the initial guess since it could otherwise reach convergence from one "side" of
+the parameter space. The default criteria are:
+\begin{align*}
+  a_\mathrm{EP}    &= 0.001\\
+  a_\mathrm{RW}    &= 0.003\\
+  \Delta\ion{Fe}{} &= 0.001.
+\end{align*}
+The criteria for $a_\mathrm{RW}$ is not as strict as $a_\mathrm{EP}$ since this
+indicator can change rapidly with small changes in $\xi_\mathrm{micro}$, thus a
+very strict criteria might never lead to convergence. Convergence is reached
+once all of the above criteria are met, and the input and output metallicity are
+identical. If one or more of the parameters are fixed, the corresponding
+criterium is simply set to 0 and effectively ignored, thus not changing the
+parameter.
+
+
+
+
+
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/FASMA_minimization.pdf}
+    \caption{The minimization}
+    \label{fig:minimization}
+\end{figure}
