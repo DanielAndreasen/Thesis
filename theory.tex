@@ -280,8 +280,7 @@ gravity:
   P_g \simeq \mathrm{constant}\, g^{2/3},
 \end{align}
 where $g$ is the gravity.
-
-NEED TO WRITE MORE HERE...
+\unfinished{This needs to be expanded and completed!}
 
 In \fref{fig:ewGravity} is shown how the \ion{Fe}{II} line used previously
 change with $\log g$. The curve of growth is shown in the upper panel, while a
@@ -379,10 +378,10 @@ curve-of-growth analysis.
 
 The synthetic fitting method is in simple terms a comparison between the
 observed spectrum and a synthetic spectrum, which is either calculated on the
-fly like SME \citep{...}, or using a pre-calculated grid. By analysing the
-$\chi^2$ the synthetic spectrum that best match the observed spectrum can be
+fly like SME \citep{Valenti1996}, or using a pre-calculated grid. By analysing
+the $\chi^2$ the synthetic spectrum that best match the observed spectrum can be
 found. This technique works for all ranges of spectral resolutions and can work
-for many rotational profiles as well \citep[][see e.g.]{Tsantaki2017}. However,
+for many rotational profiles as well \citep[see e.g.][]{Tsantaki2017}. However,
 this method is often time-consuming compared to the curve-of-growth analysis.
 
 
@@ -540,9 +539,9 @@ indicators to reach convergence, thus making the minimization less sensitive to
 the initial guess since it could otherwise reach convergence from one "side" of
 the parameter space. The default criteria are:
 \begin{align*}
-  a_\mathrm{EP}    &= 0.001\\
-  a_\mathrm{RW}    &= 0.003\\
-  \Delta\ion{Fe}{} &= 0.001.
+  a_\mathrm{EP}     &= 0.001\\
+  a_\mathrm{RW}     &= 0.003\\
+  \Delta\mathrm{Fe} &= 0.001.
 \end{align*}
 The criteria for $a_\mathrm{RW}$ is not as strict as $a_\mathrm{EP}$ since this
 indicator can change rapidly with small changes in $\xi_\mathrm{micro}$, thus a
@@ -557,7 +556,7 @@ defined by adding the following:
 \begin{align}
   T_\mathrm{eff}     &: \SI{2000}{K} \cdot a_\mathrm{EP}   \\
   \xi_\mathrm{micro} &: \SI{1.5}{km/s} \cdot a_\mathrm{RW} \\
-  \log g             &: -\Delta\ion{Fe}
+  \log g             &: -\Delta\mathrm{Fe}
 \end{align}
 to each parameter. Note again that metallicity is simply changed to the the
 output metallicity of the previous iteration. These are emprirical relations.
@@ -570,6 +569,6 @@ convergence, without causing problems for the interdependency.
 \begin{figure}[htpb!]
     \centering
     \includegraphics[width=1.0\linewidth]{figures/FASMA_minimization.pdf}
-    \caption{Overview of the minimization for FASMA.}
+    \caption{Overview of the minimization for FASMA. Credit: \citet{Andreasen2017a}.}
     \label{fig:minimization}
 \end{figure}
