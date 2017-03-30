@@ -144,16 +144,28 @@ It is important to mention that one of the main differences between absorption
 lines in optical and near-infrared is the excitation potential. The energy
 levels of an atom gets denser packed as the energy level increase as shown in
 \fref{fig:elevel} for hydrogen. For hydrogen the energy levels $E_n$ follow the
-very simple formula from Bohr's atomic model, $E_n=\frac{\SI{-13.6}{eV}}{n}$,
-where $n$ is the principal quantum number, and \SI{-13.6}{eV} is the ionization
-energy for hydrogen, i.e. the amount of energy required to ionize hydrogen. This
-corresponds to $T=\SI{-13.6}{eV}/k_b=\SI{157822}{K}$, where $k_b$ is Boltzmann's
-constant. For heavier atoms the energy levels does not follow such a simple
-relation, however the tendency with tighter energy levels with increasing $n$
-still holds. This means that the difference in energy levels gets smaller, or in
-other words it gets redder. Therefore, the NIR absorption lines are, in average,
-produced at higher excitation potentials, which means in the deeper layers of
-the atmosphere.
+very simple formula from Bohr's atomic model, $E_n=\frac{\SI{-13.6}{eV}}{n^2}$,
+where $n$ is the principal quantum number, and \SI{13.6}{eV} is the ionization
+energy for hydrogen, i.e. the minimum amount of energy required to ionize
+hydrogen. The energy levels for heavier atoms show a similar structure. The
+outer electron for a multi-electron atom is partially shielded from the nucleus
+by the inner electrons, and thus does not experience the full charge $Z$ but
+rather an effective charge $Z_\mathrm{eff}$, giving the expression
+\begin{align}
+  E_n = -hcR_\infty\frac{Z_\mathrm{eff}^2}{n^2},
+\end{align}
+where $h$ is Planck's constant, $c$ is the speed of light, and $R_\infty$ is
+Rydberg's constant.
+
+With increasing $n$ the energy levels get closer, or in other words the photon
+required to excite an electron from one energy level to a neighbouring state
+will get redder. These redder photons used for exciting an atom are the
+absorption lines seen in the NIR. However, the excitation to the lower state is
+from thermal motion and not coursed by photons. Since tight energy levels
+require a highly excited lower state, the temperature required here are similar
+high, which means that the NIR lines are typically formed in the deeper layers
+of the atmosphere compared to absorption lines seen in the optical part of the
+spectrum.
 
 \begin{figure}[htpb!]
     \centering
@@ -161,6 +173,19 @@ the atmosphere.
     \caption{Energy levels for hydrogen, $E_n=\frac{\SI{-13.6}{eV}}{n}$.}
     \label{fig:elevel}
 \end{figure}
+
+The above discussed energy transitions are purely electronic, however there
+exists so called fine structure transitions as well. This is due to the spin of
+the electron (or magnetic moment) interacting with the orbital angular momentum
+of the electron. This leads to a splitting of the absorption line. In atoms
+there also exists an even finer structure, commonly known as the hyperfine
+structure. This structure arise due to the interaction between the magnetic
+field created by the electrons and the nuclear spin. These splittings are
+important to consider for some transitions and some atoms. For \ion{Fe}{} the
+hyperfine structure is not important since the net nuclear spin (of protons) is
+0 because there is an even number, hence hyperfine structure is only important
+for atoms with an odd number of protons.
+
 
 
 \subsection{Atmosphere models}
