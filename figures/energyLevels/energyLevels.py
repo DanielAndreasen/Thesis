@@ -12,7 +12,7 @@ if __name__ == '__main__':
     ytick2 = map(lambda s : r'$n=%s$' % s, map(str, n[0:5]))
     ytick2 += [r'$n=\infty$']
 
-    fig, ax = plt.subplots(figsize=(6, 9))
+    fig, ax = plt.subplots(figsize=(6, 6))
     ax.set_yticks(En[0:5])
     ax.set_yticklabels(ytick1)
     ax.set_xticks([-10], [''])
@@ -36,5 +36,5 @@ if __name__ == '__main__':
     ax1.set_ylim(-14.2, 0.5)
 
     fig.tight_layout()
-    # plt.show()
-    plt.savefig('../energyLevels.pdf')
+    plt.show()
+    # plt.savefig('../energyLevels.pdf')
