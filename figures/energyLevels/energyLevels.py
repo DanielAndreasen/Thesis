@@ -7,13 +7,13 @@ if __name__ == '__main__':
     n = np.arange(1, 9)
     En = -13.6/n**2
 
-    ytick1 = map(lambda x: round(x, 2), En[0:5])
-    ytick1 = map(lambda s: '%.2feV' % s, ytick1)
-    ytick2 = map(lambda s : r'$n=%s$' % s, map(str, n[0:5]))
+    ytick1 = map(lambda s: '%.2feV' % s, En[0:5])
+    ytick1 += ['0.00eV']
+    ytick2 = map(lambda s : r'$n=%d$' % s, n[0:5])
     ytick2 += [r'$n=\infty$']
 
     fig, ax = plt.subplots(figsize=(6, 6))
-    ax.set_yticks(En[0:5])
+    ax.set_yticks(list(En[0:5])+[0])
     ax.set_yticklabels(ytick1)
     ax.set_xticks([-10], [''])
     ax.set_ylabel(r'Energy level, $E_n$')
