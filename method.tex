@@ -35,7 +35,11 @@ this method is often time-consuming compared to the curve-of-growth analysis.
 
 Here the curve-of-growth analysis will be explained in detail. In particular
 Fast Analysis of Spectra Made Automatically (\FASMA) which was developed during
-this thesis.
+this thesis. \FASMA is made of three \emph{drivers}, 1) EW measurement driver,
+2) stellar atmospheric parameters driver, and 3) abundance driver. An additional
+driver is under development; a synthetic fitting driver \citep{Tsantaki2017}.
+\FASMA has been made available to the community via a web
+application\footnote{\url{http://www.iastro.pt/fasma/}} \citep{Andreasen2017a}.
 
 
 \subsection{Ingredients}
@@ -43,24 +47,75 @@ this thesis.
 \FASMA is written in the Python programming language and glue together other
 software and models necessary for obtaining stellar atmospheric parameters from
 high quality spectra. These software and models are described in greater detail
-below. In short, the curve-of-growth analysis require measured EWs where the
-latest version of ARES is used \citep{Sousa2015a}. These EWs are used to derive
-line abundances using model atmosphere like the ATLAS9 \citep{Kurucz1993}, MARCS
-models \citep{Gustafson2008}, and PHOENIX models \citep{Husser2013} to mention
-the most popular for this analysis. Note that the PHOENIX models are relative
-new and not as widely used yet. In tandem with model atmospheres a radiative
-transfer code is also needed. \FASMA uses MOOG \citep{Sneden1973} for this,
-however there are other codes available, e.g. \unfinished{Mention some other
-codes here}. The model atmosphere usually comes in a pre-calculated grid in the
-$\{T_\mathrm{eff},\,\log g,\,[\ion{Fe}/\ion{H}]\}$ parameter space. These are
-interpolated in order to access the requested combination of parameters. Last,
-\FASMA consist of a minimization routine which looks for the right parameters
-given a spectrum.
+in the following sections. In short, the curve-of-growth analysis require
+measured EWs where the latest version of \ARES is used \citep{Sousa2015a}. These
+EWs are used to derive line abundances using model atmosphere like the ATLAS9
+\citep{Kurucz1993}, MARCS models \citep{Gustafson2008}, and PHOENIX models
+\citep{Husser2013} to mention the most popular for this analysis. Note that the
+PHOENIX models are relative new and not as widely used yet. In tandem with model
+atmospheres a radiative transfer code is also needed. \FASMA uses \MOOG
+\citep{Sneden1973} for this, however there are other codes available, e.g.
+\unfinished{Mention some other codes here}. The model atmosphere usually comes
+in a pre-calculated grid in the $\{T_\mathrm{eff},\,\log
+g,\,[\ion{Fe}/\ion{H}]\}$ parameter space. These are interpolated in order to
+access the requested combination of parameters. Last, \FASMA consist of a
+minimization routine which looks for the right parameters given a spectrum.
 
+
+
+\subsection{Wrapper for \ARES}
+\label{sec:measureEW}
+
+There are two ways to measure the EW of an absorption line, manual or automatic.
+Both of these methods are used here. There are advantages and disadvantages for
+both method. For the manual, an advantage is that we can inspect the lines and
+try to measure lines in different ways (which is useful if it is blended). We
+have more control over how blended lines are fitted, and which profiles are
+used. Disadvantages are that it is very time consuming, and it is prone to
+errors, as a measurement might change drastically by the eyes measuring it. Even
+for the same person, the measurement can change. By mentioning the advantages
+and disadvantages of the manual method, it should be clear that the advantages
+and disadvantages of the automatic method is the opposite of those. Especially
+the time to measure the lines are orders of magnitudes faster, which is crucial
+when dealing with more than a handful of spectra.
+
+When a line is measurement by hand (manually) it is in this thesis done using
+the splot command in IRAF. Here the deblending mode is used whenever necessary.
+It is often necessary to fit one spectral lines with several Gaussians, as
+neighbouring lines might contaminate the line of interest slightly.
+
+When a line is measurement automatically it is in this thesis done with \ARES
+\citep{Sousa2007,Sousa2015a}. When using \ARES it is important to use a correct
+value of the \code{rejt} parameter. This parameter is used for placing the
+continuum level, and is thus directly related to the final measurement EW. It is
+difficult to get this parameter right, however the newest version of \ARES has
+the option to analyse a few absorption free regions and measure the S/N. The
+\code{rejt} is then calculated as:
+\begin{align*}
+  \mathtt{rejt} = 1 - \frac{1}{\mathrm{S/N}}.
+\end{align*}
+
+\ARES is used via the first driver of \FASMA. All the options available for
+\ARES can be accessed by \FASMA. The options are setting the spectral window,
+$\lambda_\mathrm{min}$ and $\lambda_\mathrm{max}$, the RV correction to be
+applied or a mask to measure the RV and automatic make this correction, the
+minimum and maximum EW to be considered ($\SI{5}{m}$\AA{} and $\SI{150}{m}$\AA{}
+respectively), the minimum distance between two consecutive lines, the smoothing
+applied with a \emph{boxcar} filter before measuring the EWs. An in-depth
+description of these options can be found in \citet{Sousa2007,Sousa2015a}.
+
+Sometimes \ARES crash when measuring an absorption line. The reason is not
+clear, however when dealing with a large amount of spectra, it is important that
+the analysis moves on. To deal with this problem, \FASMA finds the last line
+which \ARES tried to measure in the log file. This line is temporarily removed
+from the line list and \ARES is restarted. The line list used for deriving
+parameters consists of numerous iron lines, thus removing one line will have a
+negligible effect on the final derived parameters.
 
 
 
 \subsection{Interpolation of atmosphere models}
+\label{sec:interpolation}
 
 \FASMA has access to both ATLAS9 models by \citet{Kurucz1993} and MARCS models by
 \citet{Gustafson2008}, both are in a pre-calculated grid as described above. Let
@@ -80,49 +135,13 @@ When the 16 model atmosphere have been located, the interpolation goes through
 each layer of the model atmosphere, where there typical are 72 layers, and each
 column of which there are six. The columns are described in
 \sref{sec:atmospheremodels}. The interpolation are done using the
-\code{griddata} function from
-\code{SciPy}\footnote{\url{https://scipy.org/}}. The interpolation is linear
-in the parameter space. After the interpolation, the result is saved to a file
-in the format expected by MOOG.
+\code{griddata} function from \code{SciPy}\footnote{\url{https://scipy.org/}}.
+The interpolation is linear in the parameter space. After the interpolation, the
+result is saved to a file in the format expected by \MOOG.
 
 
 
 
-
-\subsection{Wrapper for ARES}
-\label{sec:measureEW}
-
-There are two ways to measure the EW of an absorption line, manual or automatic.
-Both of these methods are used here. There are advantages and disadvantages for
-both method. For the manual, an advantage is that we can inspect the lines and
-try to measure lines in different ways (which is useful if it is blended).
-Disadvantages are that it is very time consuming, and it is prone to errors, as
-a measurement might change drastically by the eyes measuring it. Even for the
-same person, the measurement can change. By mentioning the advantages and
-disadvantages of the manual method, it should be clear that the advantages and
-disadvantages of the automatic method is the opposite of those. Especially the
-time to measure the lines is order of magnitudes faster, which is crucial when
-dealing with more than a handful of spectra.
-
-When a line is measurement by hand (manual) it is done using the splot command
-in IRAF. Here the deblending mode is used whenever necessary. It is often
-necessary to fit one spectral lines with several Gaussian's, as neighbouring
-lines might contaminate the line of interest slightly.
-
-When a line is measurement automatically it is done with ARES
-\citep{Sousa2007,Sousa2015a}. When using ARES it is important to use a correct
-value of the rejt parameter. This parameter is used for placing the continuum
-level, and is thus directly related to the final measurement EW. It is difficult
-to get this parameter right, however the newest version of ARES has the option
-to analyse a few absorption free regions and measure the S/N. The rejt is then
-calculated as:
-\begin{align*}
-  rejt = 1 - \frac{1}{S/N}.
-\end{align*}
-
-As all, or as many as possible, the lines in the line list have measured EWs,
-the next step in determining the atmospheric parameters is to determine the
-abundance for each line and imposing excitation and ionization balance.
 
 
 \subsection{Minimization}
@@ -166,13 +185,13 @@ In each iteration where convergence is not reached, the input metallicity is
 changed to that of the mean output metallicity using the \ion{Fe}{I} lines. The
 minimization is depicted in \fref{fig:minimization}. This minimization is
 written in the Python programming language and is also a wrapper around both
-ARES and MOOG. The entire package is called \FASMA\footnote{Greek for spectrum}
-\citep{Andreasen2017a, Tsantaki2017}. \FASMA is able to fix one or all of the
-four atmospheric parameters, and when it reach convergence it checks if there
-are any outliers in the abundances. These will be removed, either all at once,
-all iteratively, meaning that after removing the outliers the minimization is
-restarted at the previous best parameters, and this process is continued until
-there can be removed no other outliers, or last is removing one outlier
+\ARES and \MOOG. The entire package is called \FASMA\footnote{Greek for
+spectrum} \citep{Andreasen2017a, Tsantaki2017}. \FASMA is able to fix one or all
+of the four atmospheric parameters, and when it reach convergence it checks if
+there are any outliers in the abundances. These will be removed, either all at
+once, all iteratively, meaning that after removing the outliers the minimization
+is restarted at the previous best parameters, and this process is continued
+until there can be removed no other outliers, or last is removing one outlier
 iteratively. An optical line list like the ones by
 \citet{Sousa2008a,Tsantaki2013} have been tested thoroughly and it is safe to
 remove a larger amount of lines and still obtain reliable parameters. However,
