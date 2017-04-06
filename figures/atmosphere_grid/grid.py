@@ -45,10 +45,13 @@ if __name__ == '__main__':
     directories = glob('%s/*' % path)
     fehs = extract_feh(directories)
 
-    for directory in directories:
+    for feh directory in zip(fehs, directories):
         models = glob('%s/*' % (directory))
         plt.figure()
+        plt.title('[Fe/H]=%s' % feh)
         for model in models:
             teff, logg = extract_teff_logg(model)
             plt.scatter(teff, logg, color='C0')
+        plt.xlabel('Teff')
+        plt.ylabel('logg')
     plt.show()
