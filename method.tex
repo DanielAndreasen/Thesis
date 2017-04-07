@@ -117,19 +117,33 @@ negligible effect on the final derived parameters.
 \subsection{Interpolation of atmosphere models}
 \label{sec:interpolation}
 
-\FASMA has access to both ATLAS9 models by \citet{Kurucz1993} and MARCS models by
-\citet{Gustafson2008}, both are in a pre-calculated grid as described above. Let
-this grid be described by $\{T_\mathrm{eff,g},\,\log
-g_g,\,[\ion{Fe}/\ion{H}]_g\}$, where $g$ is one of the grid points.
-\unfinished{Make a table or plot describing the grid}. The requested value will
-be $\{T_\mathrm{eff,r},\,\log g_r,\,[\ion{Fe}/\ion{H}]_r\}$. The task is now to
-find the surrounding grid points in the parameter space of the requested
-parameters. For $\log g$ and $[\ion{Fe}/\ion{H}]$ two neighbouring grid point
-are used, and for $T_\mathrm{eff}$ four surrounding grid point are used, in
-total $4\times2\times2=16$ model atmospheres for the interpolation. \FASMA use
-the four surrounding grid points for $T_\mathrm{eff}$ instead of two, since the
+\FASMA has access to both ATLAS9 models by \citet{Kurucz1993} and MARCS models
+by \citet{Gustafson2008}, both are in a pre-calculated grid as described above.
+Let this grid be described by $\{T_\mathrm{eff,g},\,\log
+g_g,\,[\ion{Fe}/\ion{H}]_g\}$, where $g$ is one of the grid points. Such a grid
+can be seen in \fref{fig:grid} for $[\ion{Fe}/\ion{H}]=0.00$ in the
+$T_\mathrm{eff}$ range; $\SIrange{3000}{10000}{K}$. For visualisation the
+location of the Sun is shown as well. The colour scale corresponds to the
+temperature in the first layer of each model atmosphere, i.e. the uppermost
+layer. The requested value will be $\{T_\mathrm{eff,r},\,\log
+g_r,\,[\ion{Fe}/\ion{H}]_r\}$. The task is now to find the surrounding grid
+points in the parameter space of the requested parameters. For $\log g$ and
+$[\ion{Fe}/\ion{H}]$ two neighbouring grid point are used, and for
+$T_\mathrm{eff}$ four surrounding grid point are used, in total
+$4\times2\times2=16$ model atmospheres for the interpolation. \FASMA use the
+four surrounding grid points for $T_\mathrm{eff}$ instead of two, since the
 model atmosphere changes most with $T_\mathrm{eff}$. This is common in other
 interpolations\reference{Give ref here} as well.
+
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/model_atmosphere.pdf}
+    \caption{Model atmosphere grid from \citet{Kurucz1993} at
+             $[\ion{Fe}/\ion{H}]=0.00$ between \SI{3000}{K} and \SI{10000}{K}.
+             The grid extends to higher $T_\mathrm{eff}$, but these are not
+             considered in this thesis.}
+    \label{fig:grid}
+\end{figure}
 
 When the 16 model atmosphere have been located, the interpolation goes through
 each layer of the model atmosphere, where there typical are 72 layers, and each
