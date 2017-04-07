@@ -2,19 +2,13 @@ from __future__ import division
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
 from glob import glob
+import gzip
 
-grid = {'teff': (3750, 4000, 4250, 4500, 4750, 5000, 5250, 5500, 5750, 6000,
-                     6250, 6500, 6750, 7000, 7250, 7500, 7750, 8000, 8250, 8500,
-                     8750, 9000, 9250, 9500, 9750, 10000, 10250, 10500, 10750,
-                     11000, 11250, 11500, 11750, 12000, 12250, 12500, 12750, 13000,
-                     14000, 15000, 16000, 17000, 18000, 19000, 20000, 21000, 22000,
-                     23000, 24000, 25000, 26000, 27000, 28000, 29000, 30000, 31000,
-                     32000, 33000, 34000, 35000, 36000, 37000, 38000, 39000),
-            'feh': (-3.0, -2.5, -2.0, -1.5, -1.0, -0.5, -0.3, -0.2, -0.1, 0.0,
-                    0.1, 0.2, 0.3, 0.5, 1.0),
-            'logg': (0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0)}
 path = '/home/daniel/Documents/Uni/phdproject/programs/FASMA/models/kurucz95'
+# path = '/home/daniel/Documents/Uni/phdproject/programs/FASMA/models/apogee_kurucz'
+# path = '/home/daniel/Documents/Uni/phdproject/programs/FASMA/models/marcs'
 
 
 def extract_feh(directories):
@@ -32,26 +26,45 @@ def extract_feh(directories):
 def extract_teff_logg(model):
     '13000g35.m10.gz'
     model = model.rpartition('/')[-1]
-    # print model
     p = model.split('.')[0].split('g')
     teff = int(p[0])
     logg = float(p[1])/10
     return teff, logg
 
 
+def extract_t_1stlayer(model):
+    f = gzip.open(model, compresslevel=1)
+    data = f.readlines()
+    model = np.loadtxt(data[23:-2])
+    return model[0, 1]
+
 
 if __name__ == '__main__':
 
-    directories = glob('%s/*' % path)
+    directories = np.sort(glob('%s/*' % path))
     fehs = extract_feh(directories)
+    teff_min, teff_max = 3000, 10000
 
-    for feh directory in zip(fehs, directories):
-        models = glob('%s/*' % (directory))
-        plt.figure()
-        plt.title('[Fe/H]=%s' % feh)
-        for model in models:
-            teff, logg = extract_teff_logg(model)
-            plt.scatter(teff, logg, color='C0')
-        plt.xlabel('Teff')
-        plt.ylabel('logg')
+    directory = directories[9]
+    models = np.array(glob('%s/*' % (directory)))
+
+    p = np.array([extract_teff_logg(model) for model in models])
+    teff, logg = p[:, 0], p[:, 1]
+    idx = (teff_min <= teff) & (teff <= teff_max)
+    teff, logg = teff[idx], logg[idx]
+    T = np.array([extract_t_1stlayer(model) for model in models[idx]])
+
+    plt.scatter(teff, logg, s=6, c=T, cmap=cm.inferno)
+    plt.scatter(5777, 4.44, c=3725.8, marker='*', s=100, cmap=cm.inferno)
+
+    plt.xlim(teff_min, teff_max)
+    plt.title('[Fe/H]=%.2f' % fehs[9])
+    plt.xlabel(r'$T_\mathrm{eff}$ [K]')
+    plt.ylabel(r'$\log g$')
+
+    cbar = plt.colorbar()
+    cbar.set_label('Temperature in 1st layer', rotation=270, va='bottom')
+    plt.tight_layout()
+
+    # plt.savefig('../model_atmosphere.pdf')
     plt.show()
