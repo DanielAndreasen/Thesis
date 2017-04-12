@@ -26,7 +26,7 @@ def plot_data(fname, row, fig=None):
     x2, y2 = df.logRWin, np.poly1d((a2, b2))(df.logRWin)
 
     if fig is None:
-        fig = plt.figure(figsize=(10, 7))
+        fig = plt.figure(figsize=(10, 10))
     ax = fig.add_subplot(111)
     ax.spines['top'].set_color('none')
     ax.spines['bottom'].set_color('none')
