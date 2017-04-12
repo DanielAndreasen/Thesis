@@ -4,7 +4,7 @@
 \label{cha:method}
 
 
-\section{Different methods for atmospheric parameters}
+\section{Methods for deriving stellar atmospheric parameters}
 
 \subsection{IRFM}
 
@@ -160,13 +160,12 @@ result is saved to a file in the format expected by \MOOG.
 
 \subsection{Minimization}
 
-\improvement{Include figures with abundance vs. EP/RW}
 With the measured EWs for all the lines in the line list, we choose an
 atmosphere model to determine the abundances. If there is no prior knowledge of
 the star it is common simple choose a solar atmosphere model as a starting
 point. Next the correlation between the abundances and the reduced EWs, and the
 abundances and the excitation potential is calculated. If there is a correlation
-it means the atmosphere model used is wrong. Moreover, we also have to check if
+it means the model atmosphere used is wrong. Moreover, we also have to check if
 the mean abundance of \ion{Fe}{I} and \ion{Fe}{II} lines are equal, and last if
 mean abundance of the \ion{Fe}{I} lines is equal to the input
 $[\ion{Fe}/\ion{H}]$ of the atmosphere model\footnote{We use \ion{Fe}{I} instead
@@ -195,6 +194,33 @@ The vector function has the form:
 \begin{align}
     f(\{T_\mathrm{eff}, \log g, [Fe/H], \xi_\mathrm{micro}\}) = \{a_\mathrm{EP}, a_\mathrm{RW}, \Delta\ion{Fe}, \ion{Fe}{I}\}.
 \end{align}
+
+The abundances of \ion{Fe}{I} lines versus EP and RW are shown in
+\fref{fig:eprw} for the planet host star HATS-1. The three rows are for three
+different model atmospheres. From upper to lower:
+\begin{itemize}
+  \item Converged: $T_\mathrm{eff}=\SI{5959}{K}$,
+                   $\log g=4.59$,
+                   $[\ion{Fe}/\ion{H}]=-0.04$, and
+                   $\xi_\mathrm{micro}=\SI{1.05}{km/s}$.
+  \item Converged with \SI{0.5}{km/s} added to $\xi_\mathrm{micro}$.
+  \item Converged with \SI{500}{K} added to $T_\mathrm{eff}$.
+\end{itemize}
+Left column show the abundances against the EP, and the right column is
+abundances against RW.
+
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/EP_RW_vs_abundance.pdf}
+    \caption{The abundances of \ion{Fe}{I} for the planet host star: HATS-1.
+             Upper plot: Converged parameters (see text for stellar parameters
+             for this star).
+             Middle plot: Converged parameters with \SI{0.5}{km/s} added to
+             $\xi_\mathrm{micro}$.
+             Lower plot: Converged parameters with \SI{500}{K} added to
+             $T_\mathrm{eff}$.}
+    \label{fig:eprw}
+\end{figure}
 
 In each iteration where convergence is not reached, the input metallicity is
 changed to that of the mean output metallicity using the \ion{Fe}{I} lines. The
