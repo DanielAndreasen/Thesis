@@ -1,7 +1,8 @@
 from __future__ import division
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
+plt.rcParams['xtick.direction'] = 'in'
+plt.rcParams['ytick.direction'] = 'in'
 
 '''Curve of growth'''
 
@@ -23,9 +24,11 @@ if __name__ == '__main__':
     plt.plot(d[:, 0], d[:, 1], '-')
     for di in ds:
         plt.plot(di[0], di[1], 'o')
-    plt.text(-4.6, -5.7, 'Weak line', rotation=33)
-    plt.text(-2.2, -4.4, 'Saturation', rotation=10)
+    plt.text(-4.6, -5.8, 'Weak line', rotation=30)
+    plt.text(-1.6, -4.3, 'Saturation', rotation=11)
     plt.text(1.0, -3.0, 'Strong line', rotation=15)
+    plt.xlim(-5, 3)
+    plt.ylim(-7.2, -2.6)
     plt.xlabel(r'log $gf$')
     plt.ylabel(r'$\log(EW/\lambda)$')
 
@@ -36,6 +39,7 @@ if __name__ == '__main__':
         plt.plot(w, f, 'C%s' % i)
 
     plt.xlim(w0-1.6, w0+1.5)
+    plt.ylim(0, 1.05)
     plt.xlabel(r'Wavelength [$\AA$]')
     plt.ylabel('Flux')
     plt.tight_layout()

@@ -2,8 +2,9 @@ from __future__ import division
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import matplotlib.cm as cm
 from utils import Readmoog
+plt.rcParams['xtick.direction'] = 'in'
+plt.rcParams['ytick.direction'] = 'in'
 
 
 def get_data(fname):
@@ -73,8 +74,6 @@ def plot_data(fname, row, fig=None):
     fig.tight_layout(rect=[0, 0, 0.85, 1])
 
     return fig
-
-
 
 
 if __name__ == '__main__':

@@ -1,6 +1,8 @@
 from __future__ import division
 import numpy as np
 import matplotlib.pyplot as plt
+plt.rcParams['xtick.direction'] = 'in'
+plt.rcParams['ytick.direction'] = 'in'
 
 '''EW dependence on gravity using:
 Teff, feh, vt = 5777, 0.00, 1.0
@@ -66,5 +68,5 @@ if __name__ == '__main__':
     plt.xticks([w0], [w0])
 
     plt.tight_layout()
-    plt.savefig('../ewGravity.pdf')
+    # plt.savefig('../ewGravity.pdf')
     plt.show()

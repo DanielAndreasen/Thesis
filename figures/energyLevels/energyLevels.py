@@ -1,6 +1,8 @@
 from __future__ import division
 import numpy as np
 import matplotlib.pyplot as plt
+plt.rcParams['xtick.direction'] = 'in'
+plt.rcParams['ytick.direction'] = 'in'
 
 
 if __name__ == '__main__':
@@ -36,5 +38,5 @@ if __name__ == '__main__':
     ax1.set_ylim(-14.2, 0.5)
 
     fig.tight_layout()
-    plt.show()
     # plt.savefig('../energyLevels.pdf')
+    plt.show()

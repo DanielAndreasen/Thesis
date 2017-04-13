@@ -1,9 +1,9 @@
 from __future__ import division
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
 from astropy.modeling import models
-# plt.style.use('ggplot')
+plt.rcParams['xtick.direction'] = 'in'
+plt.rcParams['ytick.direction'] = 'in'
 
 
 def gaussian(amplitude, mean, stddev):

@@ -1,7 +1,8 @@
 from __future__ import division
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
+plt.rcParams['xtick.direction'] = 'in'
+plt.rcParams['ytick.direction'] = 'in'
 
 '''Curve of growth as function of vt.
 The curves (cog_vt?.dat) are done manually by changing the vt in the solar

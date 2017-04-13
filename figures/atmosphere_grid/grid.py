@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 from glob import glob
 import gzip
+plt.rcParams['xtick.direction'] = 'in'
+plt.rcParams['ytick.direction'] = 'in'
 
 path = '/home/daniel/Documents/Uni/phdproject/programs/FASMA/models/kurucz95'
 # path = '/home/daniel/Documents/Uni/phdproject/programs/FASMA/models/apogee_kurucz'
