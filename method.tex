@@ -65,12 +65,86 @@ in-depth description of the IRFM can be see in e.g.
 
 \subsection{Photometry}
 
+Photometry can be used in different ways to estimate the effective temperature.
+In this section two methods will be mentioned; a colour calibration, and
+asteroseismology. There are other methods, e.g. SED fitting but this will not
+be discussed further.
+
+\subsubsection{$T_\mathrm{eff}$-colour-$[\ion{Fe}/\ion{H}]$ calibration}
+
+Photometry can be used for deriving $T_\mathrm{eff}$ using existing colour
+calibrations like that of for example \citet{Ramirez2005a} where adopted
+$T_\mathrm{eff}$ and $[\ion{Fe}/\ion{H}]$ in combination with colours such as
+$B-V$, $V-S$, etc. are used to fit a polynomial such that the $T_\mathrm{eff}$
+can easily be estimated with a simple relation:
+\begin{align}
+  T_\mathrm{eff} = \frac{5040}{\theta_\mathrm{eff}} + P(X, [\ion{Fe}/\ion{H}]),
+\end{align}
+where
+\begin{align}
+  \theta_\mathrm{eff} &= \frac{5040}{T_\mathrm{eff}} \\
+                      &= a_0+a_1 X+a_2 X^2+a_3X[\ion{Fe}/\ion{H}] + a_4[\ion{Fe}/\ion{H}] + a_5[\ion{Fe}/\ion{H}]^2
+\end{align}
+is the polynomial fit between $T_\mathrm{eff}$ versus a colour ($X$) and the
+metallicity. The polynomial $P(X, [\ion{Fe}/\ion{H}])$ is a correction applied
+to remove trends in the residuals, for example spectral features such as the
+Balmer lines or the Paschen jump. This correction is performed after the initial
+fit.
+
+After obtaining the coefficients ($a_i$) for different combinations of colours,
+it is trivial to obtain $T_\mathrm{eff}$ if the metallicity and a colour is
+known of the star.
+
+\subsubsection{Asteroseismology}
+
+Asteroseismology is the study of stellar pulsations. These pulsations propagate
+as sounds waves throughout a star, their origin and amplitude is determined by
+the characteristics of the star, hence the study of the pulsations, which are
+seen on the surface, will thus be a study of the stellar properties. In order to
+to study these a time series is needed. This can both be radial velocities as it
+was used in the recent results from the SONG telescope \citep{Grundahl2017}, or
+photometry like the numerous results from e.g. the space telescopes \emph{CoRoT}
+and \emph{Kepler}.\reference{find at least two references for this!} The
+analysis is identical for either time series, however the amplitudes in the
+power spectrum will look different.
+
+After determining the frequencies of a range of pulsations from a power spectrum
+of the time series, a pattern emerge at every $\Delta\nu$ (the so-called large
+separation frequency). A finer pattern also occur described by $\delta\nu$. Last
+the frequency at maximum power is also measured from the power spectrum,
+$\nu_\mathrm{max}$. These frequency separations are used to obtain $\log g$ via
+\begin{align}
+  \nu_\mathrm{max} &\propto \frac{g}{\sqrt{T_\mathrm{eff}}} \\
+                   &= \frac{M/M_\odot}{(R/R_\odot)^2 \sqrt{T_\mathrm{eff}/5777}}\; \SI{3.05}{mHz}, \label{eq:scaling1}
+\end{align}
+where $\nu_{\mathrm{max},\odot}=\SI{3.05}{mHz}$ is the frequency of maximum
+amplitude for the Sun. A similar equation exists for the determination of the
+stellar density:
+\begin{align}
+  \Delta\nu = (M/M_\odot)^{-1/2} (R/R_\odot)^{-3/2}\; \SI{134.9}{\micro\hertz}.
+\end{align}
+These simple scaling relation are described in detail in \citet{Kjeldsen1995}.
+These two equations can be used together to determine the mass and radius of the
+star, often to a high precision. These scaling relations are applicable for
+stars which shows solar-like oscillations, mostly found in main sequence FGK
+stars, but can also be found in red giant stars.
+
+A drawback of asteroseismology is the dependence of $T_\mathrm{eff}$ in
+\eref{eq:scaling1} which has to be provided from another method. Ideally this
+will come from spectroscopy for which the determination of $T_\mathrm{eff}$ is
+often reliable. This drawback is minor compared to the lack of model dependence
+which is one of the strongest advantages of asteroseismology.
+
+For both of the mentioned photometric methods to determine some atmospheric
+parameters a disadvantage is the dependence on the knowledge of other
+atmospheric parameters which usually comes from spectroscopy (e.g. metallicity).
+However, as will be discussed in \sref{sec:method_spectroscopy} $\log g$ is
+often difficult to determine reliably and synergies are welcomed between
+different methods.
+
 \subsection{Spectroscopy}
+\label{sec:method_spectroscopy}
 
-
-\section{Other stellar parameters}
-
-\subsection{Asteroseismology}
 
 
 \section{\FASMA}
