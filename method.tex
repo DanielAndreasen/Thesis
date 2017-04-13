@@ -20,9 +20,47 @@ a measurement of the angular diameter, $\theta$, derived from infrared
 photometry. $T_\mathrm{eff}$ is derived from the angular diameter from the
 simple relation
 \begin{align}
-  \sigma T_\mathrm{eff}^4 = \frac{4\mathcal{F}_E}{\theta^2},
+  \sigma T_\mathrm{eff}^4 = \frac{4\mathcal{F}_E}{\theta^2}, \label{eq:irfm}
 \end{align}
-where $\mathcal{F}_E$ is the flux measured at Earth.
+where $\mathcal{F}_E$ is the monochromatic flux measured at Earth, and $\sigma$
+is Boltzmann's constant. The angular diameter is calculated from the following
+equation:
+\begin{align}
+  \theta = 2\sqrt{\mathcal{F}_E/\mathcal{F}_S},
+\end{align}
+where $\mathcal{F}_S$ is the calculated monochromatic flux from the star. This
+flux is based on a model atmosphere with an effective temperature based on the
+spectral energy distribution (SED). The calculated flux show a strong
+dependence on $T_\mathrm{eff}$ in the visible, however this dependence is much
+weaker in the infrared. Hence a poor first estimation of $T_\mathrm{eff}$ will
+lead to a reliable angular diameter. From this new angular diameter
+$T_\mathrm{eff}$ can be re-derived, a new model atmosphere can be used with a new
+set of $\mathcal{F}_S$ can be calculated. Iteratively the angular diameter and
+$T_\mathrm{eff}$ can be calculated. If the distance $d$ is known of the star,
+the stellar radius is $R_\ast = \frac{\theta d}{2}$. The solar flux, both
+measured and calculated, from \citet{Blackwell1977} are shown in
+\fref{fig:IRFM}. Using the data provided the solar radius and $T_\mathrm{eff}$
+were derived using the equations above: $R=1.011R_\odot$ and
+$T_\mathrm{eff}=\SI{5963}{K}$. This was simply done for each wavelength, and the
+results presented here are just a simple average value.
+
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/IRFM.pdf}
+    \caption{Measured and calculated flux from the Sun at infrared wavelengths.
+             Data from Table 2 in \citet{Blackwell1977}. Mean solar radius from
+             this data is $1.011R_\odot$, and mean solar
+             $T_\mathrm{eff}=\SI{5963}{K}$ using \eref{eq:irfm}.}
+    \label{fig:IRFM}
+\end{figure}
+
+The main drawbacks of the IRFM is the model dependence, a drawback many methods
+share, and the need of high precision infrared photometry. For the model
+atmosphere a metallicity and surface gravity is assumed which has an effect on
+$\mathcal{F}_S$, and hence on the final derived $T_\mathrm{eff}$ and $R$. A more
+in-depth description of the IRFM can be see in e.g.
+\citet[][section 4]{Casagrande2006}.
+
 
 
 \subsection{Photometry}
