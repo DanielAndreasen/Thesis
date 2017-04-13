@@ -1,5 +1,5 @@
 update:
-	git add master.pdf
+	git add thesis.pdf
 	git commit -m "New update"
 	git push
 
