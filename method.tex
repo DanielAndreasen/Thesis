@@ -114,21 +114,29 @@ of the time series, a pattern emerge at every $\Delta\nu$ (the so-called large
 separation frequency). A finer pattern also occur described by $\delta\nu$. Last
 the frequency at maximum power is also measured from the power spectrum,
 $\nu_\mathrm{max}$. These frequency separations are used to obtain $\log g$ via
-\begin{align}
-  \nu_\mathrm{max} &\propto \frac{g}{\sqrt{T_\mathrm{eff}}} \\
-                   &= \frac{M/M_\odot}{(R/R_\odot)^2 \sqrt{T_\mathrm{eff}/5777}}\; \SI{3.05}{mHz}, \label{eq:scaling1}
-\end{align}
-where $\nu_{\mathrm{max},\odot}=\SI{3.05}{mHz}$ is the frequency of maximum
-amplitude for the Sun. A similar equation exists for the determination of the
-stellar density:
-\begin{align}
-  \Delta\nu = (M/M_\odot)^{-1/2} (R/R_\odot)^{-3/2}\; \SI{134.9}{\micro\hertz}.
-\end{align}
+\begin{align} \nu_\mathrm{max} &\propto \frac{g}{\sqrt{T_\mathrm{eff}}} \\ &=
+\frac{M/M_\odot}{(R/R_\odot)^2 \sqrt{T_\mathrm{eff}/5777}}\; \SI{3.05}{mHz},
+\label{eq:scaling1} \end{align} where $\nu_{\mathrm{max},\odot}=\SI{3.05}{mHz}$
+is the frequency of maximum amplitude for the Sun. A similar equation exists for
+the determination of the stellar density: \begin{align} \Delta\nu =
+(M/M_\odot)^{-1/2} (R/R_\odot)^{-3/2}\; \SI{134.9}{\micro\hertz}. \end{align}
 These simple scaling relation are described in detail in \citet{Kjeldsen1995}.
 These two equations can be used together to determine the mass and radius of the
 star, often to a high precision. These scaling relations are applicable for
 stars which shows solar-like oscillations, mostly found in main sequence FGK
-stars, but can also be found in red giant stars.
+stars, but can also be found in red giant stars. The mass and radius for a range
+of $\nu_\mathrm{max}$ and $\Delta\nu$ can be seen in \fref{fig:scaling}, where
+$T_\mathrm{eff}=\SI{5777}{K}$. The star located at
+$\{\Delta\nu=\SI{134.9}{\micro Hz};\;\nu_\mathrm{max}=\SI{3.05}{mHz}\}$ is the
+Sun.
+
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/scaling_relation.pdf}
+    \caption{Mass and radius from asteroseismic scaling relation. The colour
+             is the mass and radius for the upper and lower panel, respectively.}
+    \label{fig:scaling}
+\end{figure}
 
 A drawback of asteroseismology is the dependence of $T_\mathrm{eff}$ in
 \eref{eq:scaling1} which has to be provided from another method. Ideally this
