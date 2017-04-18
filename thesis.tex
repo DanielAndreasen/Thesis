@@ -181,42 +181,8 @@
 \newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
 
 %%%%%%%%%%%%% Layout %%%%%%%%%%%%%%%%%%%%%
-%% Chapter style from ftp://ftp.dante.de/tex-archive/info/MemoirChapStyles/MemoirChapStyles.pdf
-% \definecolor{nicered}{rgb}{.647,.129,.149}
-% \makeatletter
-% \newlength\dlf@normtxtw
-% \setlength\dlf@normtxtw{\textwidth}
-% \def\myhelvetfont{\def\sfdefault{mdput}}
-% \newsavebox{\feline@chapter}
-% \newcommand\feline@chapter@marker[1][4cm]{%
-% \sbox\feline@chapter{%
-%   \resizebox{!}{#1}{\fboxsep=1pt%
-%   \colorbox{nicered}{\color{white}\bfseries\sffamily\thechapter}%
-% }}%
-% \rotatebox{90}{%
-%   \resizebox{%
-%     \heightof{\usebox{\feline@chapter}}+\depthof{\usebox{\feline@chapter}}}%
-%   {!}{\scshape\so\@chapapp}}\quad%
-%   \raisebox{\depthof{\usebox{\feline@chapter}}}{\usebox{\feline@chapter}}%
-% }
-% \newcommand\feline@chm[1][4cm]{%
-%   \sbox\feline@chapter{\feline@chapter@marker[#1]}%
-%   \makebox[0pt][l]{
-%   \makebox[1cm][r]{\usebox\feline@chapter}%
-% }}
-% \makechapterstyle{daleif1}{
-%   \renewcommand\chapnamefont{\normalfont\Large\scshape\raggedleft\so}
-%   \renewcommand\chaptitlefont{\normalfont\huge\bfseries\scshape\color{nicered}}
-%   \renewcommand\chapternamenum{}
-%   \renewcommand\printchaptername{}
-%   \renewcommand\printchapternum{\null\hfill\feline@chm[2.5cm]\par}
-%   \renewcommand\afterchapternum{\par\vskip\midchapskip}
-%   \renewcommand\printchaptertitle[1]{\chaptitlefont\raggedleft ##1\par}
-% }
-% \makeatother
-% \chapterstyle{daleif1}
-% \setsecnumdepth{subsubsection}
-% \settocdepth{subsubsection}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 
 
 
@@ -261,10 +227,6 @@
 
 
 %% *** Adjust the following settings as desired. ***
-
-%% List only down to subsections in the table of contents;
-%% 0=chapter, 1=section, 2=subsection, 3=subsubsection, etc.
-\setcounter{tocdepth}{2}
 
 %% Make each page fill up the entire page.
 \flushbottom
