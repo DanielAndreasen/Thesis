@@ -111,15 +111,19 @@ power spectrum will look different.
 
 After determining the frequencies of a range of pulsations from a power spectrum
 of the time series, a pattern emerge at every $\Delta\nu$ (the so-called large
-separation frequency). A finer pattern also occur described by $\delta\nu$. Last
+frequency separation). A finer pattern also occur described by $\delta\nu$. Last
 the frequency at maximum power is also measured from the power spectrum,
 $\nu_\mathrm{max}$. These frequency separations are used to obtain $\log g$ via
-\begin{align} \nu_\mathrm{max} &\propto \frac{g}{\sqrt{T_\mathrm{eff}}} \\ &=
-\frac{M/M_\odot}{(R/R_\odot)^2 \sqrt{T_\mathrm{eff}/5777}}\; \SI{3.05}{mHz},
-\label{eq:scaling1} \end{align} where $\nu_{\mathrm{max},\odot}=\SI{3.05}{mHz}$
-is the frequency of maximum amplitude for the Sun. A similar equation exists for
-the determination of the stellar density: \begin{align} \Delta\nu =
-(M/M_\odot)^{-1/2} (R/R_\odot)^{-3/2}\; \SI{134.9}{\micro\hertz}. \end{align}
+\begin{align}
+  \nu_\mathrm{max} &\propto \frac{g}{\sqrt{T_\mathrm{eff}}} \\
+                   &= \frac{M/M_\odot}{(R/R_\odot)^2 \sqrt{T_\mathrm{eff}/5777}}\; \SI{3.05}{mHz},\label{eq:scaling1}
+\end{align}
+where $\nu_{\mathrm{max},\odot}=\SI{3.05}{mHz}$ is the frequency of maximum
+amplitude for the Sun. A similar equation exists for the determination of the
+stellar density:
+\begin{align}
+  \Delta\nu = (M/M_\odot)^{-1/2} (R/R_\odot)^{-3/2}\; \SI{134.9}{\micro\hertz}.
+\end{align}
 These simple scaling relation are described in detail in \citet{Kjeldsen1995}.
 These two equations can be used together to determine the mass and radius of the
 star, often to a high precision. These scaling relations are applicable for
@@ -129,6 +133,13 @@ of $\nu_\mathrm{max}$ and $\Delta\nu$ can be seen in \fref{fig:scaling}, where
 $T_\mathrm{eff}=\SI{5777}{K}$. The star located at
 $\{\Delta\nu=\SI{134.9}{\micro Hz};\;\nu_\mathrm{max}=\SI{3.05}{mHz}\}$ is the
 Sun.
+
+The small frequency separation, $\delta\nu$, is sensitive to the sound-speed
+gradient in the core which in turn is sensitive to the composition. Thus the
+small frequency separation is a very important diagnostic for stellar evolution.
+An interesting case is that of \citet{Bedding2011}, where it was shown it is
+possible to distinguish between hydrogen- and helium-burning cores in red giant
+stars.
 
 \begin{figure}[htpb!]
     \centering
