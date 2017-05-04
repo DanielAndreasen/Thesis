@@ -21,9 +21,9 @@ if __name__ == '__main__':
         ds[i, 1] = d[idx, 1]
 
     plt.subplot(211)
-    plt.plot(d[:, 0], d[:, 1], '-')
-    for di in ds:
-        plt.plot(di[0], di[1], 'o')
+    plt.plot(d[:, 0], d[:, 1], '-', alpha=0.7)
+    for i, di in enumerate(ds):
+        plt.plot(di[0], di[1], 'o', c='C%s' % i)
     plt.text(-4.6, -5.8, 'Weak line', rotation=30)
     plt.text(-1.6, -4.3, 'Saturation', rotation=11)
     plt.text(1.0, -3.0, 'Strong line', rotation=15)
@@ -36,7 +36,7 @@ if __name__ == '__main__':
     w0 = 4566.52
     for i in range(1, 5):
         w, f = np.loadtxt('synth%s.asc' % i, skiprows=2, unpack=True)
-        plt.plot(w, f, 'C%s' % i)
+        plt.plot(w, f, 'C%s' % (i-1))
 
     plt.xlim(w0-1.6, w0+1.5)
     plt.ylim(0, 1.05)
