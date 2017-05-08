@@ -182,7 +182,42 @@ used for the analysis in this thesis.
 \subsubsection{Synthesis}
 \label{sec:synthesis}
 
-The synthesis method was already shortly mentioned above... Lalala, not true
+The synthesis fitting method is a standard method for obtaining stellar
+atmospheric parameters from a wide range of spectra, that is with different
+spectral resolution, spectral parameters such as $T_\mathrm{eff}$, $\log g$,
+$v\sin i$ the projected rotational velocity, etc., and S/N  \citep[see
+e.g.][]{Tsantaki2017}. The synthetic fitting method is in simple terms a
+comparison between the observed spectrum and a synthetic spectrum, which is
+either calculated on the fly like Spectroscopy Made Easy (SME)
+\citep{Valenti1996}, or using a pre-calculated grid like Starfish
+\citep{Czekala2015}. By analysing the
+\begin{align}
+  \chi^2 = \sum_i^N\frac{(y_\mathrm{obs,i}-y_\mathrm{model,i})^2}{\sigma_i},
+\end{align}
+the synthetic spectrum that best match the observed spectrum can be found. Here
+the $y_\mathrm{obs}$ is the observed spectrum, $y_\mathrm{model}$ is the
+synthetic spectrum, and $\sigma$ is the error on the measurement.
+
+The synthetic fitting can be done by utilising small windows around sensitive
+spectral features such as ionized lines or hydrogen lines for obtaining the
+surface gravity, iron lines for obtaining the effective temperature, a series of
+different atomic lines for obtaining the overall metallicity. This approach is
+used by FASMA and SME \citep[][respectively]{Valenti1996,Tsantaki2017} and is a
+compromise between fitting the entire spectral range and calculating the
+synthetic spectra on the fly which is time consuming. On the other hand the
+entire spectrum can be fitted if a pre-calculated grid of synthetic spectra are
+available. By masking small windows, one can also exclude different features
+that are troublesome, this can be telluric lines, bad reduction of the spectra,
+or real spectral features where there currently is poor atomic/molecular data
+such as the oscillator strength and thus it is not possible to reliably fit this
+feature.
+
+This method is affected by the different approaches one can use, that is which
+atmosphere models are used (ATLAS, MARCS, etc.), atomic data and whether this
+has been calibrated, the radiative transfer code in the case the synthetic
+spectra are calculated on the fly, and the minimization procedure chosen. With
+these things in mind it is important to stress the wide range spectra and
+spectral classes this method works with.
 
 
 
@@ -199,14 +234,6 @@ The synthesis method was already shortly mentioned above... Lalala, not true
 In this section, the process from a spectrum to atmospheric parameters will be
 explained in details. There are two classic methods, synthetic fitting and
 curve-of-growth analysis.
-
-The synthetic fitting method is in simple terms a comparison between the
-observed spectrum and a synthetic spectrum, which is either calculated on the
-fly like SME \citep{Valenti1996}, or using a pre-calculated grid. By analysing
-the $\chi^2$ the synthetic spectrum that best match the observed spectrum can be
-found. This technique works for all ranges of spectral resolutions and can work
-for many rotational profiles as well \citep[see e.g.][]{Tsantaki2017}. However,
-this method is often time-consuming compared to the curve-of-growth analysis.
 
 Here the curve-of-growth analysis will be explained in detail. In particular
 Fast Analysis of Spectra Made Automatically (\FASMA) which was developed during
