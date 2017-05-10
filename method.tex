@@ -227,7 +227,7 @@ method (\sref{sec:synthesis}). Since this is the method used throughout this
 thesis it will be explained in detail. This analysis follow a chain of tasks,
 each has been made automatic in the software Fast Analysis of Spectra Made
 Automatically (\FASMA\footnote{Greek for spectrum}) which was developed during
-this thesis \citep{Andreasen2017a}. \FASMA is made of three \emph{drivers}
+this thesis \citep{Andreasen2017a}. \FASMA is made of three \code{drivers}
 \begin{enumerate}
   \item EW measurement driver
   \item Obtain stellar atmospheric parameters driver
@@ -302,7 +302,7 @@ the option to analyse a few absorption free regions and measure the S/N. The
   \item minimum and maximum EW to be considered ($\SI{5}{m}$\AA{} and
         $\SI{150}{m}$\AA{} respectively by default)
   \item Minimum distance between two consecutive lines
-  \item Smoothing applied with a \emph{boxcar} filter before measuring the EWs
+  \item Smoothing applied with a \code{boxcar} filter before measuring the EWs
 \end{itemize}
 An in-depth description of these options can be found in
 \citet{Sousa2007,Sousa2015a}.
@@ -424,37 +424,48 @@ abundances against RW.
     \label{fig:eprw}
 \end{figure}
 
-In each iteration where convergence is not reached, the input metallicity is
-changed to that of the average output metallicity using the \ion{Fe}{I} lines.
-\FASMA is able to fix one or all of the four atmospheric parameters, and when it
-reach convergence it checks if there are any outliers in the abundances. These
-will be removed, either all at once, all iteratively, meaning that after
-removing the outliers the minimization is restarted at the previous best
-parameters, and this process is continued until there can be removed no other
-outliers, or last is removing one outlier iteratively. An optical line list like
-the ones by \citet{Sousa2008a,Tsantaki2013} have been tested thoroughly and it
-is safe to remove a larger amount of lines and still obtain reliable parameters.
-However, with a less tested line list, like the one by \citet{Andreasen2016}
-(and refined in \citet{Andreasen2017b}), one should remove outliers more
+The minimization with the different options is depicted in
+\fref{fig:minimization}. In each iteration where convergence is not reached, the
+input metallicity is changed to that of the average output metallicity using the
+\ion{Fe}{I} lines. \FASMA is able to fix one or all of the four atmospheric
+parameters, and when it reach convergence it checks if there are any outliers in
+the abundances. These will be removed, either:
+\begin{itemize}
+  \item All outliers above $3\sigma$ once; minimization routine is restarted
+        after removal of outliers.
+  \item All outliers above $3\sigma$ iteratively; minimization routine is
+        restarted after removal of outliers each time.
+  \item One outlier above $3\sigma$ (with the highest deviation) is removed
+        iteratively; minimization routine is restarted after removal of outliers
+        each time.
+\end{itemize}
+
+All restarts of the minimization will start at the precious best found parameters. For the latter
+two were outliers are removed iteratively, this will continue until no outliers are present. An
+optical line list like the ones by \citet{Sousa2008a,Tsantaki2013} have been tested thoroughly and
+it is safe to remove a larger amount of lines and still obtain reliable parameters, thus using the
+first option is common here. However, with a less tested line list, like the one by
+\citet{Andreasen2016} (and refined in \citet{Andreasen2017b}), one should remove outliers more
 carefully, and it is recommended that one outlier is removed iteratively.
 
-In \fref{fig:minimization} there is a flag with \emph{autofixvt}. This was an
-option introduced since we see that some spectra does not converge, however the
-usual way to proceed is to fix the $\xi_\mathrm{micro}$. This is done at the end
-of the minimization if the $\xi_\mathrm{micro}$ value is close to either
-$0\si{km/s}$ or $5\si{km/s}$ and $|a_\mathrm{RW}| > 0.050$. When fixing
-$\xi_\mathrm{micro}$ with \FASMA, its value is changed in each iteration
-following a simple empirical relation:
+Sometimes the minimization can not reach convergence with all parameters free. The first approach to
+progress is to fix $\xi_\mathrm{micro}$ to a value. This parameter is known to depend on the
+spectral type \citep[see e.g.][and references therein]{Tsantaki2013}. \FASMA use one of two
+empirical relations to fix $\xi_\mathrm{micro}$ if this is close to either $0\si{km/s}$ or
+$5\si{km/s}$ and $|a_\mathrm{RW}| > 0.050$ at the end of the minimization. The empirical relations
+are:
 \begin{align}
-  vt = \begin{cases}
+  vt =
+  \begin{cases}
     6.935 \cdot 10^{-4}\; T_\mathrm{teff} - 0.348 \log g - 1.437     & \text{For $\log g \ge 3.95$} \\
     2.72 - 0.457 \log g + 0.072 \cdot [\ion{Fe}/\ion{H}]             & \text{For $\log g < 3.95$},
-\end{cases}
+  \end{cases}
 \end{align}
-where the first case is from \citet{Tsantaki2013} and the latter case is from
-\citet{Adibekyan2015}.
+where the first case is from \citet{Tsantaki2013} and the latter case is from \citet{Adibekyan2015}.
+In this way $\xi_\mathrm{micro}$ is changed in each iteration according to one of these relations.
+This option is called \code{autofixvt} in \fref{fig:minimization}.
 
-Last there is an option, \emph{refine}. This apply more strict criteria for the
+Last there is an option, \code{refine}. This apply more strict criteria for the
 indicators to reach convergence, thus making the minimization less sensitive to
 the initial guess since it could otherwise reach convergence from one "side" of
 the parameter space. The default criteria are:
@@ -481,8 +492,8 @@ defined by adding the following:
 to each parameter. Note again that metallicity is simply changed to the the
 output metallicity of the previous iteration. These are empirical relations.
 Note that by changing e.g. $T_\mathrm{eff}$ not only is $a_\mathrm{EP}$
-affected, but the other indicators as well. So there is a inter-dependency
-between the parameters, however this is ignored by \FASMA as it is not a simple
+affected, but the other indicators as well as seen in \fref{fig:eprw}. This inter-dependency
+between the parameters is ignored by \FASMA as it is not a simple
 problem to solve. The stepping presented above is chosen to rapidly reach
 convergence, without causing problems for the inter-dependency.
 
