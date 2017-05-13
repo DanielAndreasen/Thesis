@@ -55,17 +55,28 @@ if __name__ == '__main__':
 
     ## Styling
     plt.subplot(211)
+    ax = plt.gca()
+    ax.spines['top'].set_color('none')
+    ax.spines['right'].set_color('none')
     plt.legend(loc='best', frameon=False)
     plt.xlabel(r'log $gf$')
     plt.ylabel(r'$\log(EW/\lambda)$')
 
     plt.subplot(223)
+    ax = plt.gca()
+    ax.spines['top'].set_color('none')
+    ax.spines['right'].set_color('none')
     w0 = 4620.510
     dw = 0.2
     plt.xlim(w0-dw, w0+dw)
     plt.xlabel(r'Wavelength [$\AA$]')
     plt.ylabel('Flux')
     plt.xticks([w0], [w0])
+
+    plt.subplot(224)
+    ax = plt.gca()
+    ax.spines['top'].set_color('none')
+    ax.spines['left'].set_color('none')
 
     plt.tight_layout()
     # plt.savefig('../ewGravity.pdf')
