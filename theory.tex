@@ -76,14 +76,15 @@ timescale found in chemical composition changes.
 Much of this Section is inspired by \citet{Gray2006}. While all the figures here were made by the
 author of this thesis, most of them can be found in \citet{Gray2006} as well.
 
-Stellar atmospheres are rather complicated. This is where the light produced in the interior of the
+Stellar atmospheres are rather complex. This is where the energy produced in the interior of the
 stars are released. However, the atmosphere of a star is not transparent to all light, and some of
-the light is absorbed in the atmosphere and later emitted in a random direction. The different
-elements in the atmosphere is the reason for absorbing light at specific wavelength. The strength of
-the absorption depends on the physical conditions in the atmosphere, the effective temperature
-($T_\mathrm{eff}$), the pressure/gravity ($\log g$), the overall metallicity ($[\ion{Fe}/\ion{H}]$),
-the specific abundance of a given element if different from the overall metallicity ($A$), and the
-atomic characteristics of the transition coursing the absorption line.
+the light is absorbed or scattered in the atmosphere. In the case of absorption the light will later
+be emitted in a random direction. This is seen as an absorption line in the stellar spectrum. The
+different elements in the atmosphere is the reason for absorbing light at specific wavelength. The
+strength of the absorption depends on the physical conditions in the atmosphere, the effective
+temperature ($T_\mathrm{eff}$), the pressure/gravity ($\log g$), the overall metallicity
+($[\ion{Fe}/\ion{H}]$), the specific abundance of a given element if different from the overall
+metallicity ($A$), and the atomic characteristics of the transition coursing the absorption line.
 
 It is important to know the fraction of atoms excited to the $n$th energy level, $N_n$. This
 fraction is proportional to the statistical weight $g_n$ and the Boltzmann factor and is described
@@ -105,28 +106,30 @@ excited state above for the same element, $r+1$, in the following way:
 here $m_e$ is the electron mass, $h$ is Planck's constant, $I$ is the ionization potential of the
 neutral atom, and $\Phi(T)$ is all not related to the electron pressure, $P_e$.
 
-The atomic lines are characterised by few quantum mechanical descriptors.
+The atomic lines are characterised by a few quantum mechanical descriptors.
 \begin{itemize}
-  \item The wavelength describes between which energy levels there is a transition, i.e. at which
-        wavelength the light is absorbed.
-  \item The ionization state, i.e. is it a atom element absorbing or a ionized atom.
-  \item The excitation potential. This gives an idea how deep in the atmosphere a line is formed. If
-        $\chi$ is high, then higher temperatures (i.e. higher random motion and more collisions
-        between the atoms) is required for forming the absorption line. These higher temperatures
-        are found deeper in the atmosphere.
-  \item The oscillator strength, $\log \mathit{gf}$, is related to the atomic transition probability.
-  \item The damping coefficients, is a natural damping (also known as radiation damping) caused by
-        the uncertainty of lifetime in an energy level according to Heisenberg's uncertainty
-        principle. This is related to a uncertainty in the energy level and thus a natural
-        broadening is introduced.
+  \item {\bf The wavelength, $\lambda$} of an absorption (or emission) describes the energy
+        difference between the two energy levels where the transition occurs.
+  \item {\bf The ionization state}, e.g. \ion{Fe}{I} describes iron in its atomic form, while
+        \ion{Fe}{II} describes iron in its first ionized form.
+  \item {\bf The excitation potential $\chi$}. This gives an idea how deep in the atmosphere a line
+        is formed. If $\chi$ is high, then higher temperatures (i.e. higher random motion and more
+        collisions between the atoms) is required for forming the absorption line. These higher
+        temperatures are found deeper in the atmosphere.
+  \item {\bf The oscillator strength}, $\log \mathit{gf}$, is related to the atomic transition
+        probability.
+  \item {\bf The damping coefficients}, is a natural damping (also known as radiation damping)
+        caused by the uncertainty of lifetime in an energy level according to Heisenberg's
+        uncertainty principle. This is related to a uncertainty in the energy level and thus a
+        natural broadening is introduced.
 \end{itemize}
 These are essential to know from either theoretical calculations or experiments. The oscillator
 strength is a quantity that is difficult to measure, and this is often changed when absorption lines
 are matched with real observations of e.g. the Sun. This is a way of calibrating a line list and
 will be described in detail in \sref{sec:linelist}.
 
-It is important to mention that one of the main differences between absorption lines in optical and
-near-infrared is the excitation potential. The energy levels of an atom gets denser packed as the
+It is important to mention that one of the main differences between absorption lines at different
+wavelengths is the excitation potential. The energy levels of an atom gets denser packed as the
 energy level increase as shown in \fref{fig:elevel} for hydrogen. For hydrogen the energy levels
 $E_n$ follow the very simple formula from Bohr's atomic model, $E_n=\frac{\SI{-13.6}{eV}}{n^2}$,
 where $n$ is the principal quantum number, and \SI{13.6}{eV} is the ionization energy for hydrogen,
@@ -160,13 +163,13 @@ interacting with the orbital angular momentum of the electron. This leads to a s
 absorption line. In atoms there also exists an even finer structure, commonly known as the hyperfine
 structure. This structure arise due to the interaction between the magnetic field created by the
 electrons and the nuclear spin. These splittings are important to consider for some transitions and
-some atoms. For \ion{Fe}{} the hyperfine structure is not important since the net nuclear spin (of
-protons) is 0 because there is an even number, hence hyperfine structure is only important for atoms
-with an odd number of protons. There are other splitting and shift for spectral absorption lines
-like the Zeeman splitting coursed by an external magnetic field, and the Stark effect splitting a
-line due to an external electric field. These two last effect are minor and will not be discussed
-more, however it is worth noting that the Zeeman splitting can be used to measure the strength of a
-magnetic field in a star if this is strong enough.
+some atoms. For \ion{Fe}{} the hyperfine structure is not important since the net nuclear spin of
+protons is 0 because there is an even number of protons, hence hyperfine structure is only important
+for atoms with an odd number of protons. There are other splitting and shift for spectral absorption
+lines like the Zeeman splitting coursed by an external magnetic field, and the Stark effect
+splitting a line due to an external electric field. These two last effect are minor and will not be
+discussed more, however it is worth noting that the Zeeman splitting can be used to measure the
+strength of a magnetic field in a star if this is strong enough.
 
 
 
@@ -176,16 +179,17 @@ magnetic field in a star if this is strong enough.
 In order to derive abundances or calculate a synthetic spectrum, two main things are needed: 1) And
 atmosphere model, and 2) a radiative transfer code that solves the equations above. There are
 different atmosphere models available. Throughout this thesis the ATLAS9 model atmosphere are used
-by \citet{Kurucz1993}. Other mention-able atmosphere models includes MARCS models
-\citep{Gustafson2008} and the PHOENIX models \citep{Husser2013}. An atmosphere model is a file with
-typically 72 layers. Each layer includes physical quantities such as temperature, gas and electron
-pressure, the optical depth, etc. The models can be calculated on the fly, but it is common practise
-to pre-calculate a grid of atmosphere models at certain $T_\mathrm{eff}$, $\log g$, and
-$[\ion{Fe}/\ion{H}]$. A specific atmosphere model is then obtained from this grid by interpolating
-from nearest neighbours. The interpolation code used throughout this work includes the four nearest
-neighbours in the $T_\mathrm{eff}$-space, and the two nearest neighbours in both the $\log g$- and
-$[\ion{Fe}/\ion{H}]$-space, in total $4\times2\times2=16$ atmosphere models to generate a single
-interpolated atmosphere model.
+\citep{Kurucz1993}. Other mention-able atmosphere models includes MARCS models \citep{Gustafson2008}
+and the PHOENIX models \citep{Husser2013}. An atmosphere model is a description of the structure of
+the atmosphere. This description has a number of quantities. The atmosphere model grids that are
+available and used here have 72 layers. Each layer includes physical quantities such as temperature,
+gas and electron pressure, the optical depth, etc. The models can be calculated on the fly, but it
+is common practise because of computational reasons to pre-calculate a grid of atmosphere models at
+certain $T_\mathrm{eff}$, $\log g$, and $[\ion{Fe}/\ion{H}]$. A specific atmosphere model is then
+obtained from this grid by interpolating from nearest neighbours. The interpolation code used
+throughout this work includes the four nearest neighbours in the $T_\mathrm{eff}$-space, and the two
+nearest neighbours in both the $\log g$- and $[\ion{Fe}/\ion{H}]$-space, in total
+$4\times2\times2=16$ atmosphere models to generate a single interpolated atmosphere model.
 
 
 
@@ -414,7 +418,9 @@ As mentioned above, the atomic data of the absorption lines are required. These 
 a database such as \emph{The Vienna Atomic Line Data Base} (VALD) \citep{VALD1,VALD2}. For compiling
 a usable iron line list, all theoretical transitions in a given wavelength range are requested from
 VALD. In the near-infrared (NIR), YJHK bands, there are several thousands of theoretical
-transitions. The EWs are measured (see \sref{sec:measureEW}) for all these lines using a solar
+transitions.
+
+In this thesis the EWs are measured (see \sref{sec:measureEW}) for all these lines using a solar
 spectrum \citep[][is used here]{Hinkle1995}. Here there are four possible outcomes. 1) A line can
 not be measured and is thus discarded, 2) the EW of the line is weak (below 5 m\AA{}) to be
 reliable, 3) the EW of the line is too strong ( above 150 m\AA{}) and the line show non-linear
