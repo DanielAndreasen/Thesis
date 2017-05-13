@@ -31,6 +31,9 @@ if __name__ == '__main__':
     plt.ylim(-7.2, -2.6)
     plt.xlabel(r'log $gf$')
     plt.ylabel(r'$\log(EW/\lambda)$')
+    ax = plt.gca()
+    ax.spines['top'].set_color('none')
+    ax.spines['right'].set_color('none')
 
     plt.subplot(212)
     w0 = 4566.52
@@ -42,6 +45,10 @@ if __name__ == '__main__':
     plt.ylim(0, 1.05)
     plt.xlabel(r'Wavelength [$\AA$]')
     plt.ylabel('Flux')
+    ax = plt.gca()
+    ax.spines['top'].set_color('none')
+    ax.spines['right'].set_color('none')
+
     plt.tight_layout()
 
     # plt.savefig('../cog.pdf')
