@@ -22,6 +22,9 @@ if __name__ == '__main__':
     plt.legend(loc='best', frameon=False)
     plt.xlabel(r'log $gf$')
     plt.ylabel(r'$\log(EW/\lambda)$')
+    ax = plt.gca()
+    ax.spines['top'].set_color('none')
+    ax.spines['right'].set_color('none')
 
     # plt.savefig('../cog_vt.pdf')
     plt.show()
