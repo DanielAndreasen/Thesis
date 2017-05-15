@@ -35,6 +35,10 @@ if __name__ == '__main__':
     plt.semilogy(df.w, df.Flux, 'o-', label='Calculated flux')
     plt.semilogy(df.w, df.FluxE, 'o-', label='Measured flux at Earth')
 
+    ax = plt.gca()
+    ax.spines['top'].set_color('none')
+    ax.spines['right'].set_color('none')
+
     plt.xlabel(r'Wavelength [$\mu$m]')
     plt.ylabel(r'Flux [W m$^{-2}$ Hz$^{-1}$]')
     plt.legend(loc='best', frameon=False)

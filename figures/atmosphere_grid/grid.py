@@ -9,6 +9,7 @@ plt.rcParams['xtick.direction'] = 'in'
 plt.rcParams['ytick.direction'] = 'in'
 
 path = '/home/daniel/Documents/Uni/phdproject/programs/FASMA/models/kurucz95'
+path = '/home/daniel/kurucz95'
 # path = '/home/daniel/Documents/Uni/phdproject/programs/FASMA/models/apogee_kurucz'
 # path = '/home/daniel/Documents/Uni/phdproject/programs/FASMA/models/marcs'
 
@@ -26,7 +27,6 @@ def extract_feh(directories):
 
 
 def extract_teff_logg(model):
-    '13000g35.m10.gz'
     model = model.rpartition('/')[-1]
     p = model.split('.')[0].split('g')
     teff = int(p[0])
@@ -59,13 +59,18 @@ if __name__ == '__main__':
     plt.scatter(teff, logg, s=6, c=T, cmap=cm.inferno)
     plt.scatter(5777, 4.44, c=3725.8, marker='*', s=100, cmap=cm.inferno)
 
-    plt.xlim(teff_min, teff_max)
+    plt.xlim(teff_min, teff_max+100)
     plt.title('[Fe/H]=%.2f' % fehs[9])
     plt.xlabel(r'$T_\mathrm{eff}$ [K]')
     plt.ylabel(r'$\log g$')
 
     cbar = plt.colorbar()
     cbar.set_label('Temperature in 1st layer', rotation=270, va='bottom')
+
+    ax = plt.gca()
+    ax.spines['top'].set_color('none')
+    ax.spines['right'].set_color('none')
+
     plt.tight_layout()
 
     # plt.savefig('../model_atmosphere.pdf')
