@@ -22,7 +22,7 @@
 %%         \documentclass[...options...]{fcup-thesis}
 %%
 %% The default settings produce a final copy, ready for submission to
-%% the School of Graduate Studies (SGS) at the University of Toronto:
+%% the School of Graduate Studies (SGS) at the University of Porto:
 %% single-sided, "normal" margins (see below), one-and-a-half spaced
 %% with single-spaced notes.
 %%
@@ -150,7 +150,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01] % robust macros with * form
 \ProvidesClass{fcup-thesis}[\utthesisupdated\space\utthesisversion\space
-   graduate theses at the University of Toronto]
+   graduate theses at the University of Porto]
 
 
 %%%%%%%%%%%%         INITIAL CODE         %%%%%%%%%%%%
@@ -321,7 +321,7 @@
       A thesis submitted in conformity with the requirements\\
       for the degree of {\@degree}\\
       Graduate Department of {\@department}\\
-      University of Toronto\\
+      University of Porto\\
       \vfill
       {\copyright} Copyright {\@gradyear} by {\@author}\\
       \vspace{.01\textheight}
