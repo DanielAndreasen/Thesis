@@ -12,10 +12,6 @@ library \citep{Husser2013}, with $T_\mathrm{eff}$ lower than analysed in previou
 methodology described above in \sref{sec:parameters}.
 
 
-\section{Parameter dependence on EP cut}
-\label{sec:EPcut}
-
-
 \section{HD20010}
 \label{sec:HD20010}
 
@@ -64,22 +60,23 @@ use is shown in Fig. 6. The two RVs are part of the title of the plot. Once the 
 identified, the EWs were measured with the splot routine in Image Reduction and Analysis Facility
 (IRAF). The reason not to choose ARES for this task was to visually confirm the identification of
 the line given the relative poor wavelength calibration. We were able to measure 249 \ion{Fe}{I}
-lines and 5 \ion{Fe}{II} lines compared to 344 Fe  lines and 13 Fe  lines for the Sun over the
-whole NIR spectral region. Whenever we had more than one measurement of a line, the average was used
-for the final EW. We derived the stellar parameters using the standard procedure (see Sect. 2.6) as
-done for the Sun. Given the relatively low quality of the spectrum of HD 20010 (see below) and be-
-cause it is not corrected for telluric contamination, we made a cut in EW at \SI{5}{m\AA{}} in order
-to remove the lines which are most affected by contamination from either telluric or other line
-blends. Additionally, we made a cut in EP at \SI{5.5}{eV} because the \ion{Fe}{I} and \ion{Fe}{II}
-lines usually used for stellar parameter determination in the optical regime are also limited to
-similar values \citep[see e.g][]{Sousa2008}. Higher excitation potential lines are also more likely
-to be affected by non-LTE effects. When deriving the atmospheric parameters, we made a $3\sigma$
-outlier removal in the abundance iteratively until there were no more outliers present. Since we
-could only measure 5 \ion{Fe}{II} lines, for comparison we also decided to derive parameters using
-the same method, but we fixed the surface gravity to the reference value. The resulting
-atmospheric parameters and iron abundances are presented in Table 4. The effective temperature,
-surface gravity, and metallicity agree within the errors with the literature values. Similar
-parameters are obtained by fixing log g to the average literature value or by leaving it free.
+lines and 5 \ion{Fe}{II} lines compared to 344 \ion{Fe}{I} lines and 13 \ion{Fe}{II} lines for the
+Sun over the whole NIR spectral region. Whenever we had more than one measurement of a line, the
+average was used for the final EW. We derived the stellar parameters using the standard procedure
+(see Sect. 2.6) as done for the Sun. Given the relatively low quality of the spectrum of HD 20010
+(see below) and be- cause it is not corrected for telluric contamination, we made a cut in EW at
+\SI{5}{m\AA{}} in order to remove the lines which are most affected by contamination from either
+telluric or other line blends. Additionally, we made a cut in EP at \SI{5.5}{eV} because the
+\ion{Fe}{I} and \ion{Fe}{II} lines usually used for stellar parameter determination in the optical
+regime are also limited to similar values \citep[see e.g][]{Sousa2008a}. Higher excitation potential
+lines are also more likely to be affected by non-LTE effects. When deriving the atmospheric
+parameters, we made a $3\sigma$ outlier removal in the abundance iteratively until there were no
+more outliers present. Since we could only measure 5 \ion{Fe}{II} lines, for comparison we also
+decided to derive parameters using the same method, but we fixed the surface gravity to the
+reference value. The resulting atmospheric parameters and iron abundances are presented in Table 4.
+The effective temperature, surface gravity, and metallicity agree within the errors with the
+literature values. Similar parameters are obtained by fixing log g to the average literature value
+or by leaving it free.
 
 The errors on the atmospheric parameters for HD 20010 are much higher than what is achievable with
 other measurements in the literature, as presented above in Table 3. In order to explain these
@@ -112,3 +109,22 @@ reduced.
 
 \section{Synthetic cool stars}
 \label{sec:synthetic_spectra}
+
+
+
+\section{Parameter dependence on EP cut}
+\label{sec:EPcut}
+
+It is common practise, as in this case, to make a cut in EP for a line list when deriving
+parameters. This was suggested in \citet{Andreasen2016} \citep[later done in][]{Andreasen2017b} for
+the NIR line list used here. This cut was made at \SI{5.5}{eV}, inspired by a similar cut in the
+optical \citep{Sousa2008a}, including only lines below this limit. The lines with higher EP might
+also be affected by non-LTE effects which is not treated in this methodology.
+
+As the parameters are dependent on this cut in EP\unfinished{Make a figure that shows this}, it
+seemed interesting to divide a line list in two with upper and lower EPs and analyse those
+separately. Before going into that analysis it is important to note, that the parameters should not
+depend on any cut in EP if the theory is right, the radiative transfer code is working properly, and
+the atmospheric models are correct. Lines with different EP are likely to be formed in different
+layers of the atmosphere as discussed in \sref{sec:stellar_atmosphere}, however this should not
+effect the final derived abundance, which is the problem here.
