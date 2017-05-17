@@ -15,6 +15,13 @@ methodology described above in \sref{sec:parameters}.
 \section{HD20010}
 \label{sec:HD20010}
 
+HD 20010 is a star that has been analysed twice with the methodology described here in this thesis.
+First time this star was analysed was in \citet{Andreasen2016} when the NIR line list was published.
+Later this line list was revised leading to a removal of several lines. This resulted in the second
+analysis in \citet{Andreasen2017b}; both described below.
+
+\subsection{First analysis}
+
 To test our new line list we search for a well-studied solar-type star. The spectrum for such a
 target needs to be available in the NIR at both high resolution and high S/N. An ideal place to look
 for such a star is the CRIRES-POP database (Lebzelter et al. 2012). Here, the best target for
@@ -96,15 +103,128 @@ large error bars. As the CRIRES-POP team continue their great efforts in reducin
 spectra, it will be interesting to re-visit this star once the entire spectrum has been fully
 reduced.
 
+\subsection{Second analysis}
+
+As a first step we revisit HD 20010 for which we derived atmospheric stellar
+parameters in Paper I using the newly revised line list presented in this paper.
+The results are shown in Table \ref{tab:results} along with the {\bf results for
+the two other stars analysed in this work}. We see better agreement with the
+average literature values adopted (especially $[\ion{Fe}/\ion{H}]$ and $\log g$),
+and smaller errors with the updated results. This suggests that the new line
+list is more reliable.
+
+\begin{table}[htb!]
+    \caption{Results for the three stars with first set of parameters are the
+             literature values as presented in Table.~\ref{tab:stars}, second
+             set of parameters are results with $\log g$ set to the same value
+             during the minimization procedure as found in the literature
+             (fixed), and last set of parameters are with all parameters free
+             during the minimization procedure.}
+    \label{tab:results}
+    \centering
+    \begin{tabular}{llll}
+      \hline\hline
+                                    & HD 20010          &  10 Leo           &  Arcturus        \\
+      \hline
+        Literature                  &                   &                   &                  \\
+        $T_\mathrm{eff}$ (lit.)     & $6152 \pm  95$    &  $4741 \pm  60$   & $4300 \pm 110$   \\
+        $\log g$ (lit.)             & $3.96 \pm 0.19$   &  $2.76 \pm 0.17$  & $1.60 \pm 0.29$  \\
+        $[\ion{Fe}/\ion{H}]$ (lit.) & $-0.27 \pm 0.06$  &  $-0.03 \pm 0.02$ & $-0.54 \pm 0.11$ \\
+        $\xi_\mathrm{micro}$ (lit.) & $1.17 \pm 0.24$   &  $1.45 \pm 0.08$  & $1.93 \pm 0.13$  \\
+      \hline
+        $\log g$ fixed              &                   &                   &                  \\
+        $T_\mathrm{eff}$            & $6161 \pm 164$    &  $4761 \pm 118$   & $4357 \pm  74$   \\
+        $\log g$                    & 3.96 (fixed)      &  2.76 (fixed)     & 1.60 (fixed)     \\
+        $[\ion{Fe}/\ion{H}]$        & $-0.18 \pm 0.11$  &  $ 0.01 \pm 0.07$ & $-0.55 \pm 0.04$ \\
+        $\xi_\mathrm{micro}$        & $1.72 \pm 0.44$   &  $1.25 \pm 0.11$  & $1.55 \pm 0.10$  \\
+      \hline
+        All free                    &                   &                   &                  \\
+        $T_\mathrm{eff}$            & $6162 \pm 184$    &  $4805 \pm  98$   & $4439 \pm  62$   \\
+        $\log g$                    & $4.08 \pm 0.77$   &  $2.42 \pm 0.61$  & $1.20 \pm 0.20$  \\
+        $[\ion{Fe}/\ion{H}]$        & $-0.18 \pm 0.11$  &  $-0.01 \pm 0.07$ & $-0.58 \pm 0.06$ \\
+        $\xi_\mathrm{micro}$        & $1.59 \pm 0.49$   &  $1.23 \pm 0.10$  & $1.55 \pm 0.10$  \\
+        \hline\hline
+    \end{tabular}
+\end{table}
+
+{\bf The parameters for the three stars, omitting the Sun since the derived
+parameters are trivial with a calibrated line list\footnote{The solar parameters
+used were: $T_\mathrm{eff}=\SI{5777}{K}$, $\log g=4.44\,$dex,
+$[\ion{Fe}/\ion{H}]=0.00\,$dex, and $\xi_\mathrm{micro}=\SI{1.00}{km/s}$.}, are
+presented in Fig.~\ref{fig:parameters}. We show the literature values (blue),
+derived parameters with $\log g$ fixed to the literature value (green), and
+derived parameters when $\log g$ is free during the minimization procedure (red
+points).}
+
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/parameters.pdf}
+    \caption{Parameters for Arcturus, 10 Leo, and HD 20010 (revisited in this
+             paper). The blue points show the literature values from the PASTEL
+             database as discussed in the text. The green points are the
+             derived values with $\log g$ fixed to the literature value, and the
+             red points show the derived parameters when $\log g$ is also
+             derived.}
+    \label{fig:parameters}
+\end{figure}
 
 
 
 \section{Arcturus}
 \label{sec:arcturus}
 
+Arcturus is one of the brightest stars on the night sky with a V magnitude of
+-0.05 \citep{Ducati2002}. Hence it is a prime target for testing with the
+numerous measurements of the atmospheric parameters as mentioned above.
+
+The atlas consists of both a summer observation set and a winter observation
+set. The two data sets have been obtained in order to minimise the effect of
+tellurics at different spectral regions. A comparison between the two sets of
+measured EWs - both the manual measurements using IRAF and the automatic
+measurements using ARES - are shown in Fig.~\ref{fig:EWcomp}. The automatic EW
+measurements for the summer set and winter set show excellent agreement {\bf
+with a dispersion of 7m\AA{}}. This means that the two data sets are very
+similar, thus we decided to only manually measure the EWs for one set (summer).
+We did, however, measure a few lines from the winter data set to verify the
+agreement. {\bf Since the EWs are very similar we chose to only derive
+parameters of the summer set with EWs measured with ARES.} Parameters were
+derived with and without $\log g$ set to a fixed value (1.60\,dex, the average
+literature value adopted). The derivation of the parameters followed the
+procedure presented in Paper I, although we used the minimization routine of
+FASMA \citep{Andreasen2017a}. After we reached convergence using all the iron
+lines we were able to measure, one outlier above $3\sigma$ in abundance were
+removed, and the minimization routine was restarted. This process was done
+iteratively until there were no more outliers. The final results are presented
+in Table \ref{tab:results} together with mean parameters from the literature.
+
+We generally see good agreement between the derived parameters and the average
+values from the literature adopted (see Table \ref{tab:results}). The only
+parameter being difficult to measure is the surface gravity due to the low
+number of \ion{Fe}{II} lines in the NIR. It is very important to derive the
+metallicity accurately, and we report consistent results overall.
+
 
 \section{10 Leo}
 \label{sec:10Leo}
+
+The approach for determining the atmospheric stellar parameters for 10 Leo is
+identical to Arcturus. We use ARES on each band (YJ, H, and K-band) separately.
+For the small gaps in the spectrum, we simply set the flux to 1, since the
+spectrum is already normalised. This will also prevent ARES to identify and
+measure any lines in these regions. The EWs from the three regions are combined
+to one final line list used for the determination of the parameters. {\bf The
+final results can be seen in Fig.~\ref{fig:parameters} and
+Table~\ref{tab:results}.}
+
+Generally the derived parameters are in excellent agreement with the literature
+values listed here. {\bf For $T_\mathrm{eff}$ we were \SI{64}{K} off with $\log
+g$ set as a free parameter, well within the errors. The only parameter that show
+a discrepancy compared to the literature value is $\xi_\mathrm{micro}$ with a
+difference of \SI{0.22}{km/s}, which is at the limit of the errors reported. We
+note that this parameter is not reported in the PASTEL database, and this was a
+derived parameter from a empirical relation.} We were able to derive good $\log
+g$ values, although with larger errors compared to the results from the
+literature.
 
 
 \section{Synthetic cool stars}
