@@ -1,5 +1,6 @@
 # Figures
 1. Over plot PHOENIX synthetic spectrum on top of Arcturus or the Sun
+2. Add plot that shows how synthesis was used to select iron lines
 
 
 # Text
@@ -14,22 +15,16 @@ Write it
 Write it...
 
 ## Theory
-Read from one end to another. Reconsider the stellar structure part
-
-## Deriving stellar parameters
-
-### Spectroscopy
-Write this part (low-res and synthesis in more detail).
-Add also Barbara's method with indices.
-
-## FASMA
-Write a detailed description on the error analysis. Ask Nuno for some help here
+More or less done. Still reconsidering the stellar structure part.
 
 ## Results
 Write it
 ### Synthetic spectra
-    1. Over plot PHOENIX synthetic spectrum on top of Arcturus or the Sun
-    2. Calibrate loggf for the Sun using Marcs models
+1. Over plot PHOENIX synthetic spectrum on top of Arcturus or the Sun
+2. Calibrate loggf for the Sun using Marcs models
+
+### EP cut
+Calibrate loggf for SAND364 for Arcturus and redo the plot (dist.py)
 
 ## Conclusion/Future work
 Write it
