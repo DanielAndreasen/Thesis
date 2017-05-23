@@ -6,60 +6,61 @@
 It is time to apply the theory and methodology on some data. In this chapter results from studies
 during the thesis will be presented. There is the analysis of three stars which lead to two papers,
 HD20010 \citep{Andreasen2016} and Arcturus \& 10 Leo \citep{Andreasen2017b}. Additionally, there was
-a analysis of how a cut in EP might affect the final parameters of a star. This will be discussed in
-\sref{sec:EPcut}, and last the analysis of a range of synthetic spectra from the PHOENIX spectral
-library \citep{Husser2013}, with $T_\mathrm{eff}$ lower than analysed in previous stars with the
-methodology described above in \sref{sec:parameters}. However, before diving into the results of the
-analysis it is important to describe how the NIR line list were compiled and why and how it was
-later refined.
+an analysis of how a cut in excitation potential might affect the final parameters of a star. This
+will be discussed in \sref{sec:EPcut}, and last the analysis of a range of synthetic spectra from
+the PHOENIX spectral library \citep{Husser2013}, with $T_\mathrm{eff}$ lower than analysed in
+previous stars with the methodology described above in \sref{sec:parameters}. However, before diving
+into the results of the analysis it is important to describe how the NIR line list were compiled and
+why and how it was later refined.
 
 
 \section{The creation of a NIR line list}
 \label{sec:creation_line_list}
 
-As discussed extensively in \cref{cha:theory} and \cref{cha:method}, a atomic line list is needed
-for employing the method described here. This line list is made by iron lines in the NIR. This has
-already been mentioned in \cref{cha:theory}. Here the process will be explained in greater detail
-below for the two versions presented in \citet{Andreasen2016} and \citet{Andreasen2017a},
-respectively.
+As discussed extensively in \cref{cha:theory} and \cref{cha:method}, an atomic line list is needed
+for employing the method described here. This line list is made by neutral and ionized iron lines in
+the NIR. This has already been mentioned in \cref{cha:theory}. Here the process will be explained in
+greater detail below for the two versions presented in \citet{Andreasen2016} and
+\citet{Andreasen2017a}, respectively.
 
 
 \subsection{First version}
 
 The first version of a NIR iron line list for determining stellar atmospheric parameters of high
-resolution and high S/N spectra were presented in \citet{Andreasen2016}. Here all iron transitions
-between \SIrange{10000}{25000}{\angstrom}\footnote{That is equivalent to the YJHK bands.} were
-downloaded from the VALD database \citep{VALD1,VALD2}. This only includes \ion{Fe}{I} and
-\ion{Fe}{II} transitions. In total were \num{50198} \ion{Fe}{I} and \num{28339} \ion{Fe}{II} lines
-respectively from the VALD3 database.
+resolution and high S/N spectra were presented in \citet{Andreasen2016}. Other NIR line lists exists
+such as the one from \citet{Onehag2012,Lindgren2016} for utilising the synthetic method described
+above\unfinished{Add more line lists from the literature.}. Here all iron transitions between
+\SIrange{10000}{25000}{\angstrom}\footnote{That is equivalent to the YJHK bands.} were downloaded
+from the VALD database \citep{VALD1,VALD2}. This only includes \ion{Fe}{I} and \ion{Fe}{II}
+transitions. In total were \num{50198} \ion{Fe}{I} and \num{28339} \ion{Fe}{II} lines respectively
+acquired.
 
-The EW of all lines were measured in a solar atlas by \citet{Hinkle1995}. The EWs were measured
+The EW of all lines were measured in the solar atlas by \citet{Hinkle1995}. The EWs were measured
 using \ARES due to the large amount of lines and to be as consistent as possible in the
 measurements. Since \ARES expect a 1D spectrum with equidistant wavelength step, the solar spectrum
-were interpolated onto a regular wavelength grid of \SI{0.01}{\angstrom}. This did not change the
+was interpolated onto a regular wavelength grid of \SI{0.01}{\angstrom}. This did not change the
 appearance, and hence not the EW, of the final spectrum. This wavelength step is equivalent to a
 spectral resolution of \num{1500000} at \SI{15000}{\angstrom}.
 
-The EWs are measured by fitting Gaussian profiles to the spectral lines. For a given line, \ARES
+The EWs were measured by fitting Gaussian profiles to the spectral lines. For a given line, \ARES
 output the central wavelength of the line (provided in the line list), the FWHM maximum of the
-fitted line, the number of lines fitted for the final result, the depth of the line, the EW of the
-line, and the Gaussian coefficients of the line. In the latest version of \ARES, the error of the EW
-is also provided \citep{Sousa2015a}. A few lines could not be measured by \ARES and were simply
-discarded. It is not completely clear why \ARES had troubles measuring these lines, however, since
-the amount was low (less than 1 per thousand) this was not a concern.
+fitted line, the number of lines fitted for the final result (in case of blending), the depth of the
+line, the EW of the line, and the Gaussian coefficients of the line. In the latest version of \ARES,
+the error of the EW is also provided \citep{Sousa2015a}.
 
-More lines were discarded according to the following criteria:
+More lines were discarded according to the following four criteria:
 
 \begin{itemize}
   \item Lines with EW lower than \SI{5}{m\angstrom} as these lines can be problematic to see in
-        spectra with lower S/N or spectra with many spectral features.
+        spectra with lower S/N or spectra with many spectral features. Therefore the measurements
+        of these lines are less reliable than stronger lines.
   \item Lines with EW higher than \SI{200}{m\angstrom} as these lines are too strong to be fitted
         with a Gaussian profile. These lines might also be saturated and do not contain information
         about the abundance (see \fref{fig:cog}).
   \item Lines where the total number of fitted lines are 10 or higher since they show indications of
         severe blending.
   \item If the fitted central wavelength is more than \SI{0.05}{\angstrom} away from the wavelength
-        provided by VALD3 to avoid false identification.
+        provided by VALD3 to avoid false identification. This should also remove some blended lines.
 \end{itemize}
 After this removal the number of \ion{Fe}{I} and \ion{Fe}{II} lines are reduced to \num{6060} and
 \num{2735}, respectively.
@@ -90,7 +91,14 @@ $\xi_\mathrm{micro}=\SI{1.00}{km/s}$. The iron abundance (7.47) is from \citet{G
 overall metallicity for the solar atmosphere model is $[\ion{M}/\ion{H}]=0.00$ by definition. This
 was done for all spectral windows for three different $A(\mathrm{Fe})=\{-0.2, 0.0, 0.2\}$. Before
 creating a synthetic spectrum all elements which are more than singly ionised were removed since
-\MOOG does not allow these. An example of this can be seen in \fref{fig:synthetic_investigaton}.
+\MOOG does not allow these. An example of this can be seen in \fref{fig:synthetic_investigation}.
+
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/synthetic_investigation.pdf}
+    \caption{Synthetic investigation}
+    \label{fig:synthetic_investigation}
+\end{figure}
 
 If the three synthetic spectra shows variation at the iron line of interest, then it is assumed that
 the iron line is the cause for the absorption line. As a simple test, the iron line was also removed
@@ -130,9 +138,9 @@ analysis in \citet{Andreasen2017b}; both described below.
 
 To test our new line list we search for a well-studied solar-type star. The spectrum for such a
 target needs to be available in the NIR at both high resolution and high S/N. An ideal place to look
-for such a star is the CRIRES-POP database (Lebzelter et al. 2012). Here, the best target for
-testing is HD 20010, an F8 subgiant star. This star has been part of many surveys and is therefore
-well studied. Different parameters from the literature are listed in Table 3. The data available at
+for such a star is the CRIRES-POP database \citep{Lebzelter2012}. Here, the best target for testing
+is HD 20010, an F8 subgiant star. This star has been part of many surveys and is therefore well
+studied. Different parameters from the literature are listed in Table 3. The data available at
 CRIRES-POP are in the raw format and pipeline reduced, while three small pieces of the spectra are
 fully reduced on the web page 3 . The data is in the standard CRIRES format with each fits file
 including four binary tables with the data from the four detectors. In the future, the final reduced
@@ -178,7 +186,7 @@ Sun over the whole NIR spectral region. Whenever we had more than one measuremen
 average was used for the final EW. We derived the stellar parameters using the standard procedure
 (see Sect. 2.6) as done for the Sun. Given the relatively low quality of the spectrum of HD 20010
 (see below) and be- cause it is not corrected for telluric contamination, we made a cut in EW at
-\SI{5}{m\AA{}} in order to remove the lines which are most affected by contamination from either
+\SI{5}{m\angstrom} in order to remove the lines which are most affected by contamination from either
 telluric or other line blends. Additionally, we made a cut in EP at \SI{5.5}{eV} because the
 \ion{Fe}{I} and \ion{Fe}{II} lines usually used for stellar parameter determination in the optical
 regime are also limited to similar values \citep[see e.g][]{Sousa2008a}. Higher excitation potential
@@ -211,13 +219,12 @@ reduced.
 
 \subsection{Second analysis}
 
-As a first step we revisit HD 20010 for which we derived atmospheric stellar
-parameters in Paper I using the newly revised line list presented in this paper.
-The results are shown in Table \ref{tab:results} along with the {\bf results for
-the two other stars analysed in this work}. We see better agreement with the
-average literature values adopted (especially $[\ion{Fe}/\ion{H}]$ and $\log g$),
-and smaller errors with the updated results. This suggests that the new line
-list is more reliable.
+As a first step we revisit HD 20010 for which we derived atmospheric stellar parameters in Paper I
+using the newly revised line list presented in this paper. The results are shown in Table
+\ref{tab:results} along with the results for the two other stars analysed in this work. We see
+better agreement with the average literature values adopted (especially $[\ion{Fe}/\ion{H}]$ and
+$\log g$), and smaller errors with the updated results. This suggests that the new line list is more
+reliable.
 
 \begin{table}[htb!]
     \caption{Results for the three stars with first set of parameters are the
@@ -253,14 +260,12 @@ list is more reliable.
     \end{tabular}
 \end{table}
 
-{\bf The parameters for the three stars, omitting the Sun since the derived
-parameters are trivial with a calibrated line list\footnote{The solar parameters
-used were: $T_\mathrm{eff}=\SI{5777}{K}$, $\log g=4.44\,$dex,
-$[\ion{Fe}/\ion{H}]=0.00\,$dex, and $\xi_\mathrm{micro}=\SI{1.00}{km/s}$.}, are
-presented in Fig.~\ref{fig:parameters}. We show the literature values (blue),
-derived parameters with $\log g$ fixed to the literature value (green), and
-derived parameters when $\log g$ is free during the minimization procedure (red
-points).}
+The parameters for the three stars, omitting the Sun since the derived parameters are trivial with a
+calibrated line list\footnote{The solar parameters used were: $T_\mathrm{eff}=\SI{5777}{K}$, $\log
+g=4.44\,$dex, $[\ion{Fe}/\ion{H}]=0.00\,$dex, and $\xi_\mathrm{micro}=\SI{1.00}{km/s}$.}, are
+presented in Fig.~\ref{fig:parameters}. We show the literature values (blue), derived parameters
+with $\log g$ fixed to the literature value (green), and derived parameters when $\log g$ is free
+during the minimization procedure (red points).
 
 \begin{figure}[htpb!]
     \centering
@@ -287,12 +292,12 @@ The atlas consists of both a summer observation set and a winter observation set
 have been obtained in order to minimise the effect of tellurics at different spectral regions. A
 comparison between the two sets of measured EWs - both the manual measurements using IRAF and the
 automatic measurements using \ARES - are shown in Fig.~\ref{fig:EWcomp}. The automatic EW
-measurements for the summer set and winter set show excellent agreement {\bf with a dispersion of
-7m\AA{}}. This means that the two data sets are very similar, thus we decided to only manually
+measurements for the summer set and winter set show excellent agreement with a dispersion of
+7m\angstrom. This means that the two data sets are very similar, thus we decided to only manually
 measure the EWs for one set (summer). We did, however, measure a few lines from the winter data set
-to verify the agreement. {\bf Since the EWs are very similar we chose to only derive parameters of
-the summer set with EWs measured with \ARES.} Parameters were derived with and without $\log g$ set
-to a fixed value (1.60\,dex, the average literature value adopted). The derivation of the parameters
+to verify the agreement. Since the EWs are very similar we chose to only derive parameters of the
+summer set with EWs measured with \ARES. Parameters were derived with and without $\log g$ set to a
+fixed value (1.60\,dex, the average literature value adopted). The derivation of the parameters
 followed the procedure presented in Paper I, although we used the minimization routine of FASMA
 \citep{Andreasen2017a}. After we reached convergence using all the iron lines we were able to
 measure, one outlier above $3\sigma$ in abundance were removed, and the minimization routine was
@@ -312,15 +317,15 @@ The approach for determining the atmospheric stellar parameters for 10 Leo is id
 We use \ARES on each band (YJ, H, and K-band) separately. For the small gaps in the spectrum, we
 simply set the flux to 1, since the spectrum is already normalised. This will also prevent \ARES to
 identify and measure any lines in these regions. The EWs from the three regions are combined to one
-final line list used for the determination of the parameters. {\bf The final results can be seen in
-Fig.~\ref{fig:parameters} and Table~\ref{tab:results}.}
+final line list used for the determination of the parameters. The final results can be seen in
+Fig.~\ref{fig:parameters} and Table~\ref{tab:results}.
 
 Generally the derived parameters are in excellent agreement with the literature values listed here.
-{\bf For $T_\mathrm{eff}$ we were \SI{64}{K} off with $\log g$ set as a free parameter, well within
-the errors. The only parameter that show a discrepancy compared to the literature value is
+For $T_\mathrm{eff}$ we were \SI{64}{K} off with $\log g$ set as a free parameter, well within the
+errors. The only parameter that show a discrepancy compared to the literature value is
 $\xi_\mathrm{micro}$ with a difference of \SI{0.22}{km/s}, which is at the limit of the errors
 reported. We note that this parameter is not reported in the PASTEL database, and this was a derived
-parameter from a empirical relation.} We were able to derive good $\log g$ values, although with
+parameter from a empirical relation. We were able to derive good $\log g$ values, although with
 larger errors compared to the results from the literature.
 
 
