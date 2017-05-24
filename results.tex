@@ -129,11 +129,27 @@ values. After this step, there was 414 \ion{Fe}{I} lines and 12 \ion{Fe}{II} lin
 
 
 
-\subsubsection{Calibrating $\log \mathit{gf}$}
+\subsubsection{Calibrating the line list: astrophysical $\log \mathit{gf}$ values}
 
 These lines were collected into a single line list in the format required by MOOG \citep{Sneden1973}
 and the line abundance were measured by all lines using the solar atmosphere model described above.
-\unfinished{Finish from here...}
+If the derived abundance for a single line differs by more than 1.0 dex from the solar iron
+abundance, the line would be discarded. The solar iron abundance used is 7.47 as found by
+\citet{Gonzalez2000}. \unfinished{Why do we remove above 1.0dex?}
+
+After the removal of the lines mentioned above, the final line list is almost compiled. At this
+point the line list has to be calibrated. This is done by changing $\log \mathit{gf}$ so the line
+abundance for all iron lines are 7.47 when using the solar atmosphere model mentioned above. As
+mentioned in \sref{sec:linelist} there is a anti-correlation between the abundance of a line and
+$\log \mathit{gf}$. This means a bisector minimization can be used to locate the $\log \mathit{gf}$
+that gives the desired abundance.
+
+This was done for all the iron lines at this stage. It is important to calibrate a line list if the
+setup of parameter determination is changed somehow. This includes the type of model atmospheres
+used (e.g. ATLAS9 or MARCS), the interpolation code to generate a model atmosphere from the grid, or
+the settings of the radiative code, here \MOOG.
+
+
 
 \subsection{Second version}
 
