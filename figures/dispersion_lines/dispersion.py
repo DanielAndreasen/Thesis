@@ -110,5 +110,5 @@ if __name__ == '__main__':
 
     adjust_style()
 
-    # plt.savefig('../dispersive_lines.pdf')
+    # plt.savefig('../disperse_lines.pdf')
     plt.show()
