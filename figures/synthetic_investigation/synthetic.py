@@ -67,8 +67,16 @@ def adjust_style():
 
     ax1.spines['top'].set_color('none')
     ax1.spines['right'].set_color('none')
+    ax1.spines['left'].set_linewidth(2)
+    ax1.spines['bottom'].set_linewidth(2)
+    ax1.xaxis.set_tick_params(width=2)
+    ax1.yaxis.set_tick_params(width=2)
     ax2.spines['top'].set_color('none')
     ax2.spines['right'].set_color('none')
+    ax2.spines['left'].set_linewidth(2)
+    ax2.spines['bottom'].set_linewidth(2)
+    ax2.xaxis.set_tick_params(width=2)
+    ax2.yaxis.set_tick_params(width=2)
 
 
 if __name__ == '__main__':

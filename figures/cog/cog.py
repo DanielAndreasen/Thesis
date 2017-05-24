@@ -34,6 +34,10 @@ if __name__ == '__main__':
     ax = plt.gca()
     ax.spines['top'].set_color('none')
     ax.spines['right'].set_color('none')
+    ax.spines['left'].set_linewidth(2)
+    ax.spines['bottom'].set_linewidth(2)
+    ax.xaxis.set_tick_params(width=2)
+    ax.yaxis.set_tick_params(width=2)
 
     plt.subplot(212)
     w0 = 4566.52
@@ -48,6 +52,10 @@ if __name__ == '__main__':
     ax = plt.gca()
     ax.spines['top'].set_color('none')
     ax.spines['right'].set_color('none')
+    ax.spines['left'].set_linewidth(2)
+    ax.spines['bottom'].set_linewidth(2)
+    ax.xaxis.set_tick_params(width=2)
+    ax.yaxis.set_tick_params(width=2)
 
     plt.tight_layout()
 

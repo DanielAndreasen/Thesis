@@ -63,10 +63,14 @@ if __name__ == '__main__':
     plt.ylabel(r'EW [m$\AA$]')
     plt.legend(loc='best', frameon=False)
 
-    # Remove right and yop spines
+    # Remove right and top spines
     ax = plt.gca()
     ax.spines['top'].set_color('none')
     ax.spines['right'].set_color('none')
+    ax.spines['left'].set_linewidth(2)
+    ax.spines['bottom'].set_linewidth(2)
+    ax.xaxis.set_tick_params(width=2)
+    ax.yaxis.set_tick_params(width=2)
 
 
     # plt.savefig('../ewTeff.pdf')

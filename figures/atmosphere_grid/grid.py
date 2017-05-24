@@ -8,10 +8,10 @@ import gzip
 plt.rcParams['xtick.direction'] = 'in'
 plt.rcParams['ytick.direction'] = 'in'
 
-path = '/home/daniel/Documents/Uni/phdproject/programs/FASMA/models/kurucz95'
-path = '/home/daniel/kurucz95'
-# path = '/home/daniel/Documents/Uni/phdproject/programs/FASMA/models/apogee_kurucz'
-# path = '/home/daniel/Documents/Uni/phdproject/programs/FASMA/models/marcs'
+# path = '/home/daniel/Documents/Uni/phdproject/programs/FASMA/models/kurucz95'
+# path = '/home/daniel/kurucz95'
+path = '/home/daniel/Documents/Uni/phdproject/programs/FASMA/models/apogee_kurucz'
+path = '/home/daniel/Documents/Uni/phdproject/programs/FASMA/models/marcs'
 
 
 def extract_feh(directories):
@@ -70,6 +70,10 @@ if __name__ == '__main__':
     ax = plt.gca()
     ax.spines['top'].set_color('none')
     ax.spines['right'].set_color('none')
+    ax.spines['left'].set_linewidth(2)
+    ax.spines['bottom'].set_linewidth(2)
+    ax.xaxis.set_tick_params(width=2)
+    ax.yaxis.set_tick_params(width=2)
 
     plt.tight_layout()
 

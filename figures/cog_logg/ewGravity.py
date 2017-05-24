@@ -58,6 +58,10 @@ if __name__ == '__main__':
     ax = plt.gca()
     ax.spines['top'].set_color('none')
     ax.spines['right'].set_color('none')
+    ax.spines['left'].set_linewidth(2)
+    ax.spines['bottom'].set_linewidth(2)
+    ax.xaxis.set_tick_params(width=2)
+    ax.yaxis.set_tick_params(width=2)
     plt.legend(loc='best', frameon=False)
     plt.xlabel(r'log $gf$')
     plt.ylabel(r'$\log(EW/\lambda)$')
@@ -66,6 +70,10 @@ if __name__ == '__main__':
     ax = plt.gca()
     ax.spines['top'].set_color('none')
     ax.spines['right'].set_color('none')
+    ax.spines['left'].set_linewidth(2)
+    ax.spines['bottom'].set_linewidth(2)
+    ax.xaxis.set_tick_params(width=2)
+    ax.yaxis.set_tick_params(width=2)
     w0 = 4620.510
     dw = 0.2
     plt.xlim(w0-dw, w0+dw)
@@ -77,6 +85,10 @@ if __name__ == '__main__':
     ax = plt.gca()
     ax.spines['top'].set_color('none')
     ax.spines['left'].set_color('none')
+    ax.spines['right'].set_linewidth(2)
+    ax.spines['bottom'].set_linewidth(2)
+    ax.xaxis.set_tick_params(width=2)
+    ax.yaxis.set_tick_params(width=2)
 
     plt.tight_layout()
     # plt.savefig('../ewGravity.pdf')
