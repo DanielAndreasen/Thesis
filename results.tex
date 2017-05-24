@@ -150,6 +150,43 @@ used (e.g. ATLAS9 or MARCS), the interpolation code to generate a model atmosphe
 the settings of the radiative code, here \MOOG.
 
 
+\subsubsection{Removal of high dispersion lines}
+
+The line list calibrated above was used to derive parameters for HD 20010 (see \sref{sec:HD20010}),
+however the derived parameters showed poor results when compared to the literature values. This lead
+to the following test, where highly disperse lines would be removed.
+
+A Gaussian distribution was made for the EW of each line centred on the EW itself,
+\begin{align}
+  f(x, EW, \sigma) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-EW)^2}{2\sigma^2}},
+\end{align}
+where $\sigma$ is the error on the EW, expressed by \citet{Caryel1988}:
+\begin{align}
+  \sigma \simeq 1.6 \frac{\sqrt{\Delta\lambda EW}}{S/N},
+\end{align}
+
+where $\Delta\lambda=0.1$ and a S/N=50 is considered here, which is much lower than the actual S/N
+of the solar atlas. 100 draws of the distribution above were made for each line and derive the
+abundance using the solar atmosphere model. The mean absolute deviation (MAD) were calculated for
+each line abundance. The MAD for each line as a function of the original measured EW can be seen in
+\fref{fig:dispersive_lines}. The trend for the weaker lines is expected since a small absolute
+change in the EW results in a large relative change in abundance. However, this does not mean these
+lines have a high dispersion. Therefore the disperse lines are found in the de-trended MAD value,
+where an exponential function is used for de-trending. A single point above $3\sigma$ is removed
+iteratively in the de-trended data. After this process there are 334 \ion{Fe}{I} lines and 13
+\ion{Fe}{II} lines
+
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/disperse_lines.pdf}
+    \caption{The most disperse lines. \emph{Upper} plot: The MAD versus the original EW. The red
+             points are the outliers which were discarded during this process. \emph{Lower} plot:
+             Same as above with the MAD being de-trended by the exponential fit as shown in the
+             upper panel.}
+    \label{fig:dispersive_lines}
+\end{figure}
+
+
 
 \subsection{Second version}
 
