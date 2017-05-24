@@ -89,24 +89,39 @@ windows. \MOOG were used with the \emph{synth} driver to create a synthetic spec
 atmosphere model with $T_\mathrm{eff}=\SI{5777}{K}$, $\log g=4.438$, $A(\mathrm{Fe})=7.47$, and
 $\xi_\mathrm{micro}=\SI{1.00}{km/s}$. The iron abundance (7.47) is from \citet{Gonzalez2000}. The
 overall metallicity for the solar atmosphere model is $[\ion{M}/\ion{H}]=0.00$ by definition. This
-was done for all spectral windows for three different $A(\mathrm{Fe})=\{-0.2, 0.0, 0.2\}$. Before
-creating a synthetic spectrum all elements which are more than singly ionised were removed since
-\MOOG does not allow these. An example of this can be seen in \fref{fig:synthetic_investigation}.
+was done for all spectral windows for three different $[\ion{Fe}/\ion{H}]=\{-0.2, 0.0, 0.2\}$.
+Before creating a synthetic spectrum all elements which are more than singly ionised were removed
+since \MOOG does not allow these. An example of this can be seen in
+\fref{fig:synthetic_investigation}. Here the neutral iron line at \SI{15550.439}{\angstrom} were
+investigated. The three coloured curves are synthetic spectra with the three different
+$[\ion{Fe}/\ion{H}]$. Note that while $[\ion{Fe}/\ion{H}]$ is used as a proxy for the over
+metallicity, $[\ion{M}/\ion{H}]$, it is here specific only the iron abundance that is changed. The
+upper plot shows the result with the full VALD3 line list, while in the lower plot the iron line
+were removed from the line list. In this case it is clear that the iron line is the cause of the
+absorption line. The grey curve is the solar atlas for reference.
 
 \begin{figure}[htpb!]
     \centering
     \includegraphics[width=1.0\linewidth]{figures/synthetic_investigation.pdf}
-    \caption{Synthetic investigation}
+    \caption{The three coloured curves represents different iron abundance, $\{-0.2, 0.0, 0.2\}$ dex
+             compared to solar abundance. The grey curve is the solar atlas for reference. In this
+             case the iron line at \SI{15550.439}{\angstrom} is investigated. \emph{Upper} plot:
+             Synthetic spectra were computed using the full VALD line list in the spectral range for
+             the three different iron abundances. \emph{Lower} plot: Same as the upper plot, but
+             with the iron line removed from the line list. Since the synthetic spectra shows no
+             features at this absorption line anymore, it is a fair assumption to say the iron line
+             is the cause of this absorption line.}
     \label{fig:synthetic_investigation}
 \end{figure}
 
 If the three synthetic spectra shows variation at the iron line of interest, then it is assumed that
 the iron line is the cause for the absorption line. As a simple test, the iron line was also removed
 from the line list used to create the synthetic spectra. If the iron line in the synthetic spectra
-disappeared, it was a clear signal that this line can be used in the final iron line list. In some
-cases two iron lines had the same or very similar wavelength, and this technique was used to include
-the right iron line. In cases where both iron lines causes the absorption line, they were both
-discarded since they are blended.
+disappeared, it was a clear signal that this line can be used in the final iron line list ( this can
+be seen clearly in the lower plot of \fref{fig:synthetic_investigation}). In some cases two iron
+lines had the same or very similar wavelength, and this technique was used to include the right iron
+line. In cases where both iron lines causes the absorption line, they were both discarded since they
+are blended.
 
 In a few cases two iron lines had the same wavelength and EP but different $\log \mathit{gf}$. If
 these both cause an iron line they can be combined into a single line by adding their $\mathit{gf}$
@@ -228,7 +243,7 @@ reliable.
 
 \begin{table}[htb!]
     \caption{Results for the three stars with first set of parameters are the
-             literature values as presented in Table.~\ref{tab:stars}, second
+            %  literature values as presented in Table.~\ref{tab:stars}, second
              set of parameters are results with $\log g$ set to the same value
              during the minimization procedure as found in the literature
              (fixed), and last set of parameters are with all parameters free
@@ -291,15 +306,15 @@ atmospheric parameters as mentioned above.
 The atlas consists of both a summer observation set and a winter observation set. The two data sets
 have been obtained in order to minimise the effect of tellurics at different spectral regions. A
 comparison between the two sets of measured EWs - both the manual measurements using IRAF and the
-automatic measurements using \ARES - are shown in Fig.~\ref{fig:EWcomp}. The automatic EW
+% automatic measurements using \ARES - are shown in Fig.~\ref{fig:EWcomp}. The automatic EW
 measurements for the summer set and winter set show excellent agreement with a dispersion of
-7m\angstrom. This means that the two data sets are very similar, thus we decided to only manually
-measure the EWs for one set (summer). We did, however, measure a few lines from the winter data set
-to verify the agreement. Since the EWs are very similar we chose to only derive parameters of the
-summer set with EWs measured with \ARES. Parameters were derived with and without $\log g$ set to a
-fixed value (1.60\,dex, the average literature value adopted). The derivation of the parameters
-followed the procedure presented in Paper I, although we used the minimization routine of FASMA
-\citep{Andreasen2017a}. After we reached convergence using all the iron lines we were able to
+\SI{7}{m\angstrom}. This means that the two data sets are very similar, thus we decided to only
+manually measure the EWs for one set (summer). We did, however, measure a few lines from the winter
+data set to verify the agreement. Since the EWs are very similar we chose to only derive parameters
+of the summer set with EWs measured with \ARES. Parameters were derived with and without $\log g$
+set to a fixed value (1.60\,dex, the average literature value adopted). The derivation of the
+parameters followed the procedure presented in Paper I, although we used the minimization routine of
+FASMA \citep{Andreasen2017a}. After we reached convergence using all the iron lines we were able to
 measure, one outlier above $3\sigma$ in abundance were removed, and the minimization routine was
 restarted. This process was done iteratively until there were no more outliers. The final results
 are presented in Table \ref{tab:results} together with mean parameters from the literature.
