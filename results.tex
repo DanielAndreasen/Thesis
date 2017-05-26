@@ -25,6 +25,7 @@ greater detail below for the two versions presented in \citet{Andreasen2016} and
 
 
 \subsection{First version}
+\label{sec:linelist_first}
 
 The first version of a NIR iron line list for determining stellar atmospheric parameters of high
 resolution and high S/N spectra were presented in \citet{Andreasen2016}. Other NIR line lists exists
@@ -189,6 +190,66 @@ iteratively in the de-trended data. After this process there are 334 \ion{Fe}{I}
 
 \subsection{Second version}
 
+As will be seen in \sref{sec:HD20010_first} the line list presented above were used to derive
+atmospheric parameters of HD 20010. Even though the first test of the line list was success-full,
+it left room for improvements. The errors on the derived parameters were quite high for the spectral
+type compared results obtainable with a similar analysis utilising the optical spectrum (see
+\sref{sec:HD20010_first} for details on this\unfinished{Make sure to actually discuss this!}).
+Additionally, the derived metallicity was 0.10 dex higher than the literature values used.
+
+If all derived parameters except metallicity are reliable (when compared to e.g. a literature
+value), then it suggest that the measured EW are either over- or underestimated. However, when using
+a line list for the first time like here, it can also suggest problems with the line list itself,
+for example a bad calibration. This could have been wrong measurements of the EWs of the calibrator
+star, Sun in this case. This combines to several cases:
+\begin{itemize}
+  \item Correct measurement of EW of calibrator star:
+  \begin{itemize}
+    \item Systematic lower measurement of EW of target star leads to underestimated $[\ion{M}/\ion{H}]$
+    \item Systematic higher measurement of EW of target star leads to overestimated $[\ion{M}/\ion{H}]$
+    \item Correct measurement of EW of target star leads to correct $[\ion{M}/\ion{H}]$
+  \end{itemize}
+  \item Systematic lower measurements of EW of calibrator star:
+  \begin{itemize}
+    \item Systematic lower measurement of EW of target star leads to underestimated $[\ion{M}/\ion{H}]$
+    \item Systematic higher measurement of EW of target star can lead to correct or overestimated $[\ion{M}/\ion{H}]$
+    \item Correct measurement of EW of target star leads to underestimated $[\ion{M}/\ion{H}]$
+  \end{itemize}
+  \item Systematic higher measurements of EW of calibrator star:
+  \begin{itemize}
+    \item Systematic lower measurement of EW of target star can lead to correct or underestimated $[\ion{M}/\ion{H}]$
+    \item Systematic higher measurement of EW of target star leads to overestimated $[\ion{M}/\ion{H}]$
+    \item Correct measurement of EW of target star leads to overestimated $[\ion{M}/\ion{H}]$
+  \end{itemize}
+\end{itemize}
+It is important to note, that \emph{correct} has been used here, assuming a perfect setup, that
+includes perfect model atmosphere, perfect radiative transfer code, etc. In reality the final
+$[\ion{M}/\ion{H}]$ (and the other parameters) measured by different group will occasionally differ
+regarding the setup used.
+
+As described in \sref{sec:linelist_first} the EW of the Sun (calibrator star) was measured with
+\ARES. A crucial option to set when using \ARES is the \code{rejt} parameter as mentioned in
+\sref{sec:measureEW}. This option is used to place the continuum and will this directly affect the
+measured EW. At the time of compiling the first version of the line list it seems the \code{rejt}
+value used did not reflect the high S/N of the spectrum, thus placing the continuum too low and
+thereby underestimate the EW.
+
+In this second version of the line list, the goal is to:
+\begin{enumerate}
+  \item Make sure the EW measurements are as correct as possible by measuring them by hand
+  \item Free of blended lines in cooler stars (K stars in this case)
+\end{enumerate}
+The second point is a similar exercise which was done in the optical by \citet{Tsantaki2013}, where
+blended lines were removed from the larger line list by \citet{Sousa2008a}. This allowed to
+determine the atmospheric parameters of stars colder than \SI{5000}{K}. However, the optical
+spectrum still suffer for severely blended lines at low $T_\mathrm{eff}$, thus this method does not
+work for M stars.
+
+Both of the above steps were done at the same time, by measuring the EWs by hand using \code{IRAF}.
+Whenever a line was difficult to reliably measure, i.e. a consistent measurement was not
+possible/easy, it was discarded since it was blended. This can be seen in ...\unfinished{Make a plot
+with EW before and after} where the EW measurements from the first version is shown against this
+version with the manual measurements.\unfinished{Continue from here}
 
 
 
@@ -202,6 +263,7 @@ Later this line list was revised leading to a removal of several lines. This res
 analysis in \citet{Andreasen2017b}; both described below.
 
 \subsection{First analysis}
+\label{sec:HD20010_first}
 
 To test our new line list we search for a well-studied solar-type star. The spectrum for such a
 target needs to be available in the NIR at both high resolution and high S/N. An ideal place to look
@@ -285,6 +347,7 @@ spectra, it will be interesting to re-visit this star once the entire spectrum h
 reduced.
 
 \subsection{Second analysis}
+\label{sec:HD20010_second}
 
 As a first step we revisit HD 20010 for which we derived atmospheric stellar parameters in Paper I
 using the newly revised line list presented in this paper. The results are shown in Table
