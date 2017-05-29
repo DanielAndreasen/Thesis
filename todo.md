@@ -1,6 +1,7 @@
 # Figures
 1. Over plot PHOENIX synthetic spectrum on top of Arcturus or the Sun
 2. Add plot that shows how synthesis was used to select iron lines
+3. Make a plot of `plot_fits` in action (preferably for HD 20010)
 
 
 # Text
