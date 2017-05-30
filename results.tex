@@ -5,14 +5,33 @@
 
 It is time to apply the theory and methodology on some data. In this chapter results from studies
 during the thesis will be presented. There is the analysis of three stars which lead to two papers,
-HD20010 \citep{Andreasen2016} and Arcturus \& 10 Leo \citep{Andreasen2017b}. Additionally, there was
-an analysis of how a cut in excitation potential might affect the final parameters of a star. This
-will be discussed in \sref{sec:EPcut}, and last the analysis of a range of synthetic spectra from
-the PHOENIX spectral library \citep{Husser2013}, with $T_\mathrm{eff}$ lower than analysed in
-previous stars with the methodology described above in \sref{sec:parameters}. However, before diving
-into the results of the analysis it is important to describe how the NIR line list were compiled and
-why and how it was later refined.
+HD20010 \citep{Andreasen2016} and Arcturus \& 10 Leo \citep{Andreasen2017b}. A small summary of the
+stars and their characteristics can be found in \tref{tab:stars}. More details will be provided in
+the individual sections below for each star. Additionally, there was an analysis of how a cut in
+excitation potential might affect the final parameters of a star. This will be discussed in
+\sref{sec:EPcut}, and last the analysis of a range of synthetic spectra from the PHOENIX spectral
+library \citep{Husser2013}, with $T_\mathrm{eff}$ lower than analysed in previous stars with the
+methodology described above in \sref{sec:parameters}. However, before diving into the results of the
+analysis it is important to describe how the NIR line list were compiled and why and how it was
+later refined.
 
+\begin{table*}[htb!]
+    \caption{Summary of the four stars used in this thesis. The stellar parameters
+             are from the PASTEL catalogue \citep{Soubiran2016} (see text for
+             details), except the parameters for the Sun.}
+    \label{tab:stars}
+    \centering
+    \begin{tabular}{lllllll}
+      \hline\hline
+        Star        & Spectrographs  & Resolution  & $T_\mathrm{eff}$ (K) &  $\log g$ (dex)  &   $\xi_\mathrm{micro}$ (km/s)   & [Fe/H] (dex)      \\
+      \hline
+        Sun         & FTS            & 600\,000    & $5777$               &  $4.44$          &    $1.00$                       & $ 0.00$          \\
+        Arcturus    & FTS            & 100\,000    & $4300 \pm 111$       &  $1.60 \pm 0.29$ &    $1.93 \pm 0.17$              & $-0.54 \pm 0.11$ \\
+        HD 20010    & CRIRES         & 100\,000    & $6152 \pm  95$       &  $3.96 \pm 0.11$ &    $1.17 \pm 0.24$              & $-0.27 \pm 0.06$ \\
+        10 Leo      & CRIRES         & 100\,000    & $4742 \pm  61$       &  $2.76 \pm 0.17$ &    $1.45 \pm 0.08$              & $-0.03 \pm 0.02$ \\
+      \hline
+    \end{tabular}
+\end{table*}
 
 \section{The creation of a NIR line list}
 \label{sec:creation_line_list}
@@ -189,6 +208,7 @@ iteratively in the de-trended data. After this process there are 334 \ion{Fe}{I}
 
 
 \subsection{Second version}
+\label{sec:linelist_second}
 
 As will be seen in \sref{sec:HD20010_first} the line list presented above were used to derive
 atmospheric parameters of HD 20010. Even though the first test of the line list was success-full,
@@ -424,30 +444,42 @@ dex) translate to the high errors in the parameters.
 
 This test strongly suggest that errors in the EWs, likely due to the telluric contamination and
 non-optimal reduction of the spectrum (poor default wavelength calibration), are responsible for the
-relatively large error in the derived stellar parameters. After the analysis, the CRIRES-POP team
-published a fully reduced spectrum of 10 Leo \citep{Nicholls2017} with telluric correction and
-an optimal wavelength solution. The results obtained from this star (see \sref{sec:10Leo}) are very
-promising for the method used here, and it encourage a complete re-visit of HD 20010 once the
-reduction is optimal.
+relatively large error in the derived stellar parameters. After the first analysis of HD 20010, the
+CRIRES-POP team published a fully reduced spectrum of 10 Leo \citep{Nicholls2017} with telluric
+correction and an optimal wavelength solution. The results obtained from this star (see
+\sref{sec:10Leo}) are very promising for the method used here, and it encourage a complete re-visit
+of HD 20010 once the reduction is optimal.
 
 
 \subsection{Second analysis}
 \label{sec:HD20010_second}
 
-As a first step we revisit HD 20010 for which we derived atmospheric stellar parameters in Paper I
-using the newly revised line list presented in this paper. The results are shown in Table
-\ref{tab:results} along with the results for the two other stars analysed in this work. We see
-better agreement with the average literature values adopted (especially $[\ion{Fe}/\ion{H}]$ and
-$\log g$), and smaller errors with the updated results. This suggests that the new line list is more
-reliable.
+During the analysis of Arcturus (see \sref{sec:arcturus}) and 10 Leo (see \sref{sec:10Leo}) with the
+refined line list presented in \sref{sec:linelist_second} it was a simple task to apply the updated
+line list on HD 20010 a second time as a test whether it would perform similar, worse or better.
+This is compared to results obtained from the literature.
+
+Therefore HD 20010 was revisited, and the atmospheric stellar parameters was derived. The measured
+EWs from the results above in \sref{sec:HD20010_first} was kept, however the lines which did not
+make the cut in the second version of the line list was removed. Moreover, the $\log \mathit{gf}$
+values was updated since these were re-calibrated.
+
+\FASMA was used to obtain the results which are shown in \tref{tab:results} along with the results
+for Arcturus and 10 Leo (details on their parameters will be found below). The agreement with the
+adopted average literature values are better for HD 20010 compared to the results from above in
+\sref{sec:HD20010_first} (especially $[\ion{Fe}/\ion{H}]$ and $\log g$), and smaller errors with the
+updated results. This first test of the line list already shows promising results. The literature
+values are slightly different here than compared to the first analysis of this star. This is solely
+because other references were used, the PASTEL catalogue \citep{Soubiran2016}. However, this does
+not change the improvement seen.
+
 
 \begin{table}[htb!]
-    \caption{Results for the three stars with first set of parameters are the
-            %  literature values as presented in Table.~\ref{tab:stars}, second
-             set of parameters are results with $\log g$ set to the same value
-             during the minimization procedure as found in the literature
-             (fixed), and last set of parameters are with all parameters free
-             during the minimization procedure.}
+    \caption{Results for the three stars where first set of parameters are the literature values as
+             presented in \tref{tab:stars}, second set of parameters are results with $\log g$ set
+             to the same value during the minimization procedure as found in the literature (fixed),
+             and last set of parameters are with all parameters free during the minimization
+             procedure.}
     \label{tab:results}
     \centering
     \begin{tabular}{llll}
@@ -455,44 +487,26 @@ reliable.
                                     & HD 20010          &  10 Leo           &  Arcturus        \\
       \hline
         Literature                  &                   &                   &                  \\
-        $T_\mathrm{eff}$ (lit.)     & $6152 \pm  95$    &  $4741 \pm  60$   & $4300 \pm 110$   \\
-        $\log g$ (lit.)             & $3.96 \pm 0.19$   &  $2.76 \pm 0.17$  & $1.60 \pm 0.29$  \\
+        $T_\mathrm{eff}$ (lit.)     & $6152 \pm  95  $  &  $4741 \pm  60  $ & $4300 \pm 110  $ \\
+        $\log g$ (lit.)             & $3.96 \pm 0.19 $  &  $2.76 \pm 0.17 $ & $1.60 \pm 0.29 $ \\
         $[\ion{Fe}/\ion{H}]$ (lit.) & $-0.27 \pm 0.06$  &  $-0.03 \pm 0.02$ & $-0.54 \pm 0.11$ \\
-        $\xi_\mathrm{micro}$ (lit.) & $1.17 \pm 0.24$   &  $1.45 \pm 0.08$  & $1.93 \pm 0.13$  \\
+        $\xi_\mathrm{micro}$ (lit.) & $1.17 \pm 0.24 $  &  $1.45 \pm 0.08 $ & $1.93 \pm 0.13 $ \\
       \hline
         $\log g$ fixed              &                   &                   &                  \\
-        $T_\mathrm{eff}$            & $6161 \pm 164$    &  $4761 \pm 118$   & $4357 \pm  74$   \\
+        $T_\mathrm{eff}$            & $6161 \pm 164  $  &  $4761 \pm 118  $ & $4357 \pm  74  $ \\
         $\log g$                    & 3.96 (fixed)      &  2.76 (fixed)     & 1.60 (fixed)     \\
         $[\ion{Fe}/\ion{H}]$        & $-0.18 \pm 0.11$  &  $ 0.01 \pm 0.07$ & $-0.55 \pm 0.04$ \\
-        $\xi_\mathrm{micro}$        & $1.72 \pm 0.44$   &  $1.25 \pm 0.11$  & $1.55 \pm 0.10$  \\
+        $\xi_\mathrm{micro}$        & $1.72 \pm 0.44 $  &  $1.25 \pm 0.11 $ & $1.55 \pm 0.10 $ \\
       \hline
         All free                    &                   &                   &                  \\
-        $T_\mathrm{eff}$            & $6162 \pm 184$    &  $4805 \pm  98$   & $4439 \pm  62$   \\
-        $\log g$                    & $4.08 \pm 0.77$   &  $2.42 \pm 0.61$  & $1.20 \pm 0.20$  \\
+        $T_\mathrm{eff}$            & $6162 \pm 184  $  &  $4805 \pm  98  $ & $4439 \pm  62  $ \\
+        $\log g$                    & $4.08 \pm 0.77 $  &  $2.42 \pm 0.61 $ & $1.20 \pm 0.20 $ \\
         $[\ion{Fe}/\ion{H}]$        & $-0.18 \pm 0.11$  &  $-0.01 \pm 0.07$ & $-0.58 \pm 0.06$ \\
-        $\xi_\mathrm{micro}$        & $1.59 \pm 0.49$   &  $1.23 \pm 0.10$  & $1.55 \pm 0.10$  \\
+        $\xi_\mathrm{micro}$        & $1.59 \pm 0.49 $  &  $1.23 \pm 0.10 $ & $1.55 \pm 0.10 $ \\
         \hline\hline
     \end{tabular}
 \end{table}
 
-The parameters for the three stars, omitting the Sun since the derived parameters are trivial with a
-calibrated line list\footnote{The solar parameters used were: $T_\mathrm{eff}=\SI{5777}{K}$, $\log
-g=4.44\,$dex, $[\ion{Fe}/\ion{H}]=0.00\,$dex, and $\xi_\mathrm{micro}=\SI{1.00}{km/s}$.}, are
-presented in Fig.~\ref{fig:parameters}. We show the literature values (blue), derived parameters
-with $\log g$ fixed to the literature value (green), and derived parameters when $\log g$ is free
-during the minimization procedure (red points).
-
-\begin{figure}[htpb!]
-    \centering
-    \includegraphics[width=1.0\linewidth]{figures/parameters.pdf}
-    \caption{Parameters for Arcturus, 10 Leo, and HD 20010 (revisited in this
-             paper). The blue points show the literature values from the PASTEL
-             database as discussed in the text. The green points are the
-             derived values with $\log g$ fixed to the literature value, and the
-             red points show the derived parameters when $\log g$ is also
-             derived.}
-    \label{fig:parameters}
-\end{figure}
 
 
 
