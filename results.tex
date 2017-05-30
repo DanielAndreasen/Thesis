@@ -513,30 +513,42 @@ not change the improvement seen.
 \section{Arcturus}
 \label{sec:arcturus}
 
-Arcturus is one of the brightest stars on the night sky with a V magnitude of -0.05
-\citep{Ducati2002}. Hence it is a prime target for testing with the numerous measurements of the
-atmospheric parameters as mentioned above.
+Arcturus is one of the brightest stars on the Northern hemisphere with a V magnitude of -0.05
+\citep{Ducati2002}, and is well studied \citep[see e.g.][to mention just a
+few]{Griffin1967,McWilliam1990,Ramirez2013}, and a benchmark star in current spectroscopic surveys
+such as Gaia-ESO \citep{Jofre2014,Smiljanic2014}. Hence it is a prime target for testing with the
+numerous measurements of the atmospheric parameters.
+
+The atlas of Arcturus, acquired at Kitt Peak National Observatory using the FTS spectrograph at the
+Mayall telescope by \citet{Hinkle1995a}, covers the spectral range of interest (YJHK bands). Strong
+telluric features were identified with a spectrum from the TAPAS web page \citep{Bertaux2014} which
+was useful during the line identification. The atlas also comes with a telluric standard and the
+ratio of the two spectra in order to correct for the tellurics. The telluric spectrum from TAPAS is
+only used for telluric line identification. Both the telluric corrected and non-corrected spectra
+was used during the analysis, however the focus was on the non-corrected spectrum since it is simple
+to identify the telluric lines in this spectrum.
 
 The atlas consists of both a summer observation set and a winter observation set. The two data sets
 have been obtained in order to minimise the effect of tellurics at different spectral regions. A
-comparison between the two sets of measured EWs - both the manual measurements using IRAF and the
-% automatic measurements using \ARES - are shown in Fig.~\ref{fig:EWcomp}. The automatic EW
+comparison between the two sets of measured EWs - both the manual measurements using \code{IRAF} and
+the automatic measurements using \ARES - are shown in \fref{fig:EWcomp}. The automatic EW
 measurements for the summer set and winter set show excellent agreement with a dispersion of
-\SI{7}{m\angstrom}. This means that the two data sets are very similar, thus we decided to only
-manually measure the EWs for one set (summer). We did, however, measure a few lines from the winter
-data set to verify the agreement. Since the EWs are very similar we chose to only derive parameters
-of the summer set with EWs measured with \ARES. Parameters were derived with and without $\log g$
-set to a fixed value (1.60\,dex, the average literature value adopted). The derivation of the
-parameters followed the procedure presented in Paper I, although we used the minimization routine of
-FASMA \citep{Andreasen2017a}. After we reached convergence using all the iron lines we were able to
-measure, one outlier above $3\sigma$ in abundance were removed, and the minimization routine was
-restarted. This process was done iteratively until there were no more outliers. The final results
-are presented in Table \ref{tab:results} together with mean parameters from the literature.
+\SI{7}{m\angstrom}. This means that the two data sets are very similar, thus it was decided to only
+manually measure the EWs for one set (summer). A few lines from the winter data set was measured to
+verify the agreement. Since the EWs are very similar the parameters are only derived from from the
+summer set with the EWs measured by \ARES. Parameters were derived with and without $\log g$ set to
+a fixed value (1.60\,dex, the average literature value adopted). The derivation of the parameters
+followed the same procedure as described above for HD 20010 using \FASMA. Again outliers in
+abundance were removed one at the time iteratively until there were no more outliers. The final
+results are presented in \tref{tab:results} together with mean parameters from the literature.
 
-We generally see good agreement between the derived parameters and the average values from the
-literature adopted (see Table \ref{tab:results}). The only parameter being difficult to measure is
-the surface gravity due to the low number of \ion{Fe}{II} lines in the NIR. It is very important to
-derive the metallicity accurately, and we report consistent results overall.
+There is overall good agreement between the derived parameters and the average values from the
+literature adopted (see \tref{tab:results}). The only parameter being difficult to measure is the
+surface gravity due to the low number of \ion{Fe}{II} lines in the NIR. This was already suspected
+and mentioned in \sref{sec:linelist_second}. There are also some problems determining
+$\xi_\mathrm{micro}$, however this is not a major concern, since it is not as important a parameter
+as the other three. The derived metallicity is consistent with the literature here which is promising
+since there were some problems with this parameter in \sref{sec:HD20010_first}.
 
 
 \section{10 Leo}
