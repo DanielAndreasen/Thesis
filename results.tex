@@ -564,12 +564,22 @@ since there were some problems with this parameter in \sref{sec:HD20010_first}.
 \section{10 Leo}
 \label{sec:10Leo}
 
+The spectrum for 10 Leo was made available by the CRIRES-POP team \citep{Nicholls2017}. 10 Leo is
+very similar to Arcturus, which is also one reason this star was the first to be fully reduced by
+the CRIRES-POP team. The spectrum is divided into several pieces according to the atmospheric
+windows in the NIR: YJ (only together), H, K, L, and M. Here the first three are used. Some small
+gaps are present in the spectrum due to tellurics that could not be properly removed, low S/N, bad
+pixels, etc. Rather than giving an uncertain interpolation, \citet{Nicholls2017} decided to leave
+small gaps in the data. This has very little effect on this line by line analysis, however, due to
+those gaps, one \ion{Fe}{II} line were not measured which are generally important to determine the
+surface gravity.
+
 The approach for determining the atmospheric stellar parameters for 10 Leo is identical to Arcturus.
 We use \ARES on each band (YJ, H, and K-band) separately. For the small gaps in the spectrum, we
 simply set the flux to 1, since the spectrum is already normalised. This will also prevent \ARES to
 identify and measure any lines in these regions. The EWs from the three regions are combined to one
 final line list used for the determination of the parameters. The final results can be seen in
-Fig.~\ref{fig:parameters} and Table~\ref{tab:results}.
+\tref{tab:results}.
 
 Generally the derived parameters are in excellent agreement with the literature values listed here.
 For $T_\mathrm{eff}$ we were \SI{64}{K} off with $\log g$ set as a free parameter, well within the
