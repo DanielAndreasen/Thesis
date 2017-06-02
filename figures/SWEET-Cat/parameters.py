@@ -80,11 +80,8 @@ def radTorres(teff, erteff, logg, erlogg, feh, erfeh):
     return meanRad, sigRad
 
 
-def read_data(converged=None):
+def read_data():
     df = pd.read_csv('SWEETCAT.csv', delimiter=r'\s+')
-    if converged:
-        # df = df[df['convergence']]
-        pass
     params = zip(df.teff, df.tefferr, df.logg, df.loggerr, df.feh, df.feherr)
     # m = [massTorres(t, et, l, el, f, ef) for t, et, l, el, f, ef in params]
     r = [radTorres(t, et, l, el, f, ef) for t, et, l, el, f, ef in params]
@@ -132,6 +129,7 @@ def plot_data(df, x=None, y=None, z=None, xinverse=False, yinverse=False,
 
 
 if __name__ == '__main__':
-    df = read_data(converged=True)
+    df = read_data()
+    df = df[df.convergence.values]
     plot_data(df, x='teff', y='lum', z='logg', xinverse=True, ylog=True, fname='HR')
     plt.show()
