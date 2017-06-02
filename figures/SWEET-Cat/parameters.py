@@ -1,6 +1,7 @@
 from __future__ import division
 import numpy as np
 import pandas as pd
+import matplotlib.cm as cm
 import matplotlib.pyplot as plt
 
 plt.rcParams['xtick.direction'] = 'in'
@@ -98,7 +99,7 @@ def plot_data(df, x=None, y=None, z=None, xinverse=False, yinverse=False,
 
     plt.figure()
     if z is not None:
-        plt.scatter(df[x], df[y], c=df[z])
+        plt.scatter(df[x], df[y], c=df[z], cmap=cm.inferno)
         if xinverse:
             xlim = plt.xlim()
             plt.xlim(xlim[1], xlim[0])
