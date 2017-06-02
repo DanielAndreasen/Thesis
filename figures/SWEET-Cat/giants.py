@@ -40,8 +40,14 @@ if __name__ == '__main__':
     df = df[(df['teff']>4000) & (df['teff']<6500)]
     df = df[(df['orbital_period']>10) & (df['orbital_period']<5*365)]
 
+    bins = np.logspace(0, 1.3, 13)
+
+    plt.hist(df_all['mass_sini'].dropna(), bins=bins, label='All planets')
+    plt.hist(df['mass_sini'].dropna(), bins=bins, label='Constrained planets')
     plt.xscale('log')
-    plt.hist((df_all['mass_sini'].dropna()), bins=13)
-    plt.hist((df['mass_sini'].dropna()), bins=13)
+
     plt.xlabel('Planet mass [Jupiter masses]')
+    plt.legend(frameon=False, loc='best')
+
+    plt.savefig('../giantPopulation.pdf')
     plt.show()
