@@ -1,22 +1,21 @@
 # Figures
 1. Over plot PHOENIX synthetic spectrum on top of Arcturus or the Sun
-2. Add plot that shows how synthesis was used to select iron lines
-3. Make a plot of `plot_fits` in action (preferably for HD 20010)
+2. Make a plot of `plot_fits` in action
 
 
 # Text
 
 ## Front page
-Make it
+Make it and include the figure by Carla
 
 ## Resume
 Write it
 
 ## Introduction
-Write it...
+Write it
 
 ## Theory
-More or less done. Still reconsidering the stellar structure part.
+Correct comments by Nuno.
 
 ## Results
 Write it
