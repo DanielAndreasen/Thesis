@@ -25,7 +25,7 @@ def get_data():
     df2 = get_planets()
 
     df = pd.merge(df1, df2, left_on='star', right_on='star_name', how='right')
-    cols = ('name', 'vmag', 'teff', 'logg', 'feh', 'mass_sini',
+    cols = ('name', 'vmag', 'teff', 'logg', 'metal', 'mass_sini',
             'orbital_period', 'detection_type')
     df = df.loc[:, cols]
     df = df[(df['mass_sini'] < 20) & (df['mass_sini'] > 1)]
@@ -49,5 +49,5 @@ if __name__ == '__main__':
     plt.xlabel('Planet mass [Jupiter masses]')
     plt.legend(frameon=False, loc='best')
 
-    plt.savefig('../giantPopulation.pdf')
+    # plt.savefig('../giantPopulation.pdf')
     plt.show()
