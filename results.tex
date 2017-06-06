@@ -595,6 +595,77 @@ within the large errors reported.
 \section{Synthetic cool stars}
 \label{sec:synthetic_spectra}
 
+Mainly due to lack of available high quality spectra in the NIR, it is a good test to do a
+simulation. By deriving parameters from synthetic spectra, it is possible to carefully control the
+work flow, in the sense that the target parameters are known. In this section the synthetic
+library\footnote{\url{http://phoenix.astro.physik.uni-goettingen.de/}} by \citet{Husser2013} will be
+used. For this test only the $T_\mathrm{eff}$ will vary, ranging from \SIrange{3500}{6000}{K} with
+most densely sampled at lower temperatures (see \fref{fig:phoenix_free}). Here $\log
+g=\SI{4.5}{dex}$ and $[\ion{M}/\ion{H}]=\SI{0.00}{dex}$, i.e. synthesised dwarf stars with solar
+metallicity.
+
+In this test \ARES was used to measure the EWs of as many lines from the line list (second version)
+for each of the 12 synthetic spectra. These line list were used to derive parameters with two
+different model atmospheres, ATLAS9 \citep{Kurucz1993} and MARCS \citep{Gustafson2008}, with \FASMA.
+This was done twice, with all parameters derived from \FASMA (\fref{fig:phoenix_free}), and again
+with $\log g$ fixed at \SI{4.5}{dex} and $\xi_\mathrm{micro}$ fixed which means it is changed in
+each iteration (see \sref{sec:parameters} for details). The latter case with fixed parameters is
+shown in \fref{fig:phoenix_fix}.
+
+
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/simulated_teff_fix.pdf}
+    \caption{Derived parameters of 12 synthetic PHOENIX spectra with varying $T_\mathrm{eff}$. Here
+             $\log g$ is fixed at \SI{4.5}{dex} and $\xi_\mathrm{micro}$ fixed according to an
+             empirical relation, thus only deriving $T_\mathrm{eff}$ and $[\ion{Fe}/\ion{H}]$.}
+    \label{fig:phoenix_fix}
+\end{figure}
+
+For the results with $\log g$ and $[\ion{Fe}/\ion{H}]$ fixed at the correct parameters during the
+derivation, the first thing noticed is the well agreement between the two model atmospheres. Second,
+the derived $T_\mathrm{eff}$ are underestimated for $T_\mathrm{eff}>\SI{4000}{K}$ while for the two
+lowest $T_\mathrm{eff}$ it is the opposite case. It is important to know that the grid of ATLAS9
+models only go down to \SI{3750}{K}, however these synthetic spectra were included for completeness.
+In this case the mean metallicity for the 12 synthetic spectra are
+$[\ion{Fe}/\ion{H}]=\SI{-0.12(17)}{dex}$ and $[\ion{Fe}/\ion{H}]=\SI{-0.19(12)}{dex}$ for the ATLAS9
+and MARCS model atmospheres, respectively.
+
+
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/simulated_teff_free.pdf}
+    \caption{Same as \fref{fig:phoenix_fix} but with all parameters derived.}
+    \label{fig:phoenix_free}
+\end{figure}
+
+When all the parameters are derived it is a very different story for $T_\mathrm{eff}$. In this case
+the $T_\mathrm{eff}$ are overestimated for the synthetic spectra colder than \SI{5000}{K}. Above
+this limit the $T_\mathrm{eff}$ are slightly underestimated with a hint of worse results further
+from this limit. The reason for this can partly be found in the measured \ion{Fe}{II} lines. As
+mentioned before, these are used to determine $\log g$. There have been measured between 1 and 3
+\ion{Fe}{II} lines, generally fewer the lower $T_\mathrm{eff}$ is, out of 5 possible measurements.
+The mean derived values for the surface gravity are $\log g=(1.11\pm1.63)\,\si{dex}$ and
+$\log g=(1.38\pm1.45)\,\si{dex}$ for ATLAS9 and MARCS model atmospheres, respectively. Similarly for
+the metallicity the following mean values are $[\ion{Fe}/\ion{H}]=\SI{-0.73(37)}{dex}$ and
+$[\ion{Fe}/\ion{H}]=\SI{-0.73(38)}{dex}$ for ATLAS9 and MARCS model atmospheres, respectively.
+
+Another cause for the differences found in the parameters can be found in the synthetic spectra
+themselves. In \fref{fig:arcturus_phoenix} a PHOENIX synthetic spectrum with
+$T_\mathrm{eff}=\SI{4300}{K}$, $\log g=\SI{1.50}{dex}$, and $[\ion{Fe}/\ion{H}]=\SI{-0.50}{dex}$
+is plotted with a piece of the Arcturus atlas from \sref{sec:arcturus}. The synthetic spectrum has
+similar parameters as Arcturus, thus they should have similar spectral features. However, in the
+plot the spectral lines are deeper for the PHOENIX model and there seem to be more absorption lines
+in this synthetic spectrum compared to the observed spectrum. This have a direct effect on the
+measured EWs as they will be blended and deeper than expected.
+
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/arcturus_phoenix.pdf}
+    \caption{Comparison between the Arcturus atlas and a PHOENIX synthetic spectrum with similar
+             parameters to Arcturus (see text for details).}
+    \label{fig:arcturus_phoenix}
+\end{figure}
 
 
 \section{SWEET-Cat and parameters for 50 planet hosts}
