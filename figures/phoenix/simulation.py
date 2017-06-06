@@ -26,7 +26,7 @@ if __name__ == '__main__':
         dfm = df[df['model'] == 'marcs']
         dfk = df[df['model'] == 'kurucz95']
 
-        plt.figure(figsize=(12, 6))
+        plt.figure()
         ###########################################
         plt.subplot(211)
         # plt.title('Simulation: {}'.format(t))
