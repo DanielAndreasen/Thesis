@@ -1,4 +1,5 @@
 update:
+	git push
 	git add thesis.pdf
 	git commit -m "New update"
 	git push
