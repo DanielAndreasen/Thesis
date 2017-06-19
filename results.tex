@@ -13,7 +13,7 @@ found in \tref{tab:stars}. More details are provided in the individual sections 
 An update to SWEET-Cat \citep{Santos2013}, a catalogue which provides homogeneous stellar parameters
 of planet hosts, was provided in \citet{Andreasen2017a}. Additionally in this work, there was an
 analysis of how a selection of lines with different excitation potential might affect the final
-parameters of a star. This is discussed in \sref{sec:EPcut}, and last the analysis of a range of
+parameters of a star, which is discussed in \sref{sec:EPcut}. Last is the analysis of a range of
 synthetic spectra from the PHOENIX spectral library \citep{Husser2013}, with $T_\mathrm{eff}$ lower
 than analysed in previous stars with the methodology described above in \sref{sec:parameters}.
 However, before diving into the results of the analysis it is important to describe how the NIR line
@@ -40,11 +40,17 @@ list was compiled, and why and how it was later refined.
 \section{The creation of a NIR line list}
 \label{sec:creation_line_list}
 
+Although previous work\reference{which work exactly? See recent paper} have compiled some NIR line
+lists for different purposes, there still does not exists an iron line list to determine stellar
+atmospheric parameters from high S/N and high resolution spectra. With the advancement of NIR high
+resolution spectrographs the time has arrived to compile such a line list, which should be properly
+tested (used to determine parameters of well known stars).
+
 As discussed extensively in \cref{cha:theory} and \cref{cha:method}, an atomic line list is needed
-for employing the method of deriving the stellar atmospheric parameters described here. This line
-list is composed by neutral and ionized iron lines in the NIR. This has already been mentioned in
-\cref{cha:theory}. Here the process will be explained in greater detail below for the two versions
-presented in \citet{Andreasen2016} and \citet{Andreasen2017b}, respectively.
+for employing the method of deriving the stellar atmospheric parameters used in this thesis. This
+line list is composed by neutral and ionized iron lines in the NIR. This has already been mentioned
+in \cref{cha:theory}. Here the process will be explained in greater detail below for the two
+versions presented in \citet{Andreasen2016} and \citet{Andreasen2017b}, respectively.
 
 The two versions of the line lists are presented in this section together, rather than when the
 results from this thesis were obtained. The first version of the line list was presented with the
@@ -62,7 +68,7 @@ such as the one from \citet{Onehag2012,Lindgren2016} for utilising the synthetic
 above of high resolution spectra. Their line list cover the J band in the NIR and consists of 48
 lines of different elements.\unfinished{Add more line lists from the literature.}. For this line
 list all iron transitions between \SIrange{10000}{25000}{\angstrom}\footnote{That is equivalent to
-the YJHK bands.} were downloaded from the VALD database \citep{VALD1,VALD2}. This only includes
+the YJHK bands.} were downloaded from the VALD database \citep{VALD1,VALD2}, only including
 \ion{Fe}{I} and \ion{Fe}{II} transitions. In total were \num{50198} \ion{Fe}{I} and \num{28339}
 \ion{Fe}{II} lines respectively acquired.
 
@@ -77,8 +83,8 @@ atlas varies between 300 to 2000 across the spectrum, but is generally of a very
 The EWs were measured by fitting Gaussian profiles to the spectral lines. For a given line,
 \code{ARES} output the central wavelength of the line (provided in the line list), the FWHM maximum
 of the fitted line, the number of lines fitted for the final result (in case of blending), the depth
-of the line, the EW of the line, and the Gaussian coefficients of the line. In the latest version of
-\code{ARES}, the error of the EW is also provided \citep{Sousa2015a}.
+of the line, and the EW of the line of the line. In the latest version of \code{ARES}, the error of
+the EW is also provided \citep{Sousa2015a}.
 
 As a first selection step, lines were discarded according to the following four criteria:
 
@@ -101,11 +107,12 @@ After this removal the number of \ion{Fe}{I} and \ion{Fe}{II} lines were reduced
 
 
 \subsubsection{Visual removal of lines}
+\label{sec:visual}
 
 At this point a visual inspection was necessary. All atomic data for possible transitions from all
 elements were downloaded from the VALD3 database in a \SI{3}{\angstrom} window around each of the
 nearly \num{9000} iron lines from the previous step. For each small spectral window, all absorption
-lines (including the iron line(s)) were plotted on top of the solar spectrum. An iron line was
+lines (including the iron line(s)) were located in a plot of the solar spectrum. An iron line was
 discarded if another line had the same central wavelength and/or the absorption line were severely
 blended. Most of the discarded iron lines had high EP, which are weak compared to the low EP lines.
 Therefore, it is fair to assume that many of these iron lines were falsely identified as another
@@ -124,17 +131,18 @@ in these spectral windows. \code{MOOG} was used with the \code{synth} driver to 
 spectrum using a solar atmosphere model with $T_\mathrm{eff}=\SI{5777}{K}$, $\log g=4.438$,
 $A(\mathrm{Fe})=7.47$, and $\xi_\mathrm{micro}=\SI{1.00}{km/s}$. The iron abundance (7.47) is from
 \citet{Gonzalez2000}, while the overall metallicity for the solar atmosphere model is
-$[\ion{M}/\ion{H}]=0.00$ by definition. This was done for all spectral windows for three different
-iron abundances $[\ion{Fe}/\ion{H}]=\{-0.20;\,0.00;\,0.20\}$ in order to identify iron lines and
-their impact on the synthetic spectra. \unfinished{Write about the \code{synth} driver an options
-used...} Before creating a synthetic spectrum all elements which are more than singly ionised were
-removed since \code{MOOG} does not allow these. An example of the three synthetic spectra can be
-seen in \fref{fig:synthetic_investigation}. Here the neutral iron line at \SI{15550.439}{\angstrom}
-was investigated. The three coloured curves are synthetic spectra with the three different
-$[\ion{Fe}/\ion{H}]$. The upper plot shows the result with the full VALD3 line list, while in the
-lower plot the iron line were removed from the line list. In this case it is clear that the iron
-line is the cause of the absorption line. The grey curve is the solar atlas for reference. Note that
-it is not the purpose to match a synthetic spectrum to the solar atlas.
+$[\ion{M}/\ion{H}]=0.00$ by definition. This step is different from the step visual inspection done
+in \sref{sec:visual} since synthetic spectra were created here. This was done for all spectral
+windows for three different iron abundances $[\ion{Fe}/\ion{H}]=\{-0.20;\,0.00;\,0.20\}$ in order to
+identify iron lines and their impact on the synthetic spectra. \unfinished{Write about the
+\code{synth} driver and options used...} Before creating a synthetic spectrum all elements which are
+more than singly ionised were removed since \code{MOOG} does not allow these. An example of the
+three synthetic spectra can be seen in \fref{fig:synthetic_investigation}. Here the neutral iron
+line at \SI{15550.439}{\angstrom} was investigated. The three coloured curves are synthetic spectra
+with the three different $[\ion{Fe}/\ion{H}]$. The upper plot shows the result with the full VALD3
+line list, while in the lower plot the iron line was removed from the line list. The grey curve is
+the solar atlas for reference. Note that it is not the purpose to match a synthetic spectrum to the
+solar atlas.
 
 \begin{figure}[htpb!]
     \centering
@@ -152,28 +160,29 @@ it is not the purpose to match a synthetic spectrum to the solar atlas.
     \label{fig:synthetic_investigation}
 \end{figure}
 
-If the three synthetic spectra shows variation at the iron line of interest, then it is assumed that
-the iron line is the cause for the absorption line. As a simple test, the iron line was also removed
+If the synthetic spectra shows variation at the iron line of interest, then it is assumed that the
+iron line is the cause for the absorption line. As a simple test, the iron line was also removed
 from the line list used to create the synthetic spectra. If the iron line in the synthetic spectra
 disappeared, it was a clear signal that this line can be used in the final iron line list ( this can
 be seen clearly in the lower plot of \fref{fig:synthetic_investigation}). In some cases two iron
 lines had the same or very similar wavelength, and this technique was used to include the correct
 iron line. In cases where both iron lines causes the absorption line, they were both discarded since
-they are blended.
+they are blended. In theory both iron lines will contribute to the absorption, however one of the
+contributions might be negligible, hence only one of the lines will be discarded.
 
 In a few cases two iron lines had the same wavelength and EP but different $\log \mathit{gf}$. In
 these cases the two iron lines they can be combined into a single line by adding their $\mathit{gf}$
-values. After this step, there was 414 \ion{Fe}{I} lines and 12 \ion{Fe}{II} lines, respectively.
+values. After this step, there were 414 \ion{Fe}{I} lines and 12 \ion{Fe}{II} lines, respectively.
 
 
 
 \subsubsection{Calibrating the line list: astrophysical $\log \mathit{gf}$ values}
-\unfinished{Make a plot with line abundances before calibration to clearly show why it is done.}
-These lines were collected into a single line list in the format required by MOOG \citep{Sneden1973}
-and the line abundance were measured by all lines using the solar atmosphere model described above.
-If the derived abundance for a single line differs by more than \SI{1.0}{dex} from the solar iron
-abundance, the line was discarded. The solar iron abundance used is 7.47 as found by
-\citet{Gonzalez2000}.
+
+\unfinished{Make a histogram with line abundances before calibration to clearly show why it is
+done.} These lines were collected into a single line list in the format required by MOOG
+\citep{Sneden1973} and the line abundance were measured by all lines using the solar atmosphere
+model described above. If the derived abundance for a single line differs by more than \SI{1.0}{dex}
+from the solar iron abundance, the line was discarded.
 
 After the removal of the lines mentioned above, the final line list is almost compiled. At this
 point the line list has to be calibrated. This is done by changing $\log \mathit{gf}$ so the line
@@ -250,7 +259,7 @@ removed iteratively in the de-trended data. After this process there are 334 \io
 \label{sec:linelist_second}
 
 As will be seen in \sref{sec:HD20010_first} the line list presented above was used to derive
-atmospheric parameters of HD 20010. Even though the first test of the line list was success-full, it
+atmospheric parameters of HD 20010. Even though the first test of the line list was successful, it
 left room for improvements. The errors on the derived parameters were quite high for the spectral
 type compared results obtainable with a similar analysis utilising the optical spectrum (see
 \sref{sec:HD20010_first} for details on this). Additionally, the derived metallicity was
@@ -286,7 +295,7 @@ star, Sun in this case. This combines to several cases:
 It is important to note, that \emph{correct} has been used here, assuming a perfect setup, that
 includes perfect model atmosphere, perfect radiative transfer code, etc. In reality the final
 $[\ion{M}/\ion{H}]$ (and the other parameters) measured by different groups will occasionally differ
-regarding the setup used.
+regarding the setup used \citep[see e.g.][]{Hinkel2016}.
 
 As described in \sref{sec:linelist_first} the EW of the Sun (calibrator star) was measured with
 \code{ARES}. A crucial option to set when using \code{ARES} is the \code{rejt} parameter as
@@ -326,19 +335,17 @@ analysis, however they were kept since they might appear useful on a later stage
     \label{fig:linelist_comparison}
 \end{figure}
 
-While the first version might seem careless since it is necessary with a second version, it is
-important to stress the 1) limited access on high quality of NIR spectra, and 2) the gained
-experience during the course of the thesis which proved valuable in the refining of the line list
-by a second visual inspection of the line list on the solar spectrum.
+With the increased access to high quality NIR spectra and the gained experience during the course
+of the thesis, it was possible to improve the line list by a second visual inspection on the solar
+spectrum.
 
 After the new measurements of the EWs, the line list was re-calibrated according to the procedure
 described above. The average change in $\log \mathit{gf}$ is $-0.062\pm0.157$, i.e. on average the
 oscillator strengths are higher in the second version compared to the first version of the line
 list.
 
-With the second version there are only 5 \ion{Fe}{II} lines which is a concern since these are
-crucial for the derivation of the surface gravity. Therefore, when possible, it is important to
-obtain the $\log g$ from other more reliable studies.
+With the second version there are only 5 \ion{Fe}{II} lines left which is a concern since these are
+crucial for the derivation of the surface gravity.
 
 
 \section{HD20010}
@@ -446,13 +453,13 @@ telluric or other line blends. Additionally, a cut in EP at \SI{5.5}{eV} was mad
 regime are also limited to similar values \citep[see e.g][]{Sousa2008a}. Higher excitation potential
 lines are also more likely to be affected by non-LTE effects\reference{Any reference for this?}.
 
-The parameters were derived with one outlier in abundance removed iteratively (after a completed
-minimization) until no outliers were present. Since we could only measure 5 \ion{Fe}{II} lines, the
-parameter were also derived with $\log g=\SI{4.01}{dex}$ fixed at the reference mean value (see
-\tref{tab:HD20010}). The resulting atmospheric parameters and iron abundances are presented in
-\tref{tab:HD20010_results}. The effective temperature, surface gravity, and metallicity agree within
-the errors with the literature values. Similar parameters are obtained by fixing $\log g$ to the
-average literature value or by leaving it free.
+When deriving the stellar atmospheric parameters, one outlier were removed at a time (after a
+completed minimization) until no outliers were present. Since we could only measure 5 \ion{Fe}{II}
+lines, the parameter were also derived with $\log g=\SI{4.01}{dex}$ fixed at the reference mean
+value (see \tref{tab:HD20010}). The resulting atmospheric parameters and iron abundances are
+presented in \tref{tab:HD20010_results}. The effective temperature, surface gravity, and metallicity
+agree within the errors with the literature values. Similar parameters are obtained by fixing $\log
+g$ to the average literature value or by leaving it free.
 
 \begin{table*}[htb!]
     \caption{The derived parameters for HD20010 with and without fixed surface gravity.}
@@ -580,14 +587,15 @@ have been obtained in order to minimise the effect of tellurics at different spe
 comparison between the two sets of measured EWs, both the manual measurements using \code{IRAF} and
 the automatic measurements using \code{ARES}, are shown in \fref{fig:EWcomp}. The automatic EW
 measurements for the summer set and winter set show excellent agreement with a dispersion of
-\SI{7}{m\angstrom}. This means that the two data sets are very similar, thus it was decided to only
-manually measure the EWs for one set (summer). Since this is a test of the line list (rather than a
-study of Arcturus) and the fact that the EWs are very similar, the parameters are only derived from
-the summer set with the EWs measured by \code{ARES}. Parameters were derived with and without $\log
-g$ set to a fixed value (\SI{1.60}{dex}, the average literature value adopted). The derivation of
-the parameters followed the same procedure as described above for HD 20010 using \code{FASMA}. Again
-outliers in abundance were removed one at the time until there were no more outliers. The final
-results are presented in \tref{tab:results} together with mean parameters from the literature.
+\SI{7}{m\angstrom} and a systematic difference of \SI{0.1}{m\angstrom}, i.e. ineligible. This means
+that the two data sets are very similar, thus it was decided to only manually measure the EWs for
+one set (summer). Since this is a test of the line list (rather than a study of Arcturus) and the
+fact that the EWs are very similar, the parameters are only derived from the summer set with the EWs
+measured by \code{ARES}. Parameters were derived with and without $\log g$ set to a fixed value
+(\SI{1.60}{dex}, the average literature value adopted). The derivation of the parameters followed
+the same procedure as described above for HD 20010 using \code{FASMA}. Again outliers in abundance
+were removed one at the time until there were no more outliers. The final results are presented in
+\tref{tab:results} together with mean parameters from the literature.
 
 \begin{figure}[htpb!]
     \centering
@@ -611,15 +619,15 @@ promising since there were some problems with this parameter in \sref{sec:HD2001
 \section{10 Leo}
 \label{sec:10Leo}
 
-The spectrum for 10 Leo was made available by the CRIRES-POP team \citep{Nicholls2017}. 10 Leo is
-very similar to Arcturus, which is also one reason this star was the first to be fully reduced by
-the CRIRES-POP team. The spectrum is divided into several pieces according to the atmospheric
-windows in the NIR: YJ (only together), H, K, L, and M. Here the first three were used since this is
-the range of the line list. Some small gaps are present in the spectrum due to tellurics that could
-not be properly removed, low S/N, bad pixels, etc. Rather than giving an uncertain interpolation,
-\citet{Nicholls2017} decided to leave small gaps in the data. This had very little effect on this
-line by line analysis, however, due to those gaps, one \ion{Fe}{II} line were not measured which are
-crucial to determine the surface gravity.
+The spectrum for 10 Leo was recently made available by the CRIRES-POP team \citep{Nicholls2017}. 10
+Leo is very similar to Arcturus, which is also one reason this star was the first to be fully
+reduced by the CRIRES-POP team. The spectrum is divided into several pieces according to the
+atmospheric windows in the NIR: YJ (only together), H, K, L, and M. Here the first three were used
+since this is the range of the line list. Some small gaps are present in the spectrum due to
+tellurics that could not be properly removed, low S/N, bad pixels, etc. Rather than giving an
+uncertain interpolation, \citet{Nicholls2017} decided to leave small gaps in the data. This had very
+little effect on this line by line analysis, however, due to those gaps, one \ion{Fe}{II} line were
+not measured which are crucial to determine the surface gravity.
 
 The approach for determining the atmospheric stellar parameters for 10 Leo is identical to Arcturus.
 \code{ARES} was used on each band (YJ, H, and K-band) separately. For the small gaps in the
@@ -670,13 +678,29 @@ for details) according to an empirical relation. The latter case with fixed para
 \end{figure}
 
 For the results with $\log g$ and $\xi_\mathrm{micro}$ fixed at the correct parameters during the
-derivation, the first thing noticed is the well agreement between the two model atmospheres. Second,
+derivation, the first thing noticed is the good agreement between the two model atmospheres. Second,
 the derived $T_\mathrm{eff}$ are underestimated for $T_\mathrm{eff}>\SI{4000}{K}$ while for the two
 lowest $T_\mathrm{eff}$ it is the opposite case. It is important to know that the grid of ATLAS9
 models only go down to \SI{3750}{K}, however these synthetic spectra were included for completeness.
-In this case the mean metallicity for the 12 synthetic spectra are
-$[\ion{Fe}/\ion{H}]=\SI{-0.12(17)}{dex}$ and $[\ion{Fe}/\ion{H}]=\SI{-0.19(12)}{dex}$ for the ATLAS9
-and MARCS model atmospheres, respectively.
+For $T_\mathrm{eff}>\SI{4000}{K}$ it is systematically lower by the same amount, roughly
+\SI{100}{K}. As have been shown in the previous sections in this chapter, the methodology is
+reliable for $T_\mathrm{eff}$ ranging from \SIrange{4300}{6200}{K} (see \tref{tab:results}). With
+the consistent offset in $T_\mathrm{eff}$, it is a clear indication that the methodology is reliable
+down to these temperatures.
+
+In the case of $\log g$ and $\xi_\mathrm{micro}$ fixed the derived mean metallicity for the 12
+synthetic spectra are $[\ion{Fe}/\ion{H}]=\SI{-0.12(17)}{dex}$ and
+$[\ion{Fe}/\ion{H}]=\SI{-0.19(12)}{dex}$ for the ATLAS9 and MARCS model atmospheres, respectively.
+The offset is likely to be found in the discrepancy between the model atmosphere and real data
+(Arcturus in this case) as shown in \fref{fig:arcturus_phoenix}. Here a PHOENIX synthetic spectrum
+with $T_\mathrm{eff}=\SI{4300}{K}$, $\log g=\SI{1.50}{dex}$, and
+$[\ion{Fe}/\ion{H}]=\SI{-0.50}{dex}$ is plotted with a piece of the Arcturus atlas from
+\sref{sec:arcturus}. The synthetic spectrum has similar parameters as Arcturus, thus they should
+have similar spectral features. However, in the plot the spectral lines are deeper for the PHOENIX
+model and there seem to be more absorption lines in this synthetic spectrum compared to the observed
+spectrum. This have a direct effect on the measured EWs as they will be blended and deeper than
+expected. \unfinished{Make a plot with EWs for lines in common and look for any offsets.}
+
 
 \begin{figure}[htpb!]
     \centering
@@ -698,16 +722,6 @@ g=(1.38\pm1.45)\,\si{dex}$ for ATLAS9 and MARCS model atmospheres, respectively.
 metallicity the following mean values are $[\ion{Fe}/\ion{H}]=\SI{-0.73(37)}{dex}$ and
 $[\ion{Fe}/\ion{H}]=\SI{-0.73(38)}{dex}$ for ATLAS9 and MARCS model atmospheres, respectively.
 \unfinished{Make some histograms of $[\ion{Fe}/\ion{H}]$}
-
-Another cause for the differences found in the parameters can be found in the synthetic spectra
-themselves. In \fref{fig:arcturus_phoenix} a PHOENIX synthetic spectrum with
-$T_\mathrm{eff}=\SI{4300}{K}$, $\log g=\SI{1.50}{dex}$, and $[\ion{Fe}/\ion{H}]=\SI{-0.50}{dex}$
-is plotted with a piece of the Arcturus atlas from \sref{sec:arcturus}. The synthetic spectrum has
-similar parameters as Arcturus, thus they should have similar spectral features. However, in the
-plot the spectral lines are deeper for the PHOENIX model and there seem to be more absorption lines
-in this synthetic spectrum compared to the observed spectrum. This have a direct effect on the
-measured EWs as they will be blended and deeper than expected.
-\unfinished{Make a plot with EWs for lines in common and look for any offsets.}
 
 \begin{figure}[htpb!]
     \centering
