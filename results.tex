@@ -171,11 +171,22 @@ values. After this step, there were 414 \ion{Fe}{I} lines and 12 \ion{Fe}{II} li
 
 \subsection{Calibrating the line list: astrophysical $\log \mathit{gf}$ values}
 
-\unfinished{Make a histogram with line abundances before calibration to clearly show why it is
-done.} These lines were collected into a single line list in the format required by MOOG
-\citep{Sneden1973} and the line abundance were measured by all lines using the solar atmosphere
-model described above. If the derived abundance for a single line differs by more than \SI{1.0}{dex}
-from the solar iron abundance, the line was discarded.
+These lines were collected into a single line list in the format required by MOOG \citep{Sneden1973}
+and the line abundance were measured by all lines using the solar atmosphere model described above.
+If the derived abundance for a single line differs by more than \SI{1.0}{dex} from the solar iron
+abundance, the line was discarded. All lines before this step can be seen in
+\fref{fig:calibrated_loggf} with all lines discarded marked in red.
+
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/calibrated_loggf.pdf}
+    \caption{Line abundance of all iron lines before calibrating the $\log \mathit{gf}$ values. The
+             green points are the points with a deviation less than \SI{1.0}{dex} from the solar
+             iron abundance. All the red points are discarded. The horizontal line shows the solar
+             iron abundance.}
+    \label{fig:calibrated_loggf}
+\end{figure}
+
 
 After the removal of the lines mentioned above, the final line list is almost compiled. At this
 point the line list has to be calibrated. This is done by changing $\log \mathit{gf}$ so the line
