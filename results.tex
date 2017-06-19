@@ -694,7 +694,7 @@ $[\ion{Fe}/\ion{H}]=\SI{-0.50}{dex}$ is plotted with a piece of the Arcturus atl
 have similar spectral features. However, in the plot the spectral lines are deeper for the PHOENIX
 model and there seem to be more absorption lines in this synthetic spectrum compared to the observed
 spectrum. This have a direct effect on the measured EWs as they will be blended and deeper than
-expected. \unfinished{Make a plot with EWs for lines in common and look for any offsets.}
+expected.
 
 
 \begin{figure}[htpb!]
@@ -704,6 +704,20 @@ expected. \unfinished{Make a plot with EWs for lines in common and look for any 
              $\log g$ is fixed at \SI{4.5}{dex} and $\xi_\mathrm{micro}$ fixed according to an
              empirical relation, thus only deriving $T_\mathrm{eff}$ and $[\ion{Fe}/\ion{H}]$.}
     \label{fig:phoenix_fix}
+\end{figure}
+
+A comparison with EWs from the iron line list from the observed Arcturus spectrum and the
+synthetic spectrum which resembles Arcturus closest is shown in \fref{fig:commonEWs}. The EWs are
+clearly getting more disperse with increasing EW.
+
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/commonEWS.pdf}
+    \caption{Common EWs between Arcturus and the synthetic spectrum with closest parameters (see
+             text for details). The EWs are getting more disperse with increasing EW which is
+             expected when seeing the direct comparison of the spectrum in
+             \fref{fig:arcturus_phoenix}.}
+    \label{fig:commonEWs}
 \end{figure}
 
 When all the parameters are derived it is a very different story for $T_\mathrm{eff}$. In this case
