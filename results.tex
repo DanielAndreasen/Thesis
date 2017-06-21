@@ -730,7 +730,8 @@ The mean derived values for the surface gravity are $\log g=(1.11\pm1.63)\,\si{d
 g=(1.38\pm1.45)\,\si{dex}$ for ATLAS9 and MARCS model atmospheres, respectively. Similarly for the
 metallicity the following mean values are $[\ion{Fe}/\ion{H}]=\SI{-0.73(37)}{dex}$ and
 $[\ion{Fe}/\ion{H}]=\SI{-0.73(38)}{dex}$ for ATLAS9 and MARCS model atmospheres, respectively.
-\unfinished{Make some histograms of $[\ion{Fe}/\ion{H}]$}
+The measured iron abundance for the 12 synthetic spectra can be seen in \fref{fig:feh_simulation}.
+The figure only includes runs which reached convergence with \code{FASMA}.
 
 \begin{figure}[htpb!]
     \centering
@@ -740,7 +741,16 @@ $[\ion{Fe}/\ion{H}]=\SI{-0.73(38)}{dex}$ for ATLAS9 and MARCS model atmospheres,
     \label{fig:arcturus_phoenix}
 \end{figure}
 
-
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/FeH_simulated.pdf}
+    \caption{Derived $[\ion{Fe}/\ion{H}]$ with respect to the true $T_\mathrm{eff}$ for runs that
+             reached convergence.
+             \emph{Top panel}: $\log g$ fixed at \SI{4.5}{dex} and $\xi_\mathrm{micro}$ to the
+             empirical relation (see text for details).
+             \emph{Lower panel}: All parameters free.}
+    \label{fig:label}
+\end{figure}
 
 \section{Parameter dependence on EP cut}
 \label{sec:EPcut}
