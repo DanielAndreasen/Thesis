@@ -337,21 +337,28 @@ does the following:
 \end{enumerate}
 
 The final plot shows the shifted spectra, and the CCFs at the sides. An example of the software in
-use is shown in \unfinished{Make a plot of this}. The two radial velocities (for the telluric and
-model spectrum) are part of the title of the plot. Once the lines were identified, the EWs were
-measured with the \code{splot} routine in \emph{Image Reduction and Analysis Facility}
-(\code{IRAF}). The reason not to choose \code{ARES} for this task was to visually confirm the
-identification of the line given the relative poor wavelength calibration from the automatic
-pipeline. 249 \ion{Fe}{I} lines and 5 \ion{Fe}{II} EWs were measured compared to 344 \ion{Fe}{I}
-lines and 13 \ion{Fe}{II} lines for the Sun over the whole NIR spectral region in the line list.
-Whenever there were more than one EW measurement of a line, due to overlap in different spectra, the
-average was used for the final EW. The stellar atmospheric parameters were derived using the
-standard procedure (see \sref{sec:parameters}). Lines below \SI{5}{m\angstrom} were removed in order
-to remove the lines which are most affected by contamination from either telluric or other line
-blends. Additionally, a cut in EP at \SI{5.5}{eV} was made since the \ion{Fe}{I} and \ion{Fe}{II}
-lines usually used for stellar parameter determination in the optical regime are also limited to
-similar values \citep[see e.g][]{Sousa2008a}. Higher excitation potential lines are also more likely
-to be affected by non-LTE effects\reference{Any reference for this?}.
+use is shown in \fref{fig:plot_fits}. The two radial velocities (for the telluric and model
+spectrum) are part of the title of the plot.
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/plot_fits.pdf}
+    \caption{Line identification in piece of Arcturus spectrum with PHOENIX model and telluric model
+             for correcting RV.}
+    \label{fig:plot_fits}
+\end{figure}
+Once the lines were identified, the EWs were measured with the \code{splot} routine in \emph{Image
+Reduction and Analysis Facility} (\code{IRAF}). The reason not to choose \code{ARES} for this task
+was to visually confirm the identification of the line given the relative poor wavelength
+calibration from the automatic pipeline. 249 \ion{Fe}{I} lines and 5 \ion{Fe}{II} EWs were measured
+compared to 344 \ion{Fe}{I} lines and 13 \ion{Fe}{II} lines for the Sun over the whole NIR spectral
+region in the line list. Whenever there were more than one EW measurement of a line, due to overlap
+in different spectra, the average was used for the final EW. The stellar atmospheric parameters were
+derived using the standard procedure (see \sref{sec:parameters}). Lines below \SI{5}{m\angstrom}
+were removed in order to remove the lines which are most affected by contamination from either
+telluric or other line blends. Additionally, a cut in EP at \SI{5.5}{eV} was made since the
+\ion{Fe}{I} and \ion{Fe}{II} lines usually used for stellar parameter determination in the optical
+regime are also limited to similar values \citep[see e.g][]{Sousa2008a}. Higher excitation potential
+lines are also more likely to be affected by non-LTE effects\reference{Any reference for this?}.
 
 When deriving the stellar atmospheric parameters, one outlier were removed at a time (after a
 completed minimization) until no outliers were present. Since we could only measure 5 \ion{Fe}{II}
@@ -653,8 +660,8 @@ library\footnote{\url{http://phoenix.astro.physik.uni-goettingen.de/}} by \citet
 used. For this test only the $T_\mathrm{eff}$ will vary, ranging from \SIrange{3500}{6000}{K} with
 most densely sampled at lower temperatures (see \fref{fig:phoenix_free}). Here $\log
 g=\SI{4.5}{dex}$ and $[\ion{M}/\ion{H}]=\SI{0.00}{dex}$, i.e. synthesised dwarf stars with solar
-metallicity.
-\unfinished{Did not mention the broadening of the spectra yet...}
+metallicity. Before analysing the data, the spectra was broadened to have a spectral resolution of
+\num{100000}, comparable with current and future high resolution NIR spectrographs.
 
 In this test \code{ARES} was used to measure the EWs of as many lines from the line list (second
 version) as possible for each of the 12 synthetic spectra. These line list were used to derive
