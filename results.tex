@@ -657,7 +657,12 @@ Mainly due to lack of available high quality spectra in the NIR, it is a good te
 simulation. By deriving parameters from synthetic spectra, it is possible to carefully control the
 work flow, in the sense that the target parameters are known. In this section the synthetic
 library\footnote{\url{http://phoenix.astro.physik.uni-goettingen.de/}} by \citet{Husser2013} will be
-used. For this test only the $T_\mathrm{eff}$ will vary, ranging from \SIrange{3500}{6000}{K} with
+used. These are synthetic spectra created from spherical symmetric PHOENIX atmosphere models under
+local thermodynamic equilibrium. The model atmospheres does not include dust settling since all
+models are hotter than \SI{2300}{K}. The details for the atmosphere models can be seen in
+\citet{Husser2013}.
+
+For this test only the $T_\mathrm{eff}$ will vary, ranging from \SIrange{3500}{6000}{K} with
 most densely sampled at lower temperatures (see \fref{fig:phoenix_free}). Here $\log
 g=\SI{4.5}{dex}$ and $[\ion{M}/\ion{H}]=\SI{0.00}{dex}$, i.e. synthesised dwarf stars with solar
 metallicity. Before analysing the data, the spectra was broadened to have a spectral resolution of
