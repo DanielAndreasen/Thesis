@@ -110,8 +110,27 @@ discarded if another line had the same central wavelength and/or the absorption 
 blended. Most of the discarded iron lines had high EP, which are weak compared to the low EP lines.
 Therefore, it is fair to assume that many of these iron lines were falsely identified as another
 stronger line from another element. After the visual removal the number of \ion{Fe}{I} and
-\ion{Fe}{II} lines were reduced to a mere 593 and 22, respectively.\unfinished{Make some plots for
-different cases here}
+\ion{Fe}{II} lines were reduced to a mere 593 and 22, respectively. In \fref{fig:visualSelection} is
+a case where too many lines are present near the iron line of interest (green line in the middle).
+The green lines are all iron lines in the spectral region, while the orange lines are other elements
+or molecules. The depth and transparency is a measure by the line strength given by
+\begin{align}
+  \mathrm{strength} = \log\mathrm{gf} - \chi \Theta, \label{eq:strength}
+\end{align}
+where $\Theta=\SI{5040}{K}/T_\mathrm{eff}$ (solar temperature is used here). Note that this strength
+of the lines does not include any abundance information, and should therefore be a guide rather than
+an actual measure.
+
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/visualSelection.pdf}
+    \caption{Solar spectrum (blue) with all iron lines in the spectral region (green) and other
+             elements (orange). The depths and transparencies of the vertical lines are a measure of
+             the line strengths (see \eref{eq:strength} for details). This is a case where the iron
+             line is discarded due to blending, which is clear in the left wing of the central
+             absorption line.}
+    \label{fig:visualSelection}
+\end{figure}
 
 For some of the absorption lines it was not clear which element was causing it. These lines were
 marked for further investigation with synthesis as described below.
