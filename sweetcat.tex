@@ -143,6 +143,224 @@ is 85\% (77\% for stars brighter than 12). For fainter stars it is time expensiv
 of the quality needed for this method. Moreover, many of the fainter planet host stars have been
 observed with the \emph{Kepler} space mission, where most stars are faint.
 
+
+\subsection{Changes to planetary parameters}
+
+As a results to the analysis above, it is expected that some planetary parameters will change
+compared with the previous literature values.
+
+Therefore the radius and mass of all the 50 new stars updated in SWEET-Cat were computed using the
+empirical formula presented in \citet{Torres2010}. Some of the stars have radii derived from
+different methods, usually from isochrones. These radii generally show a good correlation with radii
+derived from \citet{Torres2010} if the literature parameters of $T_\mathrm{eff}$, $\log g$, and
+$[\ion{Fe}/\ion{H}]$ are used. However, when comparing with the new radius derived using the
+parameters presented here, the results can differ by up to 65\%. This is shown in \fref{fig:RR} how
+the radius calculated from \citet{Torres2010} differs between the literature atmospheric parameters
+and the new homogeneous atmospheric parameters presented here. Note that stellar radii are provided
+by many of the authors from different discovery papers, but here the atmospheric parameters via the
+derivation of the stellar radius, as described above, are compared, rather than comparing the
+stellar radii from different methods.
+
+\begin{figure}[tpb]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/radiusVSradius.pdf}
+    \caption{Stellar radius on both axes calculated based on \citet{Torres2010}. The x-axis shows
+             the stellar radius based on the atmospheric parameters from the literature, while the
+             y-axis indicates the new homogeneous parameters presented here. The colour and size
+             indicate the surface gravity. This clearly shows that the disagreement is biggest for
+             more evolved stars.}
+    \label{fig:RR}
+\end{figure}
+
+In the sections below there follow a discussion of the systems (seven stars, eight exoplanets) where
+the radius or mass of the stars changes more than 25\% and how this influences the planetary
+parameters. The changes in radius for a star is primarily due to changes in $\log g$, which can be
+used as an indicator of the evolutionary stage of a star.
+
+The planetary radius, mass, and semi-major axis were re-derived when possible following the three
+simple scaling relations based on Newton's law of gravity \citep{Newton1687} for deriving mass and
+distance and simple geometry for radius \citep[see e.g.][]{Torres2008}
+\begin{align}
+    M_\mathrm{pl,new} &= \left(\frac{M_\mathrm{\ast,lit}}{M_\mathrm{\ast,new}}\right)^{-2/3} M_\mathrm{pl,lit}  \\
+    R_\mathrm{pl,new} &= \left(\frac{R_\mathrm{\ast,lit}}{R_\mathrm{\ast,new}}\right) R_\mathrm{pl,lit} \\
+    a_\mathrm{pl,new} &= \left(\frac{M_\mathrm{\ast,lit}}{M_\mathrm{\ast,new}}\right)^{1/3} a_\mathrm{pl,lit},
+\end{align}
+where the subscript ``lit'' denotes the value from the literature used in the comparison, the
+subscript ``new'' indicates the new computed values, the subscript ``pl'' is short for planet, and
+the subscript ``$\ast$'' is short for star; $M$, $R$, and $a$ are mass, radius, and semi-major axis,
+respectively. Note that for the literature values, the values reported directly from the literature
+were used and not the derived radius and mass from \citet{Torres2010}. To identify outliers, the
+radii and masses were compared when derived from \citet{Torres2010} since this is a measure of how
+the atmospheric parameters have changed.
+
+
+\subsubsection{HAT-P-46}
+\label{sub:HAT-P-46}
+
+HAT-P-46 has two known exoplanets according to \citet{Hartmann2014}. The outer planet HAT-P-46 c is
+not transiting, hence we do not have a radius for this planet. The results we present in this paper
+for this star come from UVES/VLT data with a S/N of 208. \citet{Hartmann2014} derives the following
+spectroscopic parameters: $T_\mathrm{eff}=\SI{6120(100)}{K}$, $\log g=4.25\pm0.11$, and
+$[\ion{Fe}/\ion{H}]=0.30\pm0.10$. We note that for this star the asteroseismic correction we apply
+(see Section~\ref{sec:results}) results in a corrected $\log g$ below 4.2dex, so we used the
+spectroscopic $\log g$ for this star.
+
+If we derive the mass and radius of HAT-P-46 b with our new parameters, we obtain $R_\mathrm{pl} =
+0.93R_J$, while \citet{Hartmann2014} derived $R_\mathrm{pl} = 1.28R_J$. We see no change in mass
+(\citealt{Hartmann2014} found $M_\mathrm{pl}=0.49M_J$); however, there is a decrease in the radius,
+and we end up with a more dense planet, $\rho_\mathrm{pl}=\SI{0.76}{g/cm^3}$ from
+$\rho_\mathrm{pl}=\SI{0.28\pm0.10}{g/cm^3}$.
+
+As the secondary companion does not transit we only have a limit on the minimum mass for this
+planet. Here we get $M\sin i_\mathrm{pl} = 1.97M_J$ and \citet{Hartmann2014} presented $M\sin
+i_\mathrm{pl} = 2.00M_J$, so a very small change, as expected.
+
+
+\subsubsection{HD 120084}
+\label{sub:HD_120084}
+
+The exoplanet orbiting this star with a period of 2082 days and a quite eccentric orbit at 0.66 was
+discovered by \citet{Sato2013}. The atmospheric parameters were derived by \citet{Takeda2008} using
+a similar method to that described in this paper. The quality of the spectra they analysed, however,
+were not as high as those used here. Using the HIDES spectrograph at the 188cm reflector at NAOJ,
+\citet{Takeda2008} reported an average S/N for their sample of 100-300 objects at a resolving power
+of 67 000. We used data from ESPaDOnS with a resolving power of 81 000, and with a S/N for this star
+of 850. With our new parameters we obtain a slightly lower stellar mass for the star at
+$1.93M_\odot$ compared to $2.39M_\odot$ obtained by \cite{Takeda2008}, hence the minimum planetary
+mass is also slightly lower, from $m_\mathrm{pl}\sin i=4.5M_J$ to $m_\mathrm{pl}\sin i=3.9M_J$. We
+see a 28\% decrease in the stellar radius, from $9.12R_\odot$ to $7.81R_\odot$. Since there are no
+observations of the planet transiting, the planetary radius has not been computed.
+
+
+\subsubsection{HD 233604}
+\label{sub:HD_233604}
+
+HD 233604 b was discovered by \citet{Nowak2013}, while the atmospheric parameters of the star were
+derived by \citet{Zielinski2012}, who used the same method as described in this paper using the HRS
+spectrograph at HET with a resolving power of 60 000 with a typical S/N at 200-250. We obtained the
+spectrum for this star using the FIES spectrograph with a slightly higher resolution at 67 000, and
+similar but also slightly higher S/N at 320 for this star.
+
+This planet is in a very close orbit with a semi-major axis of $\sim 15R_\ast$ ($R_\ast$ is the
+stellar radius) using the parameters from \citet{Nowak2013}. Using the updated parameters presented
+in this paper we see a slight increase in the stellar mass from $1.5M_\odot$ to $1.9M_\odot$, and a
+decrease in stellar radius from $10.5R_\odot$ to $8.6R_\odot$. This increases the semi-major axis to
+$\sim 21R_\ast$. We note that the correct stellar radii are used to describe the semi-major axis in
+both cases. The increase in stellar mass leads to an increase in the minimum planetary mass, from
+$m_\mathrm{pl}\sin i=6.58M_J$ to $m_\mathrm{pl}\sin i=7.79M_J$.
+
+\citet{Nowak2013} found a high \ion{Li}{} abundance at $A(\ion{Li}{})_\mathrm{LTE}=1.400\pm0.042$
+for this star and speculated that this star might have engulfed a planet. A more likely explanation
+is that this star has not yet reached the first dredge-up process \citep{Nowak2013}. We found a much
+lower value, $A(\ion{Li}{})_\mathrm{LTE}=0.92$, and hence do not find the star to be \ion{Li}{}
+rich. The \ion{Li}{} abundance we find is in excellent agreement with \citet{Adamow2014}. Even
+applying a NLTE correction, as was done in \citet{Adamow2014} ($A(\ion{Li}{})_\mathrm{NLTE}=1.08$),
+this star is not \ion{Li}{} rich.
+
+
+\subsubsection{HD 5583}
+\label{sub:HD_5583}
+
+This exoplanet was discovered by \citet{Niedzielski2016} with an orbital period of 139 days around a
+K giant. This exoplanet was discovered with the radial velocity technique, and we do not have a
+planetary radius. The stellar parameters were derived in a similar manner to that presented here
+\citep[see][and references therein]{Niedzielski2016}; our biggest disagreement is in the surface
+gravity. We derive a $\log g$ that is higher by 0.34 dex, which gives a stellar radius that is
+smaller by 37\%. The derived mass is 15\% higher, which in turn increases the minimum planetary mass
+from $m_\mathrm{pl}\sin i=5.78M_J$ to $m_\mathrm{pl}\sin i=8.63M_J$. Even with the increase in mass,
+it is still within the planetary regime for most inclinations, as was noted by
+\citet{Niedzielski2016}.
+
+
+
+\subsubsection{HD 81688}
+\label{sub:HD81688}
+
+This exoplanet was discovered by \citet{Sato2008} with the RV method. The host star is a metal-poor
+K giant. The atmospheric parameters presented in \citet{Sato2008} are obtained via the same method
+as presented in this paper, and the agreement is quite good. Once again the big disagreement is in
+the surface gravity: ours is 0.48 dex higher. Even though the stellar parameters, and hence the
+planetary parameters, do change, the radius and mass we derive are not far from the values presented
+in the paper by \citet{Sato2008}. This is a case where the star was marked as an outlier, due to the
+comparison between the radius and mass derived from \citet{Torres2010}.
+
+The new stellar mass is the same as before, $2.1M_\odot$. The stellar radius changed from
+$13.0R_\odot$ to $10.8R_\odot$. Since a transit of this star has not been observed and the stellar
+mass remains the same, we do not see any change in the planetary parameters.
+
+We note that this system is in an interesting configuration with a very close orbit around an
+evolved star. This system, among others, has been the subject of work on planet engulfment
+\citep[see e.g.][]{Kunitomo2011}.
+
+
+\subsubsection{HIP 107773}
+\label{sub:HIP_107773}
+
+The planetary companion was presented in \citet{Jones2015} as an exoplanet around an
+intermediate-mass evolved star. The stellar parameters were obtained from the analysis by
+\citet{Jones2011} using the same method as presented here, but with a different line list, which
+might lead to some disagreements. For this star we derive a higher $\log g$ (2.83 dex compared to
+2.60 dex), thus we derive a slightly smaller star with $11.6R_\odot$ to $9.2R_\odot$ and
+$2.4M_\odot$ to $2.1M_\odot$ for radius and mass of the star, respectively. The other atmospheric
+parameters are very similar to those derived by \citet{Jones2011}. This leads to a reduced minimum
+mass of the planetary companion from $m\sin i=1.98M_J$ to $m\sin i=1.78M_J$. The planetary radius
+has not been measured.
+
+
+
+\subsubsection{WASP-97}
+\label{sub:WASP-97}
+
+The exoplanet orbiting WASP-97 was discovered by \citet{Hellier2014}. The host star parameters were
+derived using a similar method to that described in this paper after co-adding several spectra from
+the CORALIE spectrograph. They reach a S/N of 100 with a spectral resolution of 50 000. The
+parameters presented here come from the UVES spectrograph with a S/N of more than 200.
+
+The parameters do not change much for this planet. The planetary mass changes from
+$m_\mathrm{pl}\sin i=1.32M_J$ to $m_\mathrm{pl}\sin i=1.37M_J$ and the radius from $1.13R_J$ to
+$1.42R_J$. This affects the density quite strongly; it changes from $\SI{1.13}{g/cm^3}$ to
+$\SI{0.59}{g/cm^3}$. This exoplanet is then in the same category as Saturn; its density is lower
+than water, but it is slightly larger than Jupiter.
+
+\subsubsection{$\omega$ Serpentis (ome Ser)}
+\label{sub:ome_Ser}
+
+The exoplanet orbiting this star with a period of 277 days and an eccentric orbit at 0.11 was also
+presented by \citet{Sato2013}. The atmospheric parameters were derived in the same way as for HD
+120084. We used data from FIES with a resolving power of 67 000, and with a S/N for this star of
+1168. With our new parameters we obtain a slightly higher stellar mass for the star at $2.19M_\odot$
+compared to the value of $2.17M_\odot$ obtained by \cite{Takeda2008}. This change is not significant
+enough to change the minimum planetary mass at $m_\mathrm{pl}\sin i=1.7M_J$. The stellar radius
+decreases by more than one solar radius, from $12.3R_\odot$ to $11.1R_\odot$. However, since there
+are no observations of transiting exoplanets, we cannot see the change in the planetary radius.
+
+
+
+\subsubsection{o Ursa Major (omi UMa)}
+\label{sub:omiUMa}
+
+omi UMa b was discovered by \citet{Sato2012} using the RV method. The stellar parameters are from
+\citet{Takeda2008}, as discussed above. The spectrum used for this star is from ESPaDOnS with a S/N
+of more than 500 compared to the value of 100-300 reached for the large sample presented in
+\citet{Takeda2008}. The luminosity and mass for omi UMa were obtained from theoretical evolutionary
+tracks \citep[see][and references therein]{Sato2012}. The radius was then estimated using the
+Stefan-Boltzmann relationship, using the measured luminosity and $T_\mathrm{eff}$.
+
+The parameters presented here mainly differ in the surface gravity: ours is 0.72 dex higher at $\log
+g=3.36$. This leads to a big change in stellar mass and radius from $3.1M_\odot$ to $1.6M_\odot$ and
+$14.1R_\odot$ to $4.5R_\odot$, respectively. \citet{Sato2012} have reported that omi UMa b is the
+first planet candidate around a star more massive than $3M_\odot$. With these updated results, the
+minimum mass of the planet is now $m\sin i=2.7M_J$, whereas previously it was $m\sin i=4.1M_J$
+\citep{Sato2012}. The exoplanet is not reported to transit, as seen from Earth, so we do not have a
+radius for this exoplanet, which would have changed a great deal with these new results.
+
+
+
+
+
+\section{Discovering two giant planet populations}
+
+
 SWEET-Cat was recently combined with planetary masses to see two distinctive populations for giant
 planets by \citet{Santos2017}. This can be seen in the mass histogram in \fref{fig:giantpopulations}
 for the full sample of giant planets, with masses higher than 1 Jupiter mass and lower than 20
