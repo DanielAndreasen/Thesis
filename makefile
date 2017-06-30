@@ -8,3 +8,6 @@ all:
 	git add .
 	git commit -m "Added all"
 	git push
+
+clean:
+	rm -f *fdb_latexmk *.log *.bbl *.blg *.fls *.lof *.lot *.out
