@@ -187,43 +187,44 @@ classes this method works with.
 
 
 
-\section{\FASMA}
+\section{\code{FASMA}}
 \label{sec:parameters}
 
 The EW method or curve-of-growth analysis is another standard method for obtaining stellar
 atmospheric parameters from spectra as the synthetic fitting method (\sref{sec:synthesis}). Since
 this is the method used throughout this thesis it will be explained in detail. This analysis follow
 a chain of tasks, each has been made automatic in the software Fast Analysis of Spectra Made
-Automatically (\FASMA\footnote{Greek for spectrum}) which was developed during this thesis
-\citep{Andreasen2017a}. \FASMA is made of three \code{drivers}:
+Automatically (\code{FASMA}\footnote{Greek for spectrum}) which was developed during this thesis
+\citep{Andreasen2017a}. \code{FASMA} is made of three \code{drivers}:
 \begin{enumerate}
   \item EW measurement driver
   \item Obtain stellar atmospheric parameters driver
   \item Abundance driver
 \end{enumerate}
-An additional driver is under development; a synthetic fitting driver \citep{Tsantaki2017}. \FASMA
-has been made available to the community via a web application at \url{http://www.iastro.pt/fasma/}.
+An additional driver is under development; a synthetic fitting driver \citep{Tsantaki2017}.
+\code{FASMA} has been made available to the community via a web application at
+\url{http://www.iastro.pt/fasma/}.
 
 
 \subsection{Ingredients}
 
-\FASMA is written in the Python programming language and glue together other software and model
-atmospheres necessary for obtaining stellar atmospheric parameters from high quality spectra. These
-software and models are described in greater detail in the following sections. In short, the
+\code{FASMA} is written in the Python programming language and glue together other software and
+model atmospheres necessary for obtaining stellar atmospheric parameters from high quality spectra.
+These software and models are described in greater detail in the following sections. In short, the
 curve-of-growth analysis require measured EWs where the latest version\footnote{The latest version
-can be found here: \url{https://github.com/sousasag/ARES}} of \ARES is used \citep{Sousa2015a}.
-These EWs are used to derive line abundances using model atmosphere like the ATLAS9
-\citep{Kurucz1993}, MARCS models \citep{Gustafson2008}, or PHOENIX models \citep{Husser2013} to
-mention the most popular for this analysis. Note that the PHOENIX models are relative new and not as
-widely used yet. In tandem with model atmospheres a radiative transfer code is also needed. \FASMA
-uses \MOOG \citep{Sneden1973} for this. The model atmosphere usually comes in a pre-calculated grid
-in the $\{T_\mathrm{eff},\,\log g,\,[\ion{Fe}/\ion{H}]\}$ parameter space. These are interpolated in
-order to access the requested combination of parameters. Last, \FASMA consist of a minimization
-routine which looks for the best matching parameters given a spectrum.
+can be found here: \url{https://github.com/sousasag/ARES}} of \code{ARES} is used
+\citep{Sousa2015a}. These EWs are used to derive line abundances using model atmosphere like the
+ATLAS9 \citep{Kurucz1993}, MARCS models \citep{Gustafson2008}, or PHOENIX models \citep{Husser2013}
+to mention the most popular for this analysis. Note that the PHOENIX models are relative new and not
+as widely used yet. In tandem with model atmospheres a radiative transfer code is also needed.
+\code{FASMA} uses \MOOG \citep{Sneden1973} for this. The model atmosphere usually comes in a
+pre-calculated grid in the $\{T_\mathrm{eff},\,\log g,\,[\ion{Fe}/\ion{H}]\}$ parameter space. These
+are interpolated in order to access the requested combination of parameters. Last, \code{FASMA}
+consist of a minimization routine which looks for the best matching parameters given a spectrum.
 
 
 
-\subsection{Wrapper for \ARES}
+\subsection{Wrapper for \code{ARES}}
 \label{sec:measureEW}
 
 There are two ways to measure the EW of an absorption line, manually or automatically. There are
@@ -242,18 +243,18 @@ command in \code{IRAF}. Here the deblending mode is used whenever necessary. It 
 to fit one spectral lines with several Gaussians, as neighbouring lines might contaminate the line
 of interest.
 
-When a line is measurement automatically it is in this thesis done with \ARES
-\citep{Sousa2007,Sousa2015a}. When using \ARES it is important to use a correct value of the
+When a line is measurement automatically it is in this thesis done with \code{ARES}
+\citep{Sousa2007,Sousa2015a}. When using \code{ARES} it is important to use a correct value of the
 \code{rejt} parameter. This parameter is used for placing the continuum level, and is thus directly
 related to the final measurement EW. It is difficult to get this parameter right, however the newest
-version of \ARES has the option to analyse a few absorption free regions and measure the S/N. The
-\code{rejt} is then calculated as:
+version of \code{ARES} has the option to analyse a few absorption free regions and measure the S/N.
+The \code{rejt} is then calculated as:
 \begin{align*}
   \mathtt{rejt} = 1 - \frac{1}{\mathrm{S/N}}.
 \end{align*}
 
-\ARES is used via the first driver of \FASMA. All the options available for \ARES can be accessed by
-\FASMA. The options are
+\code{ARES} is used via the first driver of \code{FASMA}. All the options available for \code{ARES}
+can be accessed by \code{FASMA}. The options are
 \begin{itemize}
   \item Setting the spectral window, $\lambda_\mathrm{min}$ and $\lambda_\mathrm{max}$
   \item RV correction to be applied or a mask to measure the RV and automatic make this correction
@@ -265,10 +266,10 @@ version of \ARES has the option to analyse a few absorption free regions and mea
 An in-depth description of these options can be found in
 \citet{Sousa2007,Sousa2015a}.
 
-Sometimes \ARES crash when measuring an absorption line. The reason is not clear, however when
+Sometimes \code{ARES} crash when measuring an absorption line. The reason is not clear, however when
 dealing with a large amount of spectra, it is important that the analysis moves on. To deal with
-this problem, \FASMA finds the last line which \ARES tried to measure in the log file. This line is
-temporarily removed from the line list and \ARES is restarted. The line list used for deriving
+this problem, \code{FASMA} finds the last line which \code{ARES} tried to measure in the log file. This line is
+temporarily removed from the line list and \code{ARES} is restarted. The line list used for deriving
 parameters consists of numerous iron lines, thus removing one line will have a negligible effect on
 the final derived parameters.
 
@@ -277,7 +278,7 @@ the final derived parameters.
 \subsection{Interpolation of atmosphere models}
 \label{sec:interpolation}
 
-\FASMA has access to both ATLAS9 models by \citet{Kurucz1993} and MARCS models by
+\code{FASMA} has access to both ATLAS9 models by \citet{Kurucz1993} and MARCS models by
 \citet{Gustafson2008}, both are in a pre-calculated grid as described above. Let this grid be
 described by $\{T_\mathrm{eff,g},\, \log g_g,\, [\ion{Fe}/\ion{H}]_g\}$, where subscript $g$ is one
 of the grid points. Such a grid can be seen in \fref{fig:grid} for $[\ion{Fe}/\ion{H}]=0.00$ in the
@@ -287,8 +288,8 @@ atmosphere, i.e. the uppermost layer. The requested value will be $\{T_\mathrm{e
 g_r,\,[\ion{Fe}/\ion{H}]_r\}$. The task is now to find the surrounding grid points in the parameter
 space of the requested parameters. For $\log g$ and $[\ion{Fe}/\ion{H}]$ two neighbouring grid point
 are used, and for $T_\mathrm{eff}$ four surrounding grid point are used, in total
-$4\times2\times2=16$ model atmospheres for the interpolation. \FASMA use the four surrounding grid
-points for $T_\mathrm{eff}$ instead of two, since the model atmosphere changes most with
+$4\times2\times2=16$ model atmospheres for the interpolation. \code{FASMA} use the four surrounding
+grid points for $T_\mathrm{eff}$ instead of two, since the model atmosphere changes most with
 $T_\mathrm{eff}$. This is common in other interpolations as well \citep[see e.g.][]{Valenti1996}.
 
 \begin{figure}[htpb!]
@@ -367,7 +368,7 @@ abundances against RW.
 
 The minimization with the different options is depicted in \fref{fig:minimization}. In each
 iteration where convergence is not reached, the input metallicity is changed to that of the average
-output metallicity using the \ion{Fe}{I} lines. \FASMA is able to fix one or all of the four
+output metallicity using the \ion{Fe}{I} lines. \code{FASMA} is able to fix one or all of the four
 atmospheric parameters, and when it reach convergence it checks if there are any outliers in the
 abundances. These will be removed, either:
 \begin{itemize}
@@ -389,7 +390,7 @@ carefully, and it is recommended that one outlier is removed iteratively.
 
 Sometimes the minimization can not reach convergence with all parameters free. The first approach to
 progress is to fix $\xi_\mathrm{micro}$ to a value. This parameter is known to depend on the
-spectral type \citep[see e.g.][and references therein]{Tsantaki2013}. \FASMA use one of two
+spectral type \citep[see e.g.][and references therein]{Tsantaki2013}. \code{FASMA} use one of two
 empirical relations to fix $\xi_\mathrm{micro}$ if this is close to either $0\si{km/s}$ or
 $5\si{km/s}$ and $|a_\mathrm{RW}| > 0.050$ at the end of the minimization. The empirical relations
 are:
@@ -428,14 +429,14 @@ the following:
 to each parameter. Note again that metallicity is simply changed to the the output metallicity of
 the previous iteration. These are empirical relations. Note that by changing e.g. $T_\mathrm{eff}$
 not only is $a_\mathrm{EP}$ affected, but the other indicators as well as seen in \fref{fig:eprw}.
-This inter-dependency between the parameters is ignored by \FASMA as it is not a simple problem to
-solve. The stepping presented above is chosen to rapidly reach convergence, without causing problems
-for the inter-dependency.
+This inter-dependency between the parameters is ignored by \code{FASMA} as it is not a simple
+problem to solve. The stepping presented above is chosen to rapidly reach convergence, without
+causing problems for the inter-dependency.
 
 \begin{figure}[htpb!]
     \centering
     \includegraphics[width=0.85\linewidth]{figures/FASMA_minimization.pdf}
-    \caption{Overview of the minimization for \FASMA. Credit: \citet{Andreasen2017a}.}
+    \caption{Overview of the minimization for \code{FASMA}. Credit: \citet{Andreasen2017a}.}
     \label{fig:minimization}
 \end{figure}
 
