@@ -1,0 +1,82 @@
+linelist,teff,tefferr,logg,loggerr,feh,feherr,vt,vterr,loggastero,dloggastero,loggLC,dloggLC,convergence,fixteff,fixlogg,fixfeh,fixvt,outlier,weights,model,refine,EPcrit,RWcrit,ABdiffcrit
+11 Com,4903,34,2.55,0.13,-0.23,0.03,1.56,0.04,2.74,0.13,2.90,0.13,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+14 And,4808,39,2.61,0.10,-0.22,0.03,1.60,0.04,2.84,0.10,3.00,0.10,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+42 Dra,4528,57,2.27,0.11,-0.30,0.03,1.53,0.05,2.61,0.11,2.79,0.11,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+BD-114672,4553,75,4.54,0.51,-0.30,0.02,0.14,0.07,4.87,0.51,5.05,0.51,True,False,False,False,True,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+BD +49 828,5015,36,2.87,0.09,-0.01,0.03,1.48,0.04,3.02,0.09,3.17,0.09,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+GJ 785,5087,48,4.30,0.10,-0.01,0.03,0.69,0.10,4.42,0.10,4.57,0.10,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HATS-1,5969,46,4.61,0.06,-0.04,0.04,1.06,0.08,4.39,0.06,4.47,0.06,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HATS-5,5383,91,4.40,0.22,0.08,0.06,0.91,0.14,4.41,0.22,4.53,0.22,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HAT-P-12,4642,106,4.24,0.27,-0.26,0.06,0.28,0.63,4.53,0.27,4.71,0.27,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HAT-P-24,6470,181,4.75,0.26,-0.41,0.10,1.40,0.03,4.33,0.27,4.38,0.27,True,False,False,False,True,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HAT-P-39,6745,236,4.91,0.46,-0.21,0.12,1.53,0.04,4.39,0.47,4.42,0.47,True,False,False,False,True,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HAT-P-46,6421,121,4.53,0.14,0.16,0.09,1.67,0.18,4.13,0.15,4.19,0.15,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HAT-P-42,5903,66,4.29,0.10,0.34,0.05,1.19,0.08,4.09,0.10,4.18,0.10,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 102272,4883,34,2.69,0.07,-0.29,0.03,1.54,0.04,2.89,0.07,3.05,0.07,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 104985,4786,58,2.66,0.09,-0.28,0.04,1.65,0.05,2.90,0.09,3.06,0.09,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 114762,5879,39,4.23,0.04,-0.66,0.03,1.16,0.07,4.04,0.04,4.13,0.04,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 120084,4969,40,2.94,0.14,0.12,0.03,1.41,0.04,3.11,0.14,3.26,0.14,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 152581,5181,27,3.37,0.06,-0.23,0.02,1.15,0.03,3.45,0.06,3.59,0.06,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 155358,5906,33,4.24,0.03,-0.61,0.02,1.30,0.05,4.04,0.03,4.13,0.03,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 171028,5699,36,3.83,0.03,-0.40,0.02,1.21,0.04,3.71,0.03,3.82,0.03,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 192263,4946,46,4.43,0.14,-0.05,0.02,0.66,0.12,4.61,0.14,4.76,0.14,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 192699,5208,27,3.56,0.10,-0.12,0.02,1.19,0.03,3.63,0.10,3.77,0.10,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 197037,6233,45,4.54,0.04,-0.12,0.03,1.22,0.06,4.22,0.04,4.28,0.04,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 200964,5083,24,3.32,0.07,-0.16,0.02,1.18,0.03,3.44,0.07,3.59,0.07,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 219134,4767,70,4.32,0.17,-0.0,0.04,0.59,0.24,4.57,0.17,4.73,0.17,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 220074,4748,233,3.67,0.33,-0.06,0.09,2.82,0.37,3.92,0.34,4.09,0.35,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 220842,5999,39,4.30,0.06,-0.08,0.03,1.21,0.05,4.07,0.06,4.15,0.06,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 233604,4954,46,2.86,0.11,-0.14,0.04,1.61,0.05,3.03,0.11,3.19,0.11,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 283668,4841,73,4.29,0.18,-0.74,0.04,0.16,0.61,4.51,0.18,4.67,0.18,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 285507,4620,126,4.42,0.61,0.04,0.06,0.74,0.43,4.72,0.61,4.90,0.61,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 37124,5460,35,4.26,0.04,-0.42,0.03,0.61,0.07,4.24,0.04,4.35,0.04,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 5583,4986,35,2.87,0.09,-0.35,0.03,1.62,0.04,3.03,0.09,3.18,0.09,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 70573,5889,186,4.32,0.27,-0.42,0.13,1.14,0.01,4.13,0.28,4.22,0.28,True,False,False,False,True,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 81688,4903,21,2.70,0.05,-0.21,0.02,1.54,0.02,2.89,0.05,3.04,0.05,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 82886,5123,18,3.30,0.04,-0.25,0.01,1.16,0.02,3.41,0.04,3.55,0.04,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 96063,5232,36,3.61,0.06,-0.12,0.03,1.23,0.04,3.67,0.06,3.81,0.06,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 97658,5219,54,4.53,0.10,-0.28,0.04,0.78,0.11,4.60,0.10,4.73,0.10,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HD 87883,4917,68,4.34,0.19,0.02,0.03,0.46,0.21,4.53,0.19,4.68,0.19,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HIP 107773,4957,49,2.83,0.09,0.04,0.04,1.49,0.05,3.00,0.09,3.15,0.09,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HIP 11915,5770,14,4.47,0.03,-0.06,0.01,0.95,0.02,4.33,0.03,4.42,0.03,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HIP 116454,5042,72,4.55,0.15,-0.16,0.03,0.71,0.17,4.69,0.15,4.84,0.15,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+HR 228,5042,42,3.30,0.09,0.07,0.03,1.14,0.04,3.44,0.09,3.59,0.09,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+KELT-6,6246,88,4.22,0.09,-0.22,0.06,1.66,0.13,3.89,0.10,3.96,0.10,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+Kepler-37,5378,53,4.46,0.12,-0.23,0.04,0.58,0.13,4.47,0.12,4.59,0.12,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+Kepler-444,5111,43,4.39,0.13,-0.51,0.03,0.37,0.15,4.50,0.13,4.64,0.13,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+ksi Aql,4834,42,2.65,0.10,-0.14,0.03,1.53,0.04,2.87,0.10,3.03,0.10,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+mu Leo,4605,94,2.61,0.26,0.25,0.06,1.64,0.11,2.92,0.26,3.10,0.26,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+ome Ser,4928,35,2.69,0.06,-0.11,0.03,1.55,0.04,2.87,0.06,3.03,0.06,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+omi CrB,4882,40,2.64,0.10,-0.17,0.03,1.55,0.04,2.84,0.10,3.00,0.10,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+omi UMa,5499,52,3.36,0.07,-0.01,0.05,1.98,0.06,3.32,0.07,3.44,0.07,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+Qatar-2,4637,316,4.23,0.61,0.09,0.17,0.63,0.83,4.53,0.62,4.70,0.63,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+SAND364,4457,104,2.26,0.20,-0.04,0.06,1.60,0.11,2.63,0.20,2.81,0.21,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+TYC+1422-614-1,4908,41,2.90,0.12,-0.07,0.03,1.57,0.05,3.09,0.12,3.25,0.12,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+WASP-37,5917,72,4.45,0.15,-0.23,0.05,0.59,0.13,4.25,0.15,4.34,0.15,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+WASP-44,5612,80,4.47,0.30,0.17,0.06,1.32,0.13,4.39,0.30,4.50,0.30,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+WASP-52,5197,83,4.47,0.30,0.15,0.05,1.16,0.14,4.55,0.30,4.68,0.30,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+WASP-58,6039,55,4.48,0.10,-0.09,0.04,1.12,0.08,4.23,0.10,4.31,0.10,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+WASP-61,6265,168,4.21,0.21,-0.38,0.11,1.44,0.02,3.87,0.22,3.94,0.22,True,False,False,False,True,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+WASP-72,6570,85,4.71,0.13,0.15,0.06,2.30,0.15,4.25,0.13,4.30,0.14,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+WASP-73,6203,32,4.16,0.06,0.20,0.02,1.66,0.04,3.84,0.06,3.91,0.06,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+WASP-75,6203,46,4.42,0.22,0.24,0.03,1.45,0.06,4.11,0.22,4.18,0.22,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+WASP-76,6347,52,4.29,0.08,0.36,0.04,1.73,0.06,3.92,0.08,3.98,0.08,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+WASP-82,6563,55,4.29,0.10,0.18,0.04,1.93,0.08,3.84,0.10,3.88,0.10,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+WASP-88,6450,61,4.24,0.06,0.03,0.04,1.79,0.09,3.83,0.06,3.88,0.07,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+WASP-94 A,6259,34,4.34,0.07,0.35,0.03,1.50,0.04,4.01,0.07,4.07,0.07,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+WASP-94 B,6137,21,4.42,0.05,0.33,0.02,1.29,0.03,4.13,0.05,4.21,0.05,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+WASP-95,5799,31,4.29,0.05,0.22,0.03,1.18,0.04,4.13,0.05,4.23,0.05,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+WASP-97,5723,52,4.37,0.07,0.31,0.04,1.03,0.08,4.24,0.07,4.34,0.07,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+WASP-99,6324,89,4.70,0.11,0.27,0.06,1.83,0.12,4.34,0.12,4.40,0.12,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+WASP-100,6853,209,4.15,0.26,-0.3,0.12,1.87,0.02,3.58,0.27,3.61,0.28,True,False,False,False,True,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+#The following values are from different instruments, ESPaDOnS, FIES, UVES, and FEROS.
+#The combined result are showned above, but both results will be in the paper
+#HD81688ESPaDOnS,4870,30,2.50,0.14,-0.26,0.03,1.50,0.03,2.71,0.14,2.86,0.14,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+#HD81688NOT4,4934,29,2.73,0.05,-0.19,0.02,1.59,0.03,2.91,0.05,3.07,0.05,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+#
+#HD82886NOT4,5121,29,3.31,0.07,-0.24,0.02,1.17,0.04,3.42,0.07,3.56,0.07,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+#HD82886ESPaDOnS,5124,22,3.30,0.05,-0.25,0.02,1.15,0.03,3.41,0.05,3.55,0.05,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+#WASP-73-feros,6162,37,4.14,0.06,0.19,0.03,1.61,0.04,3.84,0.06,3.91,0.06,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+#WASP-73-uves,6313,61,4.26,0.15,0.22,0.04,1.85,0.08,3.90,0.15,3.96,0.15,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
+#
+#Aldebaran,5279,223,4.53,0.40,0.14,0.12,3.05,0.41,4.58,0.41,4.71,0.41,True,False,False,False,False,allOnce,null,kurucz95,True,0.0003,0.001,0.0033
