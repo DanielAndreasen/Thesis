@@ -156,6 +156,41 @@ of the quality needed for this method. Moreover, many of the fainter planet host
 observed with the \emph{Kepler} space mission, where most stars are faint.
 
 
+\subsection{Habitable zone}
+\label{sec:HZ}
+
+The habitable zone of a star is at the distance where liquid water may exists. This distance depends
+on $T_\mathrm{eff}$ and the luminosity, but also on the planetary atmosphere and its composition.
+Using \citet[equation 3 described in][]{Kopparapu2013} to calculate the inner and upper limits of
+the habitable zone, it was possible to find three planets within this zone; GJ 785 c, HD 37124 c,
+and KELT-6 c. These planets does not have known radii, and there minimum masses are
+$(0.076,0.652,3.710)M_\mathrm{Jupiter}$, respectively. Thus, it is fair to assume they are all gas
+planets. The equation is rather simple:
+\begin{align}
+  d = \sqrt{\frac{L/L_\odot}{S_\mathrm{eff}}} \si{AU},
+  S_\mathrm{eff} = S_{\mathrm{eff},\odot} + aT_\ast + bT_\ast^2 + cT_\ast^3 + dT_\ast^4,
+\end{align}
+where $T_\ast=T_\mathrm-SI{5780}{K}$, and the coefficients can be found in Table 3 in
+\citet{Kopparapu2013}, which depends on the specific model of habitable zone used. Here are used the
+``Runaway Greenhouse'' for the inner limit and ``Maximum Greenhouse'' for the outer limit of the
+habitable zone. The equation above is only valid for main sequence stars FGKM, thus only stars with
+$\log g\geq\SI{4.2}{dex}$ have been included.
+
+In \fref{fig:HZ} the habitable zone of the stars analysed here are shown along with the location of
+the planets. The three systems mentioned above are highlighted in the figure.
+
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/HZ.pdf}
+    \caption{The habitable for the updated SWEET-Cat stars. The coloured line shows the theoretical
+             habitable zone, while the dots shows the location of the planets in the actual system.
+             The blue lines show the habitable zone of the three stars where a planet is located
+             within it (green points).}
+    \label{fig:HZ}
+\end{figure}
+
+
+
 \subsection{Changes to planetary parameters}
 
 As a results to the analysis above, it is expected that some planetary parameters will change
