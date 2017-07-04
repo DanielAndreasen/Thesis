@@ -162,19 +162,54 @@ observed with the \emph{Kepler} space mission, where most stars are faint.
 The habitable zone of a star is at the distance where liquid water may exists. This distance depends
 on $T_\mathrm{eff}$ and the luminosity, but also on the planetary atmosphere and its composition.
 Using \citet[equation 3 described in][]{Kopparapu2013} to calculate the inner and upper limits of
-the habitable zone, it was possible to find three planets within this zone; GJ 785 c, HD 37124 c,
-and KELT-6 c. These planets does not have known radii, and there minimum masses are
-$(0.076,0.652,3.710)M_\mathrm{Jupiter}$, respectively. Thus, it is fair to assume they are all gas
-planets. The equation is rather simple:
+the habitable zone. The equation is rather simple:
 \begin{align}
-  d = \sqrt{\frac{L/L_\odot}{S_\mathrm{eff}}} \si{AU},
-  S_\mathrm{eff} = S_{\mathrm{eff},\odot} + aT_\ast + bT_\ast^2 + cT_\ast^3 + dT_\ast^4,
+ d = \sqrt{\frac{L/L_\odot}{S_\mathrm{eff}}} \si{AU},
+ S_\mathrm{eff} = S_{\mathrm{eff},\odot} + aT_\ast + bT_\ast^2 + cT_\ast^3 + dT_\ast^4,
 \end{align}
 where $T_\ast=T_\mathrm-SI{5780}{K}$, and the coefficients can be found in Table 3 in
 \citet{Kopparapu2013}, which depends on the specific model of habitable zone used. Here are used the
 ``Runaway Greenhouse'' for the inner limit and ``Maximum Greenhouse'' for the outer limit of the
 habitable zone. The equation above is only valid for main sequence stars FGKM, thus only stars with
 $\log g\geq\SI{4.2}{dex}$ have been included.
+
+
+It was possible to find three planets within this zone; GJ 785 c, HD 37124 c, and KELT-6 c. These
+planets does not have known radii, and their minimum masses are
+$(0.076,\,0.652,\,3.710)M_\mathrm{Jupiter}$, respectively. Thus, it is fair to assume they are all
+gas planets. All three host stars are metal-poor. A correlation between orbital period and host star
+metallicity is known \citep[see e.g.][]{Adibekyan2013}, where metal-poor stars have planets with
+higher orbital period. It is thus not a surprise that the three planets found in the habitable zone
+all orbit a metal-poor star. A quick summary of the system is shown in \tref{tab:hz}.
+
+\begin{table}[htb!]
+    \caption{Host star and planetary properties of GJ 785, HD 37124, and KELT-6; all which have an
+             exoplanet in the habitable zone.}
+    \label{tab:hz}
+    \centering
+    \begin{tabular}{lrrr}
+      \hline\hline
+      Parameter            & GJ 785             & HD 37124           & KELT-6             \\
+      \hline
+      Stellar parameters   &                    &                    &                    \\
+      \hline
+      $T_\mathrm{eff}$     & \SI{5087(48)}{K}   & \SI{5460(35)}{K}   & \SI{6246(88)}{K}   \\
+      $\log g$             & \SI{4.30(10)}{dex} & \SI{4.26(4)}{dex}  & \SI{4.22(9)}{dex}  \\
+      $[\ion{Fe}/\ion{H}]$ & \SI{-0.01(3)}{dex} & \SI{-0.42(3)}{dex} & \SI{-0.22(6)}{dex} \\
+      Luminosity           & $0.72L_\odot$      & $1.10L_\odot$      & $2.70L_\odot$      \\
+      V magnitude          & 6.13               & 7.68               & 10.38              \\
+      \hline
+      Planetary parameters &                    &                    &                    \\
+      \hline
+      Planet               & GJ 785 c           & HD 37124 c         & KELT-6 c           \\
+      Period               & \SI{525}{days}     & \SI{885}{days}     & \SI{1276}{days}    \\
+      Mass                 & $0.076M_J$         & $0.652M_J$         & $3.710M_J$         \\
+      Semi-major axis      & \SI{1.18}{AU}      & \SI{1.71}{AU}      & \SI{2.39}{AU}      \\
+      Inner HZ limit       & \SI{0.86}{AU}      & \SI{1.04}{AU}      & \SI{1.56}{AU}      \\
+      Outer HZ limit       & \SI{1.53}{AU}      & \SI{1.84}{AU}      & \SI{2.70}{AU}      \\
+      \hline
+    \end{tabular}
+\end{table}
 
 In \fref{fig:HZ} the habitable zone of the stars analysed here are shown along with the location of
 the planets. The three systems mentioned above are highlighted in the figure.
