@@ -87,19 +87,21 @@ if __name__ == '__main__':
     dfe = pyasl.ExoplanetEU()
     dfe = pd.DataFrame(dfe.getAllData())
     df = pd.merge(df, dfe, left_on='linelist', right_on='stName')
-    p = ['plName', 'teff', 'logg', 'feh', 'lum', 'radius', 'period', 'detType', 'mag_v', 'sma']
     for i in range(5):
         name = 'HZ{}'.format(i+1)
         df[name] = [hz(teff, lum, model=i+1) for teff, lum in df[['teff', 'lum']].values]
 
-    for teff, sma, radius, hz1, hz2 in df[['teff', 'sma', 'plRadius', 'HZ2', 'HZ4']].values:
+    for teff, sma, hz1, hz2 in df[['teff', 'sma', 'HZ2', 'HZ4']].values:
         if (hz1 <= sma) and (sma <= hz2):
             plt.plot([hz1, hz2], [teff, teff], '-oC0', lw=5, alpha=0.5)
         else:
             plt.plot([hz1, hz2], [teff, teff], '-oC1', lw=1, alpha=0.4, ms=2)
 
     idx = (df['HZ2'] <= df['sma']) & (df['sma'] <= df['HZ4'])
-    print df.loc[idx, p[:-1]+['HZ2', 'sma', 'HZ4', 'plRadius', 'plMass']]
+    p = ['plName', 'teff', 'tefferr', 'logg', 'loggerr', 'feh', 'feherr',
+         'lum', 'radius', 'period', 'detType', 'mag_v',
+         'HZ2', 'sma', 'HZ4', 'plRadius', 'plMass']
+    print df.loc[idx, p]
     plt.scatter(df.sma[idx],  df.teff[idx],  alpha=0.9, c='C2', s=30)
     plt.scatter(df.sma[~idx], df.teff[~idx], alpha=0.4, c='C3', s=5)
 
