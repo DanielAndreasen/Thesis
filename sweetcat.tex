@@ -82,17 +82,57 @@ results.
 
 \subsection{Proposals for observation time}
 
-
+\unfinished{Well, nothing here...}
 
 \subsection{Data collected from proposals}
 
+Data for 43 out of the 50 stars were collected by the SWEET-Cat team using the UVES/VLT
+\citep{UVES}, FEROS/2.2m telescope in La Silla \citep{FEROS}, and FIES/NOT \citep{FIES}
+spectrographs. The remaining spectra were found in various archives. This includes spectra from the
+HARPS/3.6m telescope in La Silla \citep{HARPS} and ESPaDOnS/CFHT \citep{ESPADONS}. Some
+characteristics of the spectrographs are presented in \tref{tab:instruments} with the mean S/N for
+the spectra used. The S/N for each star can be seen in \tref{tab:SCresults} along with the
+atmospheric parameters of the stars. The S/N is measured automatically by ARES, however note that
+ARES smoothes the spectra before measuring the S/N, hence it is listed higher than the actual S/N.
+These 50 stars are confirmed exoplanet hosts listed in SWEET-Cat, but they belonged to the list of
+stars that have not previously been analysed by our team.
+
+
+\begin{table}[htb!]
+    \caption{Spectrographs used for this paper with their spectral resolution,
+             wavelength coverage, and mean S/N from the spectra used.}
+    \label{tab:instruments}
+    \centering
+    \begin{tabular}{llll}
+      \hline\hline
+      Spectrograph & Resolution    & Spectral range            &   Mean S/N  \\
+      \hline
+      HARPS        &  \num{115000} & \SIrange{378}{691}{nm}    &   642       \\
+      UVES         &  \num{110000} & \SIrange{480}{1100}{nm}   &   212       \\
+      ESPaDOnS     &   \num{81000} & \SIrange{370}{1050}{nm}   &   775       \\
+      FIES         &   \num{67000} & \SIrange{370}{730}{nm}    &   763       \\
+      FEROS        &   \num{48000} & \SIrange{350}{920}{nm}    &   208       \\
+      \hline
+    \end{tabular}
+\end{table}
 
 
 \subsection{Data collected from archive}
 
+The spectra was obtained with the highest possible resolution for a given spectrograph, and in cases
+with multiple observations, we include all the observations unless a spectrum is close to the
+saturation limit for a given spectrograph. For multiple spectra, we combine them after first
+correcting the radial velocity (RV) and using a sigma clipper to remove cosmic rays. The individual
+spectra are then combined to a single spectrum for a given star to increase the S/N. This single
+spectrum is used in the analysis described below. For most of the spectra in the archive included
+here, several spectra were combined as described above, while for the observations dedicated to this
+work, the spectrum would be a single spectrum, or in cases of faint stars, it would be observed a
+few times to reach the desired S/N. This is mostly due to the difference in science cases behind the
+observations; for example, the HARPS spectra were used for RV monitoring or follow-up of the
+exoplanet(s), while the UVES spectra were used to characterise stellar parameters.
+\unfinished{Check this part}
 
-
-\section{Analysis}
+\section{Analysis of 50 planet hosts}
 \label{sec:sweetcat_analysis}
 
 The method of determining atmospheric parameters from the curve of growth analysis has been applied
