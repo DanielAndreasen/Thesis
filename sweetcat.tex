@@ -512,4 +512,42 @@ metal-poor compared to the stars hosting the lower mass giant planets. This sugg
 stellar populations forming giant planets.
 
 
-\section{Future work}
+\section{Updating SWEET-Cat}
+
+While SWEET-Cat is already a success, it is important to strive to improve the catalogue. Therefore
+several improvements for SWEET-Cat are planned. The most important additions are the derivation of
+chemical abundances and derivation of mass\footnote{The mass is currently available, however it is
+derived from a empirical relation.}, radius, and age using stellar modelling.
+
+With the deviation of chemical abundances, it is possible to make more in-depth studies of the
+planet hosts, e.g. by studying trends with condensation temperatures \citep[see
+e.g.][]{Adibekyan2016}. By deriving the masses and radii of the planet hosting stars, the planetary
+parameters, (mass and radius, and thus the bulk density) can be derived in a consistent way. This
+leads to a third improvement of SWEET-Cat; namely re-derived planetary parameters using the
+homogeneously derived stellar parameters.
+
+When deriving the stellar masses and radii, the luminosity is also an output, which could be added
+to the future version of SWEET-Cat. This leads to simple estimates of the habitable zone limits (see
+the discussion above in \sref{sec:HZ}). The implication of this is immediately evident: locating
+exoplanets in the habitable zone with the updated stellar parameters. This is of course particular
+interesting if the exoplanet is rocky.
+
+Two other additions to SWEET-Cat could be the projected rotational velocity, $v\sin i$, and activity
+indicators such as $\log R'_\mathrm{HK}$. Note that $v\sin i$ will be difficult to derive. Here it
+is simplest to use synthesis to estimate this parameter, although for slow rotating stars (below
+\SI{10}{km/s}) it is difficult to measure accurately with a high precision. These slow rotating
+stars are the ones used with the method described above in e.g. \sref{sec:sweetcat_analysis}. The
+activity is very important to include, since relations with stellar age and stellar rotation might
+be explored. Moreover, some non-obvious correlations such as the correlation found between $\log
+R'\mathrm{HK}$ and planetary surface gravity \citep{Hartman2010,Figueira2014} might be explored as
+well.
+
+
+The last update on the wish-list is for the web page itself. It could be made modern with plotting
+capabilities, and in tandem combine SWEET-Cat with an exoplanet database, such as
+Exoplanet.eu\footnote{\url{http://exoplanet.eu/}}. This will allow any user to quickly explorer
+relations between stellar and planetary properties. The tool for plotting has already been developed
+and is distributed along with other scripts developed during this PhD under
+\code{astro\textunderscore{}scripts}\footnote{Can be found here:
+\url{https://github.com/DanielAndreasen/astro_scripts}, and can be installed with \code{pip install
+astro-scripts}}.
