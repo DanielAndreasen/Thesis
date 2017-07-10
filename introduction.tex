@@ -81,8 +81,18 @@ faint.
 
 \subsubsection{Radial velocity method}
 
-
-
+The radial velocity method is the indirect study of the motion of the host star using the Doppler
+effect caused by an orbiting exoplanet. This together with the transit method described above is by
+far the most successful methods to detect and characterise exoplanets. The periodic signal created
+by the exoplanet on the host star depends on the mass ratio between the star $M_\ast$ and the planet
+$M_p$:
+\begin{align}
+  K = \frac{\SI{28.4329}{km/s}}{\sqrt{1-e^2}} \frac{M_p\sin i}{\Mjup} \left( \frac{M_\ast+M_p}{M_\odot} \right)^{-2/3} \left(\frac{P}{\SI{1}{year}}\right)
+\end{align}
+where $K$ is the semi-amplitude of the sinusoidal, $e$ is the eccentricity, $i$ is the inclination,
+$P$ is the orbital period, and $\Mjup$ is the mass of Jupiter. Since $M_\ast \gg M_p$, the term
+$M_\ast+M_p\simeq M_\ast$ in order to simplify the equation. Often a circular orbit is assumed,
+$e=0$.
 
 
 
