@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 from PyAstronomy import pyasl
 import matplotlib.pyplot as plt
+from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
 plt.rcParams['xtick.direction'] = 'in'
 plt.rcParams['ytick.direction'] = 'in'
@@ -40,6 +41,24 @@ def hz(teff, lum, model=1):
     Seff = Seff_sun + a*ts + b*ts**2 + c*ts**3 + d*ts**4
     dist = np.sqrt(lum/Seff)
     return dist
+
+
+def imscatter(x, y, image, ax=None, zoom=1):
+    if ax is None:
+        ax = plt.gca()
+    try:
+        image = plt.imread(image)
+    except TypeError:
+        # Likely already an array...
+        pass
+    im = OffsetImage(image, zoom=zoom)
+    x, y = np.atleast_1d(x, y)
+    artists = []
+    for x0, y0 in zip(x, y):
+        ab = AnnotationBbox(im, (x0, y0), xycoords='data', frameon=False)
+        artists.append(ax.add_artist(ab))
+    ax.update_datalim(np.column_stack([x, y]))
+    return artists
 
 
 def radTorres(teff, erteff, logg, erlogg, feh, erfeh):
@@ -102,9 +121,27 @@ if __name__ == '__main__':
          'lum', 'radius', 'period', 'detType', 'mag_v',
          'HZ2', 'sma', 'HZ4', 'plRadius', 'plMass']
     print df.loc[idx, p]
+
     plt.scatter(df.sma[idx],  df.teff[idx],  alpha=0.9, c='C2', s=30)
     plt.scatter(df.sma[~idx], df.teff[~idx], alpha=0.4, c='C3', s=5)
 
+    # Plot the solar system
+    planets = {
+        'mercury': [0.39, 0.01],
+        'venus': [0.723, 0.02],
+        'earth': [1.00, 0.04],
+        'mars': [1.524, 0.01],
+        'jupiter': [5.203, 0.05]}
+    plt.plot([hz(5777, 1, model=2), hz(5777, 1, model=4)], [5777, 5777], '-oC2', lw=5)
+    ax = plt.gca()
+    for planet in planets.iterkeys():
+        image_path = ('{}.png'.format(planet))
+        x = planets[planet][0]
+        y = 5777
+        zoom = planets[planet][1]
+        imscatter(x, y, image_path, zoom=zoom, ax=ax)
+
+    plt.xlim(-0.2, 5.5)
     plt.xlabel('Semi-major axis [AU]')
     plt.ylabel('Teff [K]')
     # plt.savefig('../HZ.pdf')
