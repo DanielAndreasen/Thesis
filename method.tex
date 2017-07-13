@@ -217,7 +217,7 @@ can be found here: \url{https://github.com/sousasag/ARES}} of \code{ARES} is use
 ATLAS9 \citep{Kurucz1993}, MARCS models \citep{Gustafson2008}, or PHOENIX models \citep{Husser2013}
 to mention the most popular for this analysis. Note that the PHOENIX models are relative new and not
 as widely used yet. In tandem with model atmospheres a radiative transfer code is also needed.
-\code{FASMA} uses \MOOG \citep{Sneden1973} for this. The model atmosphere usually comes in a
+\code{FASMA} uses \code{MOOG} \citep{Sneden1973} for this. The model atmosphere usually comes in a
 pre-calculated grid in the $\{T_\mathrm{eff},\,\log g,\,[\ion{Fe}/\ion{H}]\}$ parameter space. These
 are interpolated in order to access the requested combination of parameters. Last, \code{FASMA}
 consist of a minimization routine which looks for the best matching parameters given a spectrum.
@@ -306,7 +306,7 @@ model atmosphere, where there typical are 72 layers, and each column of which th
 columns are described in \sref{sec:atmospheremodels}. The interpolation are done using the
 \code{griddata} function from \code{SciPy}\footnote{\url{https://scipy.org/}}. The interpolation is
 linear in the parameter space. After the interpolation, the result is saved to a file in the format
-expected by \MOOG.
+expected by \code{MOOG}.
 
 
 
