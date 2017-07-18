@@ -225,7 +225,7 @@
 
 
 %%%%%%%%%%%%      MAIN  DOCUMENT      %%%%%%%%%%%%
-% \includeonly{introduction}
+\includeonly{introduction}
 
 \begin{document}
 
@@ -322,10 +322,11 @@ To Linnea, Henriette, Rico, and Else\\For always supporting me
 
 \appendix
 
-\chapter{SWEET-Cat update of 50 planet hosts}
 
 
 \begin{landscape}
+\chapter{SWEET-Cat update of 50 planet hosts}
+
   \begin{ThreePartTable}
   % \advance\vsize5cm
   % \csname @colroom\endcsname=\vsize
@@ -349,6 +350,7 @@ To Linnea, Henriette, Rico, and Else\\For always supporting me
          &       [K]        &  [cgs]   &                      &     [km/s]            &                               &              &       \\
    \hline
    \endhead
+   \hline
    \endfoot
    \endlastfoot
    \hline
@@ -427,6 +429,76 @@ To Linnea, Henriette, Rico, and Else\\For always supporting me
                 $\xi_\mathrm{micro}=1.85(1.61)\pm0.08(0.04)$.
     \end{tablenotes}
   \end{ThreePartTable}
+
+
+  \begin{longtable}{lllrll}
+      \caption{\label{tab:oldSC} Previous parameters from SWEET-Cat.}\\
+      \hline\hline
+      Star  & $T_\mathrm{eff}$ & $\log g$ & $[\ion{Fe}/\ion{H}]$ &  $\xi_\mathrm{micro}$ &  Reference  \\[-0.3em]
+            &       [K]        &  [cgs]   &                      &     [km/s]            &             \\
+      \hline
+      \endfirsthead
+      \caption{continued.}\\
+      \hline\hline
+      Star  & $T_\mathrm{eff}$ & $\log g$ & $[\ion{Fe}/\ion{H}]$ &  $\xi_\mathrm{micro}$ &  Reference  \\[-0.3em]
+            &       [K]        &  [cgs]   &                      &     [km/s]            &             \\
+      \hline
+      \endhead
+      \hline
+      \endfoot
+      \object{BD-114672}       &    $4475 \pm 100$   &    $4.10 \pm 0.36$   &    $-0.48 \pm 0.05$   &    $0.67 \pm 0.16$   &    \citet{Moutou2015}       \\
+      \object{BD +49 828}      &    $4943 \pm  30$   &    $2.85 \pm 0.09$   &    $-0.19 \pm 0.06$   &          ...         &    \citet{Niedzielski2015}  \\
+      \object{GJ 785}          &    $5144 \pm  50$   &    $4.60 \pm 0.06$   &    $ 0.08 \pm 0.03$   &          ...         &    \citet{Howard2011}       \\
+      \object{HATS-1}          &    $5780 \pm 100$   &    $4.40 \pm 0.08$   &    $-0.06 \pm 0.12$   &          ...         &    \citet{Penev2013}        \\
+      \object{HATS-5}          &    $5304 \pm  50$   &    $4.53 \pm 0.02$   &    $ 0.19 \pm 0.08$   &          ...         &    \citet{Zhou2014}         \\
+      \object{HAT-P-12}        &    $4650 \pm  60$   &    $4.61 \pm 0.02$   &    $-0.29 \pm 0.05$   &          ...         &    \citet{Lee2014}          \\
+      \object{HAT-P-24}        &    $6373 \pm  80$   &    $4.29 \pm 0.04$   &    $-0.16 \pm 0.08$   &          ...         &    \citet{Kipping2010}      \\
+      \object{HAT-P-39}        &    $6340 \pm 100$   &    $4.16 \pm 0.03$   &    $ 0.19 \pm 0.10$   &          ...         &    \citet{Hartman2012}      \\
+      \object{HAT-P-46}        &    $6120 \pm 100$   &    $4.25 \pm 0.11$   &    $ 0.30 \pm 0.10$   &    $0.85 \pm  ...$   &    \citet{Hartman2014}      \\
+      \object{HAT-P-42}        &    $5743 \pm  50$   &    $4.14 \pm 0.07$   &    $ 0.27 \pm 0.08$   &          ...         &    \citet{Boisse2013}       \\
+      \object{HD 120084}       &    $4892 \pm  22$   &    $2.71 \pm 0.08$   &    $ 0.09 \pm 0.05$   &    $1.31 \pm 0.10$   &    \citet{Sato2013}         \\
+      \object{HD 192263}       &    $4906 \pm  57$   &    $4.36 \pm 0.17$   &    $-0.07 \pm 0.02$   &    $0.78 \pm 0.12$   &    \citet{Tsantaki2013}     \\
+      \object{HD 219134}       &    $4699 \pm  16$   &    $4.63 \pm 0.10$   &    $ 0.11 \pm 0.04$   &    $0.35 \pm 0.19$   &    \citet{Motalebi2015}     \\
+      \object{HD 220074}       &    $3935 \pm 110$   &    $1.30 \pm 0.50$   &    $-0.25 \pm 0.25$   &    $1.60 \pm 0.30$   &    \citet{Lee2013}          \\
+      \object{HD 220842}       &    $5920 \pm  20$   &    $4.24 \pm 0.02$   &    $-0.17 \pm 0.02$   &          ...         &    \citet{Hebrard2016}      \\
+      \object{HD 233604}       &    $4791 \pm  45$   &    $2.55 \pm 0.18$   &    $-0.36 \pm 0.04$   &          ...         &    \citet{Nowak2013}        \\
+      \object{HD 283668}       &    $4845 \pm  66$   &    $4.35 \pm 0.12$   &    $-0.75 \pm 0.12$   &    $0.02 \pm 0.30$   &    \citet{Wilson2016}       \\
+      \object{HD 285507}       &    $4503 \pm  73$   &    $4.67 \pm 0.06$   &    $ 0.13 \pm 0.01$   &          ...         &    \citet{Quinn2014}        \\
+      \object{HD 5583}         &    $4830 \pm  45$   &    $2.53 \pm 0.14$   &    $-0.50 \pm 0.18$   &          ...         &    \citet{Niedzielski2016}  \\
+      \object{HD 81688}        &    $4753 \pm  15$   &    $2.22 \pm 0.05$   &    $-0.36 \pm 0.02$   &    $1.43 \pm 0.05$   &    \citet{Sato2008}         \\
+      \object{HD 82886}        &    $5112 \pm  44$   &    $3.40 \pm 0.06$   &    $-0.31 \pm 0.03$   &          ...         &    \citet{Johnson2011}      \\
+      \object{HD 87883}        &    $4958 \pm  44$   &    $4.56 \pm 0.06$   &    $ 0.07 \pm 0.03$   &          ...         &    \citet{Valenti2005}      \\
+      \object{HIP 107773}      &    $4945 \pm 100$   &    $2.60 \pm 0.20$   &    $ 0.03 \pm 0.10$   &          ...         &    \citet{Jones2015}        \\
+      \object{HIP 11915}       &    $5760 \pm   4$   &    $4.46 \pm 0.01$   &    $-0.06 \pm 0.00$   &          ...         &    \citet{Bedell2015}       \\
+      \object{HIP 116454}      &    $5089 \pm  50$   &    $4.59 \pm 0.03$   &    $-0.16 \pm 0.08$   &          ...         &    \citet{Vanderburg2015}   \\
+      \object{HR 228}          &    $4959 \pm  25$   &    $3.16 \pm 0.08$   &    $ 0.01 \pm 0.04$   &    $1.12 \pm 0.07$   &    \citet{Sato2013b}        \\
+      \object{KELT-6}          &    $6102 \pm  43$   &    $4.07 \pm 0.06$   &    $-0.28 \pm 0.04$   &          ...         &    \citet{Collins2014}      \\
+      \object{Kepler-37}       &    $5417 \pm  70$   &    $4.57 \pm 0.01$   &    $-0.32 \pm 0.07$   &          ...         &    \citet{Barclay2013}      \\
+      \object{Kepler-444}      &    $5046 \pm  74$   &    $4.60 \pm 0.06$   &    $-0.55 \pm 0.07$   &          ...         &    \citet{Campante2015}     \\
+      \object{mu Leo}          &    $4538 \pm  27$   &    $2.40 \pm 0.10$   &    $ 0.36 \pm 0.05$   &    $1.40 \pm 0.10$   &    \citet{Lee2014}          \\
+      \object{ome Ser}         &    $4770 \pm  10$   &    $2.32 \pm 0.04$   &    $-0.24 \pm 0.02$   &    $1.34 \pm 0.04$   &    \citet{Sato2013}         \\
+      \object{omi UMa}         &    $5242 \pm  10$   &    $2.64 \pm 0.03$   &    $-0.09 \pm 0.02$   &    $1.51 \pm 0.07$   &    \citet{Sato2012}         \\
+      \object{Qatar-2}         &    $4645 \pm  50$   &    $4.60 \pm 0.02$   &    $-0.02 \pm 0.08$   &          ...         &    \citet{Bryan2012}        \\
+      \object{SAND364}         &    $4284 \pm   9$   &    $2.20 \pm 0.06$   &    $-0.02 \pm 0.04$   &          ...         &    \citet{Brucalassi2014}   \\
+      \object{TYC+1422-614-1}  &    $4806 \pm  45$   &    $2.85 \pm 0.18$   &    $-0.20 \pm 0.08$   &          ...         &    \citet{Niedzielski2015a} \\
+      \object{WASP-37}         &    $5940 \pm  55$   &    $4.39 \pm 0.02$   &    $-0.40 \pm 0.12$   &          ...         &    \citet{Simpson2011}      \\
+      \object{WASP-44}         &    $5400 \pm 150$   &    $4.48 \pm 0.07$   &    $ 0.06 \pm 0.10$   &          ...         &    \citet{Anderson2012}     \\
+      \object{WASP-52}         &    $5000 \pm 100$   &    $4.58 \pm 0.01$   &    $ 0.03 \pm 0.12$   &          ...         &    \citet{Hebrard2013}      \\
+      \object{WASP-58}         &    $5800 \pm 150$   &    $4.27 \pm 0.09$   &    $-0.45 \pm 0.09$   &          ...         &    \citet{Hebrard2013}      \\
+      \object{WASP-61}         &    $6250 \pm 150$   &    $4.26 \pm 0.01$   &    $-0.10 \pm 0.12$   &          ...         &    \citet{Hellier2012}      \\
+      \object{WASP-72}         &    $6250 \pm 100$   &    $4.08 \pm 0.13$   &    $-0.06 \pm 0.09$   &    $1.60 \pm 0.10$   &    \citet{Gillon2013}       \\
+      \object{WASP-73}         &    $6030 \pm 120$   &    $3.92 \pm 0.08$   &    $ 0.14 \pm 0.14$   &    $1.10 \pm 0.20$   &    \citet{Delrez2014}       \\
+      \object{WASP-75}         &    $6100 \pm 100$   &    $4.50 \pm 0.10$   &    $ 0.07 \pm 0.09$   &    $1.30 \pm 0.10$   &    \citet{Gomez2013}        \\
+      \object{WASP-76}         &    $6250 \pm 100$   &    $4.13 \pm 0.02$   &    $ 0.23 \pm 0.10$   &    $1.40 \pm 0.10$   &    \citet{West2016}         \\
+      \object{WASP-82}         &    $6490 \pm 100$   &    $3.97 \pm 0.02$   &    $ 0.12 \pm 0.11$   &    $1.50 \pm 0.10$   &    \citet{West2016}         \\
+      \object{WASP-88}         &    $6430 \pm 130$   &    $4.03 \pm 0.09$   &    $-0.08 \pm 0.12$   &    $1.40 \pm 0.10$   &    \citet{Delrez2014}       \\
+      \object{WASP-94 A}       &    $6170 \pm  80$   &    $4.27 \pm 0.07$   &    $ 0.26 \pm 0.15$   &          ...         &   \citet{Neveu2014}         \\
+      \object{WASP-94 B}       &    $6040 \pm  90$   &    $4.26 \pm 0.06$   &    $ 0.23 \pm 0.14$   &          ...         &   \citet{Neveu2014}         \\
+      \object{WASP-95}         &    $5630 \pm 130$   &    $4.38 \pm 0.03$   &    $ 0.14 \pm 0.16$   &          ...         &    \citet{Hellier2014}      \\
+      \object{WASP-97}         &    $5640 \pm 100$   &    $4.43 \pm 0.03$   &    $ 0.23 \pm 0.11$   &          ...         &    \citet{Hellier2014}      \\
+      \object{WASP-99}         &    $6180 \pm 100$   &    $4.12 \pm 0.03$   &    $ 0.21 \pm 0.15$   &          ...         &    \citet{Hellier2014}      \\
+      \object{WASP-100}        &    $6900 \pm 120$   &    $4.04 \pm 0.11$   &    $-0.03 \pm 0.10$   &          ...         &    \citet{Hellier2014}      \\
+  \end{longtable}
 \end{landscape}
 
 
