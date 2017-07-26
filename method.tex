@@ -312,6 +312,7 @@ expected by \code{MOOG}.
 
 
 \subsection{Minimization}
+\label{sec:minimization}
 
 With the measured EWs for all the lines in the line list, we choose an atmosphere model to determine
 the abundances. If there is no prior knowledge of the star it is common simply to choose an
@@ -353,8 +354,7 @@ host star HATS-1. The three rows are for three different model atmospheres. From
   \item Converged with \SI{0.5}{km/s} added to $\xi_\mathrm{micro}$.
   \item Converged with \SI{500}{K} added to $T_\mathrm{eff}$.
 \end{itemize}
-Left column show the abundances against the EP, and the right column is
-abundances against RW.
+Left column show the abundances against the EP, and the right column is abundances against RW.
 
 \begin{figure}[htpb!]
     \centering
@@ -366,11 +366,13 @@ abundances against RW.
     \label{fig:eprw}
 \end{figure}
 
+\paragraph{Option: outliers - }
+
 The minimization with the different options is depicted in \fref{fig:minimization}. In each
 iteration where convergence is not reached, the input metallicity is changed to that of the average
-output metallicity using the \ion{Fe}{I} lines. \code{FASMA} is able to fix one or all of the four
-atmospheric parameters, and when it reach convergence it checks if there are any outliers in the
-abundances. These will be removed, either:
+output metallicity using the \ion{Fe}{I} lines. \code{FASMA} is able to set one or all of the four
+atmospheric parameters to a fixed value, and when it reach convergence it checks if there are any
+outliers in the abundances. These will be removed, either:
 \begin{itemize}
   \item All outliers above $3\sigma$ once; minimization routine is restarted after removal of
         outliers.
@@ -387,6 +389,8 @@ it is safe to remove a larger amount of lines and still obtain reliable paramete
 first option is common here. However, with a less tested line list, like the one by
 \citet{Andreasen2016} (and refined in \citet{Andreasen2017b}), one should remove outliers more
 carefully, and it is recommended that one outlier is removed iteratively.
+
+\paragraph{Option: fix $\xi_\mathrm{micro}$ - }
 
 Sometimes the minimization can not reach convergence with all parameters free. The first approach to
 progress is to fix $\xi_\mathrm{micro}$ to a value. This parameter is known to depend on the
@@ -405,6 +409,18 @@ where the first case is from \citet{Tsantaki2013} and the latter case is from \c
 In this way $\xi_\mathrm{micro}$ is changed in each iteration according to one of these relations.
 This option is called \code{autofixvt} in \fref{fig:minimization}.
 
+\paragraph{Option: Change line list - }
+
+After the minimization, it happens that the derived $T_\mathrm{eff}$ is below \SI{5200}{K}. At this
+temperature it is well known that the line list by \citet{Sousa2008a} does not work well. This is
+something that was corrected by \citet{Tsantaki2013}, who created a subset of the previous iron line
+list. This smaller line list are able to successfully derive $T_\mathrm{eff}$ below \SI{5200}{K}.
+Therefore, if the option \code{teffrange} is on (which is highly recommended), the line list by
+\citet{Sousa2008a} will simply be converted to the smaller line list by \citet{Tsantaki2013} if
+$T_\mathrm{eff}$ is below this threshold, and the minimization will be restarted.
+
+\paragraph{Option: Refine results - }
+
 Last there is an option, \code{refine}. This apply more strict criteria for the indicators to reach
 convergence, thus making the minimization less sensitive to the initial guess since it could
 otherwise reach convergence from one ``side'' of the parameter space. The default criteria are:
@@ -418,6 +434,8 @@ rapidly with small changes in $\xi_\mathrm{micro}$, thus a very strict criteria 
 convergence. Convergence is reached once all of the above criteria are met, and the input and output
 metallicity are identical. If one or more of the parameters are fixed, the corresponding criterion
 is simply set to 0 and effectively ignored, thus not changing the parameter.
+
+\paragraph{Stepping in each iteration - }
 
 For each iteration, the change to be applied for the atmospheric parameters are defined by adding
 the following:
@@ -452,3 +470,67 @@ $\xi_\mathrm{micro}$. The error for $[\ion{Fe}/\ion{H}]$ corresponds to the disp
 \ion{Fe}{I} abundances as well as the uncertainties in $\xi_\mathrm{micro}$ and $T_\mathrm{eff}$.
 The error in $\log g$ corresponds to the dispersion in the pressure sensitive \ion{Fe}{II}
 abundances.
+
+\subsection{Testing \code{FASMA}}
+\label{sec:fasma_test}
+
+Parameters were derived for a 582 sample presented in \citet{Sousa2011} with \code{FASMA} as a test.
+The results were compared with \citet{Sousa2011} since the method is the one previously used in the
+Porto group, thus making a fair test.
+
+\code{ARES} was used to measure the EWs. \code{ARES} can give an estimate of the S/N by analysing
+the continuum in certain intervals. For solar-type stars the following intervals work well:
+5764-5766 \AA{}, 6047–6053 \AA{}, and 6068–6076 \AA{}. From the estimated S/N, \code{ARES} can give
+an estimate on the very important \code{rejt} parameters \citep[see][for more information]{Sousa2015a}.
+
+After measuring the EWs with \code{ARES}, \code{FASMA} was used  to determine the stellar
+atmospheric parameters. The results are presented in \fref{fig:fasma_test} which shows
+$T_\mathrm{eff}$, $\log g$, $[\ion{Fe}/\ion{H}]$, and $\xi_\mathrm{micro}$ for \code{FASMA} against
+those of \citet{Sousa2011}. The sample contains stars with $T_\mathrm{eff}$ too cold for the line
+list used. As described in \sref{sec:minimization} the line list by \citet{Sousa2008a} should be
+converted to the line list presented in \citet{Tsantaki2013}. However, since this line list was not
+available when \citet{Sousa2011} derived parameters, the \code{teffrange} option was left off in
+order to make a fair comparison for \code{FASMA}.
+
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/FASMAtest.pdf}
+    \caption{Stellar atmospheric parameters derived by \code{FASMA} compared to the sample by
+             \citet{Sousa2011}. The x-axis in all plots shows the results from \code{FASMA}, while
+             the y-axis shows the parameters derived by \citet{Sousa2011}.}
+    \label{fig:fasma_test}
+\end{figure}
+
+
+The mean of the difference between parameters from \citet{Sousa2011} and those by \code{FASMA} are
+presented in \tref{tab:FASMATest}. The comparison is very consistent, as expected, and the small
+offsets are within the errors except for metallicity. This can be due to different versions of
+\code{MOOG}, measured line lists (i.e. using slightly different settings/version of ARES to measure
+the EWs), interpolation of atmosphere grid, and minimization routine. Most likely the difference
+will be due to the different \code{rejt} parameters used in \code{ARES}, which can alter the EWs
+systematically and hence the metallicity. To test this hypothesis 20 randomly stars with different
+$T_\mathrm{eff}$ were selected and the EWs directly from \citet{Sousa2011} were used to derive
+parameters. The results are presented in the last column of \tref{tab:FASMATest}. Note that the
+$\log \mathit{gf}$ values from the original line lists by \citet{Sousa2011}, which used the
+\code{MOOG} 2002 version, were not changed for the 2014 version of \code{MOOG}. This might lead to
+some errors as well. However, the offsets are very small and are compatible with the errors on
+parameters normally obtained from high-quality spectra.
+
+\begin{table}[htb!]
+    \caption{Difference in derived parameters by \citet{Sousa2011} and \code{FASMA}. The second
+             column is the mean difference with EWs measured by \code{ARES} in \code{FASMA}, while
+             the third column is the mean difference using 20 randomly stars with the exact same EWs
+             from \citet{Sousa2011}.}
+    \label{tab:FASMATest}
+    \centering
+    \begin{tabular}{lrr}
+      \hline\hline
+      Parameter             &  Mean difference         & Same line list        \\
+      \hline
+      $T_\mathrm{eff}$      &  $\SI{16(36)}{K}$        & $\SI{21(11)}{K}$      \\
+      $\log g$              &  $\SI{-0.04(7)}{dex}$    & $\SI{-0.007(9)}{dex}$ \\
+      $[\ion{Fe}/\ion{H}]$  &  $\SI{0.03(2)}{dex}$     & $\SI{0.004(9)}{dex}$  \\
+      $\xi_\mathrm{micro}$  &  $\SI{-0.04(14)}{km/s}$  & $\SI{0.04(2)}{km/s}$  \\
+      \hline
+    \end{tabular}
+\end{table}
