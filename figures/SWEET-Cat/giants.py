@@ -42,8 +42,8 @@ if __name__ == '__main__':
 
     bins = np.logspace(0, 1.3, 13)
 
-    plt.hist(df_all['mass_sini'].dropna(), bins=bins, label='All planets')
-    plt.hist(df['mass_sini'].dropna(), bins=bins, label='Constrained planets')
+    plt.hist(df_all['mass_sini'].dropna(), bins=bins, label='All planets', histtype='step', lw=2)
+    plt.hist(df['mass_sini'].dropna(), bins=bins, label='Constrained planets', histtype='step', lw=2)
     plt.xscale('log')
 
     plt.xlabel('Planet mass [Jupiter masses]')

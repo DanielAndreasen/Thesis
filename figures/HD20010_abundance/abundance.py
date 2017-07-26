@@ -42,10 +42,10 @@ if __name__ == '__main__':
     plt.xlim(9500, 25000)
     plt.ylim(-0.05, 0.7)
     plt.subplot(212)
-    plt.hist(dhigh[:, 5]-dlow[:, 5])
+    plt.hist(dhigh[:, 5]-dlow[:, 5], histtype='step', lw=2)
     plt.xlabel('Difference in abundance [dex]')
 
     plt.tight_layout()
 
-    # plt.savefig('../HD20010abundance_error.pdf')
+    plt.savefig('../HD20010abundance_error.pdf')
     plt.show()
