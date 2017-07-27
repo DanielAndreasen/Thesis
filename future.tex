@@ -1,3 +1,73 @@
 %!TEX root = thesis.tex
-\chapter{Future work}
+\chapter{Conclusions and future work}
 \label{cha:future}
+
+\section{Conclusions}
+
+This thesis consisted of two separated analysis. 1) The analysis of NIR stellar spectra and the
+compilation of a new iron line list for determining stellar atmospheric parameters, and 2) the
+analysis of 50 planet-hosting stars and update of SWEET-Cat. These two different analyses (NIR and
+optical) were both done using the same method; determination of stellar atmospheric parameters using
+high quality spectra by imposing ionization and excitation equilibrium. In a few summarised points,
+this thesis brings:
+
+\begin{itemize}
+  \item A new NIR line list consisting of 84 \ion{Fe}{I} lines and 5 \ion{Fe}{II} lines. This line
+        list is optimised for usage with high quality spectra. The goal is to analyse FGK stars and
+        making the bridge towards the M stars. Especially are the dwarf stars of most interest, in
+        the context of exoplanets and the search of habitable worlds. ``Know the star, know the
+        exoplanet'' is the key.
+
+        The line list has been tested on few NIR spectra, mostly due to the lack of spectra and the
+        difficulties it is to currently obtain any NIR spectra. This is about to change in the
+        near future. The tests performed have been increasingly successful, and progress is evident.
+  \item To analyse the data a new tool was created, \code{FASMA}. This tool provides many different
+        options, can be used with different atmosphere models, is available to the community as a
+        web application, and provides three different drivers for analysis of spectra: EW
+        measurements, deriving parameters, and deriving abundances of a range of elements. A fourth
+        driver is under construction which is to derive parameters using the synthesis method
+        \citep{Tsantaki2017}.
+  \item The analysis of 50 planet-host stars to increase the number of homogeneously analysed stars
+        was also the first appearance and official usage of \code{FASMA}. This analysis increased
+        the completeness to 85\% for stars brighter than 10 V magnitude. It is time consuming to
+        obtain high quality spectra for stars fainter than this magnitude, however the completeness
+        is still at 77\% for stars brighter than 12 V magnitude. Out of the 50 planet host stars
+        analysed, eight changed either the radius or mass by more than 25\%. These eight systems
+        were carefully analysed, and the updated planetary parameters (radius, mass, and density)
+        were derived when possible.
+\end{itemize}
+
+
+\section{Future work}
+
+While the tests with the NIR line list has been successful, there will still be room for
+improvements. The same is the case for the \code{FASMA} and SWEET-Cat. Here are some of the main
+points for (possible) future work.
+
+\begin{itemize}
+  \item The $\log g$ problem
+  \item The model atmosphere used is reliable in the Porto group, however newer versions are
+        available. It would be interesting to use more recent versions of the ATLAS9 atmosphere
+        models, and to explorer other atmosphere models altogether, as the PHOENIX library.
+  \item While \code{FASMA} is in a state where it work well and is stable, there are still ways to
+        improve it. One way is to use machine learning to get a better guess of initial parameters.
+        This work has already been initiated, and details on this can be seen in \cref{cha:fasmaML},
+        however the work is not yet connected to \code{FASMA}.\unfinished{Write about non-LTE here?}
+  \item After obtaining stellar atmospheric parameters from a high quality spectrum it is natural to
+        explorer the spectrum with another purpose: to obtain abundances for other elements. The
+        individual abundances of other elements than iron might be used to explorer the history of
+        the star, and can be used in connection with the plant-star correlations. This is something
+        that is already explored in detail in the optical, but is yet a relative new approach in the
+        NIR from high quality spectra.
+  \item One of the main limitations during this thesis have been the limited access to data. This
+        lead to the analysis of synthetic spectra. It will be very interesting to explorer real data
+        in the future. Particular interesting is the CARMENES library which is under constructions.
+        This library will contain a high S/N spectrum of all the stars observed by CARMENES. This
+        can be used to accurately explorer different part of the parameter space and find weak
+        points in the methodology presented here in this thesis.
+  \item This was already discussed previously, however, it will be interesting to update SWEET-Cat.
+        These updates can include more columns such as abundances of the planet host, modelled mass,
+        radius, and age, rotational velocity, etc. The update to SWEET-Cat can also be for the web
+        interface. A wish is to update this and include easy-plotting capabilities for users to
+        quickly explorer planet-star correlations.
+\end{itemize}
