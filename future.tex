@@ -45,7 +45,27 @@ improvements. The same is the case for the \code{FASMA} and SWEET-Cat. Here are 
 points for (possible) future work.
 
 \begin{itemize}
-  \item The $\log g$ problem
+  \item One of the most difficult parameters to derive from high quality NIR spectra is the surface
+        gravity. This has also been known for the optical part of the spectrum
+        \citep[see e.g.][]{Mortier2014}. However, with the iron line list presented here, the
+        problem is more severe than the optical. This is mainly due to the lack of \ion{Fe}{II}
+        lines. There might be different ways to solve this problem.
+        \begin{enumerate}
+          \item Set the $\log g$ to a fixed value determined from other sources (this can e.g. be
+                asteroseismology).
+          \item Obtain more \ion{Fe}{II} lines in the NIR. With the increased experience, it might
+                prove valuable to have a second look at the \ion{Fe}{II} lines, thereby increase the
+                numbers.
+          \item Explorer another element than iron. While iron is both abundant in numbers and have
+                a lot of transitions, there might exists a better element for this.
+          \item Find other pressure sensitive features in the NIR to derive $\log g$. In this case
+                it will then be combined with the first point raised, and iteratively obtaining
+                $T_\mathrm{eff}$, $[\ion{Fe}/\ion{H}]$, and $\xi_\mathrm{micro}$, before then
+                obtaining $\log g$.
+        \end{enumerate}
+        This points requires some consideration before anything is done, as they might be time
+        consuming or not work as intended. As an example, it might not always be a advisable to
+        set the surface gravity (or any other parameters) to a fixed value.
   \item The model atmosphere used is reliable in the Porto group, however newer versions are
         available. It would be interesting to use more recent versions of the ATLAS9 atmosphere
         models, and to explorer other atmosphere models altogether, as the PHOENIX library.
