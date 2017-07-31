@@ -111,10 +111,13 @@
 
 \definecolor{flatblue}{RGB}{41, 128, 185}
 \definecolor{flatgrey}{RGB}{52, 73, 94}
-\definecolor{flatgreen}{RGB}{26, 188, 156}
+\definecolor{flatgreen}{RGB}{44, 201, 144}
 \definecolor{flatpurple}{RGB}{142, 68, 173}
 \definecolor{flatorange}{RGB}{211, 84, 0}
-
+\definecolor{flatred}{RGB}{207, 0, 15}
+\usepackage{soul}  % highlight text with \hl{}, strikethrough with \st{}
+\sethlcolor{flatgreen}
+\setstcolor{flatred}
 \usepackage{epigraph} %for quotes
 \setlength\epigraphrule{0pt}
 
@@ -152,7 +155,7 @@
 
 
 \usepackage{fix-cm} % Allows increasing the f
-\usepackage[colorlinks, linkcolor=flatorange, citecolor=flatblue]{hyperref}
+\usepackage[colorlinks, linkcolor=flatorange, citecolor=flatblue, urlcolor=flatpurple]{hyperref}
 
 %%%%%%%%%%%%% new commands %%%%%%%%%%%%%%%
 \newcommand{\cref}[1]{Chapter~\ref{#1}}
@@ -226,7 +229,7 @@
 
 
 %%%%%%%%%%%%      MAIN  DOCUMENT      %%%%%%%%%%%%
-% \includeonly{future}
+\includeonly{introduction}
 
 \begin{document}
 
