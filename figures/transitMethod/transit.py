@@ -16,10 +16,9 @@ def get_phase(time, period):
     return (time % period)/period
 
 
-
 if __name__ == '__main__':
     fname = 'ktwo211089792.txt'
-    P = 3.26083740
+    P = 3.25883210
 
     time, flux = np.loadtxt(fname, usecols=(0, 1), unpack=True)
     phase = get_phase(time-0.45*P, P)
@@ -33,6 +32,7 @@ if __name__ == '__main__':
     plt.subplot(212)
     plt.plot(phase[idx], flux[idx], '.C0')
     plt.xlabel('Phase, P=3.261 days')
+    plt.xlim(0.18, 0.32)
 
     plt.tight_layout()
     # plt.savefig('../transitMethod.pdf')
