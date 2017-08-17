@@ -35,12 +35,12 @@ def imscatter(x, y, image, ax=None, zoom=1):
 if __name__ == '__main__':
     df = pyasl.ExoplanetEU2(skipUpdate=True).getAllDataPandas()
     detectionTypes = {
-        'Transit': 'Primary Transit',
-        'RV': 'Radial Velocity',
-        'Imaging': 'Imaging',
-        'Astrometry': 'Astrometry',
-        'TTV': 'TTV',
-        'Microlensing': 'Microlensing'}
+        'Transit': ['Primary Transit', 2],
+        'RV': ['Radial Velocity', 2],
+        'Imaging': ['Imaging', 5],
+        'Astrometry': ['Astrometry', 20],
+        'TTV': ['TTV', 10],
+        'Microlensing': ['Microlensing', 5]}
     planets = {
         'mercury': [0.390, 0.00017, 0.02],
         # 'venus':   [0.723, 0.00256, 0.02],
@@ -49,9 +49,9 @@ if __name__ == '__main__':
         'jupiter': [5.203, 1.00000, 0.03]}
 
     x, y = 'semi_major_axis', 'mass'
-    for detectionType, real in detectionTypes.iteritems():
+    for detectionType, (real, ms) in detectionTypes.iteritems():
         idx = df['detection_type'] == real
-        plt.loglog(df[idx][x], df[idx][y], '.', label=detectionType)
+        plt.loglog(df[idx][x], df[idx][y], '.', label=detectionType, ms=ms)
     plt.legend(loc='best', frameon=False)
     plt.xlabel('Semi major axis [AU]')
     plt.ylabel(r'Exoplanet mass [M$_\mathrm{Jup}$]')
