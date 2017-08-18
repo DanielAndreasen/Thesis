@@ -35,12 +35,12 @@ def imscatter(x, y, image, ax=None, zoom=1):
 if __name__ == '__main__':
     df = pyasl.ExoplanetEU2(skipUpdate=True).getAllDataPandas()
     detectionTypes = {
-        'Transit': ['Primary Transit', 2, 'C4'],
-        'RV': ['Radial Velocity', 2, 'C0'],
+        'Transit': ['Primary Transit', 2, 'C0'],
+        'RV': ['Radial Velocity', 2, 'C1'],
         'Imaging': ['Imaging', 5, 'C5'],
-        'Astrometry': ['Astrometry', 20, 'C2'],
-        'TTV': ['TTV', 10, 'C1'],
-        'Microlensing': ['Microlensing', 5, 'C3']}
+        'Astrometry': ['Astrometry', 20, 'C3'],
+        'TTV': ['TTV', 10, 'C2'],
+        'Microlensing': ['Microlensing', 5, 'C4']}
     planets = {
         'mercury': [0.390, 0.00017, 0.02],
         # 'venus':   [0.723, 0.00256, 0.02],
