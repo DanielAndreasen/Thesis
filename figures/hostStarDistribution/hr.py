@@ -33,6 +33,7 @@ def readSC():
     df.drop('tmp', axis=1, inplace=True)
     df['Vabs'] = absolute_magnitude(df.par, df.Vmag)
     df['R'] = radius(df.logg, df.mass)
+    df['lum'] = df.mass * (df.teff/5777)**4 * (10**(4.44-df.logg))
     return df
 
 
@@ -43,15 +44,16 @@ if __name__ == '__main__':
     # Page 506-507 in Gray
     spts = {'F0': 7178, 'F5': 6528, 'G0': 5943, 'K0': 5282, 'K5': 4623, 'M2': 4076}
 
-    plt.scatter(df.teff, df.Vabs, c=df.teff, s=df.R*10, cmap=cm.inferno)
+    plt.scatter(df.teff, df.lum, c=df.teff, s=df.R*10, cmap=cm.inferno)
+    plt.scatter(5777, 1, c='C2', s=200, marker='*', alpha=0.7)
     for spt, teff in spts.iteritems():
-        plt.vlines(teff, 11, 29, linestyle='--', alpha=0.6)
+        plt.vlines(teff, 1E-3, 20E3, linestyle='--', alpha=0.6)
     plt.xticks(spts.values(), spts.keys())
     plt.xlim(plt.xlim()[::-1])
-    plt.ylim(plt.ylim()[::-1])
+    plt.yscale('log')
     plt.xlabel(r'T$_\mathrm{eff}$ [K]')
-    plt.ylabel('Absolute magnitude')
+    plt.ylabel(r'Luminosity [L$_\odot$]')
     plt.tight_layout()
 
-    # plt.savefig('../hostDistribution.pdf')
+    plt.savefig('../hostDistribution.pdf')
     plt.show()
