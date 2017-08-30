@@ -55,5 +55,5 @@ if __name__ == '__main__':
     plt.ylabel(r'Luminosity [L$_\odot$]')
     plt.tight_layout()
 
-    plt.savefig('../hostDistribution.pdf')
+    # plt.savefig('../hostDistribution.pdf')
     plt.show()

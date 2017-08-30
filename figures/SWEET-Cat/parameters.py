@@ -43,8 +43,6 @@ def massTorres(teff, erteff, logg, erlogg, feh, erfeh):
     logM = np.zeros(ntrials)
     for i in xrange(ntrials):
         X = np.log10(randomteff[i]) - 4.1
-        print randomteff[i]
-        print X
         logM[i] = a1 + a2*X + a3*X**2 + a4*X**3 + a5*randomlogg[i]**2 + a6*randomlogg[i]**3 + a7*randomfeh[i]
 
     meanMasslog = np.mean(logM)
@@ -84,13 +82,13 @@ def radTorres(teff, erteff, logg, erlogg, feh, erfeh):
 def read_data():
     df = pd.read_csv('SWEETCAT.csv', delimiter=r'\s+')
     params = zip(df.teff, df.tefferr, df.logg, df.loggerr, df.feh, df.feherr)
-    # m = [massTorres(t, et, l, el, f, ef) for t, et, l, el, f, ef in params]
-    r = [radTorres(t, et, l, el, f, ef) for t, et, l, el, f, ef in params]
-    # df['mass'] = pd.Series(np.asarray(m)[:, 0])
-    # df['masserr'] = pd.Series(np.asarray(m)[:, 1])
-    df['radius'] = pd.Series(np.asarray(r)[:, 0])
-    df['radiuserr'] = pd.Series(np.asarray(r)[:, 1])
-    df['lum'] = (df.teff/5777)**4 * df.radius**2
+    m = [massTorres(t, et, l, el, f, ef) for t, et, l, el, f, ef in params]
+    # r = [radTorres(t, et, l, el, f, ef) for t, et, l, el, f, ef in params]
+    df['mass'] = pd.Series(np.asarray(m)[:, 0])
+    df['masserr'] = pd.Series(np.asarray(m)[:, 1])
+    # df['radius'] = pd.Series(np.asarray(r)[:, 0])
+    # df['radiuserr'] = pd.Series(np.asarray(r)[:, 1])
+    df['lum'] = df.mass * (df.teff/5777)**4 * (10**(4.44-df.logg))
     return df
 
 
