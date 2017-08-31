@@ -11,9 +11,9 @@ list was made. This was tested again on HD 20010 and additionally on two colder 
 10 Leo in \citet{Andreasen2017b}. A small summary of the stars and their characteristics can be
 found in \tref{tab:stars}. More details are provided in the individual sections below for each star.
 An update to SWEET-Cat \citep{Santos2013}, a catalogue which provides homogeneous stellar parameters
-of planet hosts, was provided in \citet{Andreasen2017a}. Additionally in this work, there was an
+of planet hosts, was provided in \citet{Andreasen2017a}. \st{Additionally in this work, there was an
 analysis of how a selection of lines with different excitation potential might affect the final
-parameters of a star, which is discussed in \sref{sec:EPcut}. Last is the analysis of a range of
+parameters of a star, which is discussed in -} Last is the analysis of a range of
 synthetic spectra from the PHOENIX spectral library \citep{Husser2013}, with $T_\mathrm{eff}$ lower
 than analysed in previous stars with the methodology described above in \sref{sec:parameters}.
 However, before diving into the results of the analysis it is important to describe how the NIR line
@@ -783,19 +783,19 @@ The figure only includes runs which reached convergence with \code{FASMA}.
     \label{fig:feh_simulation}
 \end{figure}
 
-\section{Parameter dependence on EP cut}
-\label{sec:EPcut}
-\unfinished{I'm not sure this section is even worth mentioning. It is by no means done}
-It is common practise, as in this case, to make a cut in EP for a line list when deriving
-parameters. This was suggested in \citet{Andreasen2016} \citep[later done in][]{Andreasen2017b} for
-the NIR line list used here. This cut was made at \SI{5.5}{eV}, inspired by a similar cut in the
-optical \citep{Sousa2008a}, including only lines below this limit. The lines with higher EP might
-also be affected by non-LTE effects which is not treated in this methodology.
-
-As the parameters are dependent on this cut in EP\unfinished{Make a figure that shows this}, it
-seemed interesting to divide a line list in two with upper and lower EPs and analyse those
-separately. Before going into that analysis it is important to note, that the parameters should not
-depend on any cut in EP if the theory is right, the radiative transfer code is working properly, and
-the atmospheric models are correct. Lines with different EP are likely to be formed in different
-layers of the atmosphere as discussed in \sref{sec:stellar_atmosphere}, however this should not
-effect the final derived abundance, which is the problem here.
+% \section{Parameter dependence on EP cut}
+% \label{sec:EPcut}
+% \unfinished{I'm not sure this section is even worth mentioning. It is by no means done}
+% It is common practise, as in this case, to make a cut in EP for a line list when deriving
+% parameters. This was suggested in \citet{Andreasen2016} \citep[later done in][]{Andreasen2017b} for
+% the NIR line list used here. This cut was made at \SI{5.5}{eV}, inspired by a similar cut in the
+% optical \citep{Sousa2008a}, including only lines below this limit. The lines with higher EP might
+% also be affected by non-LTE effects which is not treated in this methodology.
+%
+% As the parameters are dependent on this cut in EP\unfinished{Make a figure that shows this}, it
+% seemed interesting to divide a line list in two with upper and lower EPs and analyse those
+% separately. Before going into that analysis it is important to note, that the parameters should not
+% depend on any cut in EP if the theory is right, the radiative transfer code is working properly, and
+% the atmospheric models are correct. Lines with different EP are likely to be formed in different
+% layers of the atmosphere as discussed in \sref{sec:stellar_atmosphere}, however this should not
+% effect the final derived abundance, which is the problem here.
