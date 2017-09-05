@@ -73,7 +73,10 @@ points for (possible) future work.
   \item While \code{FASMA} is in a state where it work well and is stable, there are still ways to
         improve it. One way is to use machine learning to get a better guess of initial parameters.
         This work has already been initiated, and details on this can be seen in \cref{cha:fasmaML},
-        however the work is not yet connected to \code{FASMA}.\unfinished{Write about non-LTE here?}
+        however the work is not yet connected to \code{FASMA}. An additional plugin to \code{FASMA}
+        could be to correct line abundances for non-LTE effects using a pre-calculated grid of these
+        corrections. The main part of this has already been done in another project, but is not yet
+        implemented into \code{FASMA}.
   \item After obtaining stellar atmospheric parameters from a high quality spectrum it is natural to
         explorer the spectrum with another purpose: to obtain abundances for other elements. The
         individual abundances of other elements than iron might be used to explorer the history of
