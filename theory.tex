@@ -8,71 +8,6 @@
 To encompass all theory regarding stellar atmospheres is far beyond the scope of this thesis. Rather
 the theory needed is presented below with highlights on the most important aspects.
 
-% \section{Stellar structure}
-% \unfinished{Probably remove this section or rewrite it}
-% The structure of a non-rotating spherical stars can be described by five rather simple differential
-% equations \citep[see e.g.][]{kippenhahn} presented below:
-% \begin{enumerate}
-%     \item \textbf{Equation of Continuity}
-%         \nicebreak
-%         Relation between the mass, $m$, the density, $\rho$, at a symmetric shell at radius $r$
-%         \begin{align}
-%             \Aboxed{\pd{r}{m} &= \frac{1}{4\pi r^2\rho}.}
-%         \end{align}
-%
-%     \item \textbf{Equation of Hydrostatic Equilibrium}
-%         \nicebreak
-%         The equation of hydrostatic equilibrium shows how a star in equilibrium is balanced between
-%         two forces. The inward force from gravity and the outward force from pressure, $P$,
-%         \begin{align}
-%             \Aboxed{\pd{P}{m} &= -\frac{Gm}{4\pi r^4}.}
-%         \end{align}
-%         When working with asteroseismology a time dependent perturbation to this equation is added
-%         \citep[see e.g.][for a thorough discussion]{Aerts2010}. However, this term is neglected
-%         here.
-%
-%
-%     \item \textbf{Equation of Energy Conservation}
-%         \nicebreak
-%         The equation of energy conservation shows how the energy is produced and lost throughout the
-%         star.
-%         \begin{align}
-%             \Aboxed{\pd{l}{m} = \epsilon - \epsilon_\nu + \epsilon_g,}
-%         \end{align}
-%         where $\epsilon$ is the energy production in the centre of the star, $\epsilon_\nu$ is the
-%         energy lost by neutrinos which is always positive, $\epsilon_g$ is a source function of
-%         time-dependent terms, and $l$ is the luminosity at $m$. $\epsilon_g$ comes from the fact
-%         that non-stationary shells can change its internal energy, and thus exchange mechanical
-%         energy with neighbouring shells.
-%
-%     \item \textbf{Equation of Energy Transport}
-%         \nicebreak
-%         Energy transportation throughout the star is described with the following equation
-%         \begin{align}
-%             \Aboxed{\pd{T}{m} &= -\frac{GmT}{4\pi r^4P}\nabla_\tm{rad},}
-%         \end{align}
-%         where $\nabla_\tm{rad}$ is the radiative temperature gradient, and $T$ is the temperature.
-%         The value of the temperature gradient compared to the radiative temperature gradient tells
-%         if the energy is transported by convection or radiation. In our Sun the outer layer are
-%         convective while the inner layer are radiative.
-%
-%     \item \textbf{Equation of Chemical Composition}
-%         \nicebreak
-%         In this last equation we see the evolution of an element, $X_i$, when it reacts with other
-%         elements with reaction rates $r_{ji}$ and $r_{ik}$
-%         \begin{align}
-%             \Aboxed{\pd{X_i}{t} &= \frac{m_i}{\rho} \Bigl( \sum_j r_{ji} - \sum_k r_{ik}\Bigr).}
-%         \end{align}
-%         Note that this is the only time-dependent equation of the five presented.
-% \end{enumerate}
-%
-% These five fundamental equations are implemented in stellar evolutionary codes, which we will use in
-% later chapters. The many different codes that exist take other things into account, e.g the star can
-% rotate, and it may not always be in hydrostatic equilibrium (this is important if we want our star
-% to pulsate). For simplicity we have only presented time-dependence in the Equation of Chemical
-% Composition since timescales of rotation, pulsations, and activity are much shorter than the long
-% timescale found in chemical composition changes.
-
 
 \section{Stellar atmosphere}
 \label{sec:stellar_atmosphere}
@@ -199,10 +134,9 @@ $4\times2\times2=16$ atmosphere models to generate a single interpolated atmosph
 
 \subsection{Radiative transfer code - \code{MOOG}}
 
-As mentioned above, a radiative transfer code is needed to solve the equations above. There are many
-different codes that does this. Here the \code{MOOG} code us used \citep{Sneden1973}. This code has
-different drivers, only some are used here.
-\unfinished{Expand this and descripe how it works in more details. Maybe move it down under EW section}
+There exists manydifferent codes that solves the radiative transfer equations. In this thesis the
+\code{MOOG} code is used by \citet{Sneden1973}. This code has different drivers, only some are used
+here.
 \begin{itemize}
   \item Derive a theoretical equivalent width (see \sref{sec:EW} for details) for a given star, i.e.
         atmosphere model with a given set of atmospheric parameters.
