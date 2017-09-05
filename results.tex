@@ -145,15 +145,14 @@ $A(\mathrm{Fe})=7.47$, and $\xi_\mathrm{micro}=\SI{1.00}{km/s}$. The iron abunda
 $[\ion{M}/\ion{H}]=0.00$ by definition. This step is different from the step visual inspection done
 in \sref{sec:visual} since synthetic spectra were created here. This was done for all spectral
 windows for three different iron abundances $[\ion{Fe}/\ion{H}]=\{-0.20;\,0.00;\,0.20\}$ in order to
-identify iron lines and their impact on the synthetic spectra. \unfinished{Write about the
-\code{synth} driver and options used...} Before creating a synthetic spectrum all elements which are
-more than singly ionised were removed since \code{MOOG} does not allow these. An example of the
-three synthetic spectra can be seen in \fref{fig:synthetic_investigation}. Here the neutral iron
-line at \SI{15550.439}{\angstrom} was investigated. The three coloured curves are synthetic spectra
-with the three different $[\ion{Fe}/\ion{H}]$. The upper plot shows the result with the full VALD3
-line list, while in the lower plot the iron line was removed from the line list. The grey curve is
-the solar atlas for reference. Note that it is not the purpose to match a synthetic spectrum to the
-solar atlas.
+identify iron lines and their impact on the synthetic spectra. Before creating a synthetic spectrum
+all elements which are more than singly ionised were removed since \code{MOOG} does not allow these.
+An example of the three synthetic spectra can be seen in \fref{fig:synthetic_investigation}. Here
+the neutral iron line at \SI{15550.439}{\angstrom} was investigated. The three coloured curves are
+synthetic spectra with the three different $[\ion{Fe}/\ion{H}]$. The upper plot shows the result
+with the full VALD3 line list, while in the lower plot the iron line was removed from the line list.
+The grey curve is the solar atlas for reference. Note that it is not the purpose to match a
+synthetic spectrum to the solar atlas.
 
 \begin{figure}[htpb!]
     \centering
@@ -375,8 +374,7 @@ derived using the standard procedure (see \sref{sec:parameters}). Lines below \S
 were removed in order to remove the lines which are most affected by contamination from either
 telluric or other line blends. Additionally, a cut in EP at \SI{5.5}{eV} was made since the
 \ion{Fe}{I} and \ion{Fe}{II} lines usually used for stellar parameter determination in the optical
-regime are also limited to similar values \citep[see e.g][]{Sousa2008a}. Higher excitation potential
-lines are also more likely to be affected by non-LTE effects\reference{Any reference for this?}.
+regime are also limited to similar values \citep[see e.g][]{Sousa2008a}.
 
 When deriving the stellar atmospheric parameters, one outlier were removed at a time (after a
 completed minimization) until no outliers were present. Since we could only measure 5 \ion{Fe}{II}
@@ -780,20 +778,3 @@ The figure only includes runs which reached convergence with \code{FASMA}.
              \emph{Lower panel}: All parameters free.}
     \label{fig:feh_simulation}
 \end{figure}
-
-% \section{Parameter dependence on EP cut}
-% \label{sec:EPcut}
-% \unfinished{I'm not sure this section is even worth mentioning. It is by no means done}
-% It is common practise, as in this case, to make a cut in EP for a line list when deriving
-% parameters. This was suggested in \citet{Andreasen2016} \citep[later done in][]{Andreasen2017b} for
-% the NIR line list used here. This cut was made at \SI{5.5}{eV}, inspired by a similar cut in the
-% optical \citep{Sousa2008a}, including only lines below this limit. The lines with higher EP might
-% also be affected by non-LTE effects which is not treated in this methodology.
-%
-% As the parameters are dependent on this cut in EP\unfinished{Make a figure that shows this}, it
-% seemed interesting to divide a line list in two with upper and lower EPs and analyse those
-% separately. Before going into that analysis it is important to note, that the parameters should not
-% depend on any cut in EP if the theory is right, the radiative transfer code is working properly, and
-% the atmospheric models are correct. Lines with different EP are likely to be formed in different
-% layers of the atmosphere as discussed in \sref{sec:stellar_atmosphere}, however this should not
-% effect the final derived abundance, which is the problem here.
