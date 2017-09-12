@@ -160,7 +160,7 @@ are by far the most successful methods to detect and characterise exoplanets  wi
 instruments. The periodic signal created by the exoplanet on the host star depends on the mass ratio
 between the star $M_\ast$ and the planet $M_p$:
 \begin{align}
-  K = \frac{\SI{28.4329}{m/s}}{\sqrt{1-e^2}} \frac{M_p\sin i}{\Mjup} \left( \frac{M_\ast+M_p}{M_\odot} \right)^{-2/3} \left(\frac{P}{\SI{1}{year}}\right)  \label{eq:rv}
+  K = \frac{\SI{28.4329}{m/s}}{\sqrt{1-e^2}} \frac{M_p\sin i}{\Mjup} \left( \frac{M_\ast+M_p}{M_\odot} \right)^{-2/3} \left(\frac{P}{\SI{1}{year}}\right)^{-1/3}  \label{eq:rv}
 \end{align}
 where $K$ is the semi-amplitude of the sinusoidal, $e$ is the eccentricity, $i$ is the inclination
 of the orbital plane compared to the line of sight from Earth, $P$ is the orbital period, and
@@ -252,9 +252,9 @@ interact with the primary transiting exoplanet (known as planet-planet interacti
 interaction will periodically cause the mid-transit to happen ahead/behind of the time if only one
 exoplanet would be present \citep{Agol2005,Holman2005}.
 
-A careful analysis of the transit timing variations (TTV) can give the mass of the secondary
-non-transiting exoplanet. However, its radius will be unknown. Most of these exoplanets pairs which
-shows TTV are in an orbital resonance. This technique as well, is more sensitive to massive
+A careful analysis of the transit timing variations (TTV) can give the mass of the \st{secondary
+non-}transiting exoplanet. \st{However, its radius will be unknown.} Most of these exoplanets pairs
+which shows TTV are in an orbital resonance. This technique as well, is more sensitive to massive
 exoplanets as they will induce a higher signal. However, it is also sensitive to exoplanets with
 comparable semi-major-amplitudes.
 
@@ -270,12 +270,13 @@ increase of magnitude will reach its maximum as the two stars are most aligned a
 
 To use this method for detecting exoplanet, there will have to be an exoplanet orbiting intermediate
 star. The exoplanet act as a microlens, momentarily make a secondary increase in magnitude. The
-amount of increase in magnitude is related to the mass of the exoplanet. The higher the mass, the
-higher the effect.
+amount of increase in magnitude is related to the mass of the exoplanet \hl{and its configuration in
+the orbit around its host star}. The higher the mass, the higher the effect.
 
-While this exotic technique is interesting and has detected exoplanets, it is not very useful as it
-only occurs once. The stars observed with this technique are often faint, thus making follow-up RV
-detection very difficult if not impossible with the current instruments.
+While this exotic technique is interesting and has detected exoplanets, it is not \st{very} \hl{as}
+useful as \hl{the RV and transit detection methods in individual studies of planets} it only occurs
+once. The stars observed with this technique are often faint, thus making follow-up RV detection
+very difficult if not impossible with the current instruments.
 
 
 \subsection{Towards the Earth twin}
@@ -316,24 +317,27 @@ twin). For the RV method, this minute signature will be \SI{10}{cm/s}, while the
 precision is around \SI{1}{m/s}. For photometry a precision of \SI{100}{ppm} is required to detect
 an Earth sized planet around a solar-type star \citep{Borucki2017}. These signatures can be measured
 with the next generation of ultra stable high resolution spectrographs such as ESPRESSO
-\citep{ESPRESSO}. If detected with the transit method, more than one transit is needed, hence this
-will take at least two years, and probably even longer. Moreover, this is all assuming that the
-geometry of the system aligns in such as way that a transit can even be seen from Earth. The
-endeavour to get the follow-up RV afterwards will also be extremely challenging with today's
-technology, and only the next generation of instruments will be able to detect these signals. In
-conclusion, even with perfect instruments, it will take years to detect an Earth twin around a
-Sun-twin with the RV and transit methods.
+\citep{ESPRESSO} \hl{and future photometric space missions such as PLATO} \citep{PLATO}. If detected
+with the transit method, more than one transit is needed, hence this will take at least two years,
+and probably even longer. Moreover, this is all assuming that the geometry of the system aligns in
+such as way that a transit can even be seen from Earth. The endeavour to get the follow-up RV
+afterwards will also be extremely challenging with today's technology, and only the next generation
+of instruments will be able to detect these signals. In conclusion, even with perfect instruments,
+it will take years to detect an Earth twin around a Sun-twin with the RV and transit methods.
 
 Therefore, it is not a surprise that an effort has been towards detecting Earth-like planets around
-the lightest stars. These stars (M stars) are also colder, hence the habitable zone will be closer
+the lightest stars. These stars (M stars) are also cooler, hence the habitable zone will be closer
 to its host compared to the more massive and hotter stars \citep{Kasting1997}, and ultimately the
 period for habitable exoplanets will be shorter. The nature has been kind, since it seems that the M
 stars are prone to form rocky planets rather than giant gaseous planets
 \citep{Bonfils2013,Delfosse2013}. The shorter period means that the surveys can be shorter for these
 exoplanets. Moreover, since the host stars are smaller the signal from a transit will be easier to
 detect (see \eref{eq:transit}). Similarly will the RV signal be larger for an Earth-like planet in
-the habitable zone around an M star compared to a similar exoplanet around a G star. Both due to the
-lower period and due to the lower mass of the host star (see \eref{eq:rv}).
+the habitable zone around an M star compared to a similar exoplanet around a G star\footnote{\hl{
+For a solar twin, with an Earth twin at} \SI{1}{AU} \hl{the semi-amplitude will be close to}
+\SI{10}{cm/s} \hl{while it would be roughly} \SI{50}{cm/s} \hl{for an Earth twin around a
+0.3}$M_\odot$ \hl{M dwarf at} \SI{0.1}{AU}.}. Both due to the lower period and due to the lower mass
+of the host star (see \eref{eq:rv}).
 
 While M stars seems to be the place to look for the Earth's twin, there are still some challenges to
 tackle. Foremost is the detailed characterisation of the host star, which are particular troublesome
@@ -341,18 +345,24 @@ for these stars. This is something that will be focused on in \sref{sec:planet_h
 
 \subsubsection{Detecting biosignatures on an exoplanet}
 
-After successfully detecting a rocky exoplanet in the habitable zone the next step is to detect
-biosignatures. The best hope is to indirectly detect life by finding biosignatures
-\citep{Kasting2002} in the exoplanet's atmosphere. Transmission spectroscopy and lightcurves in
-different pass bands are the techniques to study the atmosphere of exoplanets. In this technique a
-spectrum of the host star and exoplanet is obtained during transit, which is later subtracted with a
-spectrum of the host star during occultation. Hereby it should be possible to obtain a spectrum of
-the atmosphere of the exoplanet, which was done by e.g. \citet{Charbonneau2002}.
+\st{After successfully detecting a rocky exoplanet in the habitable zone the next step is to detect
+biosignatures.} The best hope \st{is} to indirectly detect life \hl{is} by finding biosignatures
+\citep[see e.g.]{Snellen2013,Kasting2002} in the exoplanet's atmosphere. Transmission spectroscopy
+and lightcurves in different pass bands are the techniques to study the atmosphere of exoplanets.
+\st{In this technique a spectrum of the host star and exoplanet is obtained during transit, which is
+later subtracted with a spectrum of the host star during occultation. Hereby it should be possible to
+obtain a spectrum of the atmosphere of the exoplanet, which was done by e.g.}
+\citet{Charbonneau2002}. \hl{For transmission spectroscopy a spectrum is obtained of the star during
+transit. This spectrum will thereby contain signals of the atmosphere of the transiting exoplanet.
+Later, a spectrum of the star can be obtained, e.g. during the secondary transit. The difference in
+these two spectra will reveal the exoplanetary spectrum. This was e.g. done by}
+\citet{Charbonneau2002}.
 
 An interesting test to look for biosignatures from the Earthshine on the Moon was performed by
 \citet{Arnold2002} where they clearly see the blue colour of the Earth's atmosphere due to Rayleigh
-scattering. They also observed signatures for oxygen, ozone, and water vapours; all important
-biosignatures in a planetary atmosphere supporting life.
+scattering. \hl{This was done by obtaining a Moon spectrum and an Earthshine spectrum using the}
+\SI{80}{cm} \hl{telescope at OHP}. They also observed signatures for oxygen, ozone, and water
+vapours; all important biosignatures in a planetary atmosphere supporting life.
 
 These signatures, especially oxygen, are from microorganisms through photosynthesis
 \citep[see e.g.][]{Kasting2002}. However, there might be conditions outside the habitable zone which
@@ -368,14 +378,15 @@ opportunity in the search of extraterrestrial life \citep{Cavicchioli2002}.
 With the present diversity of exoplanets it becomes increasingly important to get an accurate and
 precise characterisation of the exoplanets in order to study them in samples and on an individual
 level. An accurate and precise characterisation can give us an idea whether the planet is rocky,
-composed of water, gaseous, or some other more exotic combination, by comparing fitting fixed
-density profiles (based on different compositions) to the planetary mass and radius. As mentioned
-above, it is crucial to characterise the host stars in order to characterise the exoplanets. The
-host stars discovered so far are mainly FGK dwarf stars, although some are more evolved. This can be
-seen in \fref{fig:hostDistribution} where the effective temperature of all host stars are shown
-against the luminosity. The colour represents the temperature, while the size of the symbols is a
-measure of the radius, or with other words, the evolutionary state. The smallest points are the
-dwarf stars. The luminosity was derived combining the following equations
+composed of water, gaseous, or some other more exotic combination, by comparing \st{fitting} fixed
+density profiles (based on different compositions) to the planetary mass and radius
+\citep[see][e.g.]{Dorn2015}. As mentioned above, it is crucial to characterise the host stars in
+order to characterise the exoplanets. The host stars discovered so far are mainly FGK dwarf stars,
+although some are more evolved. This can be seen in \fref{fig:hostDistribution} where the effective
+temperature of all host stars are shown against the luminosity. The colour represents the
+temperature, while the size of the symbols is a measure of the radius, or with other words, the
+evolutionary state. The smallest points are the dwarf stars. The luminosity was derived combining
+the following equations:
 \begin{align*}
   g &= \frac{GM}{R^2} \\
   L &= 4\pi R^2 \sigma T_\mathrm{eff}^4,
@@ -385,7 +396,8 @@ into
   \frac{L}{L_\odot} = \frac{M}{M_\odot} \left(\frac{T_\mathrm{eff}}{\SI{5777}{K}}\right)^4 10^{4.44-\log g},
 \end{align}
 where $\sigma$ is Boltzmann's constant, $G$ is Newton's gravitational constant, and $\log g$ is the
-surface gravity.
+surface gravity. \hl{The data for} \fref{fig:hostDistribution} \hl{is obtained from
+SWEET-Cat}\footnote{ \url{https://www.astro.up.pt/resources/sweet-cat/}}.
 
 \begin{figure}[htpb!]
     \centering
@@ -425,16 +437,17 @@ make high resolution and high S/N spectroscopic observations, it is extremely ti
 Therefore brighter targets are often prioritised, unless there is an exceptional case.
 
 With the search for an Earth twin around the small cool M dwarf stars, it is important to develop
-reliable methods for the analysis of these stars. The tools for detecting the exoplanets are
-currently more mature than the host star analysis. The median errors on the atmospheric parameters
-can be seen in \tref{tab:standardErrors}. The parameters are from SWEET-Cat\footnote{
-\url{https://www.astro.up.pt/resources/sweet-cat/}}, and for the FGK stars only parameters analysed
-by the Porto group are presented. It is important to note that there are 138 M stars while there are
-538 FGK stars (after only using stars analysed here). More details on SWEET-Cat will follow in
-\cref{cha:SWEET-Cat}.
+reliable methods for the analysis of these stars. \st{The tools for detecting the exoplanets are
+currently more mature than the host star analysis.} \hl{ The methods to analysis typical planet
+hosts (FGKM stars) currently works best for the FGK dwarf stars compared to M dwarf stars. To
+illustrate this} the median errors on the atmospheric parameters can be seen in
+\tref{tab:standardErrors}. The parameters are from SWEET-Cat, and for the FGK stars only parameters
+analysed by the Porto group are presented. It is important to note that there are 138 M stars while
+there are 538 FGK stars (after only using stars analysed here). More details on SWEET-Cat will
+follow in \cref{cha:SWEET-Cat}.
 \begin{table*}[htb!]
-    \caption{The median errors on the stellar atmospheric parameters for FGK planet hosts and M
-             planet hosts as taken from SWEET-Cat.}
+    \caption{The median \hl{precision} errors on the stellar atmospheric parameters for FGK planet
+             hosts and M planet hosts as taken from SWEET-Cat.}
     \label{tab:standardErrors}
     \centering
     \begin{tabular}{lllllll}
@@ -447,14 +460,16 @@ by the Porto group are presented. It is important to note that there are 138 M s
       \hline
     \end{tabular}
 \end{table*}
-However, with the advance of NIR spectrographs this is slowly changing. It is general believed that
-a NIR analysis is needed to characterise M stars. The reason is simple that these stars are so
-intrinsic faint, that it is important to collect as much flux as possible. This happens in the NIR.
-Since M stars are intrinsically faint in the visible, it is advantageous to use NIR spectrographs
-where M stars emit most of their light. Moreover, for spectroscopic studies, the optical spectrum of
-these stars are severely contaminated by molecular absorption lines, which depress the continuum. It
-is crucial to get the continuum placement correct during spectroscopic studies. In the NIR the
-continuum depression is less severe, however still challenging. This can clearly be seen in
+
+\hl{The detailed characteristics of M dwarfs are currently a problem,} however, with the advance of
+NIR spectrographs this is slowly changing. It is general believed that a NIR analysis is needed to
+characterise M stars. The reason is simple that these stars are so intrinsic faint, that it is
+important to collect as much flux as possible. This happens in the NIR. Since M stars are
+intrinsically faint in the visible, it is advantageous to use NIR spectrographs where M stars emit
+most of their light. Moreover, for spectroscopic studies, the optical spectrum of these stars are
+severely contaminated by molecular absorption lines, which depress the continuum. It is crucial to
+get the continuum placement correct during spectroscopic studies. In the NIR the continuum
+depression is less severe, however still challenging. This can clearly be seen in
 \fref{fig:opticalVSnir} where the optical and NIR part of the spectrum for HD 79210, a K7 dwarf
 star\footnote{Note that there are very little difference between a K7V and M0V. For the latter case,
 the situation raised in \fref{fig:opticalVSnir} will be more clear.}, is plotted. The spectra were
@@ -492,7 +507,7 @@ Since the first discoveries of exoplanets, it became evident that giant planets 
 orbiting more metal-rich stars compared to stars with no planets. This correlation have been
 confirmed by several studies \citep{Gonzalez1997,Santos2004,Fischer2005,Sousa2008a,Mortier2013b} and
 can be seen in \fref{fig:fehCorrelation} using the data from \citet{Sousa2008a}. This correlation in
-turn establish that core accretion is the main formation mechanism among giant exoplanets
+turn establish that core accretion is \hl{likely} the main formation mechanism among giant exoplanets
 \citep{Pollack1996,Ida2004,Mordasini2012} and not disc instability \citep{Boss2002}.
 
 \begin{figure}[htpb!]
@@ -504,13 +519,12 @@ turn establish that core accretion is the main formation mechanism among giant e
     \label{fig:fehCorrelation}
 \end{figure}
 
-It is important to note that recent studies find this correlation for Neptune-like and
-super-Earth planets as well \citep{Wang2015,Zhu2016}.
+It is important to note that recent studies find this correlation for Neptune-like and super-Earth
+planets as well \citep{Adibekyan2012a,Wang2015,Zhu2016} \hl{even if a debate exists}
+\citep{Buchhave2012,Sousa2011}.
 
-However, some new observational evidence show two giant exoplanet populations \citep{Santos2017},
-one which favour disc instability \citep[see e.g.][]{Nayakshin2017}.
-
-\paragraph{Abundances of heavy elements}
+\st{However, some new observational evidence show two giant exoplanet populations} \citep{Santos2017},
+\st{one which favour disc instability} \citep[see e.g.][]{Nayakshin2017}.
 
 It has been shown that metal-poor stars harbouring gas planets are enhanced in alpha
 elements\footnote{These are elements formed by fusion of a helium core; C, N, O, Ne, Mg, Si, S, Ar,
@@ -520,14 +534,14 @@ a role to play in planet formation in iron-poor environments.
 
 \paragraph{Lithium and the presence of planets}
 
-It has been shown by \citet{Israelian2004,Delgado2014,Gonzalez2015,Takeda2005} that stars hosting
-planets are significantly more \ion{Li}{} depleted compared to stars without planets. This
-correlation seems to be physically related with the occurrence of planets and not e.g. age, mass, or
-metallicity of the stars \citep{Sousa2010}. Other studies does not find any correlation between
-\ion{Li}{} depletion and stars with planets \citep{Baumann2010,Ramirez2012}.
-\newline\newline
-A homogeneous and precise study of M dwarfs are important to check these and other correlations, and
-maybe even reveal new correlations between stars and planets.
+It has been shown by \citet{Israelian2004,Delgado2014,Figueira2014a,Gonzalez2015,Takeda2005} that
+stars hosting planets are significantly more \ion{Li}{} depleted compared to stars without planets.
+This correlation seems to be physically related with the occurrence of planets and not e.g. age,
+mass, or metallicity of the stars \citep{Sousa2010}. Other studies does not find any correlation
+between \ion{Li}{} depletion and stars with planets \citep{Baumann2010,Ramirez2012}.
+
+\st{A homogeneous and precise study of M dwarfs are important to check these and other correlations,
+and maybe even reveal new correlations between stars and planets.}
 
 \section{Applications from knowing the stars}
 \label{sec:stars_application}
@@ -545,10 +559,10 @@ abundances of stars as was shown in \citet{Adibekyan2012}.
 In order to do a detailed chemical analysis\footnote{See also references within
 \citet{Adibekyan2012} for other similar studies.}, it is crucial to have reliable and homogeneously
 derived stellar atmospheric parameters. If the parameters are homogeneously derived, i.e. with the
-same method, one does not need to worry about removing possible offsets when joining results from
-different methods, and in case of known offsets it is easy to correct for them (this is the case for
-the method used throughout this thesis, where the surface gravity will be corrected based on another
-method).
+same method, \st{one does not need to worry about removing possible offsets when joining results
+from different methods}, \hl{ then errors when comparing populations are minimised } and in case of
+known offsets it is easy to correct for them (this is the case for the method used throughout this
+thesis, where the surface gravity will be corrected based on another method).
 
 
 \section{This thesis}
@@ -556,12 +570,13 @@ method).
 
 This thesis will be focused on deriving stellar atmospheric parameters for FGK stars, making the
 bridge towards M stars. This task will be accomplished utilising high resolution and high S/N NIR
-spectra. The theory of stellar atmospheres in a nutshell is described in \cref{cha:theory}, setting
-up all the tools to derived them as described in \cref{cha:method}. In \cref{cha:method} the
-description of other useful and commonly used methods for deriving parameters are also presented.
-Thereafter the knowledge will all be used in \cref{cha:results}. First by obtaining a NIR line list
-containing \ion{Fe}{I} and \ion{Fe}{II} lines, then by the derivation of parameters for HD 20010 (F
-sub-giant). Before deriving parameters for two K giants, the NIR line list will be revisited.
+spectra; \hl{a methodology using a wavelength domain still in its infant stage}. The theory of
+stellar atmospheres in a nutshell is described in \cref{cha:theory}, setting up all the tools to
+derived them as described in \cref{cha:method}. In \cref{cha:method} the description of other useful
+and commonly used methods for deriving parameters are also presented. Thereafter the knowledge will
+all be used in \cref{cha:results}. First by obtaining a NIR line list containing \ion{Fe}{I} and
+\ion{Fe}{II} lines, then by the derivation of parameters for HD 20010 (F sub-giant). Before deriving
+parameters for two K giants, the NIR line list will be revisited.
 
 After focusing on the NIR spectra, the optical counterpart of the method described below will be
 used to derive parameters for 50 planet-host stars for an online catalogue of homogeneously derived
