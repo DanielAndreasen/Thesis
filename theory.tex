@@ -1,5 +1,5 @@
 %!TEX root = thesis.tex
-\chapter{Theory}
+\chapter{Theory of stellar spectroscopy in a nutshell}
 \label{cha:theory}
 
 \epigraph{``Begin at the beginning,'' the King said, very gravely, ``and go on till you come to the
@@ -16,49 +16,60 @@ Much of this Section is inspired by \citet{Gray2006}. While all the figures here
 author of this thesis, most of them can be found in \citet{Gray2006} as well.
 
 Stellar atmospheres are rather complex. This is where the energy produced in the interior of the
-stars are released. However, the atmosphere of a star is not transparent to all light, and some of
-the light is absorbed or scattered in the atmosphere. In the case of absorption the light will later
-be emitted in a random direction. This is seen as an absorption line in the stellar spectrum. The
-different elements in the atmosphere is the reason for absorbing light at specific wavelength. The
-strength of the absorption depends on the physical conditions in the atmosphere, the effective
-temperature ($T_\mathrm{eff}$), the pressure/gravity ($\log g$), the overall metallicity
-($[\ion{Fe}/\ion{H}]$), the specific abundance of a given element if different from the overall
-metallicity ($A$), and the atomic characteristics of the transition coursing the absorption line.
+stars \st{are} \hl{is} released. However, the atmosphere of a star is not transparent to all light,
+and some of the light is absorbed or scattered in the atmosphere. In the case of absorption the
+light will later be emitted in a random direction. This is seen as an absorption line in the stellar
+spectrum. The different elements in the atmosphere is the reason for absorbing light at specific
+wavelength. The strength of the absorption depends on the physical conditions in the atmosphere, the
+effective temperature ($T_\mathrm{eff}$), the pressure/gravity ($\log g$), the \hl{chemical
+abundances} \st{overall metallicity ($[\ion{Fe}/\ion{H}]$), the specific abundance of a given
+element if different from the overall metallicity ($A$)}, and the atomic characteristics of the
+transition coursing the absorption line.
 
-It is important to know the fraction of atoms excited to the $n$th energy level, $N_n$. This
+\st{It is important to know} \hl{The strength of a line depends on} the fraction of atoms excited to
+the $n$th energy level, $N_n$, \hl{on which the electron that produces the absorption is}. This
 fraction is proportional to the statistical weight $g_n$ and the Boltzmann factor and is described
 as:
 \begin{align}
-    \Aboxed{ \frac{N_n}{N} = \frac{g_n}{u(T)} 10^{-\theta\chi_n}} \tag*{Boltzmann}
+    \frac{N_n}{N} = \frac{g_n}{u(T)} 10^{-\theta\chi_n} \tag*{Boltzmann}\label{eq:boltzmann}
 \end{align}
 This equation is also called the Boltzmann equation. Here $N$ is the total number of atoms per unit
 volume, $u(T)=\Sigma g_i e^{-\chi_i/kT}$ is the partition function, $k$ is Boltzmann's constant, $T$
 is the temperature, and $\chi_n$ is the excitation potential for the lower energy level.
 
 While atoms can get excited following Boltzmann's equation above, they can also get ionized. The
-ionization ratio for a collision dominated gas (which is a good approximation for FGKM stars) is
+ionization ratio for a collision dominated gas (which is a good approximation for FGKM stars,
+\hl{when assuming Local Thermodynamic Equilibrium, LTE}\footnote{\hl{LTE is obtained in stellar
+atmospheres, when the length scale at which temperatures are changing are larger than the mean free
+path. This is a good approximation for dwarf stars, where the mean free path is small, compared to
+the larger mean free path in evolved stars, where LTE is no longer a good assumption.}}) is
 described by the Saha equation. This equation relate the ratio of atoms in state $r$ to atoms in the
 excited state above for the same element, $r+1$, in the following way:
 \begin{align}
-  \Aboxed{ \frac{N_{r+1}}{N_r} = \frac{1}{P_e} \frac{(2\pi m_e)^{3/2}(kT)^{5/2}}{h^3} \frac{2u_{r+1}(T)}{u_r(T)} e^{-I/kT} = \frac{\Phi(T)}{P_e}} \tag*{Saha}
+  \frac{N_{r+1}}{N_r} = \frac{1}{P_e} \frac{(2\pi m_e)^{3/2}(kT)^{5/2}}{h^3} \frac{2u_{r+1}(T)}{u_r(T)} e^{-I/kT} = \frac{\Phi(T)}{P_e} \tag*{Saha}\label{eq:saha}
 \end{align}
 here $m_e$ is the electron mass, $h$ is Planck's constant, $I$ is the ionization potential of the
 neutral atom, and $\Phi(T)$ is all not related to the electron pressure, $P_e$.
 
 The atomic lines are characterised by a few quantum mechanical descriptors.
 \begin{itemize}
-  \item {\bf The wavelength, $\lambda$} of an absorption (or emission) describes the energy
+  \item \textbf{The wavelength}, $\lambda$, of an absorption (or emission) describes the energy
         difference between the two energy levels where the transition occurs.
-  \item {\bf The ionization state}, e.g. \ion{Fe}{I} describes iron in its atomic form, while
+  \item \textbf{The ionization state}, e.g. \ion{Fe}{I} describes iron in its atomic form, while
         \ion{Fe}{II} describes iron in its first ionized form.
-  \item {\bf The excitation potential $\chi$}. This gives an idea how deep in the atmosphere a line
+  \item \textbf{The excitation potential}, $\chi$, \hl{is the excitation energy level of the lower
+        state in the transition.} \st{This gives an idea how deep in the atmosphere a line
         is formed. If $\chi$ is high, then higher temperatures (i.e. higher random motion and more
         collisions between the atoms) is required for forming the absorption line. These higher
-        temperatures are found deeper in the atmosphere.
-  \item {\bf The oscillator strength}, $\log \mathit{gf}$, is related to the atomic transition
+        temperatures are found deeper in the atmosphere.} \hl{A atomic line with a high $\chi$ is
+        formed in the deeper layers of the atmosphere, since the higher temperatures there can
+        excite the element. This is compared to the atomic lines with lower $\chi$ which are formed
+        higher in the atmosphere at lower temperatures.}
+
+  \item \textbf{The oscillator strength}, $\log \mathit{gf}$, is related to the atomic transition
         probability.
-  \item {\bf The damping coefficients}, is a natural damping (also known as radiation damping)
-        caused by the uncertainty of lifetime in an energy level according to Heisenberg's
+  \item \textbf{The damping coefficients}, $\Gamma$, is a natural damping (also known as radiation
+        damping) caused by the uncertainty of lifetime in an energy level according to Heisenberg's
         uncertainty principle. This is related to a uncertainty in the energy level and thus a
         natural broadening is introduced.
 \end{itemize}
@@ -83,11 +94,13 @@ where $h$ is Planck's constant, $c$ is the speed of light, and $R_\infty$ is Ryd
 
 With increasing $n$ the energy levels get closer, or in other words the photon required to excite an
 electron from one energy level to a neighbouring state will get redder. These redder photons used
-for exciting an atom are the absorption lines seen in the NIR. However, the excitation to the lower
-state is from thermal motion and not coursed by photons. Since tight energy levels require a highly
-excited lower state, the temperature required here are similar high, which means that the NIR lines
-are typically formed in the deeper layers of the atmosphere compared to absorption lines seen in the
-optical part of the spectrum.
+for exciting an atom are the absorption lines seen in the NIR. \st{However, the excitation to the
+lower state is from thermal motion and not coursed by photons.} \hl{However, the excitation to the
+lower state is related to the temperature and pressure according the} \ref{eq:boltzmann} \hl{and}
+\ref{eq:saha} equations. Since tight energy levels require a highly excited lower state, the
+temperature required here are similar high, which means that the NIR lines are typically formed in
+the deeper layers of the atmosphere compared to absorption lines seen in the optical part of the
+spectrum.
 
 \begin{figure}[htpb!]
     \centering
@@ -115,28 +128,29 @@ strength of a magnetic field in a star if this is strong enough.
 \subsection{Atmosphere models}
 \label{sec:atmospheremodels}
 
-In order to derive abundances or calculate a synthetic spectrum, two main things are needed: 1) And
+In order to derive abundances or calculate a synthetic spectrum, two main things are needed: 1) An
 atmosphere model, and 2) a radiative transfer code that solves the equations above. There are
 different atmosphere models available. Throughout this thesis the ATLAS9 model atmosphere are used
 \citep{Kurucz1993}. Other mention-able atmosphere models includes MARCS models \citep{Gustafson2008}
 and the PHOENIX models \citep{Husser2013}. An atmosphere model is a description of the structure of
 the atmosphere. This description has a number of quantities. The atmosphere model grids that are
 available and used here have 72 layers. Each layer includes physical quantities such as temperature,
-gas and electron pressure, the optical depth, etc. The models can be calculated on the fly, but it
-is common practise because of computational reasons to pre-calculate a grid of atmosphere models at
-certain $T_\mathrm{eff}$, $\log g$, and $[\ion{Fe}/\ion{H}]$. A specific atmosphere model is then
-obtained from this grid by interpolating from nearest neighbours. The interpolation code used
-throughout this work includes the four nearest neighbours in the $T_\mathrm{eff}$-space, and the two
-nearest neighbours in both the $\log g$- and $[\ion{Fe}/\ion{H}]$-space, in total
-$4\times2\times2=16$ atmosphere models to generate a single interpolated atmosphere model.
+gas and electron pressure, \hl{and} the optical depth\st{, etc}. The models can be calculated on the
+fly, but it is common practise because of computational reasons to pre-calculate a grid of
+atmosphere models at certain $T_\mathrm{eff}$, $\log g$, and $[\ion{Fe}/\ion{H}]$. A specific
+atmosphere model is then obtained from this grid by interpolating from nearest neighbours. The
+interpolation code used throughout this work includes the four nearest neighbours in the
+$T_\mathrm{eff}$-space, and the two nearest neighbours in both the $\log g$- and
+$[\ion{Fe}/\ion{H}]$-space, in total $4\times2\times2=16$ atmosphere models to generate a single
+interpolated atmosphere model.
 
 
 
 \subsection{Radiative transfer code - \code{MOOG}}
 
-There exists manydifferent codes that solves the radiative transfer equations. In this thesis the
-\code{MOOG} code is used by \citet{Sneden1973}. This code has different drivers, only some are used
-here.
+There exists many different codes that solves the radiative transfer equations. In this thesis the
+\code{MOOG} code is used by \citet{Sneden1973} \hl{which assumes LTE}. This code has different
+drivers, only some are used here.
 \begin{itemize}
   \item Derive a theoretical equivalent width (see \sref{sec:EW} for details) for a given star, i.e.
         atmosphere model with a given set of atmospheric parameters.
@@ -179,16 +193,17 @@ wavelength, and \si{m\angstrom} for the EW.
 
 \subsubsection{Temperature dependence}
 
-As mentioned above the EW depends on the atmospheric parameters. The dependence on $T_\mathrm{eff}$
-is the strongest dependence. At low $T_\mathrm{eff}$ neutral elements, say \ion{Fe}{I}, are the
-strongest lines as the number of ionized atoms are too small to contribute significantly to the EW.
-This is the result the Saha equation. As $T_\mathrm{eff}$ increases \ion{Fe}{I} is converted into
-ionized \ion{Fe}{II}. Slowly, as the number of \ion{Fe}{I} decreases so does the EW, and likewise as
-the number of \ion{Fe}{II} increases so does the EW. This goes on until second ionized atoms,
-\ion{Fe}{III}, are formed and the same situation arise again. This is illustrated in
-\fref{fig:ewTeff} where the EW of two iron lines, one neutral and one ionized, are plotted against
-$T_\mathrm{eff}$. These two lines have similar EW in the Sun: $\SI{46.2}{m\angstrom}$ and
-$\SI{53.9}{m\angstrom}$ for the \ion{Fe}{I} and \ion{Fe}{II} line respectively.
+As mentioned above the EW depends on the atmospheric parameters. \st{The dependence on
+$T_\mathrm{eff}$ is the strongest dependence.} At low $T_\mathrm{eff}$ neutral elements, say
+\ion{Fe}{I}, are the strongest lines as the number of ionized atoms are too small to contribute
+significantly to the EW. This is the result the Saha equation. As $T_\mathrm{eff}$ increases
+\ion{Fe}{I} is converted into ionized \ion{Fe}{II}. Slowly, as the number of \ion{Fe}{I} decreases
+so does the EW, and likewise as the number of \ion{Fe}{II} increases so does the EW. This goes on
+until second ionized atoms, \ion{Fe}{III}, are formed and the same situation arise again. This is
+illustrated in \fref{fig:ewTeff} where the EW of two iron lines, one neutral and one ionized, are
+plotted against $T_\mathrm{eff}$. These two lines have similar EW in the Sun:
+$\SI{46.2}{m\angstrom}$ and $\SI{53.9}{m\angstrom}$ for the \ion{Fe}{I} and \ion{Fe}{II} line
+respectively.
 
 \begin{figure}[htpb!]
     \centering
@@ -210,9 +225,9 @@ from spectroscopy.
 \begin{itemize}
   \item Continuum: The Balmer jump is the only continuum feature sensitive enough to estimate the
         $\log g$.
-  \item Hydrogen lines: Hydrogen profiles are pressure sensitive and can therefore be used to
-        estimate $\log g$. However, the gravity dependence rapidly diminishes for temperatures above
-        $\SI{10\,000}{K}$.
+  \item Hydrogen lines: Hydrogen profiles are pressure \hl{and temperature} sensitive and can
+        therefore be used to estimate $\log g$. However, the gravity dependence rapidly diminishes
+        for temperatures above $\SI{10\,000}{K}$.
   \item Other strong lines: There exists other strong lines with pressure-broadened wings such as
         the \ion{Ca}{II} H and K lines. These are better for cooler stars than the hydrogen lines
         described above.
@@ -256,7 +271,7 @@ absorption coefficient, $\kappa_\nu$
   R = \frac{F_c-F_\lambda}{F_c} = \mathrm{constant}\,\, \frac{l_\nu}{\kappa_\nu}.
 \end{align}
 When negative hydrogen dominates $\kappa_\nu$ which is the case here it is proportional to the
-electron pressure, $\kappa_\nu\propto P_e$ which means the line strength is not proportional to to
+electron pressure, $\kappa_\nu\propto P_e$ which means the line strength is not proportional to
 electron pressure:
 \begin{align}
   R = \frac{l_\nu}{\kappa_\nu} \approx \mathrm{constant}.
