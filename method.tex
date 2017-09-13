@@ -83,19 +83,20 @@ obtain $T_\mathrm{eff}$ if the metallicity and a colour is known of the star.
 
 \subsection{Asteroseismology}
 
-Asteroseismology is the study of stellar pulsations. These pulsations propagate as sounds waves
-throughout a star, their origin and amplitude is determined by the characteristics of the star,
-hence the study of the pulsations, which are seen on the surface, will thus be a study of the
-stellar properties. In order to to study these a time series is needed. This can both be radial
-velocities as it was used in the recent results from the SONG telescope \citep{Grundahl2017}, or
-photometry like the numerous results from e.g. the space telescopes \emph{CoRoT} and \emph{Kepler}
-\citep[see e.g.][]{Christensen-Dalsgaard2010,Huber2014,Chaplin2011}. The analysis is identical for
-either time series, however the amplitudes in the power spectrum will look different.
+Asteroseismology is the study of stellar pulsations. \hl{For main sequence stars (which will be the
+only focus here),} these pulsations propagate as sounds waves throughout a star, their origin and
+amplitude is determined by the characteristics of the star. Hence the study of the pulsations, which
+are seen on the surface, will thus be a study of the stellar properties. In order to to study these
+a time series is needed. This can both be radial velocities as it was used in the recent results
+from the SONG telescope \citep{Grundahl2017}, or photometry like the numerous results from e.g. the
+space telescopes \emph{CoRoT} and \emph{Kepler} \citep[see
+e.g.][]{Christensen-Dalsgaard2010,Huber2014,Chaplin2011}. The analysis is identical for either time
+series, however the amplitudes in the power spectrum will be different.
 
 After determining the frequencies of a range of pulsations from a power spectrum of the time series,
 a pattern emerge at every $\Delta\nu$ (the so-called large frequency separation). A finer pattern
 also occur described by $\delta\nu$. Last the frequency at maximum power is also measured from the
-power spectrum, $\nu_\mathrm{max}$. These frequency separations are used to obtain $\log g$ via
+power spectrum, $\nu_\mathrm{max}$. The frequency at maximum power is used to obtain $\log g$ via
 \begin{align}
   \nu_\mathrm{max} &\propto \frac{g}{\sqrt{T_\mathrm{eff}}} \\
                    &= \frac{M/M_\odot}{(R/R_\odot)^2 \sqrt{T_\mathrm{eff}/5777}}\; \SI{3.05}{mHz},\label{eq:scaling1}
@@ -105,12 +106,12 @@ similar equation exists for the determination of the stellar density:
 \begin{align}
   \Delta\nu = (M/M_\odot)^{-1/2} (R/R_\odot)^{-3/2}\; \SI{134.9}{\micro\hertz}.
 \end{align}
-These simple scaling relation are described in detail in \citet{Kjeldsen1995}. These two equations
-can be used together to determine the mass and radius of the star, often to a high precision. These
-scaling relations are applicable for stars which shows solar-like oscillations, mostly found in main
-sequence FGK stars, but can also be found in red giant stars. The mass and radius for a range of
-$\nu_\mathrm{max}$ and $\Delta\nu$ can be seen in \fref{fig:scaling}, where
-$T_\mathrm{eff}=\SI{5777}{K}$. The star located at $\{\Delta\nu=\SI{134.9}{\micro
+These simple scaling relation are described in detail in \citet{Kjeldsen1995} \hl{for main sequence
+stars}. These two equations can be used together to determine the mass and radius of the star, often
+to a high precision. These scaling relations are applicable for stars which shows solar-like
+oscillations, mostly found in main sequence FGK stars, but can also be found in red giant stars. The
+mass and radius for a range of $\nu_\mathrm{max}$ and $\Delta\nu$ can be seen in \fref{fig:scaling},
+where $T_\mathrm{eff}=\SI{5777}{K}$. The star located at $\{\Delta\nu=\SI{134.9}{\micro
 Hz};\;\nu_\mathrm{max}=\SI{3.05}{mHz}\}$ is the Sun.
 
 The small frequency separation, $\delta\nu$, is sensitive to the sound-speed gradient in the core
@@ -129,7 +130,7 @@ giant stars.
 
 A drawback of asteroseismology is the dependence of $T_\mathrm{eff}$ in \eref{eq:scaling1} which has
 to be provided from another method. Ideally this will come from spectroscopy for which the
-determination of $T_\mathrm{eff}$ is often reliable. This drawback is minor compared to the lack of
+determination of $T_\mathrm{eff}$ is often reliable. This drawback is minor compared to the weak
 model dependence which is one of the strongest advantages of asteroseismology.
 
 For both of the mentioned photometric methods to determine some atmospheric parameters a
