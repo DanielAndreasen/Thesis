@@ -76,7 +76,7 @@ The atomic lines are characterised by a few quantum mechanical descriptors.
 These are essential to know from either theoretical calculations or experiments. The oscillator
 strength is a quantity that is difficult to measure, and this is often changed when absorption lines
 are matched with real observations of e.g. the Sun. This is a way of calibrating a line list and
-will be described in detail in \sref{sec:linelist}.
+will be described in detail in \sref{sec:linelist_first}.
 
 It is important to mention that one of the main differences between absorption lines at different
 wavelengths is the excitation potential. The energy levels of an atom gets denser packed as the
@@ -259,13 +259,15 @@ from spectroscopy.
 In this thesis weak lines are used to measure $\log g$. More specifically a comparison between
 \ion{Fe}{I} and \ion{Fe}{II} lines are used. For FGK stars, as the atmosphere contracts (i.e. $\log
 g$ increases) the pressure likewise increases, which in turn means that both the gas pressure,
-$P_g$, and electron pressure, $P_e$, increases. Since hydrogen is the main electron contributor, but
-not fully ionized for these stars, the electron pressure is much smaller that the gas pressure. The
-gas pressure follow a simply empirical approximation with gravity:
+$P_g$, and electron pressure, $P_e$, increases. \st{Since ionized hydrogen is the main electron
+contributor for the continuum, but not fully ionized for these stars, the electron pressure is much
+smaller than the gas pressure.} \hl{However, the electron pressure is much smaller than the gas
+pressure because hydrogen, as the main electron contributor, is not fully ionized.} The gas pressure
+follow a simply empirical approximation with gravity:
 \begin{align}
   P_g \approx \mathrm{constant}\, g^{2/3},
 \end{align}
-where $g$ is the gravity. The electron pressure is given by
+where $g$ is the gravity. The electron pressure is in turn given by
 \begin{align}
   P_e \approx \mathrm{constant}\, g^{1/3}.
 \end{align}
@@ -277,7 +279,7 @@ There are three cases for which a line show dependence on gravity, when consider
   \item A weak line formed by any ion, where most of the element is in the next lower ionized state.
 \end{enumerate}
 
-Using the Saha equation for case 1, it is important to note that the number of the atoms in the
+Using the \ref{eq:saha} Equation for case 1, it is important to note that the number of the atoms in the
 highest state is roughly equal to the total number of atoms of that element, $N_{r+1}\approx N$.
 Hence
 \begin{align}
@@ -335,14 +337,15 @@ important to note that the correlation does change with $T_\mathrm{eff}$ and the
 
 The abundance of a given element obviously has an effect on the EW. The more abundant an element is,
 the more photons can be absorbed thus increasing the EW. However, the relationship is not strictly
-linear. For weak lines (GIVE RANGE) EW is approximately linear with the abundance, however it reach
-a plateau where the core of the line saturates. In this regime the EW only increases slowly, until
-the absorption ``spills'' into the wings and the increase is again linear. However, for these strong
-lines the profile is no longer Gaussian. The curve of growth for the same \ion{Fe}{I} line used in
-\fref{fig:ewTeff} is shown in \fref{fig:cog}. Instead of EW it is common to use the reduced EW,
-$\log (EW/\lambda)$\footnote{The reduced EW is useful since it normalises Doppler-dependent
-phenomena, such as microturbulence and thermal broadening.}, which we will use more later.
-\st{Instead of the abundance of a line, the oscillator strength, $\log \mathit{gf}$, is used.}
+linear. For weak lines (see \fref{fig:cog}) EW is approximately linear with the abundance, however
+it reach a plateau where the core of the line saturates. In this regime the EW only increases
+slowly, until the absorption ``spills'' into the wings and the increase is again linear. However,
+for these strong lines the profile is no longer Gaussian. The curve of growth for the same
+\ion{Fe}{I} line used in \fref{fig:ewTeff} is shown in \fref{fig:cog}. Instead of EW it is common to
+use the reduced EW, $\log (EW/\lambda)$\footnote{The reduced EW is useful since it normalises
+Doppler-dependent phenomena, such as microturbulence and thermal broadening.}, which we will use
+more later. \st{Instead of the abundance of a line, the oscillator strength, $\log \mathit{gf}$, is
+used.}
 
 \begin{figure}[htpb!]
     \centering
@@ -386,74 +389,76 @@ Boltzmann's constant, $T$ is the temperature, and $m$ is the mass of the atom. S
 $\xi_\mathrm{micro}=\SI{0}{km/s}$, we end up with thermal broadening.
 
 
-\section{Line list and atomic data}
-\label{sec:linelist}
+% \section{Line list and atomic data}
+% \label{sec:linelist}
+%
+% As mentioned above, the atomic data of the absorption lines are required. These data can be found in
+% a database such as \emph{The Vienna Atomic Line Data Base} (VALD) \citep{VALD1,VALD2}. For compiling
+% a usable iron line list, all theoretical transitions in a given wavelength range are requested from
+% VALD. In the near-infrared (NIR), YJHK bands, there are several thousands of theoretical
+% transitions.
+%
+% In this thesis the EWs are measured (see \sref{sec:measureEW}) for all these lines using the solar
+% spectrum by \citep{Hinkle1995}. Here there are four possible outcomes. 1) A line can not be measured
+% and is thus discarded, 2) the EW of the line is too weak (below \SI{5}{m\angstrom}) to be reliable,
+% 3) the EW of the line is too strong (above \SI{150}{m\angstrom}) and the line show non-linear
+% behaviour in the curve-of-growth (see \fref{fig:cog}), or 4) the EW of the line is between the two
+% limits and is then added to the final line list.
+%
+% After removing lines which EW is outside the range of EW mentioned above, it is good practise to
+% have a visual inspection. Here one should look for severe line blending with other absorption lines
+% which might prove problematic and unreliable measurements of the EW. If the reference spectrum used,
+% here for the Sun, is not corrected for telluric lines, it is also a good idea to remove lines which
+% exists amidst forest of telluric lines, as these absorption lines might fall on the telluric lines,
+% if the star observed has a different radial velocity (RV).
+% 
+% When blended lines and otherwise lines which shows strange features (can be in a forest of telluric
+% lines), the last step is to calibrate the atomic data. As mentioned above, this is done by changing
+% the $\log \mathit{gf}$ value for a given line, until it has the desired determined abundance. In
+% this case, an iron line should have the abundance of 7.47 using the values from
+% \citet{Gonzalez2000}, when using a solar atmosphere model. There is a simple anti-correlation
+% between the determined abundance from the measured EW and the $\log \mathit{gf}$, so a simple
+% bisector minimization can be used to find the best $\log \mathit{gf}$. It is important to calibrate
+% the $\log \mathit{gf}$ when changing the version of \code{MOOG} (or if other radiative transfer
+% codes are used), the atmosphere model and version of those, and even the interpolation of the
+% atmosphere models. These changes in $\log \mathit{gf}$ should be minor compared to the change from
+% the VALD database and those we arrive at when calibrated for the Sun.
 
-As mentioned above, the atomic data of the absorption lines are required. These data can be found in
-a database such as \emph{The Vienna Atomic Line Data Base} (VALD) \citep{VALD1,VALD2}. For compiling
-a usable iron line list, all theoretical transitions in a given wavelength range are requested from
-VALD. In the near-infrared (NIR), YJHK bands, there are several thousands of theoretical
-transitions.
-
-In this thesis the EWs are measured (see \sref{sec:measureEW}) for all these lines using a solar
-spectrum \citep[][is used here]{Hinkle1995}. Here there are four possible outcomes. 1) A line can
-not be measured and is thus discarded, 2) the EW of the line is weak (below \SI{5}{m\angstrom}) to
-be reliable, 3) the EW of the line is too strong (above \SI{150}{m\angstrom}) and the line show
-non-linear behaviour in the curve-of-growth (see \fref{fig:cog}), or 4) the EW of the line is
-between the two limits and is then added to the final line list.
-
-After removing lines which EW is outside the range of EW mentioned above, it is good practise to
-have a visual inspection. Here one should look for severe line blending with other absorption lines
-which might prove problematic and unreliable measurements of the EW. If the reference spectrum used,
-here for the Sun, is not corrected for telluric lines, it is also a good idea to remove lines which
-exists amidst forest of telluric lines, as these absorption lines might fall on the telluric lines,
-if the star observed has a different radial velocity (RV).
-
-When blended lines and otherwise lines which shows strange features (can be in a forest of telluric
-lines), the last step is to calibrate the atomic data. As mentioned above, this is done by changing
-the $\log \mathit{gf}$ value for a given line, until it has the desired determined abundance. In
-this case, an iron line should have the abundance of 7.47 using the values from
-\citet{Gonzalez2000}, when using a solar atmosphere model. There is a simple anti-correlation
-between the determined abundance from the measured EW and the $\log \mathit{gf}$, so a simple
-bisector minimization can be used to find the best $\log \mathit{gf}$. It is important to calibrate
-the $\log \mathit{gf}$ when changing the version of \code{MOOG} (or if other radiative transfer
-codes are used), the atmosphere model and version of those, and even the interpolation of the
-atmosphere models. These changes in $\log \mathit{gf}$ should be minor compared to the change from
-the VALD database and those we arrive at when calibrated for the Sun.
 
 
-
-\section{Spectrographs}
-\label{sec:spectrographs}
-\unfinished{Not sure what the purpose is of this, but it can be relevant somewhere.}
-
-This chapter will be focused on some of the available spectrographs for deriving stellar atmospheric
-parameters using the method described in \sref{sec:parameters}. For this we need a spectrum of both
-high resolution and high signal-to-noise ratio, S/N, which combined will be called a high quality
-spectrum. In order to get reliable results, a spectral resolution of at least
-$R=\frac{\lambda}{\Delta\lambda}=25\,000$ is needed. A $S/N\approx 100$ is at least needed to obtain
-the parameters. These are approximately values since it can vary across different spectral classes,
-e.g. it is often relatively easy to obtain parameters of a solar-twin while it gets increasingly
-difficult as especially $T_\mathrm{eff}$ diverges in either direction from the solar value.
-Naturally the higher quality the spectrum is (both resolution and S/N), the better the results will
-be obtained. It is common practise to increase the S/N for a spectrum by co-adding a sample of lower
-S/N spectra of the same star from the same spectrograph. This is often used if the star of interest
-is so dim that it takes several observations to reach a sufficient high S/N. Another case is when
-spectra have been obtained from the archive. The scientific goal can be very different, e.g.
-obtaining radial velocities (RV) where a much lower S/N is needed, however here numerous spectra are
-needed. It is common to search for exoplanets with the RV detection method, where multiple spectra
-are obtained, and the stellar parameters are then obtained after co-adding the multiple spectra. It
-is of course important to put the spectra on a common RV, usually at \SI{0}{km/s}.
-
-Spectrographs work in different wavelength regions. The most used region is the optical part of the
-spectrum, which is also ideal for studying FGK stars with relative low line blending and low
-telluric contamination. In the recent years there has been an increase of NIR spectrographs. These
-will mainly be used to study the distant Universe, i.e. at high red-shifts, and cool objects in our
-own galaxy. Especially interesting are the M stars which consist of around 70\% of all stars in our
-galaxy \citep{Bochanski2010}. These stars are intrinsic dim because of their low $T_\mathrm{eff}$,
-ranging from \SIrange{2200}{3500}{K}, hence most of their light emitted will be in the NIR. It is
-advantageous to collect as much light as possible from these dim stars, since reaching a similar S/N
-in the optical would be more time expensive. The cool M stars have more molecules in the atmosphere
-than their hotter counterparts. This can be seen in the spectrum, where molecular lines greatly
-depress the continuum, making EW measurements difficult. This continuum depression is much larger in
-the optical than the NIR, giving another motivation for studying stars in this wavelength region.
+% \section{Spectrographs}
+% \label{sec:spectrographs}
+% \unfinished{Not sure what the purpose is of this, but it can be relevant somewhere.}
+%
+% This chapter will be focused on some of the available spectrographs for deriving stellar
+% atmospheric parameters using the method described in \sref{sec:parameters}. For this we need a
+% spectrum of both high resolution and high signal-to-noise ratio, S/N, which combined will be
+% called a high quality spectrum. In order to get reliable results, a spectral resolution of at
+% least $R=\frac{\lambda}{\Delta\lambda}=25\,000$ is needed. A $S/N\approx 100$ is at least needed
+% to obtain the parameters. These are approximately values since it can vary across different
+% spectral classes, e.g. it is often relatively easy to obtain parameters of a solar-twin while it
+% gets increasingly difficult as especially $T_\mathrm{eff}$ diverges in either direction from the
+% solar value. Naturally the higher quality the spectrum is (both resolution and S/N), the better
+% the results will be obtained. It is common practise to increase the S/N for a spectrum by
+% co-adding a sample of lower S/N spectra of the same star from the same spectrograph. This is often
+% used if the star of interest is so dim that it takes several observations to reach a sufficient
+% high S/N. Another case is when spectra have been obtained from the archive. The scientific goal
+% can be very different, e.g. obtaining radial velocities (RV) where a much lower S/N is needed,
+% however here numerous spectra are needed. It is common to search for exoplanets with the RV
+% detection method, where multiple spectra are obtained, and the stellar parameters are then
+% obtained after co-adding the multiple spectra. It is of course important to put the spectra on a
+% common RV, usually at \SI{0}{km/s}.
+%
+% Spectrographs work in different wavelength regions. The most used region is the optical part of
+% the spectrum, which is also ideal for studying FGK stars with relative low line blending and low
+% telluric contamination. In the recent years there has been an increase of NIR spectrographs. These
+% will mainly be used to study the distant Universe, i.e. at high red-shifts, and cool objects in
+% our own galaxy. Especially interesting are the M stars which consist of around 70\% of all stars
+% in our galaxy \citep{Bochanski2010}. These stars are intrinsic dim because of their low
+% $T_\mathrm{eff}$, ranging from \SIrange{2200}{3500}{K}, hence most of their light emitted will be
+% in the NIR. It is advantageous to collect as much light as possible from these dim stars, since
+% reaching a similar S/N in the optical would be more time expensive. The cool M stars have more
+% molecules in the atmosphere than their hotter counterparts. This can be seen in the spectrum,
+% where molecular lines greatly depress the continuum, making EW measurements difficult. This
+% continuum depression is much larger in the optical than the NIR, giving another motivation for
+% studying stars in this wavelength region.
