@@ -4,6 +4,11 @@ import matplotlib.pyplot as plt
 from astropy.modeling import models
 plt.rcParams['xtick.direction'] = 'in'
 plt.rcParams['ytick.direction'] = 'in'
+# plt.rcParams['axes.spines.right'] = False
+plt.rcParams['axes.spines.top'] = False
+plt.rcParams['axes.linewidth'] = 2
+plt.rcParams['xtick.major.width'] = 2
+plt.rcParams['ytick.major.width'] = 2
 
 
 def gaussian(amplitude, mean, stddev):
@@ -20,15 +25,29 @@ if __name__ == '__main__':
     ew = area  # Since continuum = 1
 
     # Plot absorption line
-    plt.plot(x, g)
-    plt.hlines(1, 0, 5, linestyle='--')
-    plt.fill_between(x, g, 1, alpha=0.3)
-    plt.text(1.5, 0.1, 'Absorped flux')
+    fig, ax = plt.subplots(1)
+    ax.plot(x, g)
+    ax.hlines(1, 0, 5, linestyle='--')
+    ax.fill_between(x, g, 1, alpha=0.3)
+    ax.text(1.5, 0.1, 'Absorped flux')
+    ax.set_ylim(0, 1.1)
+    ax.set_xlim(-0.5, 9)
+    ax.set_yticks([0, 1])
+    ax.set_yticklabels([0, r'$F_c$'])
+    ax.set_xticks([2.5])
+    ax.set_xticklabels([r'$\lambda_0$'])
+    ax.set_xlabel('Wavelength')
+    ax.set_ylabel('Flux')
 
     # Plot EW representation
-    plt.vlines([7, 7+ew], 0, 1, color='C0')
-    plt.hlines(1, 6.8, 7+ew+0.2, linestyle='--')
-    plt.fill_between([7, 7+ew], [0, 0], [1, 1], alpha=0.3, color='C0')
+    ax1 = ax.twinx()
+    ax1.vlines([7, 7+ew], 0, 1, color='C0')
+    ax1.hlines(1, 6.8, 7+ew+0.2, linestyle='--')
+    ax1.hlines(0, 7, 7+ew, color='C0')
+    ax1.fill_between([7, 7+ew], [0, 0], [1, 1], alpha=0.3, color='C0')
+    ax1.set_yticks([0, 1])
+    ax1.set_yticklabels(['0', '1'])
+    ax1.set_ylim(0, 1.1)
     plt.text(7.3, 0.15, 'EW')
     xp, yp = 7.0, 0.13
     plt.annotate('', (xp, yp),
@@ -50,22 +69,6 @@ if __name__ == '__main__':
                                 shrinkB=0,
                                 fc="k", ec="k"))
 
-
-    plt.ylim(0, 1.1)
-    plt.xlim(-0.5, 9)
-    plt.yticks([0, 1], [0, r'$F_c$'])
-    plt.xticks([2.5], [r'$\lambda_0$'])
-    plt.xlabel('Wavelength')
-    plt.ylabel('Flux')
-
-    # Remove right and top spines
-    ax = plt.gca()
-    ax.spines['top'].set_color('none')
-    ax.spines['right'].set_color('none')
-    ax.spines['left'].set_linewidth(2)
-    ax.spines['bottom'].set_linewidth(2)
-    ax.xaxis.set_tick_params(width=2)
-    ax.yaxis.set_tick_params(width=2)
-
+    plt.tight_layout()
     # plt.savefig('../ewTheoretical.pdf')
     plt.show()
