@@ -197,14 +197,14 @@ classes this method works with.
 rotational velocity, $v\sin i$.}
 
 
-\section{The EW method: \code{FASMA}}
+\subsection{The EW method and \code{FASMA}}
 \label{sec:parameters}
 
 The EW method or curve-of-growth analysis is another standard method for obtaining stellar
 atmospheric parameters from spectra as the synthetic fitting method (\sref{sec:synthesis}). Since
 this is the method used throughout this thesis it will be explained in detail. This analysis follow
-a chain of tasks, each has been made automatic in the software Fast Analysis of Spectra Made
-Automatically (\code{FASMA}\footnote{Greek for spectrum}) which was developed during this thesis
+a chain of tasks, each has been made automatic in the software ``Fast Analysis of Spectra Made
+Automatically" (\code{FASMA}\footnote{Greek for spectrum}) which was developed during this thesis
 \citep{Andreasen2017a}. \code{FASMA} is made of three \code{drivers}:
 \begin{enumerate}
   \item EW measurement driver
@@ -216,7 +216,7 @@ An additional driver is under development; a synthetic fitting driver \citep{Tsa
 \url{http://www.iastro.pt/fasma/}.
 
 
-\subsection{Ingredients}
+\subsubsection{Ingredients}
 
 \code{FASMA} is written in the Python programming language and glue together other software and
 model atmospheres necessary for obtaining stellar atmospheric parameters from high quality spectra.
@@ -236,7 +236,7 @@ best matching parameters given a spectrum.
 
 
 
-\subsection{Wrapper for \code{ARES}}
+\subsubsection{Wrapper for \code{ARES}}
 \label{sec:measureEW}
 
 There are two ways to measure the EW of an absorption line, ``manually'' or automatically. There are
@@ -291,7 +291,7 @@ lines, thus removing one line will have a negligible effect on the final derived
 
 
 
-\subsection{Interpolation of atmosphere models}
+\subsubsection{Interpolation of atmosphere models}
 \label{sec:interpolation}
 
 \code{FASMA} has access to both ATLAS9 models by \citet{Kurucz1993} and MARCS models by
@@ -327,7 +327,7 @@ expected by \code{MOOG}.
 
 
 
-\subsection{Minimization}
+\subsubsection{Minimization}
 \label{sec:minimization}
 
 With the measured EWs for all the lines in the line list, we choose an atmosphere model to determine
@@ -491,7 +491,7 @@ calculation of the abundances with} \code{MOOG}.
 \end{figure}
 
 
-\subsection{Error estimate}
+\subsubsection{Error estimate}
 \label{sec:error_estimate}
 
 The error estimate is based on the same method presented in \citet{Neuforge1997}. The error on
@@ -503,7 +503,7 @@ $\xi_\mathrm{micro}$. The error for $[\ion{Fe}/\ion{H}]$ corresponds to the disp
 The error in $\log g$ corresponds to the dispersion in the pressure sensitive \ion{Fe}{II}
 abundances.
 
-\subsection{Testing \code{FASMA}}
+\subsubsection{Testing \code{FASMA}}
 \label{sec:fasma_test}
 
 Parameters were derived for a 582 sample presented in \citet{Sousa2011} with \code{FASMA} as a test.
