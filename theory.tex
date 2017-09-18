@@ -16,15 +16,15 @@ Much of this Section is inspired by \citet{Gray2006}. While all the figures here
 author of this thesis, most of them can be found in \citet{Gray2006} as well.
 
 Stellar atmospheres are rather complex. This is where the energy produced in the interior of the
-stars \st{are} \hl{is} released. However, the atmosphere of a star is not transparent to all light,
-and some of the light is absorbed or scattered in the atmosphere. In the case of absorption the
-light will later be emitted in a random direction. This is seen as an absorption line in the stellar
-spectrum. The different elements in the atmosphere is the reason for absorbing light at specific
-wavelength. The strength of the absorption depends on the physical conditions in the atmosphere, the
-effective temperature ($T_\mathrm{eff}$), the pressure/gravity ($\log g$), the \hl{chemical
-abundances} \st{overall metallicity ($[\ion{Fe}/\ion{H}]$), the specific abundance of a given
-element if different from the overall metallicity ($A$)}, and the atomic characteristics of the
-transition coursing the absorption line.
+stars \st{are} \hl{is} released. However, the atmosphere of a star is not \hl{completely}
+transparent to all light, and some of the light is absorbed or scattered in the atmosphere. In the
+case of absorption the light will later be emitted in a random direction. This is seen as an
+absorption line in the stellar spectrum. The different elements in the atmosphere is the reason for
+absorbing light at specific wavelength. The strength of the absorption depends on the physical
+conditions in the atmosphere, the effective temperature ($T_\mathrm{eff}$), the pressure/gravity
+($\log g$), the \hl{chemical abundances} \st{overall metallicity ($[\ion{Fe}/\ion{H}]$), the
+specific abundance of a given element if different from the overall metallicity ($A$)}, and the
+atomic characteristics of the transition \st{coursing} \hl{making} the absorption line.
 
 \st{It is important to know} \hl{The strength of a line depends on} the fraction of atoms excited to
 the $n$th energy level, $N_n$, \hl{on which the electron that produces the absorption is}. This
@@ -65,7 +65,6 @@ The atomic lines are characterised by a few quantum mechanical descriptors.
         formed in the deeper layers of the atmosphere, since the higher temperatures there can
         excite the element. This is compared to the atomic lines with lower $\chi$ which are formed
         higher in the atmosphere at lower temperatures.}
-
   \item \textbf{The oscillator strength}, $\log \mathit{gf}$, is related to the atomic transition
         probability.
   \item \textbf{The damping coefficients}, $\Gamma$, is a natural damping (also known as radiation
@@ -74,9 +73,9 @@ The atomic lines are characterised by a few quantum mechanical descriptors.
         natural broadening is introduced.
 \end{itemize}
 These are essential to know from either theoretical calculations or experiments. The oscillator
-strength is a quantity that is difficult to measure, and this is often changed when absorption lines
-are matched with real observations of e.g. the Sun. This is a way of calibrating a line list and
-will be described in detail in \sref{sec:linelist_first}.
+strength is a quantity that is difficult to measure, and \st{this is} \hl{these values are} often
+changed when absorption lines are matched with real observations of e.g. the Sun. This is a way of
+calibrating a line list and will be described in detail in \sref{sec:linelist_first}.
 
 It is important to mention that one of the main differences between absorption lines at different
 wavelengths is the excitation potential. The energy levels of an atom gets denser packed as the
@@ -131,26 +130,26 @@ strength of a magnetic field in a star if this is strong enough.
 In order to derive abundances or calculate a synthetic spectrum, two main things are needed: 1) An
 atmosphere model, and 2) a radiative transfer code that solves the equations above. There are
 different atmosphere models available. Throughout this thesis the ATLAS9 model atmosphere are used
-\citep{Kurucz1993}. Other mention-able atmosphere models includes MARCS models \citep{Gustafson2008}
-and the PHOENIX models \citep{Husser2013}. An atmosphere model is a description of the structure of
-the atmosphere. This description has a number of quantities. The atmosphere model grids that are
-available and used here have 72 layers. Each layer includes physical quantities such as temperature,
-gas and electron pressure, \hl{and} the optical depth\st{, etc}. The models can be calculated on the
-fly, but it is common practise because of computational reasons to pre-calculate a grid of
-atmosphere models at certain $T_\mathrm{eff}$, $\log g$, and $[\ion{Fe}/\ion{H}]$. A specific
-atmosphere model is then obtained from this grid by interpolating from nearest neighbours. The
-interpolation code used throughout this work includes the four nearest neighbours in the
-$T_\mathrm{eff}$-space, and the two nearest neighbours in both the $\log g$- and
-$[\ion{Fe}/\ion{H}]$-space, in total $4\times2\times2=16$ atmosphere models to generate a single
-interpolated atmosphere model.
+\citep{Kurucz1993}. Other \st{mention-able} atmosphere models includes MARCS models
+\citep{Gustafson2008} and the PHOENIX models \citep{Husser2013}. An atmosphere model is a
+description of the structure of the atmosphere. This description has a number of quantities. The
+\hl{Kurucz} atmosphere model grids that are available and used here have 72 layers. Each layer
+includes physical quantities such as temperature, gas and electron pressure, \hl{and} the optical
+depth\st{, etc}. The models can be calculated on the fly, but it is common practise because of
+computational reasons to pre-calculate a grid of atmosphere models at certain $T_\mathrm{eff}$,
+$\log g$, and $[\ion{Fe}/\ion{H}]$. A specific atmosphere model is then obtained from this grid by
+interpolating from nearest neighbours. The interpolation code used throughout this work includes the
+four nearest neighbours in the $T_\mathrm{eff}$-space, and the two nearest neighbours in both the
+$\log g$- and $[\ion{Fe}/\ion{H}]$-space, in total $4\times2\times2=16$ atmosphere models to
+generate a single interpolated atmosphere model.
 
 
 
 \subsection{Radiative transfer code - \code{MOOG}}
 
 There exists many different codes that solves the radiative transfer equations. In this thesis the
-\code{MOOG} code is used by \citet{Sneden1973} \hl{which assumes LTE}. This code has different
-drivers, only some are used here.
+\code{MOOG}\footnote{\url{http://www.as.utexas.edu/~chris/moog.html}} code is used by
+\citet{Sneden1973} \hl{which assumes LTE}. This code has different drivers, only some are used here.
 \begin{itemize}
   \item Derive a theoretical equivalent width (see \sref{sec:EW} for details) for a given star, i.e.
         atmosphere model with a given set of atmospheric parameters.
@@ -181,10 +180,13 @@ $[\ion{Fe}/\ion{H}]$, and $\xi_\mathrm{micro}$.
 \end{figure}
 
 The EW is mathematically described as integrating over the entire line, and assign this area to a
-rectangle from 0 to the continuum flux ($F_c$) with the width, EW. This is illustrated in
-\fref{fig:ewTheoretical} and the equation below: \begin{align} EW = \int_{0}^{\infty}
-\frac{F_c-F(\lambda)}{F_c} d\lambda, \end{align} where $\lambda$ is the wavelength. This is integral
-is assuming there is only one single line, hence the integral is over all wavelength. In practice
+rectangle from 0 to the \hl{normalized} continuum flux ($F_c$) with the width, EW. This is
+illustrated in \fref{fig:ewTheoretical} and the equation below:
+\begin{align} EW = \int_{0}^{\infty}
+  \frac{F_c-F(\lambda)}{F_c} d\lambda,
+\end{align}
+where $\lambda$ is the wavelength. \st{This is integral is assuming} \hl{In the integral above it is
+assumed that} there is only one single line, hence the integral is over all wavelength. In practice
 the integral is calculated in small windows around a spectral line. See \sref{sec:measureEW} for
 more details on how this is performed in practice. The unit of the EW is the same as the wavelength
 used. Throughout this thesis we will use \AA{}ngstr\"{o}m ($\SI{1}{\angstrom}=\SI{0.1}{nm}$) for the
@@ -411,7 +413,7 @@ $\xi_\mathrm{micro}=\SI{0}{km/s}$, we end up with thermal broadening.
 % here for the Sun, is not corrected for telluric lines, it is also a good idea to remove lines which
 % exists amidst forest of telluric lines, as these absorption lines might fall on the telluric lines,
 % if the star observed has a different radial velocity (RV).
-% 
+%
 % When blended lines and otherwise lines which shows strange features (can be in a forest of telluric
 % lines), the last step is to calibrate the atomic data. As mentioned above, this is done by changing
 % the $\log \mathit{gf}$ value for a given line, until it has the desired determined abundance. In
