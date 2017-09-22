@@ -4,9 +4,9 @@
 \label{cha:results}
 \epigraph{Promises are only words until more than words are required.}{Terry Brooks}
 
-It is time to apply the theory and methodology on some real data. \hl{The tools presented above
-will be used on NIR spectra of three stars. The goal is to derive parameters in the NIR. The reason
-for using the NIR part of the spectrum rather than the optical part is, that it is better suited for
+It is time to apply the theory and methodology on some real data. \hl{The tools presented above will
+be used on NIR spectra of three stars. The goal is to derive parameters in the NIR. The reason for
+using the NIR part of the spectrum rather than the optical part is, that it is better suited for
 characterisation of the coolest stars, M stars. These stars are interesting for many reasons (see}
 \cref{cha:introduction}\hl{): 1) They make up around 75\% of the stars in our galaxy and 2) they are
 known to be prone to form small rocky planets rather than giant planets.} There is the compilation
@@ -14,14 +14,14 @@ of a NIR iron line list for deriving stellar atmospheric parameters. This line l
 against the well-studied solar-type star, HD 20010 in \citet{Andreasen2016}. Later a second version
 of the line list was made. This was tested again on HD 20010 and additionally on two cooler stars,
 Arcturus and 10 Leo in \citet{Andreasen2017b}. A small summary of the stars and their
-characteristics can be found in \tref{tab:stars}. \hl{A plot of the spectra of the three stars
-analysed (not including the Sun) in this chapter is shown in} \fref{fig:NIRspectra}. More details
-are provided in the individual sections below for each star. \st{An update to SWEET-Cat, a catalogue
-which provides homogeneous stellar parameters of planet hosts, was provided in}. Last is the
-analysis of a range of synthetic spectra from the PHOENIX spectral library \citep{Husser2013}, with
-$T_\mathrm{eff}$ lower than analysed in previous stars with the methodology described above in
-\sref{sec:parameters}. However, before diving into the results of the analysis it is important to
-describe how the NIR line list was compiled, and why and how it was later refined.
+characteristics can be found in \tref{tab:stars}. \hl{A plot of the spectra of the four stars
+analysed in this chapter is shown in} \fref{fig:NIRspectra}. More details are provided in the
+individual sections below for each star. \st{An update to SWEET-Cat, a catalogue which provides
+homogeneous stellar parameters of planet hosts, was provided in}. Last is the analysis of a range of
+synthetic spectra from the PHOENIX spectral library \citep{Husser2013}, with $T_\mathrm{eff}$ lower
+than analysed in previous stars with the methodology described above in \sref{sec:parameters}.
+However, before diving into the results of the analysis it is important to describe how the NIR line
+list was compiled, and why and how it was later refined.
 
 \begin{table*}[htb!]
     \caption{Summary of the four stars used in this thesis. The stellar parameters are an average
@@ -44,10 +44,11 @@ describe how the NIR line list was compiled, and why and how it was later refine
 \begin{figure}[htpb!]
     \centering
     \includegraphics[width=1.0\linewidth]{figures/NIRspectra.pdf}
-    \caption{Spectrum of HD 20010 (blue), 10 Leo (orange), and Arcturus (green) in two different
-             spectral regions. The spectra are all normalised to 1, but the flux of HD 20010 and 10
-             Leo is added with 0.2 and 0.4, respectively, for visual effect. The \emph{upper} panel
-             is part of the J band, while the \emph{bottom} panel is part of the H band.}
+    \caption{Spectrum of HD 20010 (blue), the Sun (orange) 10 Leo (green), and Arcturus (red) in two
+             different spectral regions. The spectra are all normalised to 1, but the flux of
+             HD 20010, the Sun, and 10 Leo is added with 0.2, 0.4, and 0.6, respectively, for visual
+             effect. The \emph{upper} panel is part of the J band, while the \emph{bottom} panel is
+             part of the H band.}
     \label{fig:NIRspectra}
 \end{figure}
 

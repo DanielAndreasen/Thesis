@@ -71,30 +71,45 @@ def get_Arcturus(fname, w1, w2, rv=0):
     return w, f
 
 
+def get_sun(w1, w2, rv=0):
+    fname = '/home/daniel/.plotfits/solarspectrum_01.fits'
+    w = get_wavelength(fits.getheader(fname))
+    w = w * (1.0 + rv/299792.458)
+    f = fits.getdata(fname)
+    idx = (w1 <= w) & (w <= w2)
+    w, f = w[idx], f[idx]
+    f /= np.median(f)
+    return w, f
 
 
 if __name__ == '__main__':
     wmin, wmax = 10214, 10260
     w1, f1 = get_HD20010(fname='10212-10262.fits', w1=wmin, w2=wmax, rv=33)
-    w2, f2 = get_10Leo(fname='10Leo/10LeoYJband.fits', w1=wmin, w2=wmax, rv=10)
-    w3, f3 = get_Arcturus(fname='10200-10259_s-obs.fits', w1=wmin, w2=wmax, rv=0)
+    w2, f2 = get_sun(w1=wmin, w2=wmax, rv=92)
+    w3, f3 = get_10Leo(fname='10Leo/10LeoYJband.fits', w1=wmin, w2=wmax, rv=10)
+    w4, f4 = get_Arcturus(fname='10200-10259_s-obs.fits', w1=wmin, w2=wmax, rv=0)
+    idx = w4 > 10250.8
     wmin, wmax = 16260, 16334
-    w4, f4 = get_HD20010(fname='16257-16334.fits', w1=wmin, w2=wmax, rv=40)
-    w5, f5 = get_10Leo(fname='10Leo/10LeoHband.fits', w1=wmin, w2=wmax, rv=15)
-    w6, f6 = get_Arcturus(fname='16254-16334_s-obs.fits', w1=wmin, w2=wmax, rv=0)
+    w5, f5 = get_HD20010(fname='16257-16334.fits', w1=wmin, w2=wmax, rv=40)
+    w6, f6 = get_sun(w1=wmin, w2=wmax, rv=97)
+    w7, f7 = get_10Leo(fname='10Leo/10LeoHband.fits', w1=wmin, w2=wmax, rv=14)
+    w8, f8 = get_Arcturus(fname='16254-16334_s-obs.fits', w1=wmin, w2=wmax, rv=0)
 
     fig, (ax1, ax2) = plt.subplots(nrows=2, ncols=1)
 
-    ax1.plot(w1, f1+0.4, color='C0', label='HD 20010')
-    ax1.plot(w2, f2+0.2, color='C1', label='10 Leo')
-    ax1.plot(w3, f3, color='C2', label='Arcturus')
-    ax2.plot(w4, f4+0.4, color='C0', label='HD 20010')
-    ax2.plot(w5, f5+0.2, color='C1', label='10 Leo')
-    ax2.plot(w6, f6, color='C2', label='Arcturus')
+    ax1.plot(w1, f1+0.6, color='C0', label='HD 20010')
+    ax1.plot(w2, f2+0.4, color='C1', label='Sun')
+    ax1.plot(w3, f3+0.2, color='C2', label='10 Leo')
+    ax1.plot(w4[~idx], f4[~idx], color='C3', label='Arcturus')
+    ax1.plot(w4[idx], f4[idx], color='C3', alpha=0.2)
+    ax2.plot(w5, f5+0.6, color='C0', label='HD 20010')
+    ax2.plot(w6, f6+0.4, color='C1', label='Sun')
+    ax2.plot(w7, f7+0.2, color='C2', label='10 Leo')
+    ax2.plot(w8, f8, color='C3', label='Arcturus')
 
     ax2.set_xlabel(r'Wavelength [$\AA{}$]')
-    ax1.legend(loc='best', frameon=False)
+    ax1.legend(loc='lower right', frameon=False)
     plt.tight_layout()
 
-    # plt.savefig('../NIRspectra.pdf')
+    plt.savefig('../NIRspectra.pdf')
     plt.show()
