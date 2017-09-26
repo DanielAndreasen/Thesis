@@ -58,6 +58,10 @@ if __name__ == '__main__':
 
     plt.plot(Teffs, d[:, 1], '-', label=r'FeI:  4566.52$\AA$')
     plt.plot(Teffs, d[:, 2], '-', label=r'FeII: 4620.51$\AA$')
+    plt.text(3800, 72, 'Case 1', rotation=65)
+    plt.text(6170, 33.5, 'Case 2', rotation=-50)
+    plt.text(4500, 33, 'Case 3', rotation=55)
+    plt.text(7000, 56, 'Case 4', rotation=-11)
     plt.vlines(5777, 0, 80, linestyle='--', alpha=0.5)
     plt.xlabel('Teff [K]')
     plt.ylabel(r'EW [m$\AA$]')
@@ -72,6 +76,6 @@ if __name__ == '__main__':
     ax.xaxis.set_tick_params(width=2)
     ax.yaxis.set_tick_params(width=2)
 
-
+    plt.tight_layout()
     # plt.savefig('../ewTeff.pdf')
     plt.show()

@@ -1,5 +1,5 @@
 %!TEX root = thesis.tex
-\chapter{Theory}
+\chapter{Theory of stellar spectroscopy in a nutshell}
 \label{cha:theory}
 
 \epigraph{``Begin at the beginning,'' the King said, very gravely, ``and go on till you come to the
@@ -16,56 +16,60 @@ Much of this Section is inspired by \citet{Gray2006}. While all the figures here
 author of this thesis, most of them can be found in \citet{Gray2006} as well.
 
 Stellar atmospheres are rather complex. This is where the energy produced in the interior of the
-stars are released. However, the atmosphere of a star is not transparent to all light, and some of
-the light is absorbed or scattered in the atmosphere. In the case of absorption the light will later
-be emitted in a random direction. This is seen as an absorption line in the stellar spectrum. The
-different elements in the atmosphere is the reason for absorbing light at specific wavelength. The
-strength of the absorption depends on the physical conditions in the atmosphere, the effective
-temperature ($T_\mathrm{eff}$), the pressure/gravity ($\log g$), the overall metallicity
-($[\ion{Fe}/\ion{H}]$), the specific abundance of a given element if different from the overall
-metallicity ($A$), and the atomic characteristics of the transition coursing the absorption line.
+stars is released. However, the atmosphere of a star is not completely transparent to all light, and
+some of the light is absorbed or scattered in the atmosphere. In the case of absorption the light
+will later be emitted in a random direction. This is seen as an absorption line in the stellar
+spectrum. The different elements in the atmosphere is the reason for absorbing light at specific
+wavelength. The strength of the absorption depends on the physical conditions in the atmosphere, the
+effective temperature ($T_\mathrm{eff}$), the pressure/gravity ($\log g$), the chemical abundances,
+and the atomic characteristics of the transition making the absorption line.
 
-It is important to know the fraction of atoms excited to the $n$th energy level, $N_n$. This
-fraction is proportional to the statistical weight $g_n$ and the Boltzmann factor and is described
-as:
+The strength of a line depends on the fraction of atoms excited to the $n$th energy level, $N_n$, on
+which the electron that produces the absorption is. This fraction is proportional to the statistical
+weight $g_n$ and the Boltzmann factor and is described as:
 \begin{align}
-    \Aboxed{ \frac{N_n}{N} = \frac{g_n}{u(T)} 10^{-\theta\chi_n}} \tag*{Boltzmann}
+    \frac{N_n}{N} = \frac{g_n}{u(T)} 10^{-\theta\chi_n} \tag*{Boltzmann}\label{eq:boltzmann}
 \end{align}
 This equation is also called the Boltzmann equation. Here $N$ is the total number of atoms per unit
 volume, $u(T)=\Sigma g_i e^{-\chi_i/kT}$ is the partition function, $k$ is Boltzmann's constant, $T$
 is the temperature, and $\chi_n$ is the excitation potential for the lower energy level.
 
 While atoms can get excited following Boltzmann's equation above, they can also get ionized. The
-ionization ratio for a collision dominated gas (which is a good approximation for FGKM stars) is
-described by the Saha equation. This equation relate the ratio of atoms in state $r$ to atoms in the
-excited state above for the same element, $r+1$, in the following way:
+ionization ratio for a collision dominated gas (which is a good approximation for FGKM stars, {when
+assuming Local Thermodynamic Equilibrium, LTE\footnote{LTE is obtained in stellar atmospheres, when
+the length scale at which temperatures are changing are larger than the mean free path. This is a
+good approximation for dwarf stars, where the mean free path is small, compared to the larger mean
+free path in evolved stars, where LTE is no longer a good assumption.}) is described by the Saha
+equation. This equation relate the ratio of atoms in state $r$ to atoms in the excited state above
+for the same element, $r+1$, in the following way:
 \begin{align}
-  \Aboxed{ \frac{N_{r+1}}{N_r} = \frac{1}{P_e} \frac{(2\pi m_e)^{3/2}(kT)^{5/2}}{h^3} \frac{2u_{r+1}(T)}{u_r(T)} e^{-I/kT} = \frac{\Phi(T)}{P_e}} \tag*{Saha}
+  \frac{N_{r+1}}{N_r} = \frac{1}{P_e} \frac{(2\pi m_e)^{3/2}(kT)^{5/2}}{h^3} \frac{2u_{r+1}(T)}{u_r(T)} e^{-I/kT} = \frac{\Phi(T)}{P_e} \tag*{Saha}\label{eq:saha}
 \end{align}
 here $m_e$ is the electron mass, $h$ is Planck's constant, $I$ is the ionization potential of the
 neutral atom, and $\Phi(T)$ is all not related to the electron pressure, $P_e$.
 
 The atomic lines are characterised by a few quantum mechanical descriptors.
 \begin{itemize}
-  \item {\bf The wavelength, $\lambda$} of an absorption (or emission) describes the energy
+  \item \textbf{The wavelength}, $\lambda$, of an absorption (or emission) describes the energy
         difference between the two energy levels where the transition occurs.
-  \item {\bf The ionization state}, e.g. \ion{Fe}{I} describes iron in its atomic form, while
+  \item \textbf{The ionization state}, e.g. \ion{Fe}{I} describes iron in its atomic form, while
         \ion{Fe}{II} describes iron in its first ionized form.
-  \item {\bf The excitation potential $\chi$}. This gives an idea how deep in the atmosphere a line
-        is formed. If $\chi$ is high, then higher temperatures (i.e. higher random motion and more
-        collisions between the atoms) is required for forming the absorption line. These higher
-        temperatures are found deeper in the atmosphere.
-  \item {\bf The oscillator strength}, $\log \mathit{gf}$, is related to the atomic transition
+  \item \textbf{The excitation potential}, $\chi$, is the excitation energy level of the lower
+        state in the transition. A atomic line with a high $\chi$ is formed in the deeper layers of
+        the atmosphere, since the higher temperatures there can excite the element. This is compared
+        to the atomic lines with lower $\chi$ which are formed higher in the atmosphere at lower
+        temperatures.
+  \item \textbf{The oscillator strength}, $\log \mathit{gf}$, is related to the atomic transition
         probability.
-  \item {\bf The damping coefficients}, is a natural damping (also known as radiation damping)
-        caused by the uncertainty of lifetime in an energy level according to Heisenberg's
+  \item \textbf{The damping coefficients}, $\Gamma$, is a natural damping (also known as radiation
+        damping) caused by the uncertainty of lifetime in an energy level according to Heisenberg's
         uncertainty principle. This is related to a uncertainty in the energy level and thus a
         natural broadening is introduced.
 \end{itemize}
 These are essential to know from either theoretical calculations or experiments. The oscillator
-strength is a quantity that is difficult to measure, and this is often changed when absorption lines
-are matched with real observations of e.g. the Sun. This is a way of calibrating a line list and
-will be described in detail in \sref{sec:linelist}.
+strength is a quantity that is difficult to measure, and these values are often changed when
+absorption lines are matched with real observations of e.g. the Sun. This is a way of calibrating a
+line list and will be described in detail in \sref{sec:linelist_first}.
 
 It is important to mention that one of the main differences between absorption lines at different
 wavelengths is the excitation potential. The energy levels of an atom gets denser packed as the
@@ -84,10 +88,10 @@ where $h$ is Planck's constant, $c$ is the speed of light, and $R_\infty$ is Ryd
 With increasing $n$ the energy levels get closer, or in other words the photon required to excite an
 electron from one energy level to a neighbouring state will get redder. These redder photons used
 for exciting an atom are the absorption lines seen in the NIR. However, the excitation to the lower
-state is from thermal motion and not coursed by photons. Since tight energy levels require a highly
-excited lower state, the temperature required here are similar high, which means that the NIR lines
-are typically formed in the deeper layers of the atmosphere compared to absorption lines seen in the
-optical part of the spectrum.
+state is related to the temperature and pressure according the \ref{eq:boltzmann} and \ref{eq:saha}
+equations. Since tight energy levels require a highly excited lower state, the temperature required
+here are similar high, which means that the NIR lines are typically formed in the deeper layers of
+the atmosphere compared to absorption lines seen in the optical part of the spectrum.
 
 \begin{figure}[htpb!]
     \centering
@@ -115,15 +119,15 @@ strength of a magnetic field in a star if this is strong enough.
 \subsection{Atmosphere models}
 \label{sec:atmospheremodels}
 
-In order to derive abundances or calculate a synthetic spectrum, two main things are needed: 1) And
+In order to derive abundances or calculate a synthetic spectrum, two main things are needed: 1) An
 atmosphere model, and 2) a radiative transfer code that solves the equations above. There are
 different atmosphere models available. Throughout this thesis the ATLAS9 model atmosphere are used
-\citep{Kurucz1993}. Other mention-able atmosphere models includes MARCS models \citep{Gustafson2008}
-and the PHOENIX models \citep{Husser2013}. An atmosphere model is a description of the structure of
-the atmosphere. This description has a number of quantities. The atmosphere model grids that are
+\citep{Kurucz1993}. Other atmosphere models includes MARCS models \citep{Gustafson2008} and the
+PHOENIX models \citep{Husser2013}. An atmosphere model is a description of the structure of the
+atmosphere. This description has a number of quantities. The Kurucz atmosphere model grids that are
 available and used here have 72 layers. Each layer includes physical quantities such as temperature,
-gas and electron pressure, the optical depth, etc. The models can be calculated on the fly, but it
-is common practise because of computational reasons to pre-calculate a grid of atmosphere models at
+gas and electron pressure, and the optical depth. The models can be calculated on the fly, but it is
+common practise because of computational reasons to pre-calculate a grid of atmosphere models at
 certain $T_\mathrm{eff}$, $\log g$, and $[\ion{Fe}/\ion{H}]$. A specific atmosphere model is then
 obtained from this grid by interpolating from nearest neighbours. The interpolation code used
 throughout this work includes the four nearest neighbours in the $T_\mathrm{eff}$-space, and the two
@@ -134,9 +138,9 @@ $4\times2\times2=16$ atmosphere models to generate a single interpolated atmosph
 
 \subsection{Radiative transfer code - \code{MOOG}}
 
-There exists manydifferent codes that solves the radiative transfer equations. In this thesis the
-\code{MOOG} code is used by \citet{Sneden1973}. This code has different drivers, only some are used
-here.
+There exists many different codes that solves the radiative transfer equations. In this thesis the
+\code{MOOG}\footnote{\url{http://www.as.utexas.edu/~chris/moog.html}} code is used by
+\citet{Sneden1973} which assumes LTE. This code has different drivers, only some are used here.
 \begin{itemize}
   \item Derive a theoretical equivalent width (see \sref{sec:EW} for details) for a given star, i.e.
         atmosphere model with a given set of atmospheric parameters.
@@ -167,28 +171,52 @@ $[\ion{Fe}/\ion{H}]$, and $\xi_\mathrm{micro}$.
 \end{figure}
 
 The EW is mathematically described as integrating over the entire line, and assign this area to a
-rectangle from 0 to the continuum flux ($F_c$) with the width, EW. This is illustrated in
-\fref{fig:ewTheoretical} and the equation below: \begin{align} EW = \int_{0}^{\infty}
-\frac{F_c-F(\lambda)}{F_c} d\lambda, \end{align} where $\lambda$ is the wavelength. This is integral
-is assuming there is only one single line, hence the integral is over all wavelength. In practice
-the integral is calculated in small windows around a spectral line. See \sref{sec:measureEW} for
-more details on how this is performed in practice. The unit of the EW is the same as the wavelength
-used. Throughout this thesis we will use \AA{}ngstr\"{o}m ($\SI{1}{\angstrom}=\SI{0.1}{nm}$) for the
-wavelength, and \si{m\angstrom} for the EW.
+rectangle from 0 to the normalised continuum flux ($F_c$) with the width, EW. This is illustrated in
+\fref{fig:ewTheoretical} and the equation below:
+\begin{align} EW = \int_{0}^{\infty}
+  \frac{F_c-F(\lambda)}{F_c} d\lambda,
+\end{align}
+where $\lambda$ is the wavelength. In the integral above it is assumed that there is only one single
+line, hence the integral is over all wavelength. In practice the integral is calculated in small
+windows around a spectral line. See \sref{sec:measureEW} for more details on how this is performed
+in practice. The unit of the EW is the same as the wavelength used. Throughout this thesis we will
+use \AA{}ngstr\"{o}m ($\SI{1}{\angstrom}=\SI{0.1}{nm}$) for the wavelength, and \si{m\angstrom} for
+the EW.
 
 
 \subsubsection{Temperature dependence}
 
-As mentioned above the EW depends on the atmospheric parameters. The dependence on $T_\mathrm{eff}$
-is the strongest dependence. At low $T_\mathrm{eff}$ neutral elements, say \ion{Fe}{I}, are the
-strongest lines as the number of ionized atoms are too small to contribute significantly to the EW.
-This is the result the Saha equation. As $T_\mathrm{eff}$ increases \ion{Fe}{I} is converted into
-ionized \ion{Fe}{II}. Slowly, as the number of \ion{Fe}{I} decreases so does the EW, and likewise as
-the number of \ion{Fe}{II} increases so does the EW. This goes on until second ionized atoms,
-\ion{Fe}{III}, are formed and the same situation arise again. This is illustrated in
-\fref{fig:ewTeff} where the EW of two iron lines, one neutral and one ionized, are plotted against
-$T_\mathrm{eff}$. These two lines have similar EW in the Sun: $\SI{46.2}{m\angstrom}$ and
-$\SI{53.9}{m\angstrom}$ for the \ion{Fe}{I} and \ion{Fe}{II} line respectively.
+As mentioned above, the theory presented here is the bare minimum. For the full derivations of the
+equations presented below see Chapter 13 in \citet{Gray2006}.
+
+As mentioned above the EW depends on the atmospheric parameters. At low $T_\mathrm{eff}$ neutral
+elements, say \ion{Fe}{I}, are the strongest lines as the number of ionized atoms are too small to
+contribute significantly to the EW. This is the result the Saha equation. As $T_\mathrm{eff}$
+increases \ion{Fe}{I} is converted into ionized \ion{Fe}{II}. Slowly, as the number of \ion{Fe}{I}
+decreases so does the EW, and likewise as the number of \ion{Fe}{II} increases so does the EW. This
+goes on until second ionized atoms, \ion{Fe}{III}, are formed and the same situation arise again.
+This is illustrated in \fref{fig:ewTeff} where the EW of two iron lines, one neutral and one
+ionized, are plotted against $T_\mathrm{eff}$. These two lines have similar EW in the Sun:
+$\SI{46.2}{m\angstrom}$ and $\SI{53.9}{m\angstrom}$ for the \ion{Fe}{I} and \ion{Fe}{II} line
+respectively.
+
+This can be explained with four simple cases:
+\begin{itemize}
+  \item[Case 1] Weak line of a neutral species (e.g \ion{Fe}{I}) with the element mostly neutral
+  \item[Case 2] Weak line of a neutral species with the element mostly ionized
+  \item[Case 3] Weak line of an ion species (e.g \ion{Fe}{II}) with the element mostly neutral
+  \item[Case 4] Weak line of an ion species with the element mostly ionized
+\end{itemize}
+The behaviour of the line strength $R$ is shown in the equations below for the four different cases
+\begin{align}
+  \frac{1}{R}\dd{R}{T} &= \frac{2.5}{T} + \frac{\chi+0.75}{kT^2}-\Omega  \tag*{Case 1} \\
+  \frac{1}{R}\dd{R}{T} &= \frac{\chi+0.75-I}{kT^2}                       \tag*{Case 2} \\
+  \frac{1}{R}\dd{R}{T} &= \frac{5}{T} + \frac{\chi+0.75+I}{kT^2}-2\Omega \tag*{Case 3} \\
+  \frac{1}{R}\dd{R}{T} &= \frac{2.5}{T} + \frac{\chi+0.75}{kT^2}-\Omega, \tag*{Case 4}
+\end{align}
+where $\chi$ is the excitation potential, $I$ is the ionization energy, and $\Omega$ can be
+considered a constant as it mildly depends on pressure. The four cases are also shown in
+\fref{fig:ewTeff}.
 
 \begin{figure}[htpb!]
     \centering
@@ -210,9 +238,9 @@ from spectroscopy.
 \begin{itemize}
   \item Continuum: The Balmer jump is the only continuum feature sensitive enough to estimate the
         $\log g$.
-  \item Hydrogen lines: Hydrogen profiles are pressure sensitive and can therefore be used to
-        estimate $\log g$. However, the gravity dependence rapidly diminishes for temperatures above
-        $\SI{10\,000}{K}$.
+  \item Hydrogen lines: Hydrogen profiles are pressure and temperature sensitive and can therefore
+        be used to estimate $\log g$. However, the gravity dependence rapidly diminishes for
+        temperatures above $\SI{10\,000}{K}$.
   \item Other strong lines: There exists other strong lines with pressure-broadened wings such as
         the \ion{Ca}{II} H and K lines. These are better for cooler stars than the hydrogen lines
         described above.
@@ -222,13 +250,13 @@ from spectroscopy.
 In this thesis weak lines are used to measure $\log g$. More specifically a comparison between
 \ion{Fe}{I} and \ion{Fe}{II} lines are used. For FGK stars, as the atmosphere contracts (i.e. $\log
 g$ increases) the pressure likewise increases, which in turn means that both the gas pressure,
-$P_g$, and electron pressure, $P_e$, increases. Since hydrogen is the main electron contributor, but
-not fully ionized for these stars, the electron pressure is much smaller that the gas pressure. The
-gas pressure follow a simply empirical approximation with gravity:
+$P_g$, and electron pressure, $P_e$, increases. However, the electron pressure is much smaller than
+the gas pressure because hydrogen, as the main electron contributor, is not fully ionized. The gas
+pressure follow a simply empirical approximation with gravity:
 \begin{align}
   P_g \approx \mathrm{constant}\, g^{2/3},
 \end{align}
-where $g$ is the gravity. The electron pressure is given by
+where $g$ is the gravity. The electron pressure is in turn given by
 \begin{align}
   P_e \approx \mathrm{constant}\, g^{1/3}.
 \end{align}
@@ -240,7 +268,7 @@ There are three cases for which a line show dependence on gravity, when consider
   \item A weak line formed by any ion, where most of the element is in the next lower ionized state.
 \end{enumerate}
 
-Using the Saha equation for case 1, it is important to note that the number of the atoms in the
+Using the \ref{eq:saha} Equation for case 1, it is important to note that the number of the atoms in the
 highest state is roughly equal to the total number of atoms of that element, $N_{r+1}\approx N$.
 Hence
 \begin{align}
@@ -256,7 +284,7 @@ absorption coefficient, $\kappa_\nu$
   R = \frac{F_c-F_\lambda}{F_c} = \mathrm{constant}\,\, \frac{l_\nu}{\kappa_\nu}.
 \end{align}
 When negative hydrogen dominates $\kappa_\nu$ which is the case here it is proportional to the
-electron pressure, $\kappa_\nu\propto P_e$ which means the line strength is not proportional to to
+electron pressure, $\kappa_\nu\propto P_e$ which means the line strength is not proportional to
 electron pressure:
 \begin{align}
   R = \frac{l_\nu}{\kappa_\nu} \approx \mathrm{constant}.
@@ -298,14 +326,14 @@ important to note that the correlation does change with $T_\mathrm{eff}$ and the
 
 The abundance of a given element obviously has an effect on the EW. The more abundant an element is,
 the more photons can be absorbed thus increasing the EW. However, the relationship is not strictly
-linear. For weak lines (GIVE RANGE) EW is approximately linear with the abundance, however it reach
-a plateau where the core of the line saturates. In this regime the EW only increases slowly, until
-the absorption ``spills'' into the wings and the increase is again linear. However, for these strong
-lines the profile is no longer Gaussian. The curve of growth for the same \ion{Fe}{I} line used in
-\fref{fig:ewTeff} is shown in \fref{fig:cog}. Instead of EW it is common to use the reduced EW,
-$\log (EW/\lambda)$\footnote{The reduced EW is useful since it normalises Doppler-dependent
-phenomena, such as microturbulence and thermal broadening.}, which we will use more later. Instead
-of the abundance of a line, the oscillator strength, $\log \mathit{gf}$, is used.
+linear. For weak lines (see \fref{fig:cog}) EW is approximately linear with the abundance, however
+it reach a plateau where the core of the line saturates. In this regime the EW only increases
+slowly, until the absorption ``spills'' into the wings and the increase is again linear. However,
+for these strong lines the profile is no longer Gaussian. The curve of growth for the same
+\ion{Fe}{I} line used in \fref{fig:ewTeff} is shown in \fref{fig:cog}. Instead of EW it is common to
+use the reduced EW, $\log (EW/\lambda)$\footnote{The reduced EW is useful since it normalises
+Doppler-dependent phenomena, such as microturbulence and thermal broadening.}, which we will use
+more later.
 
 \begin{figure}[htpb!]
     \centering
@@ -313,7 +341,7 @@ of the abundance of a line, the oscillator strength, $\log \mathit{gf}$, is used
     \caption{\emph{Upper panel:} Curve of growth of the same \ion{Fe}{I} line as used in
                                  \fref{fig:ewTeff}. Four points are marked which is shown in the
              \emph{lower panel} as a synthetic spectral line. The RW (proxy for EW) is clearly
-                                increasing with $\log \mathit{gf}$ (proxy for abundance).}
+                                increasing with abundance.}
     \label{fig:cog}
 \end{figure}
 
@@ -349,74 +377,76 @@ Boltzmann's constant, $T$ is the temperature, and $m$ is the mass of the atom. S
 $\xi_\mathrm{micro}=\SI{0}{km/s}$, we end up with thermal broadening.
 
 
-\section{Line list and atomic data}
-\label{sec:linelist}
+% \section{Line list and atomic data}
+% \label{sec:linelist}
+%
+% As mentioned above, the atomic data of the absorption lines are required. These data can be found in
+% a database such as \emph{The Vienna Atomic Line Data Base} (VALD) \citep{VALD1,VALD2}. For compiling
+% a usable iron line list, all theoretical transitions in a given wavelength range are requested from
+% VALD. In the near-infrared (NIR), YJHK bands, there are several thousands of theoretical
+% transitions.
+%
+% In this thesis the EWs are measured (see \sref{sec:measureEW}) for all these lines using the solar
+% spectrum by \citep{Hinkle1995}. Here there are four possible outcomes. 1) A line can not be measured
+% and is thus discarded, 2) the EW of the line is too weak (below \SI{5}{m\angstrom}) to be reliable,
+% 3) the EW of the line is too strong (above \SI{150}{m\angstrom}) and the line show non-linear
+% behaviour in the curve-of-growth (see \fref{fig:cog}), or 4) the EW of the line is between the two
+% limits and is then added to the final line list.
+%
+% After removing lines which EW is outside the range of EW mentioned above, it is good practise to
+% have a visual inspection. Here one should look for severe line blending with other absorption lines
+% which might prove problematic and unreliable measurements of the EW. If the reference spectrum used,
+% here for the Sun, is not corrected for telluric lines, it is also a good idea to remove lines which
+% exists amidst forest of telluric lines, as these absorption lines might fall on the telluric lines,
+% if the star observed has a different radial velocity (RV).
+%
+% When blended lines and otherwise lines which shows strange features (can be in a forest of telluric
+% lines), the last step is to calibrate the atomic data. As mentioned above, this is done by changing
+% the $\log \mathit{gf}$ value for a given line, until it has the desired determined abundance. In
+% this case, an iron line should have the abundance of 7.47 using the values from
+% \citet{Gonzalez2000}, when using a solar atmosphere model. There is a simple anti-correlation
+% between the determined abundance from the measured EW and the $\log \mathit{gf}$, so a simple
+% bisector minimization can be used to find the best $\log \mathit{gf}$. It is important to calibrate
+% the $\log \mathit{gf}$ when changing the version of \code{MOOG} (or if other radiative transfer
+% codes are used), the atmosphere model and version of those, and even the interpolation of the
+% atmosphere models. These changes in $\log \mathit{gf}$ should be minor compared to the change from
+% the VALD database and those we arrive at when calibrated for the Sun.
 
-As mentioned above, the atomic data of the absorption lines are required. These data can be found in
-a database such as \emph{The Vienna Atomic Line Data Base} (VALD) \citep{VALD1,VALD2}. For compiling
-a usable iron line list, all theoretical transitions in a given wavelength range are requested from
-VALD. In the near-infrared (NIR), YJHK bands, there are several thousands of theoretical
-transitions.
-
-In this thesis the EWs are measured (see \sref{sec:measureEW}) for all these lines using a solar
-spectrum \citep[][is used here]{Hinkle1995}. Here there are four possible outcomes. 1) A line can
-not be measured and is thus discarded, 2) the EW of the line is weak (below \SI{5}{m\angstrom}) to
-be reliable, 3) the EW of the line is too strong (above \SI{150}{m\angstrom}) and the line show
-non-linear behaviour in the curve-of-growth (see \fref{fig:cog}), or 4) the EW of the line is
-between the two limits and is then added to the final line list.
-
-After removing lines which EW is outside the range of EW mentioned above, it is good practise to
-have a visual inspection. Here one should look for severe line blending with other absorption lines
-which might prove problematic and unreliable measurements of the EW. If the reference spectrum used,
-here for the Sun, is not corrected for telluric lines, it is also a good idea to remove lines which
-exists amidst forest of telluric lines, as these absorption lines might fall on the telluric lines,
-if the star observed has a different radial velocity (RV).
-
-When blended lines and otherwise lines which shows strange features (can be in a forest of telluric
-lines), the last step is to calibrate the atomic data. As mentioned above, this is done by changing
-the $\log \mathit{gf}$ value for a given line, until it has the desired determined abundance. In
-this case, an iron line should have the abundance of 7.47 using the values from
-\citet{Gonzalez2000}, when using a solar atmosphere model. There is a simple anti-correlation
-between the determined abundance from the measured EW and the $\log \mathit{gf}$, so a simple
-bisector minimization can be used to find the best $\log \mathit{gf}$. It is important to calibrate
-the $\log \mathit{gf}$ when changing the version of \code{MOOG} (or if other radiative transfer
-codes are used), the atmosphere model and version of those, and even the interpolation of the
-atmosphere models. These changes in $\log \mathit{gf}$ should be minor compared to the change from
-the VALD database and those we arrive at when calibrated for the Sun.
 
 
-
-\section{Spectrographs}
-\label{sec:spectrographs}
-\unfinished{Not sure what the purpose is of this, but it can be relevant somewhere.}
-
-This chapter will be focused on some of the available spectrographs for deriving stellar atmospheric
-parameters using the method described in \sref{sec:parameters}. For this we need a spectrum of both
-high resolution and high signal-to-noise ratio, S/N, which combined will be called a high quality
-spectrum. In order to get reliable results, a spectral resolution of at least
-$R=\frac{\lambda}{\Delta\lambda}=25\,000$ is needed. A $S/N\approx 100$ is at least needed to obtain
-the parameters. These are approximately values since it can vary across different spectral classes,
-e.g. it is often relatively easy to obtain parameters of a solar-twin while it gets increasingly
-difficult as especially $T_\mathrm{eff}$ diverges in either direction from the solar value.
-Naturally the higher quality the spectrum is (both resolution and S/N), the better the results will
-be obtained. It is common practise to increase the S/N for a spectrum by co-adding a sample of lower
-S/N spectra of the same star from the same spectrograph. This is often used if the star of interest
-is so dim that it takes several observations to reach a sufficient high S/N. Another case is when
-spectra have been obtained from the archive. The scientific goal can be very different, e.g.
-obtaining radial velocities (RV) where a much lower S/N is needed, however here numerous spectra are
-needed. It is common to search for exoplanets with the RV detection method, where multiple spectra
-are obtained, and the stellar parameters are then obtained after co-adding the multiple spectra. It
-is of course important to put the spectra on a common RV, usually at \SI{0}{km/s}.
-
-Spectrographs work in different wavelength regions. The most used region is the optical part of the
-spectrum, which is also ideal for studying FGK stars with relative low line blending and low
-telluric contamination. In the recent years there has been an increase of NIR spectrographs. These
-will mainly be used to study the distant Universe, i.e. at high red-shifts, and cool objects in our
-own galaxy. Especially interesting are the M stars which consist of around 70\% of all stars in our
-galaxy \citep{Bochanski2010}. These stars are intrinsic dim because of their low $T_\mathrm{eff}$,
-ranging from \SIrange{2200}{3500}{K}, hence most of their light emitted will be in the NIR. It is
-advantageous to collect as much light as possible from these dim stars, since reaching a similar S/N
-in the optical would be more time expensive. The cool M stars have more molecules in the atmosphere
-than their hotter counterparts. This can be seen in the spectrum, where molecular lines greatly
-depress the continuum, making EW measurements difficult. This continuum depression is much larger in
-the optical than the NIR, giving another motivation for studying stars in this wavelength region.
+% \section{Spectrographs}
+% \label{sec:spectrographs}
+% \unfinished{Not sure what the purpose is of this, but it can be relevant somewhere.}
+%
+% This chapter will be focused on some of the available spectrographs for deriving stellar
+% atmospheric parameters using the method described in \sref{sec:parameters}. For this we need a
+% spectrum of both high resolution and high signal-to-noise ratio, S/N, which combined will be
+% called a high quality spectrum. In order to get reliable results, a spectral resolution of at
+% least $R=\frac{\lambda}{\Delta\lambda}=25\,000$ is needed. A $S/N\approx 100$ is at least needed
+% to obtain the parameters. These are approximately values since it can vary across different
+% spectral classes, e.g. it is often relatively easy to obtain parameters of a solar-twin while it
+% gets increasingly difficult as especially $T_\mathrm{eff}$ diverges in either direction from the
+% solar value. Naturally the higher quality the spectrum is (both resolution and S/N), the better
+% the results will be obtained. It is common practise to increase the S/N for a spectrum by
+% co-adding a sample of lower S/N spectra of the same star from the same spectrograph. This is often
+% used if the star of interest is so dim that it takes several observations to reach a sufficient
+% high S/N. Another case is when spectra have been obtained from the archive. The scientific goal
+% can be very different, e.g. obtaining radial velocities (RV) where a much lower S/N is needed,
+% however here numerous spectra are needed. It is common to search for exoplanets with the RV
+% detection method, where multiple spectra are obtained, and the stellar parameters are then
+% obtained after co-adding the multiple spectra. It is of course important to put the spectra on a
+% common RV, usually at \SI{0}{km/s}.
+%
+% Spectrographs work in different wavelength regions. The most used region is the optical part of
+% the spectrum, which is also ideal for studying FGK stars with relative low line blending and low
+% telluric contamination. In the recent years there has been an increase of NIR spectrographs. These
+% will mainly be used to study the distant Universe, i.e. at high red-shifts, and cool objects in
+% our own galaxy. Especially interesting are the M stars which consist of around 70\% of all stars
+% in our galaxy \citep{Bochanski2010}. These stars are intrinsic dim because of their low
+% $T_\mathrm{eff}$, ranging from \SIrange{2200}{3500}{K}, hence most of their light emitted will be
+% in the NIR. It is advantageous to collect as much light as possible from these dim stars, since
+% reaching a similar S/N in the optical would be more time expensive. The cool M stars have more
+% molecules in the atmosphere than their hotter counterparts. This can be seen in the spectrum,
+% where molecular lines greatly depress the continuum, making EW measurements difficult. This
+% continuum depression is much larger in the optical than the NIR, giving another motivation for
+% studying stars in this wavelength region.

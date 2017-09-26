@@ -1,19 +1,13 @@
 from __future__ import division
 import numpy as np
 import matplotlib.pyplot as plt
+from loggf2abundance import get_abundance as ga
 plt.rcParams['xtick.direction'] = 'in'
 plt.rcParams['ytick.direction'] = 'in'
 
 '''EW dependence on gravity using:
 Teff, feh, vt = 5777, 0.00, 1.0
 '''
-
-
-def get_cog(logg):
-    d = np.loadtxt('cog_logg%s.dat' % int(logg))
-    idx = np.argsort(d[:, 0])
-    d = d[idx]
-    return d
 
 
 def get_synthetic(logg):
@@ -29,11 +23,11 @@ def get_abundance(logg):
 if __name__ == '__main__':
     loggs = [2.0, 3.0, 4.0, 5.0]
     for logg in loggs:
-        cog = get_cog(logg)
+        df = ga(int(logg))
         synthetic = get_synthetic(logg)
 
         plt.subplot(211)  # Upper: CoG
-        plt.plot(cog[:, 0], cog[:, 1], label='log g=%.2f' % logg)
+        plt.plot(df['abund'], df['logRWin'], label='log g=%.2f' % logg)
 
         plt.subplot(223)  # Lower left: Synthetic line
         plt.plot(synthetic[:, 0], synthetic[:, 1])
@@ -63,7 +57,7 @@ if __name__ == '__main__':
     ax.xaxis.set_tick_params(width=2)
     ax.yaxis.set_tick_params(width=2)
     plt.legend(loc='best', frameon=False)
-    plt.xlabel(r'log $gf$')
+    plt.xlabel('Abundance')
     plt.ylabel(r'$\log(EW/\lambda)$')
 
     plt.subplot(223)

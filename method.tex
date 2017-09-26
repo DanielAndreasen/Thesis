@@ -63,39 +63,39 @@ $R$. A more in-depth description of the IRFM can be see in e.g. \citet[][section
 
 Photometry can be used for deriving $T_\mathrm{eff}$ using existing colour calibrations like that of
 for example \citet{Ramirez2005a} where adopted $T_\mathrm{eff}$ and $[\ion{Fe}/\ion{H}]$ in
-combination with colours such as $B-V$, $V-S$, etc. are used to fit a polynomial such that the
+combination with colours $X$ such as $B-V$, $V-S$, etc. are used to fit a polynomial such that the
 $T_\mathrm{eff}$ can easily be estimated with a simple relation:
+\begin{align}
+  \theta_\mathrm{eff} = a_0+a_1 X+a_2 X^2+a_3X[\ion{Fe}/\ion{H}] + a_4[\ion{Fe}/\ion{H}] + a_5[\ion{Fe}/\ion{H}]^2, \label{eq:irfm}
+\end{align}
+where $\theta_\mathrm{eff}=5040/T_\mathrm{eff}$. A polynomial fit was performed on the residuals in
+order to deal with spectroscopic features such as the Balmer lines, the Paschen jump, etc. This
+polynomial fit, $P(X, [\ion{Fe}/\ion{H}])$ is added to \eref{eq:irfm} so the calibration finally
+reads:
 \begin{align}
   T_\mathrm{eff} = \frac{5040}{\theta_\mathrm{eff}} + P(X, [\ion{Fe}/\ion{H}]),
 \end{align}
-where
-\begin{align}
-  \theta_\mathrm{eff} &= \frac{5040}{T_\mathrm{eff}} \\
-                      &= a_0+a_1 X+a_2 X^2+a_3X[\ion{Fe}/\ion{H}] + a_4[\ion{Fe}/\ion{H}] + a_5[\ion{Fe}/\ion{H}]^2
-\end{align}
-is the polynomial fit between $T_\mathrm{eff}$ versus a colour ($X$) and the metallicity. The
-polynomial $P(X, [\ion{Fe}/\ion{H}])$ is a correction applied to remove trends in the residuals, for
-example spectral features such as the Balmer lines or the Paschen jump. This correction is performed
-after the initial fit.
 
 After obtaining the coefficients ($a_i$) for different combinations of colours, it is trivial to
 obtain $T_\mathrm{eff}$ if the metallicity and a colour is known of the star.
 
 \subsection{Asteroseismology}
+\label{sec:asteroseismology}
 
-Asteroseismology is the study of stellar pulsations. These pulsations propagate as sounds waves
-throughout a star, their origin and amplitude is determined by the characteristics of the star,
-hence the study of the pulsations, which are seen on the surface, will thus be a study of the
-stellar properties. In order to to study these a time series is needed. This can both be radial
-velocities as it was used in the recent results from the SONG telescope \citep{Grundahl2017}, or
-photometry like the numerous results from e.g. the space telescopes \emph{CoRoT} and \emph{Kepler}
-\citep[see e.g.][]{Christensen-Dalsgaard2010,Huber2014,Chaplin2011}. The analysis is identical for
-either time series, however the amplitudes in the power spectrum will look different.
+Asteroseismology is the study of stellar pulsations. For main sequence stars (which will be the only
+focus here), these pulsations propagate as sounds waves throughout a star, their origin and
+amplitude is determined by the characteristics of the star. Hence the study of the pulsations, which
+are seen on the surface, will thus be a study of the stellar properties. In order to to study these
+a time series is needed. This can both be radial velocities as it was used in the recent results
+from the SONG telescope \citep{Grundahl2017}, or photometry like the numerous results from e.g. the
+space telescopes \emph{CoRoT} and \emph{Kepler} \citep[see
+e.g.][]{Christensen-Dalsgaard2010,Chaplin2011,Huber2014}. The analysis is identical for either time
+series, however the amplitudes in the power spectrum will be different.
 
 After determining the frequencies of a range of pulsations from a power spectrum of the time series,
 a pattern emerge at every $\Delta\nu$ (the so-called large frequency separation). A finer pattern
 also occur described by $\delta\nu$. Last the frequency at maximum power is also measured from the
-power spectrum, $\nu_\mathrm{max}$. These frequency separations are used to obtain $\log g$ via
+power spectrum, $\nu_\mathrm{max}$. The frequency at maximum power is used to obtain $\log g$ via
 \begin{align}
   \nu_\mathrm{max} &\propto \frac{g}{\sqrt{T_\mathrm{eff}}} \\
                    &= \frac{M/M_\odot}{(R/R_\odot)^2 \sqrt{T_\mathrm{eff}/5777}}\; \SI{3.05}{mHz},\label{eq:scaling1}
@@ -105,12 +105,12 @@ similar equation exists for the determination of the stellar density:
 \begin{align}
   \Delta\nu = (M/M_\odot)^{-1/2} (R/R_\odot)^{-3/2}\; \SI{134.9}{\micro\hertz}.
 \end{align}
-These simple scaling relation are described in detail in \citet{Kjeldsen1995}. These two equations
-can be used together to determine the mass and radius of the star, often to a high precision. These
-scaling relations are applicable for stars which shows solar-like oscillations, mostly found in main
-sequence FGK stars, but can also be found in red giant stars. The mass and radius for a range of
-$\nu_\mathrm{max}$ and $\Delta\nu$ can be seen in \fref{fig:scaling}, where
-$T_\mathrm{eff}=\SI{5777}{K}$. The star located at $\{\Delta\nu=\SI{134.9}{\micro
+These simple scaling relation are described in detail in \citet{Kjeldsen1995} for main sequence
+stars. These two equations can be used together to determine the mass and radius of the star, often
+to a high precision. These scaling relations are applicable for stars which shows solar-like
+oscillations, mostly found in main sequence FGK stars, but can also be found in red giant stars. The
+mass and radius for a range of $\nu_\mathrm{max}$ and $\Delta\nu$ can be seen in \fref{fig:scaling},
+where $T_\mathrm{eff}=\SI{5777}{K}$. The star located at $\{\Delta\nu=\SI{134.9}{\micro
 Hz};\;\nu_\mathrm{max}=\SI{3.05}{mHz}\}$ is the Sun.
 
 The small frequency separation, $\delta\nu$, is sensitive to the sound-speed gradient in the core
@@ -123,13 +123,14 @@ giant stars.
     \centering
     \includegraphics[width=0.85\linewidth]{figures/scaling_relation.pdf}
     \caption{Mass and radius from asteroseismic scaling relation. The colour is the mass and radius
-             for the upper and lower panel, respectively.}
+             for the upper and lower panel, respectively. The location of the Sun is added for
+             reference.}
     \label{fig:scaling}
 \end{figure}
 
 A drawback of asteroseismology is the dependence of $T_\mathrm{eff}$ in \eref{eq:scaling1} which has
 to be provided from another method. Ideally this will come from spectroscopy for which the
-determination of $T_\mathrm{eff}$ is often reliable. This drawback is minor compared to the lack of
+determination of $T_\mathrm{eff}$ is often reliable. This drawback is minor compared to the weak
 model dependence which is one of the strongest advantages of asteroseismology.
 
 For both of the mentioned photometric methods to determine some atmospheric parameters a
@@ -144,8 +145,8 @@ welcomed between different methods.
 A spectrum can be analysed with a range of different methods. The method finally chosen depend on
 quality of the spectrum, i.e. high/low resolution and high/low S/N, the spectral type of the star,
 the region that was observed, e.g. UV, optical, NIR, etc., some stellar properties, e.g.
-fast-rotator, activity, etc. No methods work for all cases, but sometime several methods can be used
-for on case.
+fast-rotator, activity, etc. In practise, no methods work for all cases, but sometime several
+methods can be used for on case.
 
 Since this thesis is focused on FGKM stars, and mainly dwarfs, three methods will be described;
 synthesis, spectral indices, and the EW method. The latter method will be described in a separate
@@ -173,13 +174,14 @@ the measurement.
 The synthetic fitting can be done by utilising small windows around sensitive spectral features such
 as ionized lines or hydrogen lines for obtaining the surface gravity, iron lines for obtaining the
 effective temperature, a series of different atomic lines for obtaining the overall metallicity.
-This approach is used by FASMA and SME \citep[][respectively]{Valenti1996,Tsantaki2017} and is a
-compromise between fitting the entire spectral range and calculating the synthetic spectra on the
-fly which is time consuming. On the other hand the entire spectrum can be fitted if a pre-calculated
-grid of synthetic spectra are available. By masking small windows, one can also exclude different
-features that are troublesome, this can be telluric lines, bad reduction of the spectra, or real
-spectral features where there currently is poor atomic/molecular data such as the oscillator
-strength and thus it is not possible to reliably fit this feature.
+This approach is used by \code{SME} and \code{FASMA}
+\citep[][respectively]{Valenti1996,Tsantaki2017} and is a compromise between fitting the entire
+spectral range and calculating the synthetic spectra on the fly which is time consuming. On the
+other hand the entire spectrum can be fitted if a pre-calculated grid of synthetic spectra are
+available. By masking small windows, one can also exclude different features that are troublesome,
+this can be telluric lines, bad reduction of the spectra, or real spectral features where there
+currently is poor atomic/molecular data such as the oscillator strength and thus it is not possible
+to reliably fit this feature.
 
 This method is affected by the different approaches one can use, that is which atmosphere models are
 used (ATLAS, MARCS, etc.), atomic data and whether this has been calibrated, the radiative transfer
@@ -187,17 +189,19 @@ code in the case the synthetic spectra are calculated on the fly, and the minimi
 chosen. With these things in mind it is important to stress the wide range spectra and spectral
 classes this method works with.
 
+The advantage of the synthetic fitting method over the curve-of-growth analysis (see
+\sref{sec:parameters}) is that it allows for the analysis of lower resolution and with a higher
+rotational velocity, $v\sin i$.
 
 
-
-\section{\code{FASMA}}
+\subsection{The EW method and \code{FASMA}}
 \label{sec:parameters}
 
 The EW method or curve-of-growth analysis is another standard method for obtaining stellar
 atmospheric parameters from spectra as the synthetic fitting method (\sref{sec:synthesis}). Since
 this is the method used throughout this thesis it will be explained in detail. This analysis follow
-a chain of tasks, each has been made automatic in the software Fast Analysis of Spectra Made
-Automatically (\code{FASMA}\footnote{Greek for spectrum}) which was developed during this thesis
+a chain of tasks, each has been made automatic in the software ``Fast Analysis of Spectra Made
+Automatically" (\code{FASMA}\footnote{Greek for spectrum}) which was developed during this thesis
 \citep{Andreasen2017a}. \code{FASMA} is made of three \code{drivers}:
 \begin{enumerate}
   \item EW measurement driver
@@ -209,7 +213,7 @@ An additional driver is under development; a synthetic fitting driver \citep{Tsa
 \url{http://www.iastro.pt/fasma/}.
 
 
-\subsection{Ingredients}
+\subsubsection{Ingredients}
 
 \code{FASMA} is written in the Python programming language and glue together other software and
 model atmospheres necessary for obtaining stellar atmospheric parameters from high quality spectra.
@@ -217,43 +221,45 @@ These software and models are described in greater detail in the following secti
 curve-of-growth analysis require measured EWs where the latest version\footnote{The latest version
 can be found here: \url{https://github.com/sousasag/ARES}} of \code{ARES} is used
 \citep{Sousa2015a}. These EWs are used to derive line abundances using model atmosphere like the
-ATLAS9 \citep{Kurucz1993}, MARCS models \citep{Gustafson2008}, or PHOENIX models \citep{Husser2013}
-to mention the most popular for this analysis. Note that the PHOENIX models are relative new and not
-as widely used yet. In tandem with model atmospheres a radiative transfer code is also needed.
-\code{FASMA} uses \code{MOOG} \citep{Sneden1973} for this. The model atmosphere usually comes in a
-pre-calculated grid in the $\{T_\mathrm{eff},\,\log g,\,[\ion{Fe}/\ion{H}]\}$ parameter space. These
-are interpolated in order to access the requested combination of parameters. Last, \code{FASMA}
-consist of a minimization routine which looks for the best matching parameters given a spectrum.
+ATLAS9 \citep{Kurucz1993}, MARCS models \citep{Gustafson2008}, or PHOENIX models\footnote{The
+PHOENIX models are currently not a part of \code{FASMA}, however it is planned to implement these
+models with \code{MOOG}.} \citep{Husser2013} to mention the most popular for this analysis. Note that the
+PHOENIX models are relative new and not as widely used yet. In tandem with model atmospheres a
+radiative transfer code is also needed. \code{FASMA} uses \code{MOOG} \citep{Sneden1973} for this.
+The model atmosphere usually comes in a pre-calculated grid in the $\{T_\mathrm{eff},\,\log
+g,\,[\ion{Fe}/\ion{H}]\}$ parameter space. These are interpolated in order to access the requested
+combination of parameters. Last, \code{FASMA} consist of a minimization routine which looks for the
+best matching parameters given a spectrum.
 
 
 
-\subsection{Wrapper for \code{ARES}}
+\subsubsection{Wrapper for \code{ARES}}
 \label{sec:measureEW}
 
-There are two ways to measure the EW of an absorption line, manually or automatically. There are
-advantages and disadvantages for both method. For the manual, an advantage is that we can inspect
-the lines and try to measure lines in different ways (which is useful if it is blended). We have
-more control over how blended lines are fitted, and which profiles are used. Disadvantages are that
-it is very time consuming, and it is prone to errors, as a measurement might change drastically by
-the eyes measuring it. Even for the same person, the measurement can change. By mentioning the
-advantages and disadvantages of the manual method, it should be clear that the advantages and
-disadvantages of the automatic method is the opposite of those. Especially the time to measure the
-lines are orders of magnitudes faster, which is crucial when dealing with more than a handful of
-spectra.
+There are two ways to measure the EW of an absorption line, ``manually'' or automatically. There are
+advantages and disadvantages for both approaches: For the manual, an advantage is that we can
+inspect the lines and try to measure lines in different ways (which is useful if a absorption line
+is blended). We have more control over how blended lines are fitted, and which profiles are used.
+Disadvantages are that it is very time consuming, and it is prone to errors, as a measurement might
+change drastically by the eyes measuring it. Even for the same person, the measurement can change.
+By mentioning the advantages and disadvantages of the manual method, it should be clear that the
+advantages and disadvantages of the automatic method is the opposite of those. Especially the time
+to measure the lines are orders of magnitudes faster, which is crucial when dealing with more than a
+handful of spectra. However, most important is the fact that the EWs of the lines are measured
+consistently throughout the entire spectral range, allowing a homogeneous analysis of the lines.
 
 When a line is measurement by hand (manually) it is in this thesis done using the \code{splot}
 command in \code{IRAF}. Here the deblending mode is used whenever necessary. It is often necessary
 to fit one spectral lines with several Gaussians, as neighbouring lines might contaminate the line
 of interest.
 
-When a line is measurement automatically it is in this thesis done with \code{ARES}
+
+Throughout this thesis line EWs are automatically measured with \code{ARES}
 \citep{Sousa2007,Sousa2015a}. When using \code{ARES} it is important to use a correct value of the
 \code{rejt} parameter. This parameter is used for placing the continuum level, and is thus directly
 related to the final measurement EW. It is difficult to get this parameter right, however the newest
 version of \code{ARES} has the option to analyse a few absorption free regions and measure the S/N.
-The \code{rejt} is then calculated as:
-\begin{align*}
-  \mathtt{rejt} = 1 - \frac{1}{\mathrm{S/N}}.
+The \code{rejt} is then calculated as: \begin{align*} \mathtt{rejt} = 1 - \frac{1}{\mathrm{S/N}}.
 \end{align*}
 
 \code{ARES} is used via the first driver of \code{FASMA}. All the options available for \code{ARES}
@@ -261,31 +267,33 @@ can be accessed by \code{FASMA}. The options are
 \begin{itemize}
   \item Setting the spectral window, $\lambda_\mathrm{min}$ and $\lambda_\mathrm{max}$
   \item RV correction to be applied or a mask to measure the RV and automatic make this correction
-  \item minimum and maximum EW to be considered ($\SI{5}{m\angstrom}$ and $\SI{150}{m\angstrom}$
+  \item Minimum and maximum EW to be considered ($\SI{5}{m\angstrom}$ and $\SI{150}{m\angstrom}$
         respectively by default)
-  \item Minimum distance between two consecutive lines
-  \item Smoothing applied with a \code{boxcar} filter before measuring the EWs
+  \item Minimum acceptable distance between two consecutive lines
+  \item Smoothing applied with a \code{boxcar} filter before measuring the EWs. This is only for
+        automatic line identification.
 \end{itemize}
 An in-depth description of these options can be found in
 \citet{Sousa2007,Sousa2015a}.
 
-Sometimes \code{ARES} crash when measuring an absorption line. The reason is not clear, however when
-dealing with a large amount of spectra, it is important that the analysis moves on. To deal with
-this problem, \code{FASMA} finds the last line which \code{ARES} tried to measure in the log file. This line is
-temporarily removed from the line list and \code{ARES} is restarted. The line list used for deriving
-parameters consists of numerous iron lines, thus removing one line will have a negligible effect on
-the final derived parameters.
+Rarely \code{ARES} crash when measuring an absorption line. The reason is not clear, however when
+dealing with a large amount of spectra, it is important that the analysis moves on. However, a
+closer inspection usually reveal strange spectral features such as zero flux, sharp peaks in the
+spectra, etc. To deal with this problem, \code{FASMA} finds the last line which \code{ARES} tried to
+measure in the log file. This line is temporarily removed from the line list and \code{ARES} is
+restarted. The line list used for deriving parameters consists of numerous iron lines, thus removing
+one line will have a negligible effect on the final derived parameters.
 
 
 
-\subsection{Interpolation of atmosphere models}
+\subsubsection{Interpolation of atmosphere models}
 \label{sec:interpolation}
 
 \code{FASMA} has access to both ATLAS9 models by \citet{Kurucz1993} and MARCS models by
 \citet{Gustafson2008}, both are in a pre-calculated grid as described above. Let this grid be
 described by $\{T_\mathrm{eff,g},\, \log g_g,\, [\ion{Fe}/\ion{H}]_g\}$, where subscript $g$ is one
 of the grid points. Such a grid can be seen in \fref{fig:grid} for $[\ion{Fe}/\ion{H}]=0.00$ in the
-$T_\mathrm{eff}$ range; $\SIrange{3000}{10000}{K}$. For visualisation the location of the Sun is
+$T_\mathrm{eff}$ range; \SIrange{3000}{10000}{K}. For visualisation the location of the Sun is
 shown as well. The colour scale corresponds to the temperature in the first layer of each model
 atmosphere, i.e. the uppermost layer. The requested value will be $\{T_\mathrm{eff,r},\,\log
 g_r,\,[\ion{Fe}/\ion{H}]_r\}$. The task is now to find the surrounding grid points in the parameter
@@ -314,22 +322,22 @@ expected by \code{MOOG}.
 
 
 
-\subsection{Minimization}
+\subsubsection{Minimization}
 \label{sec:minimization}
 
 With the measured EWs for all the lines in the line list, we choose an atmosphere model to determine
 the abundances. If there is no prior knowledge of the star it is common simply to choose an
 atmosphere model with solar parameters as a starting point. Once the line abundances of all the iron
-lines has been determined, the linear correlation between the abundances and the reduced EWs (RW),
-and the abundances and the excitation potential is calculated. If there is a correlation it means
-the model atmosphere used is wrong. Moreover, we also have to check if the mean abundance of
-\ion{Fe}{I} and \ion{Fe}{II} lines are equal, and last if mean abundance of the \ion{Fe}{I} lines is
-equal to the input $[\ion{M}/\ion{H}]$ of the atmosphere model\footnote{We use \ion{Fe}{I} instead
-of \ion{Fe}{II} lines for this, since they are more numerous.}. If one of these four criteria does
-not pass, then the atmosphere model is wrong, and we have to search for a new one. A common way to
-do this, is by combining the indicators into a scalar value:
+lines has been determined, the linear correlation between the abundances and the reduced EWs (RW)
+$a_\mathrm{RW}$, and the abundances and the excitation potential $a_\mathrm{EP}$ is calculated. If
+there is a correlation it means the model atmosphere used is wrong. Moreover, we also have to check
+if the mean abundance of \ion{Fe}{I} and \ion{Fe}{II} lines are equal, and last if mean abundance of
+the \ion{Fe}{I} lines is equal to the input $[\ion{M}/\ion{H}]$ of the atmosphere model\footnote{We
+use \ion{Fe}{I} instead of \ion{Fe}{II} lines for this, since they are more numerous.}. If one of
+these four criteria does not pass, then the atmosphere model is wrong, and we have to search for a
+new one. A common way to do this, is by combining the indicators into a scalar value:
 \begin{align}
-  f(\{T_\mathrm{eff}, \log g, [Fe/H], \xi_\mathrm{micro}\}) &= \sqrt{a_\mathrm{EP}^2 + a_\mathrm{RW}^2 + \Delta\ion{Fe}{}^2},
+  f(\{T_\mathrm{eff}, \log g, [\ion{Fe}/\ion{H}], \xi_\mathrm{micro}\}) &= \sqrt{a_\mathrm{EP}^2 + a_\mathrm{RW}^2 + \Delta\ion{Fe}{}^2},
 \end{align}
 where $a_\mathrm{EP}$ is the correlation between abundances and excitation potential,
 $a_\mathrm{RW}$ is the correlation between abundances and RW, and $\Delta\ion{Fe}{}$ is the
@@ -344,7 +352,7 @@ we are not minimizing this using standard mathematical methods, but rather using
 knowledge. This minimization is useless for anything else, but it is excellent for this. The vector
 function has the form:
 \begin{align}
-    f(\{T_\mathrm{eff}, \log g, [Fe/H], \xi_\mathrm{micro}\}) = \{a_\mathrm{EP}, a_\mathrm{RW}, \Delta\ion{Fe}, \ion{Fe}{I}\}.
+    f(\{T_\mathrm{eff}, \log g, [\ion{Fe}/\ion{H}], \xi_\mathrm{micro}\}) = \{a_\mathrm{EP}, a_\mathrm{RW}, \Delta\ion{Fe}, \ion{Fe}{I}\}.
 \end{align}
 
 The abundances of \ion{Fe}{I} lines versus EP and RW are shown in \fref{fig:eprw} for the planet
@@ -375,7 +383,9 @@ The minimization with the different options is depicted in \fref{fig:minimizatio
 iteration where convergence is not reached, the input metallicity is changed to that of the average
 output metallicity using the \ion{Fe}{I} lines. \code{FASMA} is able to set one or all of the four
 atmospheric parameters to a fixed value, and when it reach convergence it checks if there are any
-outliers in the abundances. These will be removed, either:
+outliers in the abundances. These outliers are likely to come from a bad measurement of the EW of
+the given line. This can be due to line blending or a poor spectral reduction. These can be removed,
+either:
 \begin{itemize}
   \item All outliers above $3\sigma$ once; minimization routine is restarted after removal of
         outliers.
@@ -384,21 +394,23 @@ outliers in the abundances. These will be removed, either:
   \item One outlier above $3\sigma$ (with the highest deviation) is removed iteratively;
         minimization routine is restarted after removal of outliers each time.
 \end{itemize}
+It is optional to remove any outliers, but recommended.
 
-All restarts of the minimization will start at the precious best found parameters. For the latter
-two were outliers are removed iteratively, this will continue until no outliers are present. An
+All restarts of the minimization will start at the previous best found parameters. For the latter
+two where outliers are removed iteratively, this will continue until no outliers are present. An
 optical line list like the ones by \citet{Sousa2008a,Tsantaki2013} have been tested thoroughly and
-it is safe to remove a larger amount of lines and still obtain reliable parameters, thus using the
-first option is common here. However, with a less tested line list, like the one by
-\citet{Andreasen2016} (and refined in \citet{Andreasen2017b}), one should remove outliers more
-carefully, and it is recommended that one outlier is removed iteratively.
+due to the large amount of lines it is safe to remove a larger amount of lines and still obtain
+reliable parameters, thus using the first option is common here. However, with a less tested line
+list, like the one by \citet{Andreasen2016} (and refined in \citet{Andreasen2017b}), one should
+remove outliers more carefully, and it is recommended that one outlier is removed iteratively.
 
 \paragraph{Option: fix $\xi_\mathrm{micro}$ - }
 
 Sometimes the minimization can not reach convergence with all parameters free. The first approach to
 progress is to fix $\xi_\mathrm{micro}$ to a value. This parameter is known to depend on the
-spectral type \citep[see e.g.][and references therein]{Tsantaki2013}. \code{FASMA} use one of two
-empirical relations to fix $\xi_\mathrm{micro}$ if this is close to either $0\si{km/s}$ or
+spectral type \citep[see e.g.][and references therein]{Tsantaki2013}. This is also shown in
+\fref{fig:vtRelation} for a sample of 583 stars analysed with \code{FASMA}. \code{FASMA} use one of
+two empirical relations to fix $\xi_\mathrm{micro}$ if this is close to either $0\si{km/s}$ or
 $5\si{km/s}$ and $|a_\mathrm{RW}| > 0.050$ at the end of the minimization. The empirical relations
 are:
 \begin{align}
@@ -412,15 +424,25 @@ where the first case is from \citet{Tsantaki2013} and the latter case is from \c
 In this way $\xi_\mathrm{micro}$ is changed in each iteration according to one of these relations.
 This option is called \code{autofixvt} in \fref{fig:minimization}.
 
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/vtRelation.pdf}
+    \caption{$\xi_\mathrm{micro}$ dependence on $T_\mathrm{eff}$ and $\log g$ for a sample of 583
+             stars.}
+    \label{fig:vtRelation}
+\end{figure}
+
 \paragraph{Option: Change line list - }
 
 After the minimization, it happens that the derived $T_\mathrm{eff}$ is below \SI{5200}{K}. At this
-temperature it is well known that the line list by \citet{Sousa2008a} does not work well. This is
-something that was corrected by \citet{Tsantaki2013}, who created a subset of the previous iron line
-list. This smaller line list are able to successfully derive $T_\mathrm{eff}$ below \SI{5200}{K}.
-Therefore, if the option \code{teffrange} is on (which is highly recommended), the line list by
-\citet{Sousa2008a} will simply be converted to the smaller line list by \citet{Tsantaki2013} if
-$T_\mathrm{eff}$ is below this threshold, and the minimization will be restarted.
+temperature it is well known that the line list by \citet{Sousa2008a} does not work well. Some of
+the lines start to be blended for lower $T_\mathrm{eff}$, thus giving poor measurements of some EWs.
+This is something that was corrected by \citet{Tsantaki2013}, who created a subset of the previous
+iron line list. This smaller line list are able to successfully derive $T_\mathrm{eff}$ below
+\SI{5200}{K}. Therefore, if the option \code{teffrange} is on (which is highly recommended), the
+line list by \citet{Sousa2008a} will simply be converted to the smaller line list by
+\citet{Tsantaki2013} if $T_\mathrm{eff}$ is below this threshold, and the minimization will be
+restarted. This conversion happens after the convergence.
 
 \paragraph{Option: Refine results - }
 
@@ -452,7 +474,9 @@ the previous iteration. These are empirical relations. Note that by changing e.g
 not only is $a_\mathrm{EP}$ affected, but the other indicators as well as seen in \fref{fig:eprw}.
 This inter-dependency between the parameters is ignored by \code{FASMA} as it is not a simple
 problem to solve. The stepping presented above is chosen to rapidly reach convergence, without
-causing problems for the inter-dependency.
+causing problems for the inter-dependency. This minimization is thus build to apply a standard
+method, curve-of-growth analysis, using as few calls to the time consuming part, which is the
+calculation of the abundances with \code{MOOG}.
 
 \begin{figure}[htpb!]
     \centering
@@ -462,7 +486,7 @@ causing problems for the inter-dependency.
 \end{figure}
 
 
-\subsection{Error estimate}
+\subsubsection{Error estimate}
 \label{sec:error_estimate}
 
 The error estimate is based on the same method presented in \citet{Neuforge1997}. The error on
@@ -474,7 +498,7 @@ $\xi_\mathrm{micro}$. The error for $[\ion{Fe}/\ion{H}]$ corresponds to the disp
 The error in $\log g$ corresponds to the dispersion in the pressure sensitive \ion{Fe}{II}
 abundances.
 
-\subsection{Testing \code{FASMA}}
+\subsubsection{Testing \code{FASMA}}
 \label{sec:fasma_test}
 
 Parameters were derived for a 582 sample presented in \citet{Sousa2011} with \code{FASMA} as a test.

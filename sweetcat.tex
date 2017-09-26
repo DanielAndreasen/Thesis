@@ -5,31 +5,33 @@
 
 
 Part of the work during the thesis has been dedicated to regularly update
-SWEET-Cat\footnote{\url{https://www.astro.up.pt/resources/sweet-cat/}}, a catalogue with all
-discovered planet hosts, and the stellar parameters.
+SWEET-Cat\footnote{\url{https://www.astro.up.pt/resources/sweet-cat/}} after announcements of new
+exoplanet hosts, a catalogue with all discovered planet hosts, and the stellar parameters. After
+collecting spectra for more than 50 exoplanet hosts, these were analysed and presented in
+\citet{Andreasen2017a}.
 
-In this chapter a detailed description of SWEET-Cat will be presented. Moreover an analysis of 50
-planet hosts was performed during the thesis with updated planetary parameters (mass and radius).
+In this chapter a detailed description of SWEET-Cat will be presented along with the analysis of the
+newly collected spectra.
 
 
 \section{What is SWEET-Cat?}
 
 As mentioned above, SWEET-Cat is a catalogue of planet host stars. However, the strength of
 SWEET-Cat is the homogeneously analysed stars utilising the method described in
-\sref{sec:parameters} with \code{FASMA} or a similar tool before the creation of \code{FASMA}.
+\sref{sec:parameters} with \code{FASMA} or \code{ARES+MOOG}.
 
 In the era with a large number of discovered exoplanets (more than 3500 confirmed exoplanet at the
-moment of writing), the time for in-depth statistical studies has arrived. However, when conducting
+moment of writing), it is possible to perform in-depth statistical studies. However, when conducting
 these studies it is crucial to have consistent measurements of e.g. stellar atmospheric parameters.
 This can be obtained by using a single analysis to obtain these parameters, as it is know that
 different methods will lead to different results \citep[see e.g.][for a recent review]{Hinkel2016}.
 
-To obtain stellar atmospheric parameters from one method is an on-going goal with SWEET-Cat, where
-high quality spectra are obtained for stars hosting planets. These are used to determine the stellar
-parameters in a homogeneous way. All stars in SWEET-Cat analysed with the method from our group are
-marked with a flag showing whether it is analysed homogeneously or not. The columns provided in
-SWEET-Cat are summarised in \tref{tab:sweetcat}. It is important to note that SWEET-Cat does not
-include any planetary parameters.
+To obtain stellar atmospheric parameters in a consistent and homogeneously way is an on-going goal
+with SWEET-Cat, where high quality spectra are obtained for stars hosting planets. These are used to
+determine the stellar parameters in a homogeneous way. All stars in SWEET-Cat analysed with the
+method from our group are marked with a flag. The columns provided in SWEET-Cat are summarised in
+\tref{tab:sweetcat}. It is important to note that SWEET-Cat does not include any planetary
+parameters.
 
 \begin{table}[htb!]
     \caption{Columns in SWEET-Cat}
@@ -74,28 +76,29 @@ have been analysed with the method from our group, as described in this thesis.
 
 \section{Data for 50 planet hosts}
 
-In this section the data for a large update to SWEET-Cat will be described. The majority of the data
-comes as a result from proposals submitted for observational time, while some of the data was found
-in the archive. In the next section the analysis of the 50 spectra will be presented along with the
-results.
+In this section the data for a large update to SWEET-Cat will be described \citep{Andreasen2017a}.
+The majority of the data comes as a result from proposals submitted for observational time, while
+some of the data was found in the archive. In the next section the analysis of the 50 spectra will
+be presented along with the results.
 
 
-
-\subsection{Data collected from proposals}
+\subsection{The data}
 
 Data\footnote{Based on observations collected at the La Silla Observatory, ESO (Chile), with
 FEROS/2.2m (run 2014B/020), with UVES/VLT at the Cerro Paranal Observatory (runs ID 092.C-0695,
 093.C-0219, 094.C-0367, 095.C-0324, and 096.C-0092), and with FIES/NOT at Roque de los Muchachos
-(Spain) (runs ID 14AF14 and 53-202).} for 43 out of the 50 stars were collected by the SWEET-Cat
-team using the UVES/VLT \citep{UVES}, FEROS/2.2m telescope in La Silla \citep{FEROS}, and FIES/NOT
-\citep{FIES} spectrographs. The remaining spectra were found in various archives. This includes
-spectra from the HARPS/3.6m telescope in La Silla \citep{HARPS} and ESPaDOnS/CFHT \citep{ESPADONS}.
-Some characteristics of the spectrographs are presented in \tref{tab:instruments} with the mean S/N
-for the spectra used. The S/N for each star can be seen in \tref{tab:SCresults} along with the
-atmospheric parameters of the stars. The S/N is measured automatically by ARES, however note that
-ARES smoothes the spectra before measuring the S/N, hence it is listed higher than the actual S/N.
-These 50 stars are confirmed exoplanet hosts listed in SWEET-Cat, but they belonged to the list of
-stars that have not previously been analysed by our team.
+(Spain) (runs ID 14AF14 and 53-202).} for 43 out of the 50 stars were collected using UVES/VLT
+\citep{UVES}, FEROS/2.2m telescope in La Silla \citep{FEROS}, and FIES/NOT \citep{FIES}
+spectrographs. The remaining spectra were found in various archives\footnote{
+\href{http://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/}{ESPaDOnS}\\
+\href{http://archive.eso.org/wdb/wdb/adp/phase3_spectral/form}{HARPS}}. This includes spectra from
+the HARPS/3.6m telescope in La Silla \citep{HARPS} and ESPaDOnS/CFHT \citep{ESPADONS}. Some
+characteristics of the spectrographs are presented in \tref{tab:instruments} with the mean S/N for
+the spectra used. The S/N for each star can be seen in \tref{tab:SCresults} along with the
+atmospheric parameters of the stars. The S/N is measured automatically by \code{ARES}. These 50
+stars are confirmed exoplanet hosts listed in SWEET-Cat, but they belonged to the list of stars that
+have not previously been analysed by our team because no spectra was public available or of high
+enough quality (high spectral resolution and high S/N).
 
 
 \begin{table}[htb!]
@@ -126,32 +129,38 @@ HARPS/3.6m (runs 60.A-9036(A), 072.C-0488(E), 081.C-0842(D), 083.C-1001(A), 084.
 Council of Canada (runs 14AF14, 07bo03, 11AQ78, 05AC23, 06AF22).} was obtained with the highest
 possible resolution for a given spectrograph, and in cases with multiple observations, we include
 all the observations unless a spectrum is close to the saturation limit for a given spectrograph.
-For multiple spectra, we combine them after first correcting the radial velocity (RV) and using a
-sigma clipper to remove cosmic rays. The individual spectra are then combined to a single spectrum
-for a given star to increase the S/N. This single spectrum is used in the analysis described below.
-For most of the spectra in the archive included here, several spectra were combined as described
-above, while for the observations dedicated to this work, the spectrum would be a single spectrum,
-or in cases of faint stars, it would be observed a few times to reach the desired S/N. This is
-mostly due to the difference in science cases behind the observations; for example, the HARPS
-spectra were mostly used for RV monitoring or follow-up of the exoplanet(s), while the UVES spectra
-were mostly used to characterise stellar parameters or other similar projects.
+All S/N were considered. However, the lower the S/N would in general yield a lower precision on the
+final parameters. For multiple spectra, we combine them after first correcting the radial velocity
+(RV) and using a sigma clipper to remove strange peak like features. The individual spectra are then
+combined to a single spectrum for a given star to increase the S/N. This single spectrum is used in
+the analysis described below. For most of the spectra in the archive included here, several spectra
+were combined as described above, while for the observations dedicated to this work, the spectrum
+would be a single spectrum, or in cases of faint stars, it would be observed a few times to reach
+the desired S/N. The reason to observe faint stars multiple times rather than in one exposure, is
+that the total amount of exposure (to reach the desired S/N) is higher than recommended/possible
+with the instruments used. Moreover, activity on the time scale of the exposure might deform the
+spectra. This can e.g. be stellar pulsations. The reason for having a single/few spectra of high S/N
+versus multiple spectra of low S/N is mostly due to the difference in science cases behind the
+observations; for example, the HARPS spectra were mostly used for RV monitoring or follow-up of the
+exoplanet(s), while the UVES spectra were mostly used to characterise stellar parameters or other
+similar projects.
 
 \section{Analysis of 50 planet hosts}
 \label{sec:sweetcat_analysis}
 
 The method of determining atmospheric parameters from the curve of growth analysis has been applied
-several times in the optical \citep[see e.g.][]{Mortier2013b,Tsantaki2013,Sousa2011,Santos2013}.
+several times in the optical \citep[see e.g.][]{Sousa2011,Mortier2013b,Tsantaki2013,Santos2013}.
 When studying stars with planets and any correlations between stellar and planetary parameters it is
-important to have a homogeneous characterisation of the stars. An effort to create such a sample was
-initiated by \citet{Santos2013} with the SWEET-Cat database. The motivation to homogenise the
-stellar hosts is mainly to compare the hosts and make statistical studies on one consistent scale.
-When doing these statistical studies, the results might otherwise suffer from offsets between
-different methods.
+important to have a homogeneous characterisation of the stars. An effort to compile a sample into a
+catalogue was initiated by \citet{Santos2013} with the SWEET-Cat database. The motivation to
+homogenise the stellar hosts is mainly to compare the hosts and make statistical studies on one
+consistent scale. When doing these statistical studies, the results might otherwise suffer from
+offsets between different methods.
 
-The skills acquired during the NIR studies as mentioned above were directly translated into deriving
-parameters for a sample of 50 known planet host stars that were not previously analysed by our group
-\citep{Andreasen2017a}. The spectra of these stars were required at UVES, FIES, HARPS, and ESPaDOnS
-with the mean S/N higher than 200.
+The skills acquired during the thesis on NIR studies as mentioned above were directly translated
+into deriving parameters for a sample of 50 known planet host stars that were not previously
+analysed by our group \citep{Andreasen2017a}. The spectra of these stars were required at UVES,
+FIES, HARPS, and ESPaDOnS with the mean S/N higher than 200.
 
 A Hertzsprung-Russell diagram of the sample can be seen in \fref{fig:sweetcat}. The sample covers a
 large range of $T_\mathrm{eff}$, FGK, while there are both dwarf, sub-giant, and some giant stars.
@@ -182,10 +191,20 @@ The parameters were derived using \code{FASMA} with the optical line list compil
 \citet{Sousa2008a} and \citet{Tsantaki2013} for stars where $T_\mathrm{eff}$ was below \SI{5200}{K}.
 All the new derived parameters were added to SWEET-Cat, available for the community. The parameters
 are also available in \tref{tab:SCresults}, while the previous results can be seen in
-\tref{tab:oldSC}.
+\tref{tab:oldSC}. A comparison between the new derived parameters and the previous parameters can be
+seen in \fref{fig:SCupdate}
 
-A correction to the spectroscopic surface gravity ($\log g_\mathrm{spec}$) is applied based on
-asteroseismology as found by \citet{Mortier2014} given by:
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/SCupdate.pdf}
+    \caption{The new atmospheric parameters of 50 exoplanet hosts against the previous parameters.}
+    \label{fig:SCupdate}
+\end{figure}
+
+Since there exists more reliable surface gravities than the spectroscopic surface gravity ($\log
+g_\mathrm{spec}$), such as that derived from asteroseismology or transit light curves, a correction
+to $\log g_\mathrm{spec}$ is applied based on asteroseismology as found by \citet{Mortier2014} given
+by:
 \begin{align}
   \log g_\mathrm{seis} = \log g_\mathrm{spec} - (3.89\pm0.23)\times 10^{-4}\,T_\mathrm{eff}+2.10\pm0.14,
 \end{align}
@@ -205,10 +224,13 @@ observed with the \emph{Kepler} space mission, where most stars are faint.
 \subsection{Habitable zone}
 \label{sec:HZ}
 
+This section was not part of the original paper \citep{Andreasen2017a}, however it is an interesting
+showcase of what a catalogue like SWEET-Cat can be used for.
+
 The habitable zone of a star is at the distance where liquid water may exists. This distance depends
 on $T_\mathrm{eff}$ and the luminosity, but also on the planetary atmosphere and its composition.
-Using \citet[equation 3 described in][]{Kopparapu2013} to calculate the inner and upper limits of
-the habitable zone. The equation is rather simple:
+Using Equation 3 described in \citet{Kopparapu2013} to calculate the inner and upper limits of the
+habitable zone. The equation is rather simple:
 \begin{align}
  d &= \sqrt{\frac{L/L_\odot}{S_\mathrm{eff}}} \si{AU}, \\
  S_\mathrm{eff} &= S_{\mathrm{eff},\odot} + aT_\ast + bT_\ast^2 + cT_\ast^3 + dT_\ast^4,
@@ -223,10 +245,13 @@ $\log g\geq\SI{4.2}{dex}$ have been included.
 It was possible to find three planets within this zone; GJ 785 c, HD 37124 c, and KELT-6 c. These
 planets does not have known radii, and their minimum masses are
 $(0.076,\,0.652,\,3.710)M_\mathrm{Jupiter}$, respectively. Thus, it is fair to assume they are all
-gas planets. All three host stars are metal-poor. A correlation between orbital period and host star
-metallicity is known \citep[see e.g.][]{Adibekyan2013}, where metal-poor stars have planets with
-higher orbital period. It is thus not a surprise that the three planets found in the habitable zone
-all orbit a metal-poor star. A quick summary of the system is shown in \tref{tab:hz}.
+gas planets when comparing to gas planets in our Solar System. All three host stars are metal-poor.
+A correlation between orbital period and host star metallicity is known \citep[see
+e.g.][]{Adibekyan2013}, where metal-poor stars have planets with higher orbital period. Since the
+habitable zone is often quite far from the host star, that is the case for e.g. FGK dwarf stars
+which can be seen in \fref{fig:HZ}, it is expected that metal-poor stars will harbour most of the
+exoplanets in the habitable zone according to the correlation found in \citet{Adibekyan2013}. A
+quick summary of the system is shown in \tref{tab:hz}.
 
 \begin{table}[htb!]
     \caption{Host star and planetary properties of GJ 785, HD 37124, and KELT-6; all which have an
@@ -278,7 +303,8 @@ the planets. The three systems mentioned above are highlighted in the figure.
 \subsection{Changes to planetary parameters}
 
 As a results to the analysis above, it is expected that some planetary parameters will change
-compared with the previous literature values.
+compared with the previous literature values due to the connection between derived planetary
+parameters and stellar parameters (see \eref{eq:transit} and \eref{eq:rv}).
 
 Therefore the radius and mass of all the 50 new stars updated in SWEET-Cat were computed using the
 empirical formula presented in \citet{Torres2010}. Some of the stars have radii derived from
@@ -306,7 +332,8 @@ stellar radii from different methods.
 In the sections below there follow a discussion of the systems (seven stars, eight exoplanets) where
 the radius or mass of the stars changes more than 25\% and how this influences the planetary
 parameters. The changes in radius for a star is primarily due to changes in $\log g$, which can be
-used as an indicator of the evolutionary stage of a star.
+used as an indicator of the evolutionary stage of a star. Discrepancies in $\log g$ are also
+typically the reason for derived mass differences.
 
 The planetary radius, mass, and semi-major axis were re-derived when possible following the three
 simple scaling relations based on Newton's law of gravity \citep{Newton1687} for deriving mass and
@@ -495,16 +522,31 @@ would have changed a great deal with these new results.
 
 \section{Discovering two giant planet populations}
 
+The stellar parameters from SWEET-Cat was combined with the exoplanetary database from
+\href{http://exoplanet.eu/}{Exoplanet.eu} to explore new star-planet connections by
+\citet{Santos2017}. With the amount of exoplanets discovered, it opens up the possibility for
+statistical studies, which might give insight in the models describing planet formation and
+evolution \citep[see e.g.][]{Mayor2014}.
 
-SWEET-Cat was recently combined with planetary masses to see two distinctive populations for giant
-planets by \citet{Santos2017}. This can be seen in the mass histogram in \fref{fig:giantpopulations}
-for the full sample of giant planets, with masses higher than 1 Jupiter mass and lower than 20
-Jupiter masses, and for a sample constrained by: $\SI{4000}{K}\leq T_\mathrm{eff} \leq\SI{6500}{K}$
-in order to have reliably atmospheric parameters from spectroscopic data, orbital periods above
-\SI{10}{days} to avoid hot jupiters whose formation and migration process is debated \citep[see
-e.g.]{Ngo2016}, orbital periods below 5 years to allow for the sample to be reasonable complete.
-Last only stars brighter than 13 magnitude were included to ensure that the planetary masses can
-have been derived with reasonable confidence using the radial velocities.
+In this work by \citet{Santos2017}, the study was focused on giant exoplanets, namely exoplanets
+with masses higher than $1\Mjup$ and below $25\Mjup$. The upper limit is to avoid entering the brown
+dwarf regime. In cases where the exoplanet have only been detected by RV, the minimum mass is used.
+There were some additionally constraints:
+\begin{itemize}
+  \item All stars have $T_\mathrm{eff}$, $\log g$, and $[\ion{Fe}/\ion{H}]$ listed in SWEET-Cat.
+  \item $T_\mathrm{eff}$ between \SI{4000}{K} and \SI{6500}{K} for more reliable derived stellar
+    atmospheric parameters with high quality spectra.
+  \item Visual magnitude below 13 (not very constraining) for more reliable RV measurements and
+    confidence that the stellar atmospheric parameters can be derived reliably.
+  \item Cut in orbital period to only consider exoplanets between \SI{10}{days} and \SI{5}{years}.
+    Lower limit is to avoid hot Jupiters for which the formation mechanism is still debated
+    \citep[see e.g.][]{Ngo2016,Nelson2017}. The upper limit is for completeness, assuring that the
+    planet would not be missed in RV surveys.
+\end{itemize}
+
+A histogram of the exoplanetary masses (in the $1-20\Mjup$ mass range) is shown in
+\fref{fig:giantpopulations}. Both with and without the constraint. Two different peaks become
+evident in this plot around $4\Mjup$.
 
 \begin{figure}[htpb!]
     \centering
@@ -514,10 +556,62 @@ have been derived with reasonable confidence using the radial velocities.
     \label{fig:giantpopulations}
 \end{figure}
 
-By separating the distribution into two at $4M_{Jup}$, it can be shown \citep[see][for
-details]{Santos2017} that the stars hosting the more massive giant planets are in average more
-metal-poor compared to the stars hosting the lower mass giant planets. This suggest two different
-stellar populations forming giant planets.
+The sample was divided at the highest mass exoplanets ($4-15\Mjup$) and the lowest mass giant
+exoplanets ($1-4\Mjup$), and the stellar parameters were explored in these two sub-samples.
+Specifically the $[\ion{Fe}/\ion{H}]$ was explored here. This can be seen in \fref{fig:fehGiants},
+where the samples have been divided into stellar mass groups as well (including the full sample).
+Kolmogorov-Smirnov (K-S) tests were performed on each case, in order to understand if the
+sub-samples comes from the same parent population.
+
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/fehGiants.pdf}
+    \caption{$[\ion{Fe}/\ion{H}]$ distributions for the lowest and highest exoplanet masses. These
+             are divided into different stellar mass ranges.}
+    \label{fig:fehGiants}
+\end{figure}
+
+From the K-S $p$-values, it suggest that the two sub-samples (high and low exoplanet masses) comes
+from distinct population when considering all the stars ($p=5\cdot10^{-4}$) and the highest mass
+stars (above $1.5M_\odot$; $p=3\cdot10^{-3}$), while the $p$-value increasing for the intermediate
+stellar masses ($1-1.5M_\odot$; $p=0.06$), and the lowest stellar masses ($1M_\odot$; $p=0.06$). No
+statistical evidence were found that the two sub-samples were significantly different, when
+considering orbital period or eccentricities instead of stellar metallicity.
+
+The results suggest that there are evidence for two different giant planet populations. Stars with
+planets more massive than $4\Mjup$ are in average more metal-poor; a trend that is statistically
+significant for more massive stars (above $1.5M_\odot$), although it is observed in all stellar mass
+regimes. As was discussed briefly in \sref{sec:starPlanetCorrelation}, there is a strong correlation
+between stellar metallicity and planet frequency; stars hosting giant planets are more metal-rich
+than stars without planets. An observational fact that supports the core-accretion model for planet
+formation. Thus it is intriguing that here the most massive planets are found around the more
+metal-poor stars. In the core-accretion paradigm it has been suggested that the planet frequency
+increase with stellar mass up to $3M_\odot$ \citep{Kennedy2008}. Additionally, it is known that
+higher mass stars have higher mass disks \citep{Natta2000}. Therefore, the results presented here
+might simple show that the most massive exoplanets ($>4\Mjup$) are formed around the most massive
+stars, even though these stars might be more metal-poor (compared to the stars hosting low mass
+giant exoplanets), because the most massive stars can have more massive disks.
+
+To explorer this explanation, the $M_\ast 10^{[\ion{Fe}/\ion{H}]}$ index was compared for the two
+planet population. This index is expected to measure the total amount of the heavy material in the
+disks, and is thus a better measure for the planet formation efficiency in the core-accretion
+scenario. For all the stars in the sample, the K-S test gives a $p$-value of 0.08. So the stellar
+mass can only be part of the explanation.
+
+Alternatively it has been suggested that gravitational instability may be less dependent on metal
+content as core-accretion to form planets \citep{Boss2002,Cai2006}.
+
+Then the observational results can be interpreted as showing two distinct giant planet populations
+formed by different physical processes:
+\begin{itemize}
+  \item Low mass giant planets ($1-4\Mjup$): Formed by core-accretion around more metal-rich stars.
+  \item High mass giant planets ($>4\Mjup$): Formed by gravitational instability (or other
+    instability process), less sensitive to stellar metallicity.
+\end{itemize}
+
+
+
+
 
 
 \section{Updating SWEET-Cat}
@@ -552,9 +646,9 @@ well.
 
 The last update on the wish-list is for the web page itself. It could be made modern with plotting
 capabilities, and in tandem combine SWEET-Cat with an exoplanet database, such as
-Exoplanet.eu\footnote{\url{http://exoplanet.eu/}}. This will allow any user to quickly explorer
-relations between stellar and planetary properties. The tool for plotting has already been developed
-and is distributed along with other scripts developed during this PhD under
+\href{http://exoplanet.eu/}{Exoplanet.eu}. This will allow any user to quickly explorer relations
+between stellar and planetary properties. The tool for plotting has already been developed and is
+distributed along with other scripts developed during this PhD under
 \code{astro\textunderscore{}scripts}\footnote{Can be found here:
 \url{https://github.com/DanielAndreasen/astro_scripts}, and can be installed with \code{pip install
 astro-scripts}}.
