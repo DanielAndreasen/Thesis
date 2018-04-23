@@ -5,6 +5,7 @@ synthetic/dA0.01
 *.pyc
 thesis.html
 thesis.jpg
+presentation
 
 submissionPapers
 submissionPapers.zip
@@ -17,6 +18,7 @@ submissionPapers.zip
 *.fls
 *.out
 *.toc
+*.dvi
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
